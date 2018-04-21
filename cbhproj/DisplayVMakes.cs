@@ -11,12 +11,12 @@ using cbhproj.Models;
 
 namespace cbhproj
 {
-    public partial class VMakeMenu : Form
+    public partial class DisplayVMakes : Form
     {
         string strTestData = String.Empty;
         List<VehicleMake> VMakeList = new List<VehicleMake>();
-        string[] strVMakes = new string[3];
-        readonly int NumberInColumn = 28;
+        string[] strVMakes = new string[4];
+        readonly int NumberInColumn = 21;
 
         private void LoadVMakes()
         {
@@ -48,7 +48,7 @@ namespace cbhproj
             }
         }
 
-        public VMakeMenu()
+        public DisplayVMakes()
         {
             InitializeComponent();
             LoadVMakes();
@@ -56,6 +56,7 @@ namespace cbhproj
             lblColumn1.Text = strVMakes[0];
             lblColumn2.Text = strVMakes[1];
             lblColumn3.Text = strVMakes[2];
+            lblColumn4.Text = strVMakes[3];
         }
 
         private void VMakeMenu_Load(object sender, EventArgs e)

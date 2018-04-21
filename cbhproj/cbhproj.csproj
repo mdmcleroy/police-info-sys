@@ -66,17 +66,17 @@
     <Compile Include="AuxMenu.Designer.cs">
       <DependentUpon>AuxMenu.cs</DependentUpon>
     </Compile>
-    <Compile Include="ColorMenu.cs">
+    <Compile Include="DisplayColors.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ColorMenu.Designer.cs">
-      <DependentUpon>ColorMenu.cs</DependentUpon>
+    <Compile Include="DisplayColors.Designer.cs">
+      <DependentUpon>DisplayColors.cs</DependentUpon>
     </Compile>
-    <Compile Include="CountyMenu.cs">
+    <Compile Include="DisplayCounties.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="CountyMenu.Designer.cs">
-      <DependentUpon>CountyMenu.cs</DependentUpon>
+    <Compile Include="DisplayCounties.Designer.cs">
+      <DependentUpon>DisplayCounties.cs</DependentUpon>
     </Compile>
     <Compile Include="DeleteMenu.cs">
       <SubType>Form</SubType>
@@ -84,6 +84,25 @@
     <Compile Include="DeleteMenu.Designer.cs">
       <DependentUpon>DeleteMenu.cs</DependentUpon>
     </Compile>
+    <Compile Include="DisplayClasses.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DisplayClasses.Designer.cs">
+      <DependentUpon>DisplayClasses.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DisplayStatuses.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DisplayStatuses.Designer.cs">
+      <DependentUpon>DisplayStatuses.cs</DependentUpon>
+    </Compile>
+    <Compile Include="EndorsementMenu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EndorsementMenu.Designer.cs">
+      <DependentUpon>EndorsementMenu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GlobalFunctions.cs" />
     <Compile Include="MasterMenu.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -96,10 +115,19 @@
     <Compile Include="MainMenu.Designer.cs">
       <DependentUpon>MainMenu.cs</DependentUpon>
     </Compile>
+    <Compile Include="Models\Class.cs">
+      <DependentUpon>mdmcleroy.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\Color.cs">
       <DependentUpon>mdmcleroy.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\County.cs">
+      <DependentUpon>mdmcleroy.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Driver.cs">
+      <DependentUpon>mdmcleroy.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Endorsement.cs">
       <DependentUpon>mdmcleroy.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\mdmcleroy.Context.cs">
@@ -117,7 +145,13 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>mdmcleroy.edmx</DependentUpon>
     </Compile>
+    <Compile Include="Models\Restriction.cs">
+      <DependentUpon>mdmcleroy.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\State.cs">
+      <DependentUpon>mdmcleroy.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Status.cs">
       <DependentUpon>mdmcleroy.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\VehicleMake.cs">
@@ -126,43 +160,46 @@
     <Compile Include="Models\VehicleType.cs">
       <DependentUpon>mdmcleroy.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\vwDriver.cs">
+      <DependentUpon>mdmcleroy.tt</DependentUpon>
+    </Compile>
     <Compile Include="ModifyMenu.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="ModifyMenu.Designer.cs">
       <DependentUpon>ModifyMenu.cs</DependentUpon>
     </Compile>
-    <Compile Include="OLNMenu.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="OLNMenu.Designer.cs">
-      <DependentUpon>OLNMenu.cs</DependentUpon>
-    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="SSNMenu.cs">
+    <Compile Include="DisplayRestrictions.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="SSNMenu.Designer.cs">
-      <DependentUpon>SSNMenu.cs</DependentUpon>
+    <Compile Include="DisplayRestrictions.Designer.cs">
+      <DependentUpon>DisplayRestrictions.cs</DependentUpon>
     </Compile>
-    <Compile Include="StateMenu.cs">
+    <Compile Include="SSN_OLNMenu.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="StateMenu.Designer.cs">
-      <DependentUpon>StateMenu.cs</DependentUpon>
+    <Compile Include="SSN_OLNMenu.Designer.cs">
+      <DependentUpon>SSN_OLNMenu.cs</DependentUpon>
     </Compile>
-    <Compile Include="VMakeMenu.cs">
+    <Compile Include="DisplayStates.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="VMakeMenu.Designer.cs">
-      <DependentUpon>VMakeMenu.cs</DependentUpon>
+    <Compile Include="DisplayStates.Designer.cs">
+      <DependentUpon>DisplayStates.cs</DependentUpon>
     </Compile>
-    <Compile Include="VTypeMenu.cs">
+    <Compile Include="DisplayVMakes.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="VTypeMenu.Designer.cs">
-      <DependentUpon>VTypeMenu.cs</DependentUpon>
+    <Compile Include="DisplayVMakes.Designer.cs">
+      <DependentUpon>DisplayVMakes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DisplayVTypes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DisplayVTypes.Designer.cs">
+      <DependentUpon>DisplayVTypes.cs</DependentUpon>
     </Compile>
     <EmbeddedResource Include="AddMenu.resx">
       <DependentUpon>AddMenu.cs</DependentUpon>
@@ -170,14 +207,23 @@
     <EmbeddedResource Include="AuxMenu.resx">
       <DependentUpon>AuxMenu.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ColorMenu.resx">
-      <DependentUpon>ColorMenu.cs</DependentUpon>
+    <EmbeddedResource Include="DisplayColors.resx">
+      <DependentUpon>DisplayColors.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="CountyMenu.resx">
-      <DependentUpon>CountyMenu.cs</DependentUpon>
+    <EmbeddedResource Include="DisplayCounties.resx">
+      <DependentUpon>DisplayCounties.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="DeleteMenu.resx">
       <DependentUpon>DeleteMenu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DisplayClasses.resx">
+      <DependentUpon>DisplayClasses.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DisplayStatuses.resx">
+      <DependentUpon>DisplayStatuses.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EndorsementMenu.resx">
+      <DependentUpon>EndorsementMenu.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MasterMenu.resx">
       <DependentUpon>MasterMenu.cs</DependentUpon>
@@ -188,9 +234,6 @@
     <EmbeddedResource Include="ModifyMenu.resx">
       <DependentUpon>ModifyMenu.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="OLNMenu.resx">
-      <DependentUpon>OLNMenu.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -199,18 +242,22 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
-    <EmbeddedResource Include="SSNMenu.resx">
-      <DependentUpon>SSNMenu.cs</DependentUpon>
+    <EmbeddedResource Include="DisplayRestrictions.resx">
+      <DependentUpon>DisplayRestrictions.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="StateMenu.resx">
-      <DependentUpon>StateMenu.cs</DependentUpon>
+    <EmbeddedResource Include="SSN_OLNMenu.resx">
+      <DependentUpon>SSN_OLNMenu.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="VMakeMenu.resx">
-      <DependentUpon>VMakeMenu.cs</DependentUpon>
+    <EmbeddedResource Include="DisplayStates.resx">
+      <DependentUpon>DisplayStates.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="VTypeMenu.resx">
-      <DependentUpon>VTypeMenu.cs</DependentUpon>
+    <EmbeddedResource Include="DisplayVMakes.resx">
+      <DependentUpon>DisplayVMakes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DisplayVTypes.resx">
+      <DependentUpon>DisplayVTypes.cs</DependentUpon>
     </EmbeddedResource>
     <EntityDeploy Include="Models\mdmcleroy.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
@@ -244,6 +291,8 @@
       <DependentUpon>mdmcleroy.edmx</DependentUpon>
       <LastGenOutput>mdmcleroy.cs</LastGenOutput>
     </Content>
+    <None Include="Resources\500x500.jpeg" />
+    <None Include="Resources\175x175.jpeg" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />

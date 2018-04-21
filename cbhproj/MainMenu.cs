@@ -36,13 +36,13 @@ namespace cbhproj
 
         private void btnSSNMenu_Click(object sender, EventArgs e)
         {
-            SSNMenu ssnMenu = new SSNMenu();
+            SSN_OLNMenu ssnMenu = new SSN_OLNMenu();
             ssnMenu.ShowDialog();
         }
 
         private void btnOLNMenu_Click(object sender, EventArgs e)
         {
-            OLNMenu olnMenu = new OLNMenu();
+            SSN_OLNMenu olnMenu = new SSN_OLNMenu(1);
             olnMenu.ShowDialog();
         }
 

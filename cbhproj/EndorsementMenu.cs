@@ -11,22 +11,22 @@ using cbhproj.Models;
 
 namespace cbhproj
 {
-    public partial class VTypeMenu : Form
+    public partial class EndorsementMenu : Form
     {
         string strTestData = String.Empty;
-        List<VehicleType> VTypeList = new List<VehicleType>();
-        string[] strVTypes = new string[3];
-        readonly int NumberInColumn = 5;
+        List<Endorsement> EndorsementList = new List<Endorsement>();
+        string[] strEndorsements = new string[1];
+        readonly int NumberInColumn = 6;
 
-        private void LoadVTypes()
+        private void LoadEndorsements()
         {
             using (var db = new mdmcleroyEntities())
             {
-                VTypeList = (from s in db.VehicleTypes
+                EndorsementList = (from s in db.Endorsements
                              where s.Active == true
-                             orderby s.VTypeCode
+                             orderby s.EndorsementCode
                              select s).ToList();
-                if (!VTypeList.Any())
+                if (!EndorsementList.Any())
                     return;
             }
         }
@@ -35,10 +35,10 @@ namespace cbhproj
         {
             int column = 0;
             int row = 0;
-            for (int i = 0; i < VTypeList.Count; ++i)
+            for (int i = 0; i < EndorsementList.Count; ++i)
             {
-                strVTypes[column] += String.Format(" {0:00} {1}\n",
-                    VTypeList[i].VTypeCode, VTypeList[i].VTypeName);
+                strEndorsements[column] += String.Format(" {0:00} {1}\n",
+                    EndorsementList[i].EndorsementCode, EndorsementList[i].EndorsementDesc);
                 ++row;
                 if (row >= NumberInColumn)
                 {
@@ -48,14 +48,12 @@ namespace cbhproj
             }
         }
 
-        public VTypeMenu()
+        public EndorsementMenu()
         {
             InitializeComponent();
-            LoadVTypes();
+            LoadEndorsements();
             FormatData();
-            lblColumn1.Text = strVTypes[0];
-            lblColumn2.Text = strVTypes[1];
-            lblColumn3.Text = strVTypes[2];
+            lblColumn1.Text = strEndorsements[0];
         }
 
         private void btnClose_Click(object sender, EventArgs e)
@@ -63,7 +61,7 @@ namespace cbhproj
             this.Close();
         }
 
-        private void VTypeMenu_Load(object sender, EventArgs e)
+        private void EndorsementMenu_Load(object sender, EventArgs e)
         {
             this.Width = 1041;
             this.Height = 820;

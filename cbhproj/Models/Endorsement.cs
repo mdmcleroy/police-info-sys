@@ -12,14 +12,13 @@ namespace cbhproj.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class VehicleType
+    public partial class Endorsement
     {
-        public System.Guid VTypeID { get; set; }
-        public int VTypeCode { get; set; }
-        public string VTypeName { get; set; }
-        public bool Active { get; set; }
-        public bool Deleted { get; set; }
-        public System.DateTime LastUpdate { get; set; }
+        public System.Guid EndorsementID { get; set; }
+        public string EndorsementCode { get; set; }
+        public string EndorsementDesc { get; set; }
         public System.DateTime CreateDate { get; set; }
+        public System.DateTime LastUpdate { get; set; }
+        public bool Active { get; set; }
     }
 }

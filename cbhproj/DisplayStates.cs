@@ -11,22 +11,22 @@ using cbhproj.Models;
 
 namespace cbhproj
 {
-    public partial class CountyMenu : Form
+    public partial class DisplayStates : Form
     {
         string strTestData = String.Empty;
-        List<County> CountyList = new List<County>();
-        string[] strCounties = new string[3];
-        readonly int NumberInColumn = 23;
+        List<State> StateList = new List<State>();
+        string[] strStates = new string[3];
+        readonly int NumberInColumn = 17;
 
-        private void LoadCounties()
+        private void LoadStates()
         {
             using (var db = new mdmcleroyEntities())
             {
-                CountyList = (from s in db.Counties
+                StateList = (from s in db.States
                              where s.Active == true
-                             orderby s.CountyCode
+                             orderby s.StateCode
                              select s).ToList();
-                if (!CountyList.Any())
+                if (!StateList.Any())
                     return;
             }
         }
@@ -35,10 +35,10 @@ namespace cbhproj
         {
             int column = 0;
             int row = 0;
-            for (int i = 0; i < CountyList.Count; ++i)
+            for (int i = 0; i < StateList.Count; ++i)
             {
-                strCounties[column] += String.Format(" {0:00} {1}\n",
-                    CountyList[i].CountyCode, CountyList[i].CountyName);
+                strStates[column] += String.Format(" {0:00} {1}\n",
+                    StateList[i].StateCode, StateList[i].StateName);
                 ++row;
                 if (row >= NumberInColumn)
                 {
@@ -48,14 +48,24 @@ namespace cbhproj
             }
         }
 
-        public CountyMenu()
+        public DisplayStates()
         {
             InitializeComponent();
-            LoadCounties();
+            LoadStates();
             FormatData();
-            lblColumn1.Text = strCounties[0];
-            lblColumn2.Text = strCounties[1];
-            lblColumn3.Text = strCounties[2];
+            lblColumn1.Text = strStates[0];
+            lblColumn2.Text = strStates[1];
+            lblColumn3.Text = strStates[2];
+        }
+
+        private void lblAuxMenu_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lblAuxFiles_Click(object sender, EventArgs e)
+        {
+
         }
 
         private void btnClose_Click(object sender, EventArgs e)
@@ -63,7 +73,7 @@ namespace cbhproj
             this.Close();
         }
 
-        private void CountyMenu_Load(object sender, EventArgs e)
+        private void StateMenu_Load(object sender, EventArgs e)
         {
             this.Width = 1041;
             this.Height = 820;

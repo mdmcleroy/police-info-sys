@@ -5,6 +5,17 @@
     <!-- SSDL content -->
     <edmx:StorageModels>
     <Schema Namespace="mdmcleroyModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Classes">
+          <Key>
+            <PropertyRef Name="ClassID" />
+          </Key>
+          <Property Name="ClassID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="ClassCode" Type="varchar" MaxLength="8" Nullable="false" />
+          <Property Name="ClassDesc" Type="varchar" MaxLength="64" Nullable="false" />
+          <Property Name="CreateDate" Type="datetime" Nullable="false" />
+          <Property Name="LastUpdate" Type="datetime" Nullable="false" />
+          <Property Name="Active" Type="bit" Nullable="false" />
+        </EntityType>
         <EntityType Name="Colors">
           <Key>
             <PropertyRef Name="ColorID" />
@@ -28,6 +39,54 @@
           <Property Name="Deleted" Type="bit" Nullable="false" />
           <Property Name="CreateDate" Type="datetime" Nullable="false" />
         </EntityType>
+        <EntityType Name="Drivers">
+          <Key>
+            <PropertyRef Name="DriverID" />
+          </Key>
+          <Property Name="DriverID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="SSN" Type="varchar" MaxLength="9" Nullable="false" />
+          <Property Name="OLN" Type="varchar" MaxLength="16" Nullable="false" />
+          <Property Name="FirstName" Type="varchar" MaxLength="16" Nullable="false" />
+          <Property Name="MI" Type="varchar" MaxLength="8" Nullable="false" />
+          <Property Name="LastName" Type="varchar" MaxLength="32" Nullable="false" />
+          <Property Name="Address1" Type="varchar" MaxLength="32" Nullable="false" />
+          <Property Name="Address2" Type="varchar" MaxLength="32" Nullable="false" />
+          <Property Name="City" Type="varchar" MaxLength="32" Nullable="false" />
+          <Property Name="StateCode" Type="int" Nullable="false" />
+          <Property Name="PostalCode" Type="varchar" MaxLength="16" Nullable="false" />
+          <Property Name="Gender" Type="varchar" MaxLength="8" Nullable="false" />
+          <Property Name="Height" Type="varchar" MaxLength="8" Nullable="false" />
+          <Property Name="Weight" Type="varchar" MaxLength="8" Nullable="false" />
+          <Property Name="EyeColorCode" Type="int" Nullable="false" />
+          <Property Name="HairColorCode" Type="int" Nullable="false" />
+          <Property Name="OrganDonor" Type="bit" Nullable="false" />
+          <Property Name="Active" Type="bit" Nullable="false" />
+          <Property Name="Deleted" Type="bit" Nullable="false" />
+          <Property Name="CreateDate" Type="datetime" Nullable="false" />
+          <Property Name="LastUpdate" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Endorsements">
+          <Key>
+            <PropertyRef Name="EndorsementID" />
+          </Key>
+          <Property Name="EndorsementID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="EndorsementCode" Type="varchar" MaxLength="8" Nullable="false" />
+          <Property Name="EndorsementDesc" Type="varchar" MaxLength="128" Nullable="false" />
+          <Property Name="CreateDate" Type="datetime" Nullable="false" />
+          <Property Name="LastUpdate" Type="datetime" Nullable="false" />
+          <Property Name="Active" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Restrictions">
+          <Key>
+            <PropertyRef Name="RestrictionID" />
+          </Key>
+          <Property Name="RestrictionID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="RestrictionCode" Type="varchar" MaxLength="8" Nullable="false" />
+          <Property Name="RestrictionDesc" Type="varchar" MaxLength="128" Nullable="false" />
+          <Property Name="CreateDate" Type="datetime" Nullable="false" />
+          <Property Name="LastUpdate" Type="datetime" Nullable="false" />
+          <Property Name="Active" Type="bit" Nullable="false" />
+        </EntityType>
         <EntityType Name="States">
           <Key>
             <PropertyRef Name="StateID" />
@@ -40,6 +99,17 @@
           <Property Name="Deleted" Type="bit" Nullable="false" />
           <Property Name="CreateDate" Type="datetime" Nullable="false" />
         </EntityType>
+        <EntityType Name="Statuses">
+          <Key>
+            <PropertyRef Name="StatusID" />
+          </Key>
+          <Property Name="StatusID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="StatusCode" Type="varchar" MaxLength="8" Nullable="false" />
+          <Property Name="StatusName" Type="varchar" MaxLength="32" Nullable="false" />
+          <Property Name="CreateDate" Type="datetime" Nullable="false" />
+          <Property Name="LastUpdate" Type="datetime" Nullable="false" />
+          <Property Name="Active" Type="bit" Nullable="false" />
+        </EntityType>
         <EntityType Name="VehicleMakes">
           <Key>
             <PropertyRef Name="VMakeID" />
@@ -51,7 +121,7 @@
           <Property Name="Deleted" Type="bit" Nullable="false" />
           <Property Name="CreateDate" Type="datetime" Nullable="false" />
         </EntityType>
-        <EntityType Name="VehicleTypes">
+        <EntityType Name="VehicleType">
           <Key>
             <PropertyRef Name="VTypeID" />
           </Key>
@@ -60,14 +130,143 @@
           <Property Name="VTypeName" Type="varchar" MaxLength="15" Nullable="false" />
           <Property Name="Active" Type="bit" Nullable="false" />
           <Property Name="Deleted" Type="bit" Nullable="false" />
+          <Property Name="LastUpdate" Type="datetime" Nullable="false" />
           <Property Name="CreateDate" Type="datetime" Nullable="false" />
         </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'mdmcleroy.dbo.vwDriver' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="vwDriver">
+          <Key>
+            <PropertyRef Name="DriverID" />
+          </Key>
+          <Property Name="DriverID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="SSN" Type="varchar" MaxLength="9" Nullable="false" />
+          <Property Name="OLN" Type="varchar" MaxLength="16" Nullable="false" />
+          <Property Name="FirstName" Type="varchar" MaxLength="16" Nullable="false" />
+          <Property Name="MI" Type="varchar" MaxLength="8" Nullable="false" />
+          <Property Name="LastName" Type="varchar" MaxLength="32" Nullable="false" />
+          <Property Name="Address1" Type="varchar" MaxLength="32" Nullable="false" />
+          <Property Name="Address2" Type="varchar" MaxLength="32" Nullable="false" />
+          <Property Name="City" Type="varchar" MaxLength="32" Nullable="false" />
+          <Property Name="StateCode" Type="int" Nullable="false" />
+          <Property Name="PostalCode" Type="varchar" MaxLength="16" Nullable="false" />
+          <Property Name="Gender" Type="varchar" MaxLength="8" Nullable="false" />
+          <Property Name="Height" Type="varchar" MaxLength="8" Nullable="false" />
+          <Property Name="Weight" Type="varchar" MaxLength="8" Nullable="false" />
+          <Property Name="EyeColorCode" Type="int" Nullable="false" />
+          <Property Name="HairColorCode" Type="int" Nullable="false" />
+          <Property Name="OrganDonor" Type="bit" Nullable="false" />
+          <Property Name="Active" Type="bit" Nullable="false" />
+          <Property Name="Deleted" Type="bit" Nullable="false" />
+          <Property Name="CreateDate" Type="datetime" Nullable="false" />
+          <Property Name="LastUpdate" Type="datetime" Nullable="false" />
+          <Property Name="StateID" Type="uniqueidentifier" />
+          <Property Name="StatesStateCode" Type="int" />
+          <Property Name="StateAbbr" Type="varchar" MaxLength="2" />
+          <Property Name="StateName" Type="varchar" MaxLength="32" />
+          <Property Name="StatesActive" Type="bit" />
+          <Property Name="StatesDeleted" Type="bit" />
+          <Property Name="StatesCreateDate" Type="datetime" />
+          <Property Name="EyeColorID" Type="uniqueidentifier" />
+          <Property Name="EyeCode" Type="int" />
+          <Property Name="EyeColorAbbr" Type="varchar" MaxLength="3" />
+          <Property Name="EyeColorName" Type="varchar" MaxLength="22" />
+          <Property Name="EyeColorActive" Type="bit" />
+          <Property Name="EyeColorCreateDate" Type="datetime" />
+          <Property Name="EyeColorDeleted" Type="bit" />
+          <Property Name="HairColorID" Type="uniqueidentifier" />
+          <Property Name="HairCode" Type="int" />
+          <Property Name="HairColorAbbr" Type="varchar" MaxLength="3" />
+          <Property Name="HairColorName" Type="varchar" MaxLength="22" />
+          <Property Name="HairActive" Type="bit" />
+          <Property Name="HairDeleted" Type="bit" />
+          <Property Name="HairCreateDate" Type="datetime" />
+          <Property Name="LicenseID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="LicenseCode" Type="varchar" MaxLength="16" Nullable="false" />
+          <Property Name="LicenseState" Type="int" Nullable="false" />
+          <Property Name="LicenseCounty" Type="int" Nullable="false" />
+          <Property Name="LicenseStatus" Type="varchar" MaxLength="8" Nullable="false" />
+          <Property Name="LicenseClass" Type="varchar" MaxLength="8" Nullable="false" />
+          <Property Name="LicenseRestrictions" Type="varchar" MaxLength="32" />
+          <Property Name="LicenseEndorsements" Type="varchar" MaxLength="32" />
+          <Property Name="LicenseIssue" Type="varchar" MaxLength="16" Nullable="false" />
+          <Property Name="LicenseExpiration" Type="varchar" MaxLength="16" Nullable="false" />
+          <Property Name="LicenseActive" Type="bit" Nullable="false" />
+          <Property Name="LicenseDeleted" Type="bit" Nullable="false" />
+          <Property Name="LicenseCreateDate" Type="datetime" Nullable="false" />
+          <Property Name="LicenseLastUpdate" Type="datetime" Nullable="false" />
+        </EntityType>
         <EntityContainer Name="mdmcleroyModelStoreContainer">
+          <EntitySet Name="Classes" EntityType="Self.Classes" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Colors" EntityType="Self.Colors" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Counties" EntityType="Self.Counties" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Drivers" EntityType="Self.Drivers" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Endorsements" EntityType="Self.Endorsements" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Restrictions" EntityType="Self.Restrictions" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="States" EntityType="Self.States" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Statuses" EntityType="Self.Statuses" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="VehicleMakes" EntityType="Self.VehicleMakes" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="VehicleTypes" EntityType="Self.VehicleTypes" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="VehicleType" EntityType="Self.VehicleType" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="vwDriver" EntityType="Self.vwDriver" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [vwDriver].[DriverID] AS [DriverID], 
+    [vwDriver].[SSN] AS [SSN], 
+    [vwDriver].[OLN] AS [OLN], 
+    [vwDriver].[FirstName] AS [FirstName], 
+    [vwDriver].[MI] AS [MI], 
+    [vwDriver].[LastName] AS [LastName], 
+    [vwDriver].[Address1] AS [Address1], 
+    [vwDriver].[Address2] AS [Address2], 
+    [vwDriver].[City] AS [City], 
+    [vwDriver].[StateCode] AS [StateCode], 
+    [vwDriver].[PostalCode] AS [PostalCode], 
+    [vwDriver].[Gender] AS [Gender], 
+    [vwDriver].[Height] AS [Height], 
+    [vwDriver].[Weight] AS [Weight], 
+    [vwDriver].[EyeColorCode] AS [EyeColorCode], 
+    [vwDriver].[HairColorCode] AS [HairColorCode], 
+    [vwDriver].[OrganDonor] AS [OrganDonor], 
+    [vwDriver].[Active] AS [Active], 
+    [vwDriver].[Deleted] AS [Deleted], 
+    [vwDriver].[CreateDate] AS [CreateDate], 
+    [vwDriver].[LastUpdate] AS [LastUpdate], 
+    [vwDriver].[StateID] AS [StateID], 
+    [vwDriver].[StatesStateCode] AS [StatesStateCode], 
+    [vwDriver].[StateAbbr] AS [StateAbbr], 
+    [vwDriver].[StateName] AS [StateName], 
+    [vwDriver].[StatesActive] AS [StatesActive], 
+    [vwDriver].[StatesDeleted] AS [StatesDeleted], 
+    [vwDriver].[StatesCreateDate] AS [StatesCreateDate], 
+    [vwDriver].[EyeColorID] AS [EyeColorID], 
+    [vwDriver].[EyeCode] AS [EyeCode], 
+    [vwDriver].[EyeColorAbbr] AS [EyeColorAbbr], 
+    [vwDriver].[EyeColorName] AS [EyeColorName], 
+    [vwDriver].[EyeColorActive] AS [EyeColorActive], 
+    [vwDriver].[EyeColorCreateDate] AS [EyeColorCreateDate], 
+    [vwDriver].[EyeColorDeleted] AS [EyeColorDeleted], 
+    [vwDriver].[HairColorID] AS [HairColorID], 
+    [vwDriver].[HairCode] AS [HairCode], 
+    [vwDriver].[HairColorAbbr] AS [HairColorAbbr], 
+    [vwDriver].[HairColorName] AS [HairColorName], 
+    [vwDriver].[HairActive] AS [HairActive], 
+    [vwDriver].[HairDeleted] AS [HairDeleted], 
+    [vwDriver].[HairCreateDate] AS [HairCreateDate], 
+    [vwDriver].[LicenseID] AS [LicenseID], 
+    [vwDriver].[LicenseCode] AS [LicenseCode], 
+    [vwDriver].[LicenseState] AS [LicenseState], 
+    [vwDriver].[LicenseCounty] AS [LicenseCounty], 
+    [vwDriver].[LicenseStatus] AS [LicenseStatus], 
+    [vwDriver].[LicenseClass] AS [LicenseClass], 
+    [vwDriver].[LicenseRestrictions] AS [LicenseRestrictions], 
+    [vwDriver].[LicenseEndorsements] AS [LicenseEndorsements], 
+    [vwDriver].[LicenseIssue] AS [LicenseIssue], 
+    [vwDriver].[LicenseExpiration] AS [LicenseExpiration], 
+    [vwDriver].[LicenseActive] AS [LicenseActive], 
+    [vwDriver].[LicenseDeleted] AS [LicenseDeleted], 
+    [vwDriver].[LicenseCreateDate] AS [LicenseCreateDate], 
+    [vwDriver].[LicenseLastUpdate] AS [LicenseLastUpdate]
+    FROM [dbo].[vwDriver] AS [vwDriver]</DefiningQuery>
+          </EntitySet>
         </EntityContainer>
       </Schema></edmx:StorageModels>
     <!-- CSDL content -->
@@ -78,7 +277,13 @@
           <EntitySet Name="Counties" EntityType="mdmcleroyModel.County" />
           <EntitySet Name="Colors" EntityType="mdmcleroyModel.Color" />
           <EntitySet Name="VehicleMakes" EntityType="mdmcleroyModel.VehicleMake" />
+          <EntitySet Name="Endorsements" EntityType="mdmcleroyModel.Endorsement" />
+          <EntitySet Name="Restrictions" EntityType="mdmcleroyModel.Restriction" />
+          <EntitySet Name="Classes" EntityType="mdmcleroyModel.Class" />
+          <EntitySet Name="Statuses" EntityType="mdmcleroyModel.Status" />
           <EntitySet Name="VehicleTypes" EntityType="mdmcleroyModel.VehicleType" />
+          <EntitySet Name="Drivers" EntityType="mdmcleroyModel.Driver" />
+          <EntitySet Name="vwDrivers" EntityType="mdmcleroyModel.vwDriver" />
         </EntityContainer>
         <EntityType Name="State">
           <Key>
@@ -126,6 +331,50 @@
           <Property Name="Deleted" Type="Boolean" Nullable="false" />
           <Property Name="CreateDate" Type="DateTime" Nullable="false" Precision="3" />
         </EntityType>
+        <EntityType Name="Endorsement">
+          <Key>
+            <PropertyRef Name="EndorsementID" />
+          </Key>
+          <Property Name="EndorsementID" Type="Guid" Nullable="false" />
+          <Property Name="EndorsementCode" Type="String" Nullable="false" MaxLength="8" FixedLength="false" Unicode="false" />
+          <Property Name="EndorsementDesc" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="false" />
+          <Property Name="CreateDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="LastUpdate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Active" Type="Boolean" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Restriction">
+          <Key>
+            <PropertyRef Name="RestrictionID" />
+          </Key>
+          <Property Name="RestrictionID" Type="Guid" Nullable="false" />
+          <Property Name="RestrictionCode" Type="String" Nullable="false" MaxLength="8" FixedLength="false" Unicode="false" />
+          <Property Name="RestrictionDesc" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="false" />
+          <Property Name="CreateDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="LastUpdate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Active" Type="Boolean" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Class">
+          <Key>
+            <PropertyRef Name="ClassID" />
+          </Key>
+          <Property Name="ClassID" Type="Guid" Nullable="false" />
+          <Property Name="ClassCode" Type="String" Nullable="false" MaxLength="8" FixedLength="false" Unicode="false" />
+          <Property Name="ClassDesc" Type="String" Nullable="false" MaxLength="64" FixedLength="false" Unicode="false" />
+          <Property Name="CreateDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="LastUpdate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Active" Type="Boolean" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Status">
+          <Key>
+            <PropertyRef Name="StatusID" />
+          </Key>
+          <Property Name="StatusID" Type="Guid" Nullable="false" />
+          <Property Name="StatusCode" Type="String" Nullable="false" MaxLength="8" FixedLength="false" Unicode="false" />
+          <Property Name="StatusName" Type="String" Nullable="false" MaxLength="32" FixedLength="false" Unicode="false" />
+          <Property Name="CreateDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="LastUpdate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Active" Type="Boolean" Nullable="false" />
+        </EntityType>
         <EntityType Name="VehicleType">
           <Key>
             <PropertyRef Name="VTypeID" />
@@ -135,7 +384,95 @@
           <Property Name="VTypeName" Type="String" Nullable="false" MaxLength="15" FixedLength="false" Unicode="false" />
           <Property Name="Active" Type="Boolean" Nullable="false" />
           <Property Name="Deleted" Type="Boolean" Nullable="false" />
+          <Property Name="LastUpdate" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="CreateDate" Type="DateTime" Nullable="false" Precision="3" />
+        </EntityType>
+        <EntityType Name="Driver">
+          <Key>
+            <PropertyRef Name="DriverID" />
+          </Key>
+          <Property Name="DriverID" Type="Guid" Nullable="false" />
+          <Property Name="SSN" Type="String" Nullable="false" MaxLength="9" FixedLength="false" Unicode="false" />
+          <Property Name="OLN" Type="String" Nullable="false" MaxLength="16" FixedLength="false" Unicode="false" />
+          <Property Name="FirstName" Type="String" Nullable="false" MaxLength="16" FixedLength="false" Unicode="false" />
+          <Property Name="MI" Type="String" Nullable="false" MaxLength="8" FixedLength="false" Unicode="false" />
+          <Property Name="LastName" Type="String" Nullable="false" MaxLength="32" FixedLength="false" Unicode="false" />
+          <Property Name="Address1" Type="String" Nullable="false" MaxLength="32" FixedLength="false" Unicode="false" />
+          <Property Name="Address2" Type="String" Nullable="false" MaxLength="32" FixedLength="false" Unicode="false" />
+          <Property Name="City" Type="String" Nullable="false" MaxLength="32" FixedLength="false" Unicode="false" />
+          <Property Name="StateCode" Type="Int32" Nullable="false" />
+          <Property Name="PostalCode" Type="String" Nullable="false" MaxLength="16" FixedLength="false" Unicode="false" />
+          <Property Name="Gender" Type="String" Nullable="false" MaxLength="8" FixedLength="false" Unicode="false" />
+          <Property Name="Height" Type="String" Nullable="false" MaxLength="8" FixedLength="false" Unicode="false" />
+          <Property Name="Weight" Type="String" Nullable="false" MaxLength="8" FixedLength="false" Unicode="false" />
+          <Property Name="EyeColorCode" Type="Int32" Nullable="false" />
+          <Property Name="HairColorCode" Type="Int32" Nullable="false" />
+          <Property Name="OrganDonor" Type="Boolean" Nullable="false" />
+          <Property Name="Active" Type="Boolean" Nullable="false" />
+          <Property Name="Deleted" Type="Boolean" Nullable="false" />
+          <Property Name="CreateDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="LastUpdate" Type="DateTime" Nullable="false" Precision="3" />
+        </EntityType>
+        <EntityType Name="vwDriver">
+          <Key>
+            <PropertyRef Name="DriverID" />
+          </Key>
+          <Property Name="DriverID" Type="Guid" Nullable="false" />
+          <Property Name="SSN" Type="String" Nullable="false" MaxLength="9" FixedLength="false" Unicode="false" />
+          <Property Name="OLN" Type="String" Nullable="false" MaxLength="16" FixedLength="false" Unicode="false" />
+          <Property Name="FirstName" Type="String" Nullable="false" MaxLength="16" FixedLength="false" Unicode="false" />
+          <Property Name="MI" Type="String" Nullable="false" MaxLength="8" FixedLength="false" Unicode="false" />
+          <Property Name="LastName" Type="String" Nullable="false" MaxLength="32" FixedLength="false" Unicode="false" />
+          <Property Name="Address1" Type="String" Nullable="false" MaxLength="32" FixedLength="false" Unicode="false" />
+          <Property Name="Address2" Type="String" Nullable="false" MaxLength="32" FixedLength="false" Unicode="false" />
+          <Property Name="City" Type="String" Nullable="false" MaxLength="32" FixedLength="false" Unicode="false" />
+          <Property Name="StateCode" Type="Int32" Nullable="false" />
+          <Property Name="PostalCode" Type="String" Nullable="false" MaxLength="16" FixedLength="false" Unicode="false" />
+          <Property Name="Gender" Type="String" Nullable="false" MaxLength="8" FixedLength="false" Unicode="false" />
+          <Property Name="Height" Type="String" Nullable="false" MaxLength="8" FixedLength="false" Unicode="false" />
+          <Property Name="Weight" Type="String" Nullable="false" MaxLength="8" FixedLength="false" Unicode="false" />
+          <Property Name="EyeColorCode" Type="Int32" Nullable="false" />
+          <Property Name="HairColorCode" Type="Int32" Nullable="false" />
+          <Property Name="OrganDonor" Type="Boolean" Nullable="false" />
+          <Property Name="Active" Type="Boolean" Nullable="false" />
+          <Property Name="Deleted" Type="Boolean" Nullable="false" />
+          <Property Name="CreateDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="LastUpdate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="StateID" Type="Guid" />
+          <Property Name="StatesStateCode" Type="Int32" />
+          <Property Name="StateAbbr" Type="String" MaxLength="2" FixedLength="false" Unicode="false" />
+          <Property Name="StateName" Type="String" MaxLength="32" FixedLength="false" Unicode="false" />
+          <Property Name="StatesActive" Type="Boolean" />
+          <Property Name="StatesDeleted" Type="Boolean" />
+          <Property Name="StatesCreateDate" Type="DateTime" Precision="3" />
+          <Property Name="EyeColorID" Type="Guid" />
+          <Property Name="EyeCode" Type="Int32" />
+          <Property Name="EyeColorAbbr" Type="String" MaxLength="3" FixedLength="false" Unicode="false" />
+          <Property Name="EyeColorName" Type="String" MaxLength="22" FixedLength="false" Unicode="false" />
+          <Property Name="EyeColorActive" Type="Boolean" />
+          <Property Name="EyeColorCreateDate" Type="DateTime" Precision="3" />
+          <Property Name="EyeColorDeleted" Type="Boolean" />
+          <Property Name="HairColorID" Type="Guid" />
+          <Property Name="HairCode" Type="Int32" />
+          <Property Name="HairColorAbbr" Type="String" MaxLength="3" FixedLength="false" Unicode="false" />
+          <Property Name="HairColorName" Type="String" MaxLength="22" FixedLength="false" Unicode="false" />
+          <Property Name="HairActive" Type="Boolean" />
+          <Property Name="HairDeleted" Type="Boolean" />
+          <Property Name="HairCreateDate" Type="DateTime" Precision="3" />
+          <Property Name="LicenseID" Type="Guid" Nullable="false" />
+          <Property Name="LicenseCode" Type="String" Nullable="false" MaxLength="16" FixedLength="false" Unicode="false" />
+          <Property Name="LicenseState" Type="Int32" Nullable="false" />
+          <Property Name="LicenseCounty" Type="Int32" Nullable="false" />
+          <Property Name="LicenseStatus" Type="String" Nullable="false" MaxLength="8" FixedLength="false" Unicode="false" />
+          <Property Name="LicenseClass" Type="String" Nullable="false" MaxLength="8" FixedLength="false" Unicode="false" />
+          <Property Name="LicenseRestrictions" Type="String" MaxLength="32" FixedLength="false" Unicode="false" />
+          <Property Name="LicenseEndorsements" Type="String" MaxLength="32" FixedLength="false" Unicode="false" />
+          <Property Name="LicenseIssue" Type="String" Nullable="false" MaxLength="16" FixedLength="false" Unicode="false" />
+          <Property Name="LicenseExpiration" Type="String" Nullable="false" MaxLength="16" FixedLength="false" Unicode="false" />
+          <Property Name="LicenseActive" Type="Boolean" Nullable="false" />
+          <Property Name="LicenseDeleted" Type="Boolean" Nullable="false" />
+          <Property Name="LicenseCreateDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="LicenseLastUpdate" Type="DateTime" Nullable="false" Precision="3" />
         </EntityType>
       </Schema>
     </edmx:ConceptualModels>
@@ -193,15 +530,153 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="Endorsements">
+            <EntityTypeMapping TypeName="mdmcleroyModel.Endorsement">
+              <MappingFragment StoreEntitySet="Endorsements">
+                <ScalarProperty Name="Active" ColumnName="Active" />
+                <ScalarProperty Name="LastUpdate" ColumnName="LastUpdate" />
+                <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+                <ScalarProperty Name="EndorsementDesc" ColumnName="EndorsementDesc" />
+                <ScalarProperty Name="EndorsementCode" ColumnName="EndorsementCode" />
+                <ScalarProperty Name="EndorsementID" ColumnName="EndorsementID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Restrictions">
+            <EntityTypeMapping TypeName="mdmcleroyModel.Restriction">
+              <MappingFragment StoreEntitySet="Restrictions">
+                <ScalarProperty Name="Active" ColumnName="Active" />
+                <ScalarProperty Name="LastUpdate" ColumnName="LastUpdate" />
+                <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+                <ScalarProperty Name="RestrictionDesc" ColumnName="RestrictionDesc" />
+                <ScalarProperty Name="RestrictionCode" ColumnName="RestrictionCode" />
+                <ScalarProperty Name="RestrictionID" ColumnName="RestrictionID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Classes">
+            <EntityTypeMapping TypeName="mdmcleroyModel.Class">
+              <MappingFragment StoreEntitySet="Classes">
+                <ScalarProperty Name="Active" ColumnName="Active" />
+                <ScalarProperty Name="LastUpdate" ColumnName="LastUpdate" />
+                <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+                <ScalarProperty Name="ClassDesc" ColumnName="ClassDesc" />
+                <ScalarProperty Name="ClassCode" ColumnName="ClassCode" />
+                <ScalarProperty Name="ClassID" ColumnName="ClassID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Statuses">
+            <EntityTypeMapping TypeName="mdmcleroyModel.Status">
+              <MappingFragment StoreEntitySet="Statuses">
+                <ScalarProperty Name="Active" ColumnName="Active" />
+                <ScalarProperty Name="LastUpdate" ColumnName="LastUpdate" />
+                <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+                <ScalarProperty Name="StatusName" ColumnName="StatusName" />
+                <ScalarProperty Name="StatusCode" ColumnName="StatusCode" />
+                <ScalarProperty Name="StatusID" ColumnName="StatusID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <EntitySetMapping Name="VehicleTypes">
             <EntityTypeMapping TypeName="mdmcleroyModel.VehicleType">
-              <MappingFragment StoreEntitySet="VehicleTypes">
+              <MappingFragment StoreEntitySet="VehicleType">
                 <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+                <ScalarProperty Name="LastUpdate" ColumnName="LastUpdate" />
                 <ScalarProperty Name="Deleted" ColumnName="Deleted" />
                 <ScalarProperty Name="Active" ColumnName="Active" />
                 <ScalarProperty Name="VTypeName" ColumnName="VTypeName" />
                 <ScalarProperty Name="VTypeCode" ColumnName="VTypeCode" />
                 <ScalarProperty Name="VTypeID" ColumnName="VTypeID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Drivers">
+            <EntityTypeMapping TypeName="mdmcleroyModel.Driver">
+              <MappingFragment StoreEntitySet="Drivers">
+                <ScalarProperty Name="LastUpdate" ColumnName="LastUpdate" />
+                <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+                <ScalarProperty Name="Deleted" ColumnName="Deleted" />
+                <ScalarProperty Name="Active" ColumnName="Active" />
+                <ScalarProperty Name="OrganDonor" ColumnName="OrganDonor" />
+                <ScalarProperty Name="HairColorCode" ColumnName="HairColorCode" />
+                <ScalarProperty Name="EyeColorCode" ColumnName="EyeColorCode" />
+                <ScalarProperty Name="Weight" ColumnName="Weight" />
+                <ScalarProperty Name="Height" ColumnName="Height" />
+                <ScalarProperty Name="Gender" ColumnName="Gender" />
+                <ScalarProperty Name="PostalCode" ColumnName="PostalCode" />
+                <ScalarProperty Name="StateCode" ColumnName="StateCode" />
+                <ScalarProperty Name="City" ColumnName="City" />
+                <ScalarProperty Name="Address2" ColumnName="Address2" />
+                <ScalarProperty Name="Address1" ColumnName="Address1" />
+                <ScalarProperty Name="LastName" ColumnName="LastName" />
+                <ScalarProperty Name="MI" ColumnName="MI" />
+                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+                <ScalarProperty Name="OLN" ColumnName="OLN" />
+                <ScalarProperty Name="SSN" ColumnName="SSN" />
+                <ScalarProperty Name="DriverID" ColumnName="DriverID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="vwDrivers">
+            <EntityTypeMapping TypeName="mdmcleroyModel.vwDriver">
+              <MappingFragment StoreEntitySet="vwDriver">
+                <ScalarProperty Name="LicenseLastUpdate" ColumnName="LicenseLastUpdate" />
+                <ScalarProperty Name="LicenseCreateDate" ColumnName="LicenseCreateDate" />
+                <ScalarProperty Name="LicenseDeleted" ColumnName="LicenseDeleted" />
+                <ScalarProperty Name="LicenseActive" ColumnName="LicenseActive" />
+                <ScalarProperty Name="LicenseExpiration" ColumnName="LicenseExpiration" />
+                <ScalarProperty Name="LicenseIssue" ColumnName="LicenseIssue" />
+                <ScalarProperty Name="LicenseEndorsements" ColumnName="LicenseEndorsements" />
+                <ScalarProperty Name="LicenseRestrictions" ColumnName="LicenseRestrictions" />
+                <ScalarProperty Name="LicenseClass" ColumnName="LicenseClass" />
+                <ScalarProperty Name="LicenseStatus" ColumnName="LicenseStatus" />
+                <ScalarProperty Name="LicenseCounty" ColumnName="LicenseCounty" />
+                <ScalarProperty Name="LicenseState" ColumnName="LicenseState" />
+                <ScalarProperty Name="LicenseCode" ColumnName="LicenseCode" />
+                <ScalarProperty Name="LicenseID" ColumnName="LicenseID" />
+                <ScalarProperty Name="HairCreateDate" ColumnName="HairCreateDate" />
+                <ScalarProperty Name="HairDeleted" ColumnName="HairDeleted" />
+                <ScalarProperty Name="HairActive" ColumnName="HairActive" />
+                <ScalarProperty Name="HairColorName" ColumnName="HairColorName" />
+                <ScalarProperty Name="HairColorAbbr" ColumnName="HairColorAbbr" />
+                <ScalarProperty Name="HairCode" ColumnName="HairCode" />
+                <ScalarProperty Name="HairColorID" ColumnName="HairColorID" />
+                <ScalarProperty Name="EyeColorDeleted" ColumnName="EyeColorDeleted" />
+                <ScalarProperty Name="EyeColorCreateDate" ColumnName="EyeColorCreateDate" />
+                <ScalarProperty Name="EyeColorActive" ColumnName="EyeColorActive" />
+                <ScalarProperty Name="EyeColorName" ColumnName="EyeColorName" />
+                <ScalarProperty Name="EyeColorAbbr" ColumnName="EyeColorAbbr" />
+                <ScalarProperty Name="EyeCode" ColumnName="EyeCode" />
+                <ScalarProperty Name="EyeColorID" ColumnName="EyeColorID" />
+                <ScalarProperty Name="StatesCreateDate" ColumnName="StatesCreateDate" />
+                <ScalarProperty Name="StatesDeleted" ColumnName="StatesDeleted" />
+                <ScalarProperty Name="StatesActive" ColumnName="StatesActive" />
+                <ScalarProperty Name="StateName" ColumnName="StateName" />
+                <ScalarProperty Name="StateAbbr" ColumnName="StateAbbr" />
+                <ScalarProperty Name="StatesStateCode" ColumnName="StatesStateCode" />
+                <ScalarProperty Name="StateID" ColumnName="StateID" />
+                <ScalarProperty Name="LastUpdate" ColumnName="LastUpdate" />
+                <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+                <ScalarProperty Name="Deleted" ColumnName="Deleted" />
+                <ScalarProperty Name="Active" ColumnName="Active" />
+                <ScalarProperty Name="OrganDonor" ColumnName="OrganDonor" />
+                <ScalarProperty Name="HairColorCode" ColumnName="HairColorCode" />
+                <ScalarProperty Name="EyeColorCode" ColumnName="EyeColorCode" />
+                <ScalarProperty Name="Weight" ColumnName="Weight" />
+                <ScalarProperty Name="Height" ColumnName="Height" />
+                <ScalarProperty Name="Gender" ColumnName="Gender" />
+                <ScalarProperty Name="PostalCode" ColumnName="PostalCode" />
+                <ScalarProperty Name="StateCode" ColumnName="StateCode" />
+                <ScalarProperty Name="City" ColumnName="City" />
+                <ScalarProperty Name="Address2" ColumnName="Address2" />
+                <ScalarProperty Name="Address1" ColumnName="Address1" />
+                <ScalarProperty Name="LastName" ColumnName="LastName" />
+                <ScalarProperty Name="MI" ColumnName="MI" />
+                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+                <ScalarProperty Name="OLN" ColumnName="OLN" />
+                <ScalarProperty Name="SSN" ColumnName="SSN" />
+                <ScalarProperty Name="DriverID" ColumnName="DriverID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

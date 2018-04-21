@@ -29,7 +29,7 @@ namespace cbhproj
 
         private void btnDisplayColors_Click(object sender, EventArgs e)
         {
-            ColorMenu colorMenu = new ColorMenu();
+            DisplayColors colorMenu = new DisplayColors();
             colorMenu.ShowDialog();
         }
 
@@ -40,19 +40,19 @@ namespace cbhproj
 
         private void btnDisplayStates_Click(object sender, EventArgs e)
         {
-            StateMenu stateMenu = new StateMenu();
+            DisplayStates stateMenu = new DisplayStates();
             stateMenu.ShowDialog();
         }
 
         private void button1_Click_1(object sender, EventArgs e)
         {
-            CountyMenu countyMenu = new CountyMenu();
+            DisplayCounties countyMenu = new DisplayCounties();
             countyMenu.ShowDialog();
         }
 
         private void btnDisplayMakes_Click(object sender, EventArgs e)
         {
-            VMakeMenu vMakeMenu = new VMakeMenu();
+            DisplayVMakes vMakeMenu = new DisplayVMakes();
             vMakeMenu.ShowDialog();
         }
 
@@ -64,8 +64,32 @@ namespace cbhproj
 
         private void btnDisplayTypes_Click(object sender, EventArgs e)
         {
-            VTypeMenu vTypeMenu = new VTypeMenu();
+            DisplayVTypes vTypeMenu = new DisplayVTypes();
             vTypeMenu.ShowDialog();
+        }
+
+        private void btnDisplayEndorsements_Click(object sender, EventArgs e)
+        {
+            EndorsementMenu endorsementMenu = new EndorsementMenu();
+            endorsementMenu.ShowDialog();
+        }
+
+        private void btnDisplayRestrictions_Click(object sender, EventArgs e)
+        {
+            DisplayRestrictions displayRestrictions = new DisplayRestrictions();
+            displayRestrictions.ShowDialog();
+        }
+
+        private void btnDisplayClasses_Click(object sender, EventArgs e)
+        {
+            DisplayClasses displayClasses = new DisplayClasses();
+            displayClasses.ShowDialog();
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            DisplayStatuses displayStatuses = new DisplayStatuses();
+            displayStatuses.ShowDialog();
         }
     }
 }

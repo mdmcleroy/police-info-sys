@@ -29,6 +29,12 @@ namespace cbhproj.Models
         public virtual DbSet<County> Counties { get; set; }
         public virtual DbSet<Color> Colors { get; set; }
         public virtual DbSet<VehicleMake> VehicleMakes { get; set; }
+        public virtual DbSet<Endorsement> Endorsements { get; set; }
+        public virtual DbSet<Restriction> Restrictions { get; set; }
+        public virtual DbSet<Class> Classes { get; set; }
+        public virtual DbSet<Status> Statuses { get; set; }
         public virtual DbSet<VehicleType> VehicleTypes { get; set; }
+        public virtual DbSet<Driver> Drivers { get; set; }
+        public virtual DbSet<vwDriver> vwDrivers { get; set; }
     }
 }

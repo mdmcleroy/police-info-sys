@@ -6,10 +6,16 @@
     <edmx:Diagrams>
       <Diagram DiagramId="bf1aa9b08e0241faae325c9b903f5e83" Name="Diagram1">
         <EntityTypeShape EntityType="mdmcleroyModel.State" Width="1.5" PointX="0.75" PointY="0.75" />
-        <EntityTypeShape EntityType="mdmcleroyModel.County" Width="1.5" PointX="3.375" PointY="0.75" />
-        <EntityTypeShape EntityType="mdmcleroyModel.Color" Width="1.5" PointX="3.375" PointY="3.75" />
-        <EntityTypeShape EntityType="mdmcleroyModel.VehicleMake" Width="1.5" PointX="0.75" PointY="4.75" />
-        <EntityTypeShape EntityType="mdmcleroyModel.VehicleType" Width="1.5" PointX="5.375" PointY="0.75" />
+        <EntityTypeShape EntityType="mdmcleroyModel.County" Width="1.5" PointX="2.5" PointY="0.75" />
+        <EntityTypeShape EntityType="mdmcleroyModel.Color" Width="1.5" PointX="4.25" PointY="3.375" />
+        <EntityTypeShape EntityType="mdmcleroyModel.VehicleMake" Width="1.5" PointX="0.75" PointY="3.375" />
+        <EntityTypeShape EntityType="mdmcleroyModel.Endorsement" Width="1.5" PointX="4.25" PointY="0.75" />
+        <EntityTypeShape EntityType="mdmcleroyModel.Restriction" Width="1.5" PointX="6" PointY="3.375" />
+        <EntityTypeShape EntityType="mdmcleroyModel.Class" Width="1.5" PointX="6" PointY="0.75" />
+        <EntityTypeShape EntityType="mdmcleroyModel.Status" Width="1.5" PointX="0.75" PointY="6" />
+        <EntityTypeShape EntityType="mdmcleroyModel.VehicleType" Width="1.5" PointX="2.5" PointY="3.375" />
+        <EntityTypeShape EntityType="mdmcleroyModel.Driver" Width="1.5" PointX="7.75" PointY="0.75" />
+        <EntityTypeShape EntityType="mdmcleroyModel.vwDriver" Width="1.5" PointX="9.5" PointY="0.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

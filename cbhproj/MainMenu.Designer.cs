@@ -41,11 +41,11 @@
             // 
             // lblMainMenu
             // 
-            this.lblMainMenu.Font = new System.Drawing.Font("Microsoft Sans Serif", 25.875F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblMainMenu.Location = new System.Drawing.Point(79, 40);
+            this.lblMainMenu.Font = new System.Drawing.Font("Microsoft Sans Serif", 27.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblMainMenu.Location = new System.Drawing.Point(269, 42);
             this.lblMainMenu.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.lblMainMenu.Name = "lblMainMenu";
-            this.lblMainMenu.Size = new System.Drawing.Size(857, 79);
+            this.lblMainMenu.Size = new System.Drawing.Size(487, 79);
             this.lblMainMenu.TabIndex = 0;
             this.lblMainMenu.Text = "Police Information System";
             this.lblMainMenu.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -53,7 +53,7 @@
             // btnExit
             // 
             this.btnExit.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.875F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnExit.Location = new System.Drawing.Point(394, 643);
+            this.btnExit.Location = new System.Drawing.Point(399, 643);
             this.btnExit.Margin = new System.Windows.Forms.Padding(6, 4, 6, 4);
             this.btnExit.Name = "btnExit";
             this.btnExit.Size = new System.Drawing.Size(226, 58);
@@ -65,7 +65,7 @@
             // btnAuxFiles
             // 
             this.btnAuxFiles.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.875F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAuxFiles.Location = new System.Drawing.Point(264, 134);
+            this.btnAuxFiles.Location = new System.Drawing.Point(269, 134);
             this.btnAuxFiles.Margin = new System.Windows.Forms.Padding(6, 4, 6, 4);
             this.btnAuxFiles.Name = "btnAuxFiles";
             this.btnAuxFiles.Size = new System.Drawing.Size(487, 64);
@@ -77,7 +77,7 @@
             // btnSSNMenu
             // 
             this.btnSSNMenu.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.875F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSSNMenu.Location = new System.Drawing.Point(264, 206);
+            this.btnSSNMenu.Location = new System.Drawing.Point(269, 206);
             this.btnSSNMenu.Margin = new System.Windows.Forms.Padding(6, 4, 6, 4);
             this.btnSSNMenu.Name = "btnSSNMenu";
             this.btnSSNMenu.Size = new System.Drawing.Size(487, 64);
@@ -89,7 +89,7 @@
             // btnOLNMenu
             // 
             this.btnOLNMenu.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.875F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnOLNMenu.Location = new System.Drawing.Point(264, 278);
+            this.btnOLNMenu.Location = new System.Drawing.Point(269, 278);
             this.btnOLNMenu.Margin = new System.Windows.Forms.Padding(6, 4, 6, 4);
             this.btnOLNMenu.Name = "btnOLNMenu";
             this.btnOLNMenu.Size = new System.Drawing.Size(487, 64);
@@ -101,7 +101,7 @@
             // btnAddRecord
             // 
             this.btnAddRecord.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.875F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAddRecord.Location = new System.Drawing.Point(264, 350);
+            this.btnAddRecord.Location = new System.Drawing.Point(269, 350);
             this.btnAddRecord.Margin = new System.Windows.Forms.Padding(6, 4, 6, 4);
             this.btnAddRecord.Name = "btnAddRecord";
             this.btnAddRecord.Size = new System.Drawing.Size(487, 64);
@@ -113,7 +113,7 @@
             // btnDeleteRecord
             // 
             this.btnDeleteRecord.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.875F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDeleteRecord.Location = new System.Drawing.Point(264, 422);
+            this.btnDeleteRecord.Location = new System.Drawing.Point(269, 422);
             this.btnDeleteRecord.Margin = new System.Windows.Forms.Padding(6, 4, 6, 4);
             this.btnDeleteRecord.Name = "btnDeleteRecord";
             this.btnDeleteRecord.Size = new System.Drawing.Size(487, 64);
@@ -125,7 +125,7 @@
             // btnModifyRecord
             // 
             this.btnModifyRecord.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.875F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnModifyRecord.Location = new System.Drawing.Point(264, 494);
+            this.btnModifyRecord.Location = new System.Drawing.Point(269, 494);
             this.btnModifyRecord.Margin = new System.Windows.Forms.Padding(6, 4, 6, 4);
             this.btnModifyRecord.Name = "btnModifyRecord";
             this.btnModifyRecord.Size = new System.Drawing.Size(487, 64);
@@ -137,7 +137,7 @@
             // btnListMaster
             // 
             this.btnListMaster.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.875F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnListMaster.Location = new System.Drawing.Point(264, 566);
+            this.btnListMaster.Location = new System.Drawing.Point(269, 566);
             this.btnListMaster.Margin = new System.Windows.Forms.Padding(6, 4, 6, 4);
             this.btnListMaster.Name = "btnListMaster";
             this.btnListMaster.Size = new System.Drawing.Size(487, 64);
@@ -148,10 +148,10 @@
             // 
             // MainMenu
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(23F, 46F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Menu;
-            this.ClientSize = new System.Drawing.Size(1015, 749);
+            this.ClientSize = new System.Drawing.Size(1025, 781);
             this.Controls.Add(this.btnListMaster);
             this.Controls.Add(this.btnModifyRecord);
             this.Controls.Add(this.btnDeleteRecord);

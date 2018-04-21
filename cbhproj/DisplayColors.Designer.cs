@@ -1,6 +1,6 @@
 ﻿namespace cbhproj
 {
-    partial class VTypeMenu
+    partial class DisplayColors
     {
         /// <summary>
         /// Required designer variable.
@@ -32,82 +32,84 @@
             this.lblColumn2 = new System.Windows.Forms.Label();
             this.lblColumn1 = new System.Windows.Forms.Label();
             this.btnClose = new System.Windows.Forms.Button();
-            this.lblVTypeHeading = new System.Windows.Forms.Label();
-            this.lblVTypeMenu = new System.Windows.Forms.Label();
+            this.lblColorHeading = new System.Windows.Forms.Label();
+            this.lblColorMenu = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // lblColumn3
             // 
             this.lblColumn3.Font = new System.Drawing.Font("Arial", 14.125F);
-            this.lblColumn3.Location = new System.Drawing.Point(672, 251);
+            this.lblColumn3.Location = new System.Drawing.Point(732, 168);
             this.lblColumn3.Name = "lblColumn3";
-            this.lblColumn3.Size = new System.Drawing.Size(315, 327);
-            this.lblColumn3.TabIndex = 20;
+            this.lblColumn3.Size = new System.Drawing.Size(315, 356);
+            this.lblColumn3.TabIndex = 14;
             // 
             // lblColumn2
             // 
             this.lblColumn2.Font = new System.Drawing.Font("Arial", 14.125F);
-            this.lblColumn2.Location = new System.Drawing.Point(369, 251);
+            this.lblColumn2.Location = new System.Drawing.Point(417, 168);
             this.lblColumn2.Name = "lblColumn2";
-            this.lblColumn2.Size = new System.Drawing.Size(315, 327);
-            this.lblColumn2.TabIndex = 19;
+            this.lblColumn2.Size = new System.Drawing.Size(315, 356);
+            this.lblColumn2.TabIndex = 13;
             // 
             // lblColumn1
             // 
             this.lblColumn1.Font = new System.Drawing.Font("Arial", 14.125F);
-            this.lblColumn1.Location = new System.Drawing.Point(57, 251);
+            this.lblColumn1.Location = new System.Drawing.Point(102, 168);
             this.lblColumn1.Name = "lblColumn1";
-            this.lblColumn1.Size = new System.Drawing.Size(315, 327);
-            this.lblColumn1.TabIndex = 18;
+            this.lblColumn1.Size = new System.Drawing.Size(315, 356);
+            this.lblColumn1.TabIndex = 12;
             // 
             // btnClose
             // 
             this.btnClose.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.875F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnClose.Location = new System.Drawing.Point(385, 651);
+            this.btnClose.Location = new System.Drawing.Point(365, 675);
             this.btnClose.Margin = new System.Windows.Forms.Padding(6, 4, 6, 4);
             this.btnClose.Name = "btnClose";
-            this.btnClose.Size = new System.Drawing.Size(295, 77);
-            this.btnClose.TabIndex = 17;
+            this.btnClose.Size = new System.Drawing.Size(295, 79);
+            this.btnClose.TabIndex = 11;
             this.btnClose.Text = "Close";
             this.btnClose.UseVisualStyleBackColor = true;
-            this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
+            this.btnClose.Click += new System.EventHandler(this.btnClose_Click_1);
             // 
-            // lblVTypeHeading
+            // lblColorHeading
             // 
-            this.lblVTypeHeading.AutoSize = true;
-            this.lblVTypeHeading.Font = new System.Drawing.Font("Microsoft Sans Serif", 22F);
-            this.lblVTypeHeading.Location = new System.Drawing.Point(260, 60);
-            this.lblVTypeHeading.Name = "lblVTypeHeading";
-            this.lblVTypeHeading.Size = new System.Drawing.Size(401, 67);
-            this.lblVTypeHeading.TabIndex = 16;
-            this.lblVTypeHeading.Text = "Vehicle Types";
+            this.lblColorHeading.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.lblColorHeading.AutoSize = true;
+            this.lblColorHeading.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F);
+            this.lblColorHeading.Location = new System.Drawing.Point(418, 100);
+            this.lblColorHeading.Name = "lblColorHeading";
+            this.lblColorHeading.Size = new System.Drawing.Size(189, 31);
+            this.lblColorHeading.TabIndex = 10;
+            this.lblColorHeading.Text = "Vehicle Colors";
             // 
-            // lblVTypeMenu
+            // lblColorMenu
             // 
-            this.lblVTypeMenu.AutoSize = true;
-            this.lblVTypeMenu.Font = new System.Drawing.Font("Microsoft Sans Serif", 25.875F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblVTypeMenu.Location = new System.Drawing.Point(130, 20);
-            this.lblVTypeMenu.Name = "lblVTypeMenu";
-            this.lblVTypeMenu.Size = new System.Drawing.Size(857, 79);
-            this.lblVTypeMenu.TabIndex = 15;
-            this.lblVTypeMenu.Text = "Police Information System";
+            this.lblColorMenu.AutoSize = true;
+            this.lblColorMenu.Font = new System.Drawing.Font("Microsoft Sans Serif", 27.75F, System.Drawing.FontStyle.Bold);
+            this.lblColorMenu.Location = new System.Drawing.Point(276, 60);
+            this.lblColorMenu.Name = "lblColorMenu";
+            this.lblColorMenu.Size = new System.Drawing.Size(473, 42);
+            this.lblColorMenu.TabIndex = 9;
+            this.lblColorMenu.Text = "Police Information System";
             // 
-            // VTypeMenu
+            // DisplayColors
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Menu;
-            this.ClientSize = new System.Drawing.Size(1015, 749);
+            this.ClientSize = new System.Drawing.Size(1025, 781);
             this.Controls.Add(this.lblColumn3);
             this.Controls.Add(this.lblColumn2);
             this.Controls.Add(this.lblColumn1);
             this.Controls.Add(this.btnClose);
-            this.Controls.Add(this.lblVTypeHeading);
-            this.Controls.Add(this.lblVTypeMenu);
-            this.Name = "VTypeMenu";
+            this.Controls.Add(this.lblColorHeading);
+            this.Controls.Add(this.lblColorMenu);
+            this.Margin = new System.Windows.Forms.Padding(2);
+            this.Name = "DisplayColors";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "VTypeMenu";
-            this.Load += new System.EventHandler(this.VTypeMenu_Load);
+            this.Text = "ColorMenu";
+            this.Load += new System.EventHandler(this.ColorMenu_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -119,7 +121,7 @@
         private System.Windows.Forms.Label lblColumn2;
         private System.Windows.Forms.Label lblColumn1;
         private System.Windows.Forms.Button btnClose;
-        private System.Windows.Forms.Label lblVTypeHeading;
-        private System.Windows.Forms.Label lblVTypeMenu;
+        private System.Windows.Forms.Label lblColorHeading;
+        private System.Windows.Forms.Label lblColorMenu;
     }
 }

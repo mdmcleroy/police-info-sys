@@ -45,10 +45,10 @@
             // lblAuxMenu
             // 
             this.lblAuxMenu.AutoSize = true;
-            this.lblAuxMenu.Font = new System.Drawing.Font("Microsoft Sans Serif", 25.875F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblAuxMenu.Location = new System.Drawing.Point(295, 60);
+            this.lblAuxMenu.Font = new System.Drawing.Font("Microsoft Sans Serif", 27.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblAuxMenu.Location = new System.Drawing.Point(276, 60);
             this.lblAuxMenu.Name = "lblAuxMenu";
-            this.lblAuxMenu.Size = new System.Drawing.Size(857, 79);
+            this.lblAuxMenu.Size = new System.Drawing.Size(473, 42);
             this.lblAuxMenu.TabIndex = 0;
             this.lblAuxMenu.Text = "Police Information System";
             this.lblAuxMenu.Click += new System.EventHandler(this.lblAuxMenu_Click);
@@ -56,17 +56,17 @@
             // lblAuxFiles
             // 
             this.lblAuxFiles.AutoSize = true;
-            this.lblAuxFiles.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F);
-            this.lblAuxFiles.Location = new System.Drawing.Point(425, 100);
+            this.lblAuxFiles.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F);
+            this.lblAuxFiles.Location = new System.Drawing.Point(422, 100);
             this.lblAuxFiles.Name = "lblAuxFiles";
-            this.lblAuxFiles.Size = new System.Drawing.Size(317, 55);
+            this.lblAuxFiles.Size = new System.Drawing.Size(181, 31);
             this.lblAuxFiles.TabIndex = 1;
             this.lblAuxFiles.Text = "Auxiliary Files";
             // 
             // btnClose
             // 
             this.btnClose.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.875F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnClose.Location = new System.Drawing.Point(360, 650);
+            this.btnClose.Location = new System.Drawing.Point(365, 675);
             this.btnClose.Margin = new System.Windows.Forms.Padding(6, 4, 6, 4);
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(295, 79);
@@ -78,7 +78,7 @@
             // btnDisplayColors
             // 
             this.btnDisplayColors.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.875F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDisplayColors.Location = new System.Drawing.Point(587, 157);
+            this.btnDisplayColors.Location = new System.Drawing.Point(589, 157);
             this.btnDisplayColors.Margin = new System.Windows.Forms.Padding(6, 4, 6, 4);
             this.btnDisplayColors.Name = "btnDisplayColors";
             this.btnDisplayColors.Size = new System.Drawing.Size(333, 64);
@@ -90,7 +90,7 @@
             // btnDisplayTypes
             // 
             this.btnDisplayTypes.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.875F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDisplayTypes.Location = new System.Drawing.Point(587, 332);
+            this.btnDisplayTypes.Location = new System.Drawing.Point(589, 333);
             this.btnDisplayTypes.Margin = new System.Windows.Forms.Padding(6, 4, 6, 4);
             this.btnDisplayTypes.Name = "btnDisplayTypes";
             this.btnDisplayTypes.Size = new System.Drawing.Size(333, 64);
@@ -102,7 +102,7 @@
             // btnDisplayMakes
             // 
             this.btnDisplayMakes.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.875F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDisplayMakes.Location = new System.Drawing.Point(587, 245);
+            this.btnDisplayMakes.Location = new System.Drawing.Point(589, 245);
             this.btnDisplayMakes.Margin = new System.Windows.Forms.Padding(6, 4, 6, 4);
             this.btnDisplayMakes.Name = "btnDisplayMakes";
             this.btnDisplayMakes.Size = new System.Drawing.Size(333, 64);
@@ -114,7 +114,7 @@
             // btnDisplayStates
             // 
             this.btnDisplayStates.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.875F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDisplayStates.Location = new System.Drawing.Point(95, 157);
+            this.btnDisplayStates.Location = new System.Drawing.Point(97, 157);
             this.btnDisplayStates.Margin = new System.Windows.Forms.Padding(6, 4, 6, 4);
             this.btnDisplayStates.Name = "btnDisplayStates";
             this.btnDisplayStates.Size = new System.Drawing.Size(333, 64);
@@ -126,7 +126,7 @@
             // button1
             // 
             this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.875F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(95, 245);
+            this.button1.Location = new System.Drawing.Point(97, 245);
             this.button1.Margin = new System.Windows.Forms.Padding(6, 4, 6, 4);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(333, 64);
@@ -138,51 +138,55 @@
             // btnDisplayRestrictions
             // 
             this.btnDisplayRestrictions.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.875F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDisplayRestrictions.Location = new System.Drawing.Point(95, 332);
+            this.btnDisplayRestrictions.Location = new System.Drawing.Point(97, 333);
             this.btnDisplayRestrictions.Margin = new System.Windows.Forms.Padding(6, 4, 6, 4);
             this.btnDisplayRestrictions.Name = "btnDisplayRestrictions";
             this.btnDisplayRestrictions.Size = new System.Drawing.Size(333, 64);
             this.btnDisplayRestrictions.TabIndex = 8;
             this.btnDisplayRestrictions.Text = "Restrictions";
             this.btnDisplayRestrictions.UseVisualStyleBackColor = true;
+            this.btnDisplayRestrictions.Click += new System.EventHandler(this.btnDisplayRestrictions_Click);
             // 
             // btnDisplayEndorsements
             // 
             this.btnDisplayEndorsements.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.875F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDisplayEndorsements.Location = new System.Drawing.Point(95, 421);
+            this.btnDisplayEndorsements.Location = new System.Drawing.Point(97, 421);
             this.btnDisplayEndorsements.Margin = new System.Windows.Forms.Padding(6, 4, 6, 4);
             this.btnDisplayEndorsements.Name = "btnDisplayEndorsements";
             this.btnDisplayEndorsements.Size = new System.Drawing.Size(333, 64);
             this.btnDisplayEndorsements.TabIndex = 9;
             this.btnDisplayEndorsements.Text = "Endorsements";
             this.btnDisplayEndorsements.UseVisualStyleBackColor = true;
+            this.btnDisplayEndorsements.Click += new System.EventHandler(this.btnDisplayEndorsements_Click);
             // 
             // btnDisplayClasses
             // 
             this.btnDisplayClasses.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.875F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDisplayClasses.Location = new System.Drawing.Point(587, 421);
+            this.btnDisplayClasses.Location = new System.Drawing.Point(589, 421);
             this.btnDisplayClasses.Margin = new System.Windows.Forms.Padding(6, 4, 6, 4);
             this.btnDisplayClasses.Name = "btnDisplayClasses";
             this.btnDisplayClasses.Size = new System.Drawing.Size(333, 64);
             this.btnDisplayClasses.TabIndex = 10;
             this.btnDisplayClasses.Text = "Classes";
             this.btnDisplayClasses.UseVisualStyleBackColor = true;
+            this.btnDisplayClasses.Click += new System.EventHandler(this.btnDisplayClasses_Click);
             // 
             // button2
             // 
             this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.875F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.Location = new System.Drawing.Point(341, 516);
+            this.button2.Location = new System.Drawing.Point(346, 516);
             this.button2.Margin = new System.Windows.Forms.Padding(6, 4, 6, 4);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(333, 64);
             this.button2.TabIndex = 11;
             this.button2.Text = "Statuses";
             this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // AuxMenu
             // 
             this.BackColor = System.Drawing.SystemColors.Menu;
-            this.ClientSize = new System.Drawing.Size(1015, 749);
+            this.ClientSize = new System.Drawing.Size(1025, 781);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.btnDisplayClasses);
             this.Controls.Add(this.btnDisplayEndorsements);
