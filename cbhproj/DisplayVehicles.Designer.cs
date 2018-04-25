@@ -39,6 +39,7 @@
             this.lblTagExpiration = new System.Windows.Forms.Label();
             this.btnNextVehicle = new System.Windows.Forms.Button();
             this.btnPreviousVehicle = new System.Windows.Forms.Button();
+            this.lblVehicleCount = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // lblStateHeading
@@ -157,12 +158,23 @@
             this.btnPreviousVehicle.UseVisualStyleBackColor = true;
             this.btnPreviousVehicle.Click += new System.EventHandler(this.btnPreviousVehicle_Click);
             // 
+            // lblVehicleCount
+            // 
+            this.lblVehicleCount.AutoSize = true;
+            this.lblVehicleCount.Font = new System.Drawing.Font("Arial", 14F);
+            this.lblVehicleCount.Location = new System.Drawing.Point(460, 623);
+            this.lblVehicleCount.Name = "lblVehicleCount";
+            this.lblVehicleCount.Size = new System.Drawing.Size(104, 22);
+            this.lblVehicleCount.TabIndex = 34;
+            this.lblVehicleCount.Text = "Vehicle #/#";
+            // 
             // DisplayVehicles
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Menu;
             this.ClientSize = new System.Drawing.Size(1025, 781);
+            this.Controls.Add(this.lblVehicleCount);
             this.Controls.Add(this.btnPreviousVehicle);
             this.Controls.Add(this.btnNextVehicle);
             this.Controls.Add(this.lblTagExpiration);
@@ -195,5 +207,6 @@
         private System.Windows.Forms.Label lblTagExpiration;
         private System.Windows.Forms.Button btnNextVehicle;
         private System.Windows.Forms.Button btnPreviousVehicle;
+        private System.Windows.Forms.Label lblVehicleCount;
     }
 }

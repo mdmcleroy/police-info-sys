@@ -22,16 +22,18 @@ namespace cbhproj
 
         List<vwDriver> drivers = new List<vwDriver>();
         vwDriver driver = new vwDriver();
+        List<vwVehicle> vehicles = new List<vwVehicle>();
 
-        List<Vehicle> vehicles = new List<Vehicle>();
+        List<Vehicle> vehiclesData = new List<Vehicle>();
         Driver driverData = new Driver();
-        Models.License license = new Models.License();
+        Models.License licenseData = new Models.License();
 
         // Constructor
         public SSN_OLNMenu(int aOption)
         {
             InitializeComponent();
             ClearFields();
+            VehicleLookup();
 
             switch (aOption)
             {
@@ -127,6 +129,21 @@ namespace cbhproj
             }
         }
 
+        private void VehicleLookup()
+        {
+            using (var db = new mdmcleroyEntities())
+            {
+                vehicles = (from d in db.vwVehicles         // FIX ME: since there is only 1 vehicle per driver, displaying random amounts of vehicles
+                            where d.TopColorActive == true  // where d.SSN == aSSN && d.Active == true
+                            select d).ToList();
+
+                if (!vehicles.Any())
+                {
+                    return;
+                }
+            }
+        }
+
         private void FormatData()
         {
             // shift info up if no Address 2
@@ -166,6 +183,7 @@ namespace cbhproj
             lblEndorsement.Text = "Endorsement: " + (String.IsNullOrEmpty(driver.LicenseEndorsements) ? "N/A" : driver.LicenseEndorsements);
             lblStateLicense.Text = String.Format("({0:00})  {1}  {2}", driver.LicensesStateCode, driver.LicensesStateAbbr, driver.LicensesStateName);
             lblCounty.Text = String.Format("({0:00})  {1}", driver.LicenseCounty, driver.CountyName);
+            lblNumVehicles.Text = String.Format("Number of Vehicles: {0}", vehicles.Count());
         }
 
         private void DeleteDriverLicenseVehicle()
@@ -179,14 +197,14 @@ namespace cbhproj
                               select d).First();
                 driverData.Deleted = true;
 
-                license = (from l in db.Licenses
+                licenseData = (from l in db.Licenses
                            where l.LicenseCode == driver.OLN
                              && l.Active == true
                              && l.Deleted == false
                            select l).First();
-                license.Deleted = true;
+                licenseData.Deleted = true;
 
-                vehicles = (from v in db.Vehicles
+                vehiclesData = (from v in db.Vehicles
                             where v.SSN == driver.SSN
                               && v.Active == true
                               && v.Deleted == false
@@ -228,11 +246,7 @@ namespace cbhproj
             lblEndorsement.Text = String.Empty;
             lblStateLicense.Text = String.Empty;
             lblCounty.Text = String.Empty;
-        }
-
-        private void btnClose_Click_1(object sender, EventArgs e)
-        {
-            Close();
+            lblNumVehicles.Text = String.Empty;
         }
 
         // Events
@@ -240,6 +254,11 @@ namespace cbhproj
         {
             this.Width = 1041;
             this.Height = 820;
+        }
+
+        private void btnClose_Click_1(object sender, EventArgs e)
+        {
+            Close();
         }
 
         private void txtUserSSN_TextChanged(object sender, EventArgs e)
@@ -267,7 +286,7 @@ namespace cbhproj
 
         private void btnVehicleInfo_Click(object sender, EventArgs e)
         {
-            DisplayVehicles displayVehicles = new DisplayVehicles(driver.SSN);
+            DisplayVehicles displayVehicles = new DisplayVehicles(vehicles);
             displayVehicles.ShowDialog();
         }
 

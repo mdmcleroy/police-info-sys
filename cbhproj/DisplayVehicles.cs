@@ -18,22 +18,6 @@ namespace cbhproj
         List<vwVehicle> vehicles = new List<vwVehicle>();
         vwVehicle vehicle = new vwVehicle();
 
-        private void LoadVehicles(string aSSN)
-        {
-            using (var db = new mdmcleroyEntities())
-            {
-                vehicles = (from d in db.vwVehicles         // FIX ME: since there is only 1 vehicle per driver, displaying random amounts of vehicles
-                            where d.TopColorActive == true //where d.SSN == aSSN && d.Active == true
-                            select d).ToList();
-
-                if (!vehicles.Any())
-                {
-                    return;
-                }
-                vehicle = vehicles.First();
-            }
-        }
-
         private void VehicleLookup(int vehicleIndex)
         {
             vehicle = vehicles[vehicleIndex];
@@ -53,6 +37,7 @@ namespace cbhproj
             lblTag.Text = "Tag: " + vehicle.Tag;
             var tempDate = DateTime.ParseExact(vehicle.TagExpiration, "yyyyMMdd", CultureInfo.InvariantCulture).ToString("MM/dd/yyyy");
             lblTagExpiration.Text = "Tag Expiration: " + tempDate;
+            lblVehicleCount.Text = String.Format("Vehicle {0}/{1}", vehicleIndex + 1, vehicles.Count());
         }
 
         private void ClearFields()
@@ -65,13 +50,23 @@ namespace cbhproj
             lblBottomColor.Text = String.Empty;
             lblTag.Text = String.Empty;
             lblTagExpiration.Text = String.Empty;
+            lblVehicleCount.Text = String.Empty;
         }
 
-        public DisplayVehicles(string aSSN)
+        //public DisplayVehicles(string aSSN)
+        //{
+        //    InitializeComponent();
+        //    ClearFields();
+        //    LoadVehicles(aSSN);
+        //    VehicleLookup(vehicleIndex);
+        //    FormatData();
+        //}
+
+        public DisplayVehicles(List<vwVehicle> vehiclesData)
         {
             InitializeComponent();
             ClearFields();
-            LoadVehicles(aSSN);
+            vehicles = vehiclesData;
             VehicleLookup(vehicleIndex);
             FormatData();
         }

@@ -61,6 +61,7 @@
             this.pbDriverPic = new System.Windows.Forms.PictureBox();
             this.btnVehicleInfo = new System.Windows.Forms.Button();
             this.btnDelete = new System.Windows.Forms.Button();
+            this.lblNumVehicles = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pbDriverPic)).BeginInit();
             this.SuspendLayout();
             // 
@@ -391,7 +392,7 @@
             this.btnVehicleInfo.Name = "btnVehicleInfo";
             this.btnVehicleInfo.Size = new System.Drawing.Size(211, 51);
             this.btnVehicleInfo.TabIndex = 48;
-            this.btnVehicleInfo.Text = "Vehicle Info";
+            this.btnVehicleInfo.Text = "Show Vehicles";
             this.btnVehicleInfo.UseVisualStyleBackColor = true;
             this.btnVehicleInfo.Visible = false;
             this.btnVehicleInfo.Click += new System.EventHandler(this.btnVehicleInfo_Click);
@@ -409,12 +410,23 @@
             this.btnDelete.Visible = false;
             this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
             // 
+            // lblNumVehicles
+            // 
+            this.lblNumVehicles.AutoSize = true;
+            this.lblNumVehicles.Font = new System.Drawing.Font("Arial", 12F);
+            this.lblNumVehicles.Location = new System.Drawing.Point(802, 512);
+            this.lblNumVehicles.Name = "lblNumVehicles";
+            this.lblNumVehicles.Size = new System.Drawing.Size(160, 18);
+            this.lblNumVehicles.TabIndex = 50;
+            this.lblNumVehicles.Text = "Number of Vehicles: #";
+            // 
             // SSN_OLNMenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Menu;
             this.ClientSize = new System.Drawing.Size(1025, 781);
+            this.Controls.Add(this.lblNumVehicles);
             this.Controls.Add(this.btnDelete);
             this.Controls.Add(this.btnVehicleInfo);
             this.Controls.Add(this.btnSearch);
@@ -494,5 +506,6 @@
         private System.Windows.Forms.Button btnSearch;
         private System.Windows.Forms.Button btnVehicleInfo;
         private System.Windows.Forms.Button btnDelete;
+        private System.Windows.Forms.Label lblNumVehicles;
     }
 }
