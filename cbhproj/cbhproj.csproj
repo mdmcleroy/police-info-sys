@@ -66,6 +66,12 @@
     <Compile Include="AuxMenu.Designer.cs">
       <DependentUpon>AuxMenu.cs</DependentUpon>
     </Compile>
+    <Compile Include="DisplayClassesPopup.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DisplayClassesPopup.Designer.cs">
+      <DependentUpon>DisplayClassesPopup.cs</DependentUpon>
+    </Compile>
     <Compile Include="DisplayColors.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -90,17 +96,35 @@
     <Compile Include="DisplayClasses.Designer.cs">
       <DependentUpon>DisplayClasses.cs</DependentUpon>
     </Compile>
+    <Compile Include="DisplayEndorsementsPopup.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DisplayEndorsementsPopup.Designer.cs">
+      <DependentUpon>DisplayEndorsementsPopup.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DisplayRestrictionsPopup.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DisplayRestrictionsPopup.Designer.cs">
+      <DependentUpon>DisplayRestrictionsPopup.cs</DependentUpon>
+    </Compile>
     <Compile Include="DisplayStatuses.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="DisplayStatuses.Designer.cs">
       <DependentUpon>DisplayStatuses.cs</DependentUpon>
     </Compile>
-    <Compile Include="EndorsementMenu.cs">
+    <Compile Include="DisplayEndorsements.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="EndorsementMenu.Designer.cs">
-      <DependentUpon>EndorsementMenu.cs</DependentUpon>
+    <Compile Include="DisplayEndorsements.Designer.cs">
+      <DependentUpon>DisplayEndorsements.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DisplayVehicles.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DisplayVehicles.Designer.cs">
+      <DependentUpon>DisplayVehicles.cs</DependentUpon>
     </Compile>
     <Compile Include="GlobalFunctions.cs" />
     <Compile Include="MasterMenu.cs">
@@ -130,6 +154,9 @@
     <Compile Include="Models\Endorsement.cs">
       <DependentUpon>mdmcleroy.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\License.cs">
+      <DependentUpon>mdmcleroy.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\mdmcleroy.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -154,6 +181,9 @@
     <Compile Include="Models\Status.cs">
       <DependentUpon>mdmcleroy.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\Vehicle.cs">
+      <DependentUpon>mdmcleroy.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\VehicleMake.cs">
       <DependentUpon>mdmcleroy.tt</DependentUpon>
     </Compile>
@@ -161,6 +191,9 @@
       <DependentUpon>mdmcleroy.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\vwDriver.cs">
+      <DependentUpon>mdmcleroy.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\vwVehicle.cs">
       <DependentUpon>mdmcleroy.tt</DependentUpon>
     </Compile>
     <Compile Include="ModifyMenu.cs">
@@ -207,6 +240,9 @@
     <EmbeddedResource Include="AuxMenu.resx">
       <DependentUpon>AuxMenu.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="DisplayClassesPopup.resx">
+      <DependentUpon>DisplayClassesPopup.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="DisplayColors.resx">
       <DependentUpon>DisplayColors.cs</DependentUpon>
     </EmbeddedResource>
@@ -219,11 +255,20 @@
     <EmbeddedResource Include="DisplayClasses.resx">
       <DependentUpon>DisplayClasses.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="DisplayEndorsementsPopup.resx">
+      <DependentUpon>DisplayEndorsementsPopup.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DisplayRestrictionsPopup.resx">
+      <DependentUpon>DisplayRestrictionsPopup.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="DisplayStatuses.resx">
       <DependentUpon>DisplayStatuses.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="EndorsementMenu.resx">
-      <DependentUpon>EndorsementMenu.cs</DependentUpon>
+    <EmbeddedResource Include="DisplayEndorsements.resx">
+      <DependentUpon>DisplayEndorsements.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DisplayVehicles.resx">
+      <DependentUpon>DisplayVehicles.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MasterMenu.resx">
       <DependentUpon>MasterMenu.cs</DependentUpon>

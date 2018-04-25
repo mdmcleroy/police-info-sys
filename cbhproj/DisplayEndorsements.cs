@@ -11,7 +11,7 @@ using cbhproj.Models;
 
 namespace cbhproj
 {
-    public partial class EndorsementMenu : Form
+    public partial class DisplayEndorsements : Form
     {
         string strTestData = String.Empty;
         List<Endorsement> EndorsementList = new List<Endorsement>();
@@ -48,7 +48,7 @@ namespace cbhproj
             }
         }
 
-        public EndorsementMenu()
+        public DisplayEndorsements()
         {
             InitializeComponent();
             LoadEndorsements();

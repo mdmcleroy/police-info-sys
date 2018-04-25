@@ -56,12 +56,12 @@
             this.lblExpiration = new System.Windows.Forms.Label();
             this.lblLicenseInfo = new System.Windows.Forms.Label();
             this.lblUserPrompt = new System.Windows.Forms.Label();
-            this.picDarren = new System.Windows.Forms.PictureBox();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.lblFlagMessage = new System.Windows.Forms.Label();
-            this.lblSearch = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.picDarren)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.btnSearch = new System.Windows.Forms.Button();
+            this.pbDriverPic = new System.Windows.Forms.PictureBox();
+            this.btnVehicleInfo = new System.Windows.Forms.Button();
+            this.btnDelete = new System.Windows.Forms.Button();
+            ((System.ComponentModel.ISupportInitialize)(this.pbDriverPic)).BeginInit();
             this.SuspendLayout();
             // 
             // lblSubHeading
@@ -112,7 +112,7 @@
             // 
             this.lblSSN.AutoSize = true;
             this.lblSSN.Font = new System.Drawing.Font("Arial", 12F);
-            this.lblSSN.Location = new System.Drawing.Point(289, 262);
+            this.lblSSN.Location = new System.Drawing.Point(107, 433);
             this.lblSSN.Name = "lblSSN";
             this.lblSSN.Size = new System.Drawing.Size(130, 18);
             this.lblSSN.TabIndex = 20;
@@ -124,8 +124,9 @@
             this.lblName.Font = new System.Drawing.Font("Arial", 12F);
             this.lblName.Location = new System.Drawing.Point(107, 262);
             this.lblName.Name = "lblName";
-            this.lblName.Size = new System.Drawing.Size(0, 18);
+            this.lblName.Size = new System.Drawing.Size(181, 18);
             this.lblName.TabIndex = 21;
+            this.lblName.Text = "LastName, FirstName MI";
             // 
             // lblAddress1
             // 
@@ -133,8 +134,9 @@
             this.lblAddress1.Font = new System.Drawing.Font("Arial", 12F);
             this.lblAddress1.Location = new System.Drawing.Point(107, 296);
             this.lblAddress1.Name = "lblAddress1";
-            this.lblAddress1.Size = new System.Drawing.Size(0, 18);
+            this.lblAddress1.Size = new System.Drawing.Size(76, 18);
             this.lblAddress1.TabIndex = 22;
+            this.lblAddress1.Text = "Address1";
             // 
             // lblAddress2
             // 
@@ -142,8 +144,9 @@
             this.lblAddress2.Font = new System.Drawing.Font("Arial", 12F);
             this.lblAddress2.Location = new System.Drawing.Point(107, 330);
             this.lblAddress2.Name = "lblAddress2";
-            this.lblAddress2.Size = new System.Drawing.Size(0, 18);
+            this.lblAddress2.Size = new System.Drawing.Size(76, 18);
             this.lblAddress2.TabIndex = 23;
+            this.lblAddress2.Text = "Address2";
             // 
             // lblCity
             // 
@@ -151,8 +154,9 @@
             this.lblCity.Font = new System.Drawing.Font("Arial", 12F);
             this.lblCity.Location = new System.Drawing.Point(107, 364);
             this.lblCity.Name = "lblCity";
-            this.lblCity.Size = new System.Drawing.Size(0, 18);
+            this.lblCity.Size = new System.Drawing.Size(35, 18);
             this.lblCity.TabIndex = 24;
+            this.lblCity.Text = "City";
             // 
             // lblOLN
             // 
@@ -168,10 +172,11 @@
             // 
             this.lblZip.AutoSize = true;
             this.lblZip.Font = new System.Drawing.Font("Arial", 12F);
-            this.lblZip.Location = new System.Drawing.Point(289, 398);
+            this.lblZip.Location = new System.Drawing.Point(280, 398);
             this.lblZip.Name = "lblZip";
-            this.lblZip.Size = new System.Drawing.Size(0, 18);
+            this.lblZip.Size = new System.Drawing.Size(94, 18);
             this.lblZip.TabIndex = 26;
+            this.lblZip.Text = "35057-1234";
             // 
             // lblState
             // 
@@ -179,8 +184,9 @@
             this.lblState.Font = new System.Drawing.Font("Arial", 12F);
             this.lblState.Location = new System.Drawing.Point(107, 398);
             this.lblState.Name = "lblState";
-            this.lblState.Size = new System.Drawing.Size(0, 18);
+            this.lblState.Size = new System.Drawing.Size(124, 18);
             this.lblState.TabIndex = 27;
+            this.lblState.Text = "(01) AL Alabama";
             // 
             // lblHeight
             // 
@@ -242,7 +248,7 @@
             // 
             this.lblIssue.AutoSize = true;
             this.lblIssue.Font = new System.Drawing.Font("Arial", 12F);
-            this.lblIssue.Location = new System.Drawing.Point(368, 578);
+            this.lblIssue.Location = new System.Drawing.Point(358, 578);
             this.lblIssue.Name = "lblIssue";
             this.lblIssue.Size = new System.Drawing.Size(52, 18);
             this.lblIssue.TabIndex = 34;
@@ -251,28 +257,32 @@
             // lblRestriction
             // 
             this.lblRestriction.AutoSize = true;
+            this.lblRestriction.Cursor = System.Windows.Forms.Cursors.Hand;
             this.lblRestriction.Font = new System.Drawing.Font("Arial", 12F);
-            this.lblRestriction.Location = new System.Drawing.Point(586, 512);
+            this.lblRestriction.Location = new System.Drawing.Point(576, 512);
             this.lblRestriction.Name = "lblRestriction";
             this.lblRestriction.Size = new System.Drawing.Size(90, 18);
             this.lblRestriction.TabIndex = 35;
             this.lblRestriction.Text = "Restriction: ";
+            this.lblRestriction.Click += new System.EventHandler(this.lblRestriction_Click);
             // 
             // lblEndorsement
             // 
             this.lblEndorsement.AutoSize = true;
+            this.lblEndorsement.Cursor = System.Windows.Forms.Cursors.Hand;
             this.lblEndorsement.Font = new System.Drawing.Font("Arial", 12F);
-            this.lblEndorsement.Location = new System.Drawing.Point(567, 545);
+            this.lblEndorsement.Location = new System.Drawing.Point(557, 545);
             this.lblEndorsement.Name = "lblEndorsement";
             this.lblEndorsement.Size = new System.Drawing.Size(109, 18);
             this.lblEndorsement.TabIndex = 36;
             this.lblEndorsement.Text = "Endorsement: ";
+            this.lblEndorsement.Click += new System.EventHandler(this.lblEndorsement_Click);
             // 
             // lblStateLicense
             // 
             this.lblStateLicense.AutoSize = true;
             this.lblStateLicense.Font = new System.Drawing.Font("Arial", 12F);
-            this.lblStateLicense.Location = new System.Drawing.Point(567, 578);
+            this.lblStateLicense.Location = new System.Drawing.Point(557, 578);
             this.lblStateLicense.Name = "lblStateLicense";
             this.lblStateLicense.Size = new System.Drawing.Size(124, 18);
             this.lblStateLicense.TabIndex = 37;
@@ -282,7 +292,7 @@
             // 
             this.lblCounty.AutoSize = true;
             this.lblCounty.Font = new System.Drawing.Font("Arial", 12F);
-            this.lblCounty.Location = new System.Drawing.Point(567, 611);
+            this.lblCounty.Location = new System.Drawing.Point(557, 611);
             this.lblCounty.Name = "lblCounty";
             this.lblCounty.Size = new System.Drawing.Size(87, 18);
             this.lblCounty.TabIndex = 38;
@@ -291,8 +301,9 @@
             // lblStatus
             // 
             this.lblStatus.AutoSize = true;
+            this.lblStatus.Cursor = System.Windows.Forms.Cursors.Default;
             this.lblStatus.Font = new System.Drawing.Font("Arial", 12F);
-            this.lblStatus.Location = new System.Drawing.Point(360, 512);
+            this.lblStatus.Location = new System.Drawing.Point(350, 512);
             this.lblStatus.Name = "lblStatus";
             this.lblStatus.Size = new System.Drawing.Size(60, 18);
             this.lblStatus.TabIndex = 39;
@@ -301,18 +312,20 @@
             // lblClass
             // 
             this.lblClass.AutoSize = true;
+            this.lblClass.Cursor = System.Windows.Forms.Cursors.Hand;
             this.lblClass.Font = new System.Drawing.Font("Arial", 12F);
-            this.lblClass.Location = new System.Drawing.Point(364, 545);
+            this.lblClass.Location = new System.Drawing.Point(354, 545);
             this.lblClass.Name = "lblClass";
             this.lblClass.Size = new System.Drawing.Size(56, 18);
             this.lblClass.TabIndex = 40;
             this.lblClass.Text = "Class: ";
+            this.lblClass.Click += new System.EventHandler(this.lblClass_Click);
             // 
             // lblExpiration
             // 
             this.lblExpiration.AutoSize = true;
             this.lblExpiration.Font = new System.Drawing.Font("Arial", 12F);
-            this.lblExpiration.Location = new System.Drawing.Point(334, 611);
+            this.lblExpiration.Location = new System.Drawing.Point(324, 611);
             this.lblExpiration.Name = "lblExpiration";
             this.lblExpiration.Size = new System.Drawing.Size(86, 18);
             this.lblExpiration.TabIndex = 41;
@@ -338,27 +351,6 @@
             this.lblUserPrompt.TabIndex = 43;
             this.lblUserPrompt.Text = "Enter SSN: ";
             // 
-            // picDarren
-            // 
-            this.picDarren.Cursor = System.Windows.Forms.Cursors.No;
-            this.picDarren.Image = global::cbhproj.Properties.Resources._500x500;
-            this.picDarren.Location = new System.Drawing.Point(261, 210);
-            this.picDarren.Name = "picDarren";
-            this.picDarren.Size = new System.Drawing.Size(500, 500);
-            this.picDarren.TabIndex = 45;
-            this.picDarren.TabStop = false;
-            this.picDarren.Visible = false;
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = global::cbhproj.Properties.Resources._175x175;
-            this.pictureBox1.Location = new System.Drawing.Point(114, 454);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(175, 175);
-            this.pictureBox1.TabIndex = 44;
-            this.pictureBox1.TabStop = false;
-            this.pictureBox1.Visible = false;
-            // 
             // lblFlagMessage
             // 
             this.lblFlagMessage.AutoSize = true;
@@ -369,16 +361,53 @@
             this.lblFlagMessage.TabIndex = 46;
             this.lblFlagMessage.Visible = false;
             // 
-            // lblSearch
+            // btnSearch
             // 
-            this.lblSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.875F);
-            this.lblSearch.Location = new System.Drawing.Point(451, 211);
-            this.lblSearch.Name = "lblSearch";
-            this.lblSearch.Size = new System.Drawing.Size(122, 36);
-            this.lblSearch.TabIndex = 47;
-            this.lblSearch.Text = "Search";
-            this.lblSearch.UseVisualStyleBackColor = true;
-            this.lblSearch.Click += new System.EventHandler(this.lblSearch_Click);
+            this.btnSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.875F);
+            this.btnSearch.Location = new System.Drawing.Point(451, 211);
+            this.btnSearch.Name = "btnSearch";
+            this.btnSearch.Size = new System.Drawing.Size(122, 36);
+            this.btnSearch.TabIndex = 47;
+            this.btnSearch.Text = "Search";
+            this.btnSearch.UseVisualStyleBackColor = true;
+            this.btnSearch.Click += new System.EventHandler(this.lblSearch_Click);
+            // 
+            // pbDriverPic
+            // 
+            this.pbDriverPic.Image = global::cbhproj.Properties.Resources._175x175;
+            this.pbDriverPic.Location = new System.Drawing.Point(138, 479);
+            this.pbDriverPic.Name = "pbDriverPic";
+            this.pbDriverPic.Size = new System.Drawing.Size(150, 150);
+            this.pbDriverPic.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pbDriverPic.TabIndex = 44;
+            this.pbDriverPic.TabStop = false;
+            this.pbDriverPic.Visible = false;
+            // 
+            // btnVehicleInfo
+            // 
+            this.btnVehicleInfo.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.875F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnVehicleInfo.Location = new System.Drawing.Point(775, 545);
+            this.btnVehicleInfo.Margin = new System.Windows.Forms.Padding(6, 4, 6, 4);
+            this.btnVehicleInfo.Name = "btnVehicleInfo";
+            this.btnVehicleInfo.Size = new System.Drawing.Size(211, 51);
+            this.btnVehicleInfo.TabIndex = 48;
+            this.btnVehicleInfo.Text = "Vehicle Info";
+            this.btnVehicleInfo.UseVisualStyleBackColor = true;
+            this.btnVehicleInfo.Visible = false;
+            this.btnVehicleInfo.Click += new System.EventHandler(this.btnVehicleInfo_Click);
+            // 
+            // btnDelete
+            // 
+            this.btnDelete.BackColor = System.Drawing.Color.Tomato;
+            this.btnDelete.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.875F);
+            this.btnDelete.Location = new System.Drawing.Point(451, 253);
+            this.btnDelete.Name = "btnDelete";
+            this.btnDelete.Size = new System.Drawing.Size(122, 36);
+            this.btnDelete.TabIndex = 49;
+            this.btnDelete.Text = "Delete";
+            this.btnDelete.UseVisualStyleBackColor = false;
+            this.btnDelete.Visible = false;
+            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
             // 
             // SSN_OLNMenu
             // 
@@ -386,9 +415,11 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Menu;
             this.ClientSize = new System.Drawing.Size(1025, 781);
-            this.Controls.Add(this.lblSearch);
+            this.Controls.Add(this.btnDelete);
+            this.Controls.Add(this.btnVehicleInfo);
+            this.Controls.Add(this.btnSearch);
             this.Controls.Add(this.lblFlagMessage);
-            this.Controls.Add(this.pictureBox1);
+            this.Controls.Add(this.pbDriverPic);
             this.Controls.Add(this.lblUserPrompt);
             this.Controls.Add(this.lblLicenseInfo);
             this.Controls.Add(this.lblExpiration);
@@ -417,14 +448,12 @@
             this.Controls.Add(this.btnClose);
             this.Controls.Add(this.lblSubHeading);
             this.Controls.Add(this.lblSSNHeading);
-            this.Controls.Add(this.picDarren);
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "SSN_OLNMenu";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "SSNMenu";
             this.Load += new System.EventHandler(this.SSNMenu_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.picDarren)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbDriverPic)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -460,9 +489,10 @@
         private System.Windows.Forms.Label lblExpiration;
         private System.Windows.Forms.Label lblLicenseInfo;
         private System.Windows.Forms.Label lblUserPrompt;
-        private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.PictureBox picDarren;
+        private System.Windows.Forms.PictureBox pbDriverPic;
         private System.Windows.Forms.Label lblFlagMessage;
-        private System.Windows.Forms.Button lblSearch;
+        private System.Windows.Forms.Button btnSearch;
+        private System.Windows.Forms.Button btnVehicleInfo;
+        private System.Windows.Forms.Button btnDelete;
     }
 }

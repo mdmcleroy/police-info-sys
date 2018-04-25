@@ -76,6 +76,25 @@
           <Property Name="LastUpdate" Type="datetime" Nullable="false" />
           <Property Name="Active" Type="bit" Nullable="false" />
         </EntityType>
+        <EntityType Name="Licenses">
+          <Key>
+            <PropertyRef Name="LicenseID" />
+          </Key>
+          <Property Name="LicenseID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="LicenseCode" Type="varchar" MaxLength="16" Nullable="false" />
+          <Property Name="LicenseState" Type="int" Nullable="false" />
+          <Property Name="LicenseCounty" Type="int" Nullable="false" />
+          <Property Name="LicenseStatus" Type="varchar" MaxLength="8" Nullable="false" />
+          <Property Name="LicenseClass" Type="varchar" MaxLength="8" Nullable="false" />
+          <Property Name="LicenseRestrictions" Type="varchar" MaxLength="32" />
+          <Property Name="LicenseEndorsements" Type="varchar" MaxLength="32" />
+          <Property Name="LicenseIssue" Type="varchar" MaxLength="16" Nullable="false" />
+          <Property Name="LicenseExpiration" Type="varchar" MaxLength="16" Nullable="false" />
+          <Property Name="Active" Type="bit" Nullable="false" />
+          <Property Name="Deleted" Type="bit" Nullable="false" />
+          <Property Name="CreateDate" Type="datetime" Nullable="false" />
+          <Property Name="LastUpdate" Type="datetime" Nullable="false" />
+        </EntityType>
         <EntityType Name="Restrictions">
           <Key>
             <PropertyRef Name="RestrictionID" />
@@ -121,6 +140,23 @@
           <Property Name="Deleted" Type="bit" Nullable="false" />
           <Property Name="CreateDate" Type="datetime" Nullable="false" />
         </EntityType>
+        <EntityType Name="Vehicles">
+          <Key>
+            <PropertyRef Name="VehicleID" />
+          </Key>
+          <Property Name="VehicleID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="SSN" Type="varchar" MaxLength="9" Nullable="false" />
+          <Property Name="VTypeCode" Type="int" Nullable="false" />
+          <Property Name="TCCode" Type="int" Nullable="false" />
+          <Property Name="VMakeCode" Type="int" Nullable="false" />
+          <Property Name="BCCode" Type="int" Nullable="false" />
+          <Property Name="Tag" Type="varchar" MaxLength="16" Nullable="false" />
+          <Property Name="TagExpiration" Type="varchar" MaxLength="16" Nullable="false" />
+          <Property Name="CreateDate" Type="datetime" Nullable="false" />
+          <Property Name="LastUpdate" Type="datetime" Nullable="false" />
+          <Property Name="Active" Type="bit" Nullable="false" />
+          <Property Name="Deleted" Type="bit" Nullable="false" />
+        </EntityType>
         <EntityType Name="VehicleType">
           <Key>
             <PropertyRef Name="VTypeID" />
@@ -138,6 +174,26 @@ warning 6002: The table/view 'mdmcleroy.dbo.vwDriver' does not have a primary ke
         <EntityType Name="vwDriver">
           <Key>
             <PropertyRef Name="DriverID" />
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
           </Key>
           <Property Name="DriverID" Type="uniqueidentifier" Nullable="false" />
           <Property Name="SSN" Type="varchar" MaxLength="9" Nullable="false" />
@@ -160,13 +216,13 @@ warning 6002: The table/view 'mdmcleroy.dbo.vwDriver' does not have a primary ke
           <Property Name="Deleted" Type="bit" Nullable="false" />
           <Property Name="CreateDate" Type="datetime" Nullable="false" />
           <Property Name="LastUpdate" Type="datetime" Nullable="false" />
-          <Property Name="StateID" Type="uniqueidentifier" />
-          <Property Name="StatesStateCode" Type="int" />
-          <Property Name="StateAbbr" Type="varchar" MaxLength="2" />
-          <Property Name="StateName" Type="varchar" MaxLength="32" />
-          <Property Name="StatesActive" Type="bit" />
-          <Property Name="StatesDeleted" Type="bit" />
-          <Property Name="StatesCreateDate" Type="datetime" />
+          <Property Name="DriverStateID" Type="uniqueidentifier" />
+          <Property Name="DriverStateCode" Type="int" />
+          <Property Name="DriverStateAbbr" Type="varchar" MaxLength="2" />
+          <Property Name="DriverStateName" Type="varchar" MaxLength="32" />
+          <Property Name="DriverStateActive" Type="bit" />
+          <Property Name="DriverStateDeleted" Type="bit" />
+          <Property Name="DriverStateCreateDate" Type="datetime" />
           <Property Name="EyeColorID" Type="uniqueidentifier" />
           <Property Name="EyeCode" Type="int" />
           <Property Name="EyeColorAbbr" Type="varchar" MaxLength="3" />
@@ -181,20 +237,96 @@ warning 6002: The table/view 'mdmcleroy.dbo.vwDriver' does not have a primary ke
           <Property Name="HairActive" Type="bit" />
           <Property Name="HairDeleted" Type="bit" />
           <Property Name="HairCreateDate" Type="datetime" />
-          <Property Name="LicenseID" Type="uniqueidentifier" Nullable="false" />
-          <Property Name="LicenseCode" Type="varchar" MaxLength="16" Nullable="false" />
-          <Property Name="LicenseState" Type="int" Nullable="false" />
-          <Property Name="LicenseCounty" Type="int" Nullable="false" />
-          <Property Name="LicenseStatus" Type="varchar" MaxLength="8" Nullable="false" />
-          <Property Name="LicenseClass" Type="varchar" MaxLength="8" Nullable="false" />
+          <Property Name="LicenseID" Type="uniqueidentifier" />
+          <Property Name="LicenseCode" Type="varchar" MaxLength="16" />
+          <Property Name="LicenseState" Type="int" />
+          <Property Name="LicenseCounty" Type="int" />
+          <Property Name="LicenseStatus" Type="varchar" MaxLength="8" />
+          <Property Name="LicenseClass" Type="varchar" MaxLength="8" />
           <Property Name="LicenseRestrictions" Type="varchar" MaxLength="32" />
           <Property Name="LicenseEndorsements" Type="varchar" MaxLength="32" />
-          <Property Name="LicenseIssue" Type="varchar" MaxLength="16" Nullable="false" />
-          <Property Name="LicenseExpiration" Type="varchar" MaxLength="16" Nullable="false" />
-          <Property Name="LicenseActive" Type="bit" Nullable="false" />
-          <Property Name="LicenseDeleted" Type="bit" Nullable="false" />
-          <Property Name="LicenseCreateDate" Type="datetime" Nullable="false" />
-          <Property Name="LicenseLastUpdate" Type="datetime" Nullable="false" />
+          <Property Name="LicenseIssue" Type="varchar" MaxLength="16" />
+          <Property Name="LicenseExpiration" Type="varchar" MaxLength="16" />
+          <Property Name="LicenseActive" Type="bit" />
+          <Property Name="LicenseDeleted" Type="bit" />
+          <Property Name="LicenseCreateDate" Type="datetime" />
+          <Property Name="LicenseLastUpdate" Type="datetime" />
+          <Property Name="StatusID" Type="uniqueidentifier" />
+          <Property Name="StatusCode" Type="varchar" MaxLength="8" />
+          <Property Name="StatusName" Type="varchar" MaxLength="32" />
+          <Property Name="StatusCreateDate" Type="datetime" />
+          <Property Name="StatusLastUpdate" Type="datetime" />
+          <Property Name="StatusActive" Type="bit" />
+          <Property Name="CountyID" Type="uniqueidentifier" />
+          <Property Name="CountyCode" Type="int" />
+          <Property Name="CountyName" Type="varchar" MaxLength="12" />
+          <Property Name="CountyActive" Type="bit" />
+          <Property Name="CountyDeleted" Type="bit" />
+          <Property Name="CountyCreateDate" Type="datetime" />
+          <Property Name="LicensesState" Type="uniqueidentifier" />
+          <Property Name="LicensesStateCode" Type="int" />
+          <Property Name="LicensesStateAbbr" Type="varchar" MaxLength="2" />
+          <Property Name="LicensesStateName" Type="varchar" MaxLength="32" />
+          <Property Name="LicensesActive" Type="bit" />
+          <Property Name="LicensesDeleted" Type="bit" />
+          <Property Name="LicensesCreateDate" Type="datetime" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'mdmcleroy.dbo.vwVehicle' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="vwVehicle">
+          <Key>
+            <PropertyRef Name="VehicleID" />
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+          </Key>
+          <Property Name="VehicleID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="SSN" Type="varchar" MaxLength="9" Nullable="false" />
+          <Property Name="VTypeCode" Type="int" Nullable="false" />
+          <Property Name="TCCode" Type="int" Nullable="false" />
+          <Property Name="VMakeCode" Type="int" Nullable="false" />
+          <Property Name="BCCode" Type="int" Nullable="false" />
+          <Property Name="Tag" Type="varchar" MaxLength="16" Nullable="false" />
+          <Property Name="TagExpiration" Type="varchar" MaxLength="16" Nullable="false" />
+          <Property Name="CreateDate" Type="datetime" Nullable="false" />
+          <Property Name="LastUpdate" Type="datetime" Nullable="false" />
+          <Property Name="Active" Type="bit" Nullable="false" />
+          <Property Name="Deleted" Type="bit" Nullable="false" />
+          <Property Name="VTypeID" Type="uniqueidentifier" />
+          <Property Name="VTypeVTypeCode" Type="int" />
+          <Property Name="VTypeName" Type="varchar" MaxLength="15" />
+          <Property Name="VTypeActive" Type="bit" />
+          <Property Name="VTypeDeleted" Type="bit" />
+          <Property Name="VTypeLastUpdate" Type="datetime" />
+          <Property Name="VTypeCreateDate" Type="datetime" />
+          <Property Name="VMakeID" Type="uniqueidentifier" />
+          <Property Name="VMakeVMakeCode" Type="int" />
+          <Property Name="VMakeName" Type="varchar" MaxLength="11" />
+          <Property Name="VMakeActive" Type="bit" />
+          <Property Name="VMakeDeleted" Type="bit" />
+          <Property Name="VMakeCreateDate" Type="datetime" />
+          <Property Name="TopColorID" Type="uniqueidentifier" />
+          <Property Name="TopColorCode" Type="int" />
+          <Property Name="TopColorAbbr" Type="varchar" MaxLength="3" />
+          <Property Name="TopColorName" Type="varchar" MaxLength="22" />
+          <Property Name="TopColorActive" Type="bit" />
+          <Property Name="TopColorDeleted" Type="bit" />
+          <Property Name="TopColorCreateDate" Type="datetime" />
+          <Property Name="BottomColorID" Type="uniqueidentifier" />
+          <Property Name="BottomColorCode" Type="int" />
+          <Property Name="BottomColorAbbr" Type="varchar" MaxLength="3" />
+          <Property Name="BottomColorName" Type="varchar" MaxLength="22" />
+          <Property Name="BottomColorActive" Type="bit" />
+          <Property Name="BottomColorDeleted" Type="bit" />
+          <Property Name="BottomColorCreateDate" Type="datetime" />
         </EntityType>
         <EntityContainer Name="mdmcleroyModelStoreContainer">
           <EntitySet Name="Classes" EntityType="Self.Classes" Schema="dbo" store:Type="Tables" />
@@ -202,10 +334,12 @@ warning 6002: The table/view 'mdmcleroy.dbo.vwDriver' does not have a primary ke
           <EntitySet Name="Counties" EntityType="Self.Counties" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Drivers" EntityType="Self.Drivers" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Endorsements" EntityType="Self.Endorsements" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Licenses" EntityType="Self.Licenses" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Restrictions" EntityType="Self.Restrictions" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="States" EntityType="Self.States" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Statuses" EntityType="Self.Statuses" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="VehicleMakes" EntityType="Self.VehicleMakes" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Vehicles" EntityType="Self.Vehicles" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="VehicleType" EntityType="Self.VehicleType" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="vwDriver" EntityType="Self.vwDriver" store:Type="Views" store:Schema="dbo">
             <DefiningQuery>SELECT 
@@ -230,13 +364,13 @@ warning 6002: The table/view 'mdmcleroy.dbo.vwDriver' does not have a primary ke
     [vwDriver].[Deleted] AS [Deleted], 
     [vwDriver].[CreateDate] AS [CreateDate], 
     [vwDriver].[LastUpdate] AS [LastUpdate], 
-    [vwDriver].[StateID] AS [StateID], 
-    [vwDriver].[StatesStateCode] AS [StatesStateCode], 
-    [vwDriver].[StateAbbr] AS [StateAbbr], 
-    [vwDriver].[StateName] AS [StateName], 
-    [vwDriver].[StatesActive] AS [StatesActive], 
-    [vwDriver].[StatesDeleted] AS [StatesDeleted], 
-    [vwDriver].[StatesCreateDate] AS [StatesCreateDate], 
+    [vwDriver].[DriverStateID] AS [DriverStateID], 
+    [vwDriver].[DriverStateCode] AS [DriverStateCode], 
+    [vwDriver].[DriverStateAbbr] AS [DriverStateAbbr], 
+    [vwDriver].[DriverStateName] AS [DriverStateName], 
+    [vwDriver].[DriverStateActive] AS [DriverStateActive], 
+    [vwDriver].[DriverStateDeleted] AS [DriverStateDeleted], 
+    [vwDriver].[DriverStateCreateDate] AS [DriverStateCreateDate], 
     [vwDriver].[EyeColorID] AS [EyeColorID], 
     [vwDriver].[EyeCode] AS [EyeCode], 
     [vwDriver].[EyeColorAbbr] AS [EyeColorAbbr], 
@@ -264,8 +398,70 @@ warning 6002: The table/view 'mdmcleroy.dbo.vwDriver' does not have a primary ke
     [vwDriver].[LicenseActive] AS [LicenseActive], 
     [vwDriver].[LicenseDeleted] AS [LicenseDeleted], 
     [vwDriver].[LicenseCreateDate] AS [LicenseCreateDate], 
-    [vwDriver].[LicenseLastUpdate] AS [LicenseLastUpdate]
+    [vwDriver].[LicenseLastUpdate] AS [LicenseLastUpdate], 
+    [vwDriver].[StatusID] AS [StatusID], 
+    [vwDriver].[StatusCode] AS [StatusCode], 
+    [vwDriver].[StatusName] AS [StatusName], 
+    [vwDriver].[StatusCreateDate] AS [StatusCreateDate], 
+    [vwDriver].[StatusLastUpdate] AS [StatusLastUpdate], 
+    [vwDriver].[StatusActive] AS [StatusActive], 
+    [vwDriver].[CountyID] AS [CountyID], 
+    [vwDriver].[CountyCode] AS [CountyCode], 
+    [vwDriver].[CountyName] AS [CountyName], 
+    [vwDriver].[CountyActive] AS [CountyActive], 
+    [vwDriver].[CountyDeleted] AS [CountyDeleted], 
+    [vwDriver].[CountyCreateDate] AS [CountyCreateDate], 
+    [vwDriver].[LicensesState] AS [LicensesState], 
+    [vwDriver].[LicensesStateCode] AS [LicensesStateCode], 
+    [vwDriver].[LicensesStateAbbr] AS [LicensesStateAbbr], 
+    [vwDriver].[LicensesStateName] AS [LicensesStateName], 
+    [vwDriver].[LicensesActive] AS [LicensesActive], 
+    [vwDriver].[LicensesDeleted] AS [LicensesDeleted], 
+    [vwDriver].[LicensesCreateDate] AS [LicensesCreateDate]
     FROM [dbo].[vwDriver] AS [vwDriver]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="vwVehicle" EntityType="Self.vwVehicle" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [vwVehicle].[VehicleID] AS [VehicleID], 
+    [vwVehicle].[SSN] AS [SSN], 
+    [vwVehicle].[VTypeCode] AS [VTypeCode], 
+    [vwVehicle].[TCCode] AS [TCCode], 
+    [vwVehicle].[VMakeCode] AS [VMakeCode], 
+    [vwVehicle].[BCCode] AS [BCCode], 
+    [vwVehicle].[Tag] AS [Tag], 
+    [vwVehicle].[TagExpiration] AS [TagExpiration], 
+    [vwVehicle].[CreateDate] AS [CreateDate], 
+    [vwVehicle].[LastUpdate] AS [LastUpdate], 
+    [vwVehicle].[Active] AS [Active], 
+    [vwVehicle].[Deleted] AS [Deleted], 
+    [vwVehicle].[VTypeID] AS [VTypeID], 
+    [vwVehicle].[VTypeVTypeCode] AS [VTypeVTypeCode], 
+    [vwVehicle].[VTypeName] AS [VTypeName], 
+    [vwVehicle].[VTypeActive] AS [VTypeActive], 
+    [vwVehicle].[VTypeDeleted] AS [VTypeDeleted], 
+    [vwVehicle].[VTypeLastUpdate] AS [VTypeLastUpdate], 
+    [vwVehicle].[VTypeCreateDate] AS [VTypeCreateDate], 
+    [vwVehicle].[VMakeID] AS [VMakeID], 
+    [vwVehicle].[VMakeVMakeCode] AS [VMakeVMakeCode], 
+    [vwVehicle].[VMakeName] AS [VMakeName], 
+    [vwVehicle].[VMakeActive] AS [VMakeActive], 
+    [vwVehicle].[VMakeDeleted] AS [VMakeDeleted], 
+    [vwVehicle].[VMakeCreateDate] AS [VMakeCreateDate], 
+    [vwVehicle].[TopColorID] AS [TopColorID], 
+    [vwVehicle].[TopColorCode] AS [TopColorCode], 
+    [vwVehicle].[TopColorAbbr] AS [TopColorAbbr], 
+    [vwVehicle].[TopColorName] AS [TopColorName], 
+    [vwVehicle].[TopColorActive] AS [TopColorActive], 
+    [vwVehicle].[TopColorDeleted] AS [TopColorDeleted], 
+    [vwVehicle].[TopColorCreateDate] AS [TopColorCreateDate], 
+    [vwVehicle].[BottomColorID] AS [BottomColorID], 
+    [vwVehicle].[BottomColorCode] AS [BottomColorCode], 
+    [vwVehicle].[BottomColorAbbr] AS [BottomColorAbbr], 
+    [vwVehicle].[BottomColorName] AS [BottomColorName], 
+    [vwVehicle].[BottomColorActive] AS [BottomColorActive], 
+    [vwVehicle].[BottomColorDeleted] AS [BottomColorDeleted], 
+    [vwVehicle].[BottomColorCreateDate] AS [BottomColorCreateDate]
+    FROM [dbo].[vwVehicle] AS [vwVehicle]</DefiningQuery>
           </EntitySet>
         </EntityContainer>
       </Schema></edmx:StorageModels>
@@ -284,6 +480,9 @@ warning 6002: The table/view 'mdmcleroy.dbo.vwDriver' does not have a primary ke
           <EntitySet Name="VehicleTypes" EntityType="mdmcleroyModel.VehicleType" />
           <EntitySet Name="Drivers" EntityType="mdmcleroyModel.Driver" />
           <EntitySet Name="vwDrivers" EntityType="mdmcleroyModel.vwDriver" />
+          <EntitySet Name="vwVehicles" EntityType="mdmcleroyModel.vwVehicle" />
+          <EntitySet Name="Licenses" EntityType="mdmcleroyModel.License" />
+          <EntitySet Name="Vehicles" EntityType="mdmcleroyModel.Vehicle" />
         </EntityContainer>
         <EntityType Name="State">
           <Key>
@@ -438,13 +637,13 @@ warning 6002: The table/view 'mdmcleroy.dbo.vwDriver' does not have a primary ke
           <Property Name="Deleted" Type="Boolean" Nullable="false" />
           <Property Name="CreateDate" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="LastUpdate" Type="DateTime" Nullable="false" Precision="3" />
-          <Property Name="StateID" Type="Guid" />
-          <Property Name="StatesStateCode" Type="Int32" />
-          <Property Name="StateAbbr" Type="String" MaxLength="2" FixedLength="false" Unicode="false" />
-          <Property Name="StateName" Type="String" MaxLength="32" FixedLength="false" Unicode="false" />
-          <Property Name="StatesActive" Type="Boolean" />
-          <Property Name="StatesDeleted" Type="Boolean" />
-          <Property Name="StatesCreateDate" Type="DateTime" Precision="3" />
+          <Property Name="DriverStateID" Type="Guid" />
+          <Property Name="DriverStateCode" Type="Int32" />
+          <Property Name="DriverStateAbbr" Type="String" MaxLength="2" FixedLength="false" Unicode="false" />
+          <Property Name="DriverStateName" Type="String" MaxLength="32" FixedLength="false" Unicode="false" />
+          <Property Name="DriverStateActive" Type="Boolean" />
+          <Property Name="DriverStateDeleted" Type="Boolean" />
+          <Property Name="DriverStateCreateDate" Type="DateTime" Precision="3" />
           <Property Name="EyeColorID" Type="Guid" />
           <Property Name="EyeCode" Type="Int32" />
           <Property Name="EyeColorAbbr" Type="String" MaxLength="3" FixedLength="false" Unicode="false" />
@@ -459,6 +658,88 @@ warning 6002: The table/view 'mdmcleroy.dbo.vwDriver' does not have a primary ke
           <Property Name="HairActive" Type="Boolean" />
           <Property Name="HairDeleted" Type="Boolean" />
           <Property Name="HairCreateDate" Type="DateTime" Precision="3" />
+          <Property Name="LicenseID" Type="Guid" />
+          <Property Name="LicenseCode" Type="String" MaxLength="16" FixedLength="false" Unicode="false" />
+          <Property Name="LicenseState" Type="Int32" />
+          <Property Name="LicenseCounty" Type="Int32" />
+          <Property Name="LicenseStatus" Type="String" MaxLength="8" FixedLength="false" Unicode="false" />
+          <Property Name="LicenseClass" Type="String" MaxLength="8" FixedLength="false" Unicode="false" />
+          <Property Name="LicenseRestrictions" Type="String" MaxLength="32" FixedLength="false" Unicode="false" />
+          <Property Name="LicenseEndorsements" Type="String" MaxLength="32" FixedLength="false" Unicode="false" />
+          <Property Name="LicenseIssue" Type="String" MaxLength="16" FixedLength="false" Unicode="false" />
+          <Property Name="LicenseExpiration" Type="String" MaxLength="16" FixedLength="false" Unicode="false" />
+          <Property Name="LicenseActive" Type="Boolean" />
+          <Property Name="LicenseDeleted" Type="Boolean" />
+          <Property Name="LicenseCreateDate" Type="DateTime" Precision="3" />
+          <Property Name="LicenseLastUpdate" Type="DateTime" Precision="3" />
+          <Property Name="StatusID" Type="Guid" />
+          <Property Name="StatusCode" Type="String" MaxLength="8" FixedLength="false" Unicode="false" />
+          <Property Name="StatusName" Type="String" MaxLength="32" FixedLength="false" Unicode="false" />
+          <Property Name="StatusCreateDate" Type="DateTime" Precision="3" />
+          <Property Name="StatusLastUpdate" Type="DateTime" Precision="3" />
+          <Property Name="StatusActive" Type="Boolean" />
+          <Property Name="CountyID" Type="Guid" />
+          <Property Name="CountyCode" Type="Int32" />
+          <Property Name="CountyName" Type="String" MaxLength="12" FixedLength="false" Unicode="false" />
+          <Property Name="CountyActive" Type="Boolean" />
+          <Property Name="CountyDeleted" Type="Boolean" />
+          <Property Name="CountyCreateDate" Type="DateTime" Precision="3" />
+          <Property Name="LicensesState" Type="Guid" />
+          <Property Name="LicensesStateCode" Type="Int32" />
+          <Property Name="LicensesStateAbbr" Type="String" MaxLength="2" FixedLength="false" Unicode="false" />
+          <Property Name="LicensesStateName" Type="String" MaxLength="32" FixedLength="false" Unicode="false" />
+          <Property Name="LicensesActive" Type="Boolean" />
+          <Property Name="LicensesDeleted" Type="Boolean" />
+          <Property Name="LicensesCreateDate" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="vwVehicle">
+          <Key>
+            <PropertyRef Name="VehicleID" />
+          </Key>
+          <Property Name="VehicleID" Type="Guid" Nullable="false" />
+          <Property Name="SSN" Type="String" Nullable="false" MaxLength="9" FixedLength="false" Unicode="false" />
+          <Property Name="VTypeCode" Type="Int32" Nullable="false" />
+          <Property Name="TCCode" Type="Int32" Nullable="false" />
+          <Property Name="VMakeCode" Type="Int32" Nullable="false" />
+          <Property Name="BCCode" Type="Int32" Nullable="false" />
+          <Property Name="Tag" Type="String" Nullable="false" MaxLength="16" FixedLength="false" Unicode="false" />
+          <Property Name="TagExpiration" Type="String" Nullable="false" MaxLength="16" FixedLength="false" Unicode="false" />
+          <Property Name="CreateDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="LastUpdate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Active" Type="Boolean" Nullable="false" />
+          <Property Name="Deleted" Type="Boolean" Nullable="false" />
+          <Property Name="VTypeID" Type="Guid" />
+          <Property Name="VTypeVTypeCode" Type="Int32" />
+          <Property Name="VTypeName" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="VTypeActive" Type="Boolean" />
+          <Property Name="VTypeDeleted" Type="Boolean" />
+          <Property Name="VTypeLastUpdate" Type="DateTime" Precision="3" />
+          <Property Name="VTypeCreateDate" Type="DateTime" Precision="3" />
+          <Property Name="VMakeID" Type="Guid" />
+          <Property Name="VMakeVMakeCode" Type="Int32" />
+          <Property Name="VMakeName" Type="String" MaxLength="11" FixedLength="false" Unicode="false" />
+          <Property Name="VMakeActive" Type="Boolean" />
+          <Property Name="VMakeDeleted" Type="Boolean" />
+          <Property Name="VMakeCreateDate" Type="DateTime" Precision="3" />
+          <Property Name="TopColorID" Type="Guid" />
+          <Property Name="TopColorCode" Type="Int32" />
+          <Property Name="TopColorAbbr" Type="String" MaxLength="3" FixedLength="false" Unicode="false" />
+          <Property Name="TopColorName" Type="String" MaxLength="22" FixedLength="false" Unicode="false" />
+          <Property Name="TopColorActive" Type="Boolean" />
+          <Property Name="TopColorDeleted" Type="Boolean" />
+          <Property Name="TopColorCreateDate" Type="DateTime" Precision="3" />
+          <Property Name="BottomColorID" Type="Guid" />
+          <Property Name="BottomColorCode" Type="Int32" />
+          <Property Name="BottomColorAbbr" Type="String" MaxLength="3" FixedLength="false" Unicode="false" />
+          <Property Name="BottomColorName" Type="String" MaxLength="22" FixedLength="false" Unicode="false" />
+          <Property Name="BottomColorActive" Type="Boolean" />
+          <Property Name="BottomColorDeleted" Type="Boolean" />
+          <Property Name="BottomColorCreateDate" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="License">
+          <Key>
+            <PropertyRef Name="LicenseID" />
+          </Key>
           <Property Name="LicenseID" Type="Guid" Nullable="false" />
           <Property Name="LicenseCode" Type="String" Nullable="false" MaxLength="16" FixedLength="false" Unicode="false" />
           <Property Name="LicenseState" Type="Int32" Nullable="false" />
@@ -469,10 +750,27 @@ warning 6002: The table/view 'mdmcleroy.dbo.vwDriver' does not have a primary ke
           <Property Name="LicenseEndorsements" Type="String" MaxLength="32" FixedLength="false" Unicode="false" />
           <Property Name="LicenseIssue" Type="String" Nullable="false" MaxLength="16" FixedLength="false" Unicode="false" />
           <Property Name="LicenseExpiration" Type="String" Nullable="false" MaxLength="16" FixedLength="false" Unicode="false" />
-          <Property Name="LicenseActive" Type="Boolean" Nullable="false" />
-          <Property Name="LicenseDeleted" Type="Boolean" Nullable="false" />
-          <Property Name="LicenseCreateDate" Type="DateTime" Nullable="false" Precision="3" />
-          <Property Name="LicenseLastUpdate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Active" Type="Boolean" Nullable="false" />
+          <Property Name="Deleted" Type="Boolean" Nullable="false" />
+          <Property Name="CreateDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="LastUpdate" Type="DateTime" Nullable="false" Precision="3" />
+        </EntityType>
+        <EntityType Name="Vehicle">
+          <Key>
+            <PropertyRef Name="VehicleID" />
+          </Key>
+          <Property Name="VehicleID" Type="Guid" Nullable="false" />
+          <Property Name="SSN" Type="String" Nullable="false" MaxLength="9" FixedLength="false" Unicode="false" />
+          <Property Name="VTypeCode" Type="Int32" Nullable="false" />
+          <Property Name="TCCode" Type="Int32" Nullable="false" />
+          <Property Name="VMakeCode" Type="Int32" Nullable="false" />
+          <Property Name="BCCode" Type="Int32" Nullable="false" />
+          <Property Name="Tag" Type="String" Nullable="false" MaxLength="16" FixedLength="false" Unicode="false" />
+          <Property Name="TagExpiration" Type="String" Nullable="false" MaxLength="16" FixedLength="false" Unicode="false" />
+          <Property Name="CreateDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="LastUpdate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Active" Type="Boolean" Nullable="false" />
+          <Property Name="Deleted" Type="Boolean" Nullable="false" />
         </EntityType>
       </Schema>
     </edmx:ConceptualModels>
@@ -621,6 +919,25 @@ warning 6002: The table/view 'mdmcleroy.dbo.vwDriver' does not have a primary ke
           <EntitySetMapping Name="vwDrivers">
             <EntityTypeMapping TypeName="mdmcleroyModel.vwDriver">
               <MappingFragment StoreEntitySet="vwDriver">
+                <ScalarProperty Name="LicensesCreateDate" ColumnName="LicensesCreateDate" />
+                <ScalarProperty Name="LicensesDeleted" ColumnName="LicensesDeleted" />
+                <ScalarProperty Name="LicensesActive" ColumnName="LicensesActive" />
+                <ScalarProperty Name="LicensesStateName" ColumnName="LicensesStateName" />
+                <ScalarProperty Name="LicensesStateAbbr" ColumnName="LicensesStateAbbr" />
+                <ScalarProperty Name="LicensesStateCode" ColumnName="LicensesStateCode" />
+                <ScalarProperty Name="LicensesState" ColumnName="LicensesState" />
+                <ScalarProperty Name="CountyCreateDate" ColumnName="CountyCreateDate" />
+                <ScalarProperty Name="CountyDeleted" ColumnName="CountyDeleted" />
+                <ScalarProperty Name="CountyActive" ColumnName="CountyActive" />
+                <ScalarProperty Name="CountyName" ColumnName="CountyName" />
+                <ScalarProperty Name="CountyCode" ColumnName="CountyCode" />
+                <ScalarProperty Name="CountyID" ColumnName="CountyID" />
+                <ScalarProperty Name="StatusActive" ColumnName="StatusActive" />
+                <ScalarProperty Name="StatusLastUpdate" ColumnName="StatusLastUpdate" />
+                <ScalarProperty Name="StatusCreateDate" ColumnName="StatusCreateDate" />
+                <ScalarProperty Name="StatusName" ColumnName="StatusName" />
+                <ScalarProperty Name="StatusCode" ColumnName="StatusCode" />
+                <ScalarProperty Name="StatusID" ColumnName="StatusID" />
                 <ScalarProperty Name="LicenseLastUpdate" ColumnName="LicenseLastUpdate" />
                 <ScalarProperty Name="LicenseCreateDate" ColumnName="LicenseCreateDate" />
                 <ScalarProperty Name="LicenseDeleted" ColumnName="LicenseDeleted" />
@@ -649,13 +966,13 @@ warning 6002: The table/view 'mdmcleroy.dbo.vwDriver' does not have a primary ke
                 <ScalarProperty Name="EyeColorAbbr" ColumnName="EyeColorAbbr" />
                 <ScalarProperty Name="EyeCode" ColumnName="EyeCode" />
                 <ScalarProperty Name="EyeColorID" ColumnName="EyeColorID" />
-                <ScalarProperty Name="StatesCreateDate" ColumnName="StatesCreateDate" />
-                <ScalarProperty Name="StatesDeleted" ColumnName="StatesDeleted" />
-                <ScalarProperty Name="StatesActive" ColumnName="StatesActive" />
-                <ScalarProperty Name="StateName" ColumnName="StateName" />
-                <ScalarProperty Name="StateAbbr" ColumnName="StateAbbr" />
-                <ScalarProperty Name="StatesStateCode" ColumnName="StatesStateCode" />
-                <ScalarProperty Name="StateID" ColumnName="StateID" />
+                <ScalarProperty Name="DriverStateCreateDate" ColumnName="DriverStateCreateDate" />
+                <ScalarProperty Name="DriverStateDeleted" ColumnName="DriverStateDeleted" />
+                <ScalarProperty Name="DriverStateActive" ColumnName="DriverStateActive" />
+                <ScalarProperty Name="DriverStateName" ColumnName="DriverStateName" />
+                <ScalarProperty Name="DriverStateAbbr" ColumnName="DriverStateAbbr" />
+                <ScalarProperty Name="DriverStateCode" ColumnName="DriverStateCode" />
+                <ScalarProperty Name="DriverStateID" ColumnName="DriverStateID" />
                 <ScalarProperty Name="LastUpdate" ColumnName="LastUpdate" />
                 <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
                 <ScalarProperty Name="Deleted" ColumnName="Deleted" />
@@ -677,6 +994,89 @@ warning 6002: The table/view 'mdmcleroy.dbo.vwDriver' does not have a primary ke
                 <ScalarProperty Name="OLN" ColumnName="OLN" />
                 <ScalarProperty Name="SSN" ColumnName="SSN" />
                 <ScalarProperty Name="DriverID" ColumnName="DriverID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="vwVehicles">
+            <EntityTypeMapping TypeName="mdmcleroyModel.vwVehicle">
+              <MappingFragment StoreEntitySet="vwVehicle">
+                <ScalarProperty Name="BottomColorCreateDate" ColumnName="BottomColorCreateDate" />
+                <ScalarProperty Name="BottomColorDeleted" ColumnName="BottomColorDeleted" />
+                <ScalarProperty Name="BottomColorActive" ColumnName="BottomColorActive" />
+                <ScalarProperty Name="BottomColorName" ColumnName="BottomColorName" />
+                <ScalarProperty Name="BottomColorAbbr" ColumnName="BottomColorAbbr" />
+                <ScalarProperty Name="BottomColorCode" ColumnName="BottomColorCode" />
+                <ScalarProperty Name="BottomColorID" ColumnName="BottomColorID" />
+                <ScalarProperty Name="TopColorCreateDate" ColumnName="TopColorCreateDate" />
+                <ScalarProperty Name="TopColorDeleted" ColumnName="TopColorDeleted" />
+                <ScalarProperty Name="TopColorActive" ColumnName="TopColorActive" />
+                <ScalarProperty Name="TopColorName" ColumnName="TopColorName" />
+                <ScalarProperty Name="TopColorAbbr" ColumnName="TopColorAbbr" />
+                <ScalarProperty Name="TopColorCode" ColumnName="TopColorCode" />
+                <ScalarProperty Name="TopColorID" ColumnName="TopColorID" />
+                <ScalarProperty Name="VMakeCreateDate" ColumnName="VMakeCreateDate" />
+                <ScalarProperty Name="VMakeDeleted" ColumnName="VMakeDeleted" />
+                <ScalarProperty Name="VMakeActive" ColumnName="VMakeActive" />
+                <ScalarProperty Name="VMakeName" ColumnName="VMakeName" />
+                <ScalarProperty Name="VMakeVMakeCode" ColumnName="VMakeVMakeCode" />
+                <ScalarProperty Name="VMakeID" ColumnName="VMakeID" />
+                <ScalarProperty Name="VTypeCreateDate" ColumnName="VTypeCreateDate" />
+                <ScalarProperty Name="VTypeLastUpdate" ColumnName="VTypeLastUpdate" />
+                <ScalarProperty Name="VTypeDeleted" ColumnName="VTypeDeleted" />
+                <ScalarProperty Name="VTypeActive" ColumnName="VTypeActive" />
+                <ScalarProperty Name="VTypeName" ColumnName="VTypeName" />
+                <ScalarProperty Name="VTypeVTypeCode" ColumnName="VTypeVTypeCode" />
+                <ScalarProperty Name="VTypeID" ColumnName="VTypeID" />
+                <ScalarProperty Name="Deleted" ColumnName="Deleted" />
+                <ScalarProperty Name="Active" ColumnName="Active" />
+                <ScalarProperty Name="LastUpdate" ColumnName="LastUpdate" />
+                <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+                <ScalarProperty Name="TagExpiration" ColumnName="TagExpiration" />
+                <ScalarProperty Name="Tag" ColumnName="Tag" />
+                <ScalarProperty Name="BCCode" ColumnName="BCCode" />
+                <ScalarProperty Name="VMakeCode" ColumnName="VMakeCode" />
+                <ScalarProperty Name="TCCode" ColumnName="TCCode" />
+                <ScalarProperty Name="VTypeCode" ColumnName="VTypeCode" />
+                <ScalarProperty Name="SSN" ColumnName="SSN" />
+                <ScalarProperty Name="VehicleID" ColumnName="VehicleID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Licenses">
+            <EntityTypeMapping TypeName="mdmcleroyModel.License">
+              <MappingFragment StoreEntitySet="Licenses">
+                <ScalarProperty Name="LastUpdate" ColumnName="LastUpdate" />
+                <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+                <ScalarProperty Name="Deleted" ColumnName="Deleted" />
+                <ScalarProperty Name="Active" ColumnName="Active" />
+                <ScalarProperty Name="LicenseExpiration" ColumnName="LicenseExpiration" />
+                <ScalarProperty Name="LicenseIssue" ColumnName="LicenseIssue" />
+                <ScalarProperty Name="LicenseEndorsements" ColumnName="LicenseEndorsements" />
+                <ScalarProperty Name="LicenseRestrictions" ColumnName="LicenseRestrictions" />
+                <ScalarProperty Name="LicenseClass" ColumnName="LicenseClass" />
+                <ScalarProperty Name="LicenseStatus" ColumnName="LicenseStatus" />
+                <ScalarProperty Name="LicenseCounty" ColumnName="LicenseCounty" />
+                <ScalarProperty Name="LicenseState" ColumnName="LicenseState" />
+                <ScalarProperty Name="LicenseCode" ColumnName="LicenseCode" />
+                <ScalarProperty Name="LicenseID" ColumnName="LicenseID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Vehicles">
+            <EntityTypeMapping TypeName="mdmcleroyModel.Vehicle">
+              <MappingFragment StoreEntitySet="Vehicles">
+                <ScalarProperty Name="Deleted" ColumnName="Deleted" />
+                <ScalarProperty Name="Active" ColumnName="Active" />
+                <ScalarProperty Name="LastUpdate" ColumnName="LastUpdate" />
+                <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+                <ScalarProperty Name="TagExpiration" ColumnName="TagExpiration" />
+                <ScalarProperty Name="Tag" ColumnName="Tag" />
+                <ScalarProperty Name="BCCode" ColumnName="BCCode" />
+                <ScalarProperty Name="VMakeCode" ColumnName="VMakeCode" />
+                <ScalarProperty Name="TCCode" ColumnName="TCCode" />
+                <ScalarProperty Name="VTypeCode" ColumnName="VTypeCode" />
+                <ScalarProperty Name="SSN" ColumnName="SSN" />
+                <ScalarProperty Name="VehicleID" ColumnName="VehicleID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

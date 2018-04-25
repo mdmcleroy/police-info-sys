@@ -1,6 +1,6 @@
 ﻿namespace cbhproj
 {
-    partial class EndorsementMenu
+    partial class DisplayEndorsements
     {
         /// <summary>
         /// Required designer variable.

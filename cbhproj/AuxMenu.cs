@@ -70,7 +70,7 @@ namespace cbhproj
 
         private void btnDisplayEndorsements_Click(object sender, EventArgs e)
         {
-            EndorsementMenu endorsementMenu = new EndorsementMenu();
+            DisplayEndorsements endorsementMenu = new DisplayEndorsements();
             endorsementMenu.ShowDialog();
         }
 

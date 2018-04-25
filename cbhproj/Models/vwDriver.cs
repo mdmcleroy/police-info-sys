@@ -35,13 +35,13 @@ namespace cbhproj.Models
         public bool Deleted { get; set; }
         public System.DateTime CreateDate { get; set; }
         public System.DateTime LastUpdate { get; set; }
-        public Nullable<System.Guid> StateID { get; set; }
-        public Nullable<int> StatesStateCode { get; set; }
-        public string StateAbbr { get; set; }
-        public string StateName { get; set; }
-        public Nullable<bool> StatesActive { get; set; }
-        public Nullable<bool> StatesDeleted { get; set; }
-        public Nullable<System.DateTime> StatesCreateDate { get; set; }
+        public Nullable<System.Guid> DriverStateID { get; set; }
+        public Nullable<int> DriverStateCode { get; set; }
+        public string DriverStateAbbr { get; set; }
+        public string DriverStateName { get; set; }
+        public Nullable<bool> DriverStateActive { get; set; }
+        public Nullable<bool> DriverStateDeleted { get; set; }
+        public Nullable<System.DateTime> DriverStateCreateDate { get; set; }
         public Nullable<System.Guid> EyeColorID { get; set; }
         public Nullable<int> EyeCode { get; set; }
         public string EyeColorAbbr { get; set; }
@@ -56,19 +56,38 @@ namespace cbhproj.Models
         public Nullable<bool> HairActive { get; set; }
         public Nullable<bool> HairDeleted { get; set; }
         public Nullable<System.DateTime> HairCreateDate { get; set; }
-        public System.Guid LicenseID { get; set; }
+        public Nullable<System.Guid> LicenseID { get; set; }
         public string LicenseCode { get; set; }
-        public int LicenseState { get; set; }
-        public int LicenseCounty { get; set; }
+        public Nullable<int> LicenseState { get; set; }
+        public Nullable<int> LicenseCounty { get; set; }
         public string LicenseStatus { get; set; }
         public string LicenseClass { get; set; }
         public string LicenseRestrictions { get; set; }
         public string LicenseEndorsements { get; set; }
         public string LicenseIssue { get; set; }
         public string LicenseExpiration { get; set; }
-        public bool LicenseActive { get; set; }
-        public bool LicenseDeleted { get; set; }
-        public System.DateTime LicenseCreateDate { get; set; }
-        public System.DateTime LicenseLastUpdate { get; set; }
+        public Nullable<bool> LicenseActive { get; set; }
+        public Nullable<bool> LicenseDeleted { get; set; }
+        public Nullable<System.DateTime> LicenseCreateDate { get; set; }
+        public Nullable<System.DateTime> LicenseLastUpdate { get; set; }
+        public Nullable<System.Guid> StatusID { get; set; }
+        public string StatusCode { get; set; }
+        public string StatusName { get; set; }
+        public Nullable<System.DateTime> StatusCreateDate { get; set; }
+        public Nullable<System.DateTime> StatusLastUpdate { get; set; }
+        public Nullable<bool> StatusActive { get; set; }
+        public Nullable<System.Guid> CountyID { get; set; }
+        public Nullable<int> CountyCode { get; set; }
+        public string CountyName { get; set; }
+        public Nullable<bool> CountyActive { get; set; }
+        public Nullable<bool> CountyDeleted { get; set; }
+        public Nullable<System.DateTime> CountyCreateDate { get; set; }
+        public Nullable<System.Guid> LicensesState { get; set; }
+        public Nullable<int> LicensesStateCode { get; set; }
+        public string LicensesStateAbbr { get; set; }
+        public string LicensesStateName { get; set; }
+        public Nullable<bool> LicensesActive { get; set; }
+        public Nullable<bool> LicensesDeleted { get; set; }
+        public Nullable<System.DateTime> LicensesCreateDate { get; set; }
     }
 }
