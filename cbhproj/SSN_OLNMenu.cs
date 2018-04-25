@@ -67,19 +67,39 @@ namespace cbhproj
 
             if (searchByOLN)
             {
+                if (userInput.Length != 7 || userInput.Length != 9)
+                {
+                    return;
+                }
+
                 OLNLookup();
             }
             else if (searchBySSN)
             {
+                if (userInput.Length != 9)
+                {
+                    return;
+                }
+
                 SSNLookup();
             }
             else if (deleteBySSN)
             {
+                if (userInput.Length != 9)
+                {
+                    return;
+                }
+
                 btnDelete.Visible = true;
                 SSNLookup();
             }
             else if (deleteByOLN)
             {
+                if (userInput.Length != 7 || userInput.Length != 9)
+                {
+                    return;
+                }
+
                 btnDelete.Visible = true;
                 OLNLookup();
             }
@@ -87,9 +107,10 @@ namespace cbhproj
             if (drivers.Count == 0)
             {
                 btnDelete.Visible = false;
-                MessageBox.Show("Driver not found");
+                MessageBox.Show("Driver not found.", "Alert!", MessageBoxButtons.OK);
                 return;
             }
+
             FormatData();
         }
 
