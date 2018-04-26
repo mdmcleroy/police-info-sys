@@ -331,7 +331,7 @@ namespace cbhproj
             ClearFields();
             txtUserInput.Text = String.Empty;
             deleteMsg = String.Format("{0} {1} deleted.", driver.FirstName, driver.LastName);
-            dialog = MessageBox.Show(deleteMsg, "Alert!", MessageBoxButtons.OK);
+            dialog = MessageBox.Show(deleteMsg, "Success!", MessageBoxButtons.OK);
         }
     }
 }

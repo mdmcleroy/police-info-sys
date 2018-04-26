@@ -349,7 +349,7 @@ namespace cbhproj
         {
             DialogResult dialog = new DialogResult();
             var addUpdateMsg = (add) ? String.Format("Are you sure you want to add {0} {1}?", driver.FirstName, driver.LastName) 
-                                     : String.Format("Are you sure you want to modify {0} {1}?", driver.FirstName, driver.LastName);
+                                     : String.Format("Are you sure you want to update {0} {1}?", driver.FirstName, driver.LastName);
             dialog = MessageBox.Show(addUpdateMsg, "Alert!", MessageBoxButtons.YesNo);
 
             if (dialog == DialogResult.No)
@@ -358,6 +358,13 @@ namespace cbhproj
             }
 
             UpdateAddDriverLicenseVehicle();
+
+            SSNLookup();
+            Modify_FormatData();
+            btnClose.Text = "Close";
+            addUpdateMsg = (add) ? String.Format("{0} {1} added.", driver.FirstName, driver.LastName) 
+                                 : String.Format("{0} {1} updated.", driver.FirstName, driver.LastName);
+           dialog = MessageBox.Show(addUpdateMsg, "Success!", MessageBoxButtons.OK);
         }
         
         private void UpdateAddDriverLicenseVehicle()
@@ -386,16 +393,28 @@ namespace cbhproj
                 driverData.Address2 = txtAddress2.Text.Trim().ToUpper();
                 driverData.City = txtCity.Text.Trim().ToUpper();
                 driverData.StateCode = Convert.ToInt32(cbDriverState.Text.ToString().Split('(', ')')[1]);
-                driverData.PostalCode = txtZip.Text.Trim().Split('-')[0] + txtZip.Text.Trim().Split('-')[1];
-                driverData.Height = "0" + cbHeightFeet.Text.Trim().Split('\'') + cbHeightInches.Text.Trim().Split('\"');
+                //driverData.PostalCode = txtZip.Text.Trim().Split('-')[0] + txtZip.Text.Trim().Split('-')[1];
+                driverData.Height = "0" + cbHeightFeet.Text.Trim().Split('\'')[0] + cbHeightInches.Text.Trim().Split('\"')[0];
                 driverData.Weight = "0" + txtWeight.Text.Trim();
                 driverData.Gender = chkMale.Checked ? "M" : (chkFemale.Checked ? "F" : "O");
+                driverData.EyeColorCode = Convert.ToInt32(cbEyeColor.Text.ToString().Split('(', ')')[1]);
+                driverData.HairColorCode = Convert.ToInt32(cbHairColor.Text.ToString().Split('(', ')')[1]);
                 driverData.OrganDonor = chkOrganDonor.Checked;
-                driverData.LastName = txtLastName.Text.Trim().ToUpper();
-                driverData.LastName = txtLastName.Text.Trim().ToUpper();
-                driverData.LastName = txtLastName.Text.Trim().ToUpper();
-                driverData.LastName = txtLastName.Text.Trim().ToUpper();
-                driverData.LastName = txtLastName.Text.Trim().ToUpper();
+                driverData.OLN = txtOLN.Text.Trim();
+                //licenseData.LicenseStatus = cbStatus.Text.ToString().Split('(', ')')[1];
+                //licenseData.LicenseEndorsements = cbStatus.Text.ToString().Split('(', ')')[1];
+                //licenseData.LicenseStatus = cbStatus.Text.ToString().Split('(', ')')[1];
+                //licenseData.LicenseStatus = cbStatus.Text.ToString().Split('(', ')')[1];
+                //driverData.LastName = txtLastName.Text.Trim().ToUpper();
+                //driverData.LastName = txtLastName.Text.Trim().ToUpper();
+                //driverData.LastName = txtLastName.Text.Trim().ToUpper();
+
+                if (add)
+                {
+                    db.Drivers.Add(driverData);
+                }
+
+                db.SaveChanges();
             }
         }
 
