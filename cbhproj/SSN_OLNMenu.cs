@@ -76,7 +76,7 @@ namespace cbhproj
             }
             else if (searchBySSN)
             {
-                if (userInput.Length < 9 || userInput.Length > 11)
+                if (userInput.Length < 9)
                 {
                     return;
                 }
@@ -188,8 +188,8 @@ namespace cbhproj
             lblHeight.Text = String.Format("Height: {0}' {1}\"", driver.Height.Substring(1, 1), driver.Height.Substring(2, 2));
             lblWeight.Text = String.Format("Weight: {0} lbs", driver.Weight.Substring(1, 3));
             lblGender.Text = String.Format("Gender: {0}", driver.Gender);
-            lblEyeColor.Text = String.Format("Eye Color: {0} {1}", driver.EyeColorAbbr, driver.EyeColorName);
-            lblHairColor.Text = String.Format("Hair Color: {0} {1}", driver.HairColorAbbr, driver.HairColorName);
+            lblEyeColor.Text = String.Format("Eye Color: ({0:00}) {1} {2}", driver.EyeColorCode, driver.EyeColorAbbr, driver.EyeColorName);
+            lblHairColor.Text = String.Format("Hair Color: ({0:00}) {1} {2}", driver.HairColorCode, driver.HairColorAbbr, driver.HairColorName);
             lblOrganDonor.Text = "Organ Donor: " + (driver.OrganDonor ? "Yes" : "No");
             lblStatus.Text = "Status: " + (String.IsNullOrEmpty(driver.StatusCode) ? "N/A" : String.Format("({0}) {1}", driver.StatusCode, driver.StatusName));
             lblLicenseInfo.Text = "License Info";
@@ -285,6 +285,10 @@ namespace cbhproj
         private void txtUserSSN_TextChanged(object sender, EventArgs e)
         {
             ClearFields();
+            if (txtUserInput.Text.Length > 9)
+            {
+                txtUserInput.Text = String.Empty;
+            }
         }
 
         private void lblClass_Click(object sender, EventArgs e)

@@ -54,7 +54,6 @@
             this.chkOrganDonor = new System.Windows.Forms.CheckBox();
             this.chkMale = new System.Windows.Forms.CheckBox();
             this.chkFemale = new System.Windows.Forms.CheckBox();
-            this.chkOther = new System.Windows.Forms.CheckBox();
             this.cbStatus = new System.Windows.Forms.ComboBox();
             this.cbClass = new System.Windows.Forms.ComboBox();
             this.cbRestriction = new System.Windows.Forms.ComboBox();
@@ -65,6 +64,8 @@
             this.lblIssue = new System.Windows.Forms.Label();
             this.dtExpiration = new System.Windows.Forms.DateTimePicker();
             this.lblExpiration = new System.Windows.Forms.Label();
+            this.chkOther = new System.Windows.Forms.CheckBox();
+            this.btnAddUpdate = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // lblStateHeading
@@ -95,7 +96,7 @@
             this.cbDriverState.Location = new System.Drawing.Point(87, 398);
             this.cbDriverState.Name = "cbDriverState";
             this.cbDriverState.Size = new System.Drawing.Size(224, 26);
-            this.cbDriverState.TabIndex = 7;
+            this.cbDriverState.TabIndex = 8;
             this.cbDriverState.Leave += new System.EventHandler(this.cbState_Leave);
             // 
             // txtZip
@@ -104,8 +105,9 @@
             this.txtZip.Location = new System.Drawing.Point(317, 398);
             this.txtZip.Name = "txtZip";
             this.txtZip.Size = new System.Drawing.Size(94, 26);
-            this.txtZip.TabIndex = 8;
+            this.txtZip.TabIndex = 9;
             this.txtZip.MouseClick += new System.Windows.Forms.MouseEventHandler(this.txtZip_MouseClick);
+            this.txtZip.TextChanged += new System.EventHandler(this.txtZip_TextChanged);
             this.txtZip.Leave += new System.EventHandler(this.txtZip_Leave);
             // 
             // btnClose
@@ -126,7 +128,7 @@
             this.txtAddress2.Location = new System.Drawing.Point(87, 330);
             this.txtAddress2.Name = "txtAddress2";
             this.txtAddress2.Size = new System.Drawing.Size(324, 26);
-            this.txtAddress2.TabIndex = 21;
+            this.txtAddress2.TabIndex = 6;
             this.txtAddress2.MouseClick += new System.Windows.Forms.MouseEventHandler(this.txtAddress2_Click);
             this.txtAddress2.Leave += new System.EventHandler(this.txtAddress2_Leave);
             // 
@@ -136,7 +138,7 @@
             this.txtAddress1.Location = new System.Drawing.Point(87, 296);
             this.txtAddress1.Name = "txtAddress1";
             this.txtAddress1.Size = new System.Drawing.Size(324, 26);
-            this.txtAddress1.TabIndex = 22;
+            this.txtAddress1.TabIndex = 5;
             this.txtAddress1.MouseClick += new System.Windows.Forms.MouseEventHandler(this.txtAddress1_Click);
             this.txtAddress1.Leave += new System.EventHandler(this.txtAddress1_Leave);
             // 
@@ -146,7 +148,7 @@
             this.txtLastName.Location = new System.Drawing.Point(87, 262);
             this.txtLastName.Name = "txtLastName";
             this.txtLastName.Size = new System.Drawing.Size(145, 26);
-            this.txtLastName.TabIndex = 23;
+            this.txtLastName.TabIndex = 2;
             this.txtLastName.MouseClick += new System.Windows.Forms.MouseEventHandler(this.txtLastName_Click);
             this.txtLastName.Leave += new System.EventHandler(this.txtLastName_Leave);
             // 
@@ -156,7 +158,7 @@
             this.txtFirstName.Location = new System.Drawing.Point(238, 262);
             this.txtFirstName.Name = "txtFirstName";
             this.txtFirstName.Size = new System.Drawing.Size(145, 26);
-            this.txtFirstName.TabIndex = 24;
+            this.txtFirstName.TabIndex = 3;
             this.txtFirstName.MouseClick += new System.Windows.Forms.MouseEventHandler(this.txtFirstName_Click);
             this.txtFirstName.Leave += new System.EventHandler(this.txtFirstName_Leave);
             // 
@@ -166,7 +168,7 @@
             this.txtMiddleInitial.Location = new System.Drawing.Point(389, 262);
             this.txtMiddleInitial.Name = "txtMiddleInitial";
             this.txtMiddleInitial.Size = new System.Drawing.Size(22, 26);
-            this.txtMiddleInitial.TabIndex = 25;
+            this.txtMiddleInitial.TabIndex = 4;
             this.txtMiddleInitial.MouseClick += new System.Windows.Forms.MouseEventHandler(this.txtMiddleInitial_Click);
             this.txtMiddleInitial.Leave += new System.EventHandler(this.txtMiddleInitial_Leave);
             // 
@@ -197,7 +199,7 @@
             this.txtUserInput.Location = new System.Drawing.Point(436, 175);
             this.txtUserInput.Name = "txtUserInput";
             this.txtUserInput.Size = new System.Drawing.Size(152, 29);
-            this.txtUserInput.TabIndex = 48;
+            this.txtUserInput.TabIndex = 1;
             this.txtUserInput.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.txtUserInput.TextChanged += new System.EventHandler(this.txtUserInput_TextChanged);
             // 
@@ -209,7 +211,7 @@
             this.cbEyeColor.Location = new System.Drawing.Point(732, 262);
             this.cbEyeColor.Name = "cbEyeColor";
             this.cbEyeColor.Size = new System.Drawing.Size(261, 26);
-            this.cbEyeColor.TabIndex = 51;
+            this.cbEyeColor.TabIndex = 16;
             this.cbEyeColor.Text = "(09) COM Chrome/Stainless Steel";
             this.cbEyeColor.Leave += new System.EventHandler(this.cbEyeColor_Leave);
             // 
@@ -219,7 +221,7 @@
             this.txtCity.Location = new System.Drawing.Point(87, 364);
             this.txtCity.Name = "txtCity";
             this.txtCity.Size = new System.Drawing.Size(224, 26);
-            this.txtCity.TabIndex = 52;
+            this.txtCity.TabIndex = 7;
             this.txtCity.MouseClick += new System.Windows.Forms.MouseEventHandler(this.txtCity_MouseClick);
             this.txtCity.Leave += new System.EventHandler(this.txtCity_Leave);
             // 
@@ -231,7 +233,7 @@
             this.cbHairColor.Location = new System.Drawing.Point(732, 296);
             this.cbHairColor.Name = "cbHairColor";
             this.cbHairColor.Size = new System.Drawing.Size(261, 26);
-            this.cbHairColor.TabIndex = 53;
+            this.cbHairColor.TabIndex = 17;
             this.cbHairColor.Text = "(09) COM Chrome/Stainless Steel";
             this.cbHairColor.Leave += new System.EventHandler(this.cbHairColor_Leave);
             // 
@@ -243,7 +245,7 @@
             this.cbHeightFeet.Location = new System.Drawing.Point(600, 262);
             this.cbHeightFeet.Name = "cbHeightFeet";
             this.cbHeightFeet.Size = new System.Drawing.Size(37, 26);
-            this.cbHeightFeet.TabIndex = 55;
+            this.cbHeightFeet.TabIndex = 10;
             this.cbHeightFeet.Leave += new System.EventHandler(this.cbHeightFeet_Leave);
             // 
             // cbHeightInches
@@ -254,7 +256,7 @@
             this.cbHeightInches.Location = new System.Drawing.Point(643, 262);
             this.cbHeightInches.Name = "cbHeightInches";
             this.cbHeightInches.Size = new System.Drawing.Size(48, 26);
-            this.cbHeightInches.TabIndex = 56;
+            this.cbHeightInches.TabIndex = 11;
             // 
             // txtWeight
             // 
@@ -262,7 +264,7 @@
             this.txtWeight.Location = new System.Drawing.Point(600, 296);
             this.txtWeight.Name = "txtWeight";
             this.txtWeight.Size = new System.Drawing.Size(126, 26);
-            this.txtWeight.TabIndex = 57;
+            this.txtWeight.TabIndex = 12;
             this.txtWeight.MouseClick += new System.Windows.Forms.MouseEventHandler(this.txtWeight_MouseClick);
             this.txtWeight.Leave += new System.EventHandler(this.txtWeight_Leave);
             // 
@@ -282,7 +284,7 @@
             this.txtOLN.Location = new System.Drawing.Point(468, 482);
             this.txtOLN.Name = "txtOLN";
             this.txtOLN.Size = new System.Drawing.Size(88, 26);
-            this.txtOLN.TabIndex = 60;
+            this.txtOLN.TabIndex = 19;
             this.txtOLN.Text = "444444444";
             this.txtOLN.MouseClick += new System.Windows.Forms.MouseEventHandler(this.txtOLN_MouseClick);
             this.txtOLN.Leave += new System.EventHandler(this.txtOLN_Leave);
@@ -290,7 +292,7 @@
             // btnVehicleInfo
             // 
             this.btnVehicleInfo.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.875F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnVehicleInfo.Location = new System.Drawing.Point(782, 482);
+            this.btnVehicleInfo.Location = new System.Drawing.Point(782, 513);
             this.btnVehicleInfo.Margin = new System.Windows.Forms.Padding(6, 4, 6, 4);
             this.btnVehicleInfo.Name = "btnVehicleInfo";
             this.btnVehicleInfo.Size = new System.Drawing.Size(211, 51);
@@ -304,7 +306,7 @@
             // 
             this.lblNumVehicles.AutoSize = true;
             this.lblNumVehicles.Font = new System.Drawing.Font("Arial", 12F);
-            this.lblNumVehicles.Location = new System.Drawing.Point(806, 449);
+            this.lblNumVehicles.Location = new System.Drawing.Point(806, 482);
             this.lblNumVehicles.Name = "lblNumVehicles";
             this.lblNumVehicles.Size = new System.Drawing.Size(160, 18);
             this.lblNumVehicles.TabIndex = 62;
@@ -318,7 +320,7 @@
             this.chkOrganDonor.Location = new System.Drawing.Point(732, 332);
             this.chkOrganDonor.Name = "chkOrganDonor";
             this.chkOrganDonor.Size = new System.Drawing.Size(117, 22);
-            this.chkOrganDonor.TabIndex = 63;
+            this.chkOrganDonor.TabIndex = 18;
             this.chkOrganDonor.Text = "Organ Donor";
             this.chkOrganDonor.UseVisualStyleBackColor = true;
             // 
@@ -330,7 +332,7 @@
             this.chkMale.Location = new System.Drawing.Point(600, 332);
             this.chkMale.Name = "chkMale";
             this.chkMale.Size = new System.Drawing.Size(61, 22);
-            this.chkMale.TabIndex = 64;
+            this.chkMale.TabIndex = 13;
             this.chkMale.Text = "Male";
             this.chkMale.UseVisualStyleBackColor = true;
             this.chkMale.MouseClick += new System.Windows.Forms.MouseEventHandler(this.chkMale_MouseClick);
@@ -343,23 +345,10 @@
             this.chkFemale.Location = new System.Drawing.Point(600, 360);
             this.chkFemale.Name = "chkFemale";
             this.chkFemale.Size = new System.Drawing.Size(80, 22);
-            this.chkFemale.TabIndex = 65;
+            this.chkFemale.TabIndex = 14;
             this.chkFemale.Text = "Female";
             this.chkFemale.UseVisualStyleBackColor = true;
             this.chkFemale.MouseClick += new System.Windows.Forms.MouseEventHandler(this.chkFemale_MouseClick);
-            // 
-            // chkOther
-            // 
-            this.chkOther.AutoSize = true;
-            this.chkOther.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.chkOther.Font = new System.Drawing.Font("Arial", 12F);
-            this.chkOther.Location = new System.Drawing.Point(600, 388);
-            this.chkOther.Name = "chkOther";
-            this.chkOther.Size = new System.Drawing.Size(65, 22);
-            this.chkOther.TabIndex = 66;
-            this.chkOther.Text = "Other";
-            this.chkOther.UseVisualStyleBackColor = true;
-            this.chkOther.MouseClick += new System.Windows.Forms.MouseEventHandler(this.chkOther_MouseClick);
             // 
             // cbStatus
             // 
@@ -369,7 +358,7 @@
             this.cbStatus.Location = new System.Drawing.Point(274, 513);
             this.cbStatus.Name = "cbStatus";
             this.cbStatus.Size = new System.Drawing.Size(185, 26);
-            this.cbStatus.TabIndex = 67;
+            this.cbStatus.TabIndex = 20;
             this.cbStatus.Text = "Select Status...";
             this.cbStatus.Leave += new System.EventHandler(this.cbStatus_Leave);
             // 
@@ -381,7 +370,7 @@
             this.cbClass.Location = new System.Drawing.Point(274, 545);
             this.cbClass.Name = "cbClass";
             this.cbClass.Size = new System.Drawing.Size(185, 26);
-            this.cbClass.TabIndex = 68;
+            this.cbClass.TabIndex = 21;
             this.cbClass.Text = "Select Class...";
             this.cbClass.Leave += new System.EventHandler(this.cbClass_Leave);
             // 
@@ -393,7 +382,7 @@
             this.cbRestriction.Location = new System.Drawing.Point(564, 513);
             this.cbRestriction.Name = "cbRestriction";
             this.cbRestriction.Size = new System.Drawing.Size(185, 26);
-            this.cbRestriction.TabIndex = 69;
+            this.cbRestriction.TabIndex = 24;
             this.cbRestriction.Text = "Select Restriction...";
             this.cbRestriction.Leave += new System.EventHandler(this.cbRestriction_Leave);
             // 
@@ -405,7 +394,7 @@
             this.cbEndorsement.Location = new System.Drawing.Point(564, 545);
             this.cbEndorsement.Name = "cbEndorsement";
             this.cbEndorsement.Size = new System.Drawing.Size(185, 26);
-            this.cbEndorsement.TabIndex = 70;
+            this.cbEndorsement.TabIndex = 25;
             this.cbEndorsement.Text = "Select Endorsement...";
             this.cbEndorsement.Leave += new System.EventHandler(this.cbEndorsement_Leave);
             // 
@@ -417,7 +406,7 @@
             this.cbLicenseState.Location = new System.Drawing.Point(564, 577);
             this.cbLicenseState.Name = "cbLicenseState";
             this.cbLicenseState.Size = new System.Drawing.Size(224, 26);
-            this.cbLicenseState.TabIndex = 71;
+            this.cbLicenseState.TabIndex = 26;
             this.cbLicenseState.Leave += new System.EventHandler(this.cbLicenseState_Leave);
             // 
             // cbCounty
@@ -428,7 +417,7 @@
             this.cbCounty.Location = new System.Drawing.Point(564, 609);
             this.cbCounty.Name = "cbCounty";
             this.cbCounty.Size = new System.Drawing.Size(224, 26);
-            this.cbCounty.TabIndex = 72;
+            this.cbCounty.TabIndex = 27;
             this.cbCounty.Text = "(65) WASHINGTON";
             this.cbCounty.Leave += new System.EventHandler(this.cbCounty_Leave);
             // 
@@ -439,7 +428,7 @@
             this.dtIssue.Location = new System.Drawing.Point(357, 583);
             this.dtIssue.Name = "dtIssue";
             this.dtIssue.Size = new System.Drawing.Size(102, 26);
-            this.dtIssue.TabIndex = 73;
+            this.dtIssue.TabIndex = 22;
             // 
             // lblIssue
             // 
@@ -458,7 +447,7 @@
             this.dtExpiration.Location = new System.Drawing.Point(357, 615);
             this.dtExpiration.Name = "dtExpiration";
             this.dtExpiration.Size = new System.Drawing.Size(102, 26);
-            this.dtExpiration.TabIndex = 75;
+            this.dtExpiration.TabIndex = 23;
             // 
             // lblExpiration
             // 
@@ -470,12 +459,40 @@
             this.lblExpiration.TabIndex = 76;
             this.lblExpiration.Text = "Expiration:";
             // 
+            // chkOther
+            // 
+            this.chkOther.AutoSize = true;
+            this.chkOther.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.chkOther.Font = new System.Drawing.Font("Arial", 12F);
+            this.chkOther.Location = new System.Drawing.Point(600, 388);
+            this.chkOther.Name = "chkOther";
+            this.chkOther.Size = new System.Drawing.Size(65, 22);
+            this.chkOther.TabIndex = 15;
+            this.chkOther.Text = "Other";
+            this.chkOther.UseVisualStyleBackColor = true;
+            this.chkOther.MouseClick += new System.Windows.Forms.MouseEventHandler(this.chkOther_MouseClick);
+            // 
+            // btnAddUpdate
+            // 
+            this.btnAddUpdate.BackColor = System.Drawing.Color.LightGreen;
+            this.btnAddUpdate.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.875F);
+            this.btnAddUpdate.Location = new System.Drawing.Point(451, 253);
+            this.btnAddUpdate.Name = "btnAddUpdate";
+            this.btnAddUpdate.Size = new System.Drawing.Size(122, 36);
+            this.btnAddUpdate.TabIndex = 77;
+            this.btnAddUpdate.Text = "Add/Update";
+            this.btnAddUpdate.UseVisualStyleBackColor = false;
+            this.btnAddUpdate.Visible = false;
+            this.btnAddUpdate.Click += new System.EventHandler(this.btnAddUpdate_Click);
+            // 
             // Add_UpdateMenu
             // 
+            this.AcceptButton = this.btnSearch;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Menu;
             this.ClientSize = new System.Drawing.Size(1025, 781);
+            this.Controls.Add(this.btnAddUpdate);
             this.Controls.Add(this.dtExpiration);
             this.Controls.Add(this.lblExpiration);
             this.Controls.Add(this.dtIssue);
@@ -550,7 +567,6 @@
         private System.Windows.Forms.CheckBox chkOrganDonor;
         private System.Windows.Forms.CheckBox chkMale;
         private System.Windows.Forms.CheckBox chkFemale;
-        private System.Windows.Forms.CheckBox chkOther;
         private System.Windows.Forms.ComboBox cbStatus;
         private System.Windows.Forms.ComboBox cbClass;
         private System.Windows.Forms.ComboBox cbRestriction;
@@ -561,5 +577,7 @@
         private System.Windows.Forms.Label lblIssue;
         private System.Windows.Forms.DateTimePicker dtExpiration;
         private System.Windows.Forms.Label lblExpiration;
+        private System.Windows.Forms.CheckBox chkOther;
+        private System.Windows.Forms.Button btnAddUpdate;
     }
 }

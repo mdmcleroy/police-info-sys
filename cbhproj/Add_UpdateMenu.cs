@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -62,6 +63,7 @@ namespace cbhproj
                                 where s.Active == true
                                 orderby s.StatusCode
                                 select s).ToList();
+                cbStatus.Items.Add("N/A");
                 foreach (var item in statuses)
                 {
                     cbStatus.Items.Add(String.Format("({0}) {1}", item.StatusCode, item.StatusName));
@@ -71,6 +73,7 @@ namespace cbhproj
                                 where c.Active == true
                                 orderby c.ClassCode
                                 select c).ToList();
+                cbClass.Items.Add("N/A");
                 foreach (var item in classes)
                 {
                     cbClass.Items.Add(String.Format("({0}) {1}", item.ClassCode, item.ClassDesc));
@@ -80,6 +83,7 @@ namespace cbhproj
                                where r.Active == true
                                orderby r.RestrictionCode
                                select r).ToList();
+                cbRestriction.Items.Add("N/A");
                 foreach (var item in restrictions)
                 {
                     cbRestriction.Items.Add(String.Format("({0}) {1}", item.RestrictionCode, item.RestrictionDesc));
@@ -89,6 +93,7 @@ namespace cbhproj
                                     where e.Active == true
                                     orderby e.EndorsementCode
                                     select e).ToList();
+                cbEndorsement.Items.Add("N/A");
                 foreach (var item in endorsements)
                 {
                     cbEndorsement.Items.Add(String.Format("({0}) {1}", item.EndorsementCode, item.EndorsementDesc));
@@ -149,38 +154,92 @@ namespace cbhproj
             }
         }
 
-        private void FormatData()
+        private void Modify_FormatData()
         {
-            btnVehicleInfo.Visible = true;
-            txtLastName.Text = driver.LastName.Trim();
-            txtFirstName.Text = driver.FirstName.Trim();
+            btnClose.Text = "Cancel";
+            btnAddUpdate.Text = "Update";
+            SetVisibility_True();
+            lblNumVehicles.Visible = true;
+            lblNumVehicles.Text = "Number of Vehicles: " + vehicles.Count();
+            txtLastName.Text = driver.LastName;
+            txtFirstName.Text = driver.FirstName;
             txtMiddleInitial.Text = driver.MI.Trim();
             txtAddress1.Text = driver.Address1;
             txtAddress2.Text = driver.Address2;
             txtCity.Text = driver.City;
-            //txtState.Text = String.Format("({0:00})  {1}  {2}", driver.StateCode, driver.DriverStateAbbr, driver.DriverStateName);
-            //txtOLN.Text = String.Format("OLN: {0}", driver.OLN);
-            //txtZip.Text = String.Format("{0}-{1}", driver.PostalCode.Substring(0, 5), driver.PostalCode.Substring(5, 4));
-            //txtHeight.Text = String.Format("Height: {0}' {1}\"", driver.Height.Substring(1, 1), driver.Height.Substring(2, 2));
-            //txtWeight.Text = String.Format("Weight: {0} lbs", driver.Weight.Substring(1, 3));
-            //txtGender.Text = String.Format("Gender: {0}", driver.Gender);
-            //txtEyeColor.Text = String.Format("Eye Color: {0} {1}", driver.EyeColorAbbr, driver.EyeColorName);
-            //txtHairColor.Text = String.Format("Hair Color: {0} {1}", driver.HairColorAbbr, driver.HairColorName);
-            //txtOrganDonor.Text = "Organ Donor: " + (driver.OrganDonor ? "Yes" : "No");
-            //txtStatus.Text = "Status: " + (String.IsNullOrEmpty(driver.StatusCode) ? "N/A" : String.Format("({0}) {1}", driver.StatusCode, driver.StatusName));
-            //txtLicenseInfo.Text = "License Info";
-            //txtLicenseInfo.Visible = true;
-            //pbDriverPic.Visible = true;
-            //txtClass.Text = String.Format("Class: {0}", driver.LicenseClass);
-            //txtRestriction.Text = "Restriction: " + (String.IsNullOrEmpty(driver.LicenseRestrictions) ? "N/A" : driver.LicenseRestrictions);
-            //txtEndorsement.Text = "Endorsement: " + (String.IsNullOrEmpty(driver.LicenseEndorsements) ? "N/A" : driver.LicenseEndorsements);
-            //txtStateLicense.Text = String.Format("({0:00})  {1}  {2}", driver.LicensesStateCode, driver.LicensesStateAbbr, driver.LicensesStateName);
-            //txtCounty.Text = String.Format("({0:00})  {1}", driver.LicenseCounty, driver.CountyName);
-            lblNumVehicles.Text = String.Format("Number of Vehicles: {0}", vehicles.Count());
+            cbDriverState.Text = String.Format("({0:00}) {1} {2}", driver.DriverStateCode, driver.DriverStateAbbr, driver.DriverStateName);
+            txtZip.Text = driver.PostalCode;
+            cbHeightFeet.Text = String.Format("{0}'", driver.Height.Substring(1, 1));
+            cbHeightInches.Text = String.Format("{0}\n", driver.Height.Substring(2, 2));
+            txtWeight.Text = driver.Weight.Substring(1, 3);
+            chkMale.Checked = (driver.Gender.Trim().ToUpper() == "M") ? true : false;
+            chkFemale.Checked = (driver.Gender.Trim().ToUpper() == "F") ? true : false;
+            chkOther.Checked = (driver.Gender.Trim().ToUpper() != "M" && driver.Gender.Trim().ToUpper() != "F") ? true : false;
+            cbEyeColor.Text = String.Format("({0:00}) {1} {2}", driver.EyeColorCode, driver.EyeColorAbbr, driver.EyeColorName);
+            cbHairColor.Text = String.Format("({0:00}) {1} {2}", driver.HairColorCode, driver.HairColorAbbr, driver.HairColorName);
+            chkOrganDonor.Checked = driver.OrganDonor ? true : false;
+            txtOLN.Text = driver.OLN;
+            cbStatus.Text = String.IsNullOrEmpty(driver.StatusCode) ? "N/A" : String.Format("({0}) {1}", driver.StatusCode, driver.StatusName);
+            cbClass.Text = driver.LicenseClass;
+            //var tempDate = DateTime.ParseExact(driver.LicenseIssue, "yyyyMMdd", CultureInfo.InvariantCulture).ToString("MM/dd/yyyy");
+            //dtIssue.Value = (DateTime)tempDate;
+            //tempDate = DateTime.ParseExact(driver.LicenseExpiration, "yyyyMMdd", CultureInfo.InvariantCulture).ToString("MM/dd/yyyy");
+            //lblExpiration.Text = "Expiration: " + (String.IsNullOrEmpty(driver.LicenseIssue) ? "N/A" : tempDate);
+            cbRestriction.Text = String.IsNullOrEmpty(driver.LicenseRestrictions) ? "N/A" : driver.LicenseRestrictions;
+            cbEndorsement.Text = String.IsNullOrEmpty(driver.LicenseEndorsements) ? "N/A" : driver.LicenseEndorsements;
+            cbLicenseState.Text = String.Format("({0:00})  {1}  {2}", driver.LicensesStateCode, driver.LicensesStateAbbr, driver.LicensesStateName);
+            cbCounty.Text = String.Format("({0:00}) {1}", driver.CountyCode, driver.CountyName);
+        }
+
+        private void Add_FormatData()
+        {
+            btnClose.Text = "Cancel";
+            btnAddUpdate.Text = "Add";
+            SetVisibility_True();
+            btnVehicleInfo.Text = "Add Vehicle";
+            txtLastName.Text = "Last Name";
+            txtFirstName.Text = "First Name";
+            txtMiddleInitial.Text = "MI";
+            txtAddress1.Text = "Address 1";
+            txtAddress2.Text = "Address 2";
+            txtCity.Text = "City";
+            txtZip.Text = "Zip";
+            cbDriverState.Text = "Select State...";
+            cbHeightFeet.Text = "0'";
+            cbHeightInches.Text = "0\"";
+            cbEyeColor.Text = "Select Eye Color...";
+            cbHairColor.Text = "Select Hair Color...";
+            cbStatus.Text = "Select Status...";
+            cbClass.Text = "Select Class...";
+            cbRestriction.Text = "Select Restriction...";
+            cbEndorsement.Text = "Select Endorsement...";
+            cbLicenseState.Text = "Select State...";
+            cbCounty.Text = "Select County...";
+            txtWeight.Text = "Weight (Ex. 225)";
+            txtOLN.Text = "OLN";
+            lblNumVehicles.Text = String.Empty;
         }
 
         private void ClearFields()
         {
+            SetVisibility_False();
+            lblNumVehicles.Text = String.Empty;
+            cbHeightInches.Items.Clear();
+            cbHeightFeet.Items.Clear();
+            cbDriverState.Items.Clear();
+            cbEyeColor.Items.Clear();
+            cbHairColor.Items.Clear();
+            cbStatus.Items.Clear();
+            cbClass.Items.Clear();
+            cbRestriction.Items.Clear();
+            cbEndorsement.Items.Clear();
+            cbLicenseState.Items.Clear();
+            cbCounty.Items.Clear();
+        }
+
+        private void SetVisibility_False()
+        {
+            btnAddUpdate.Visible = false;
             txtLastName.Visible = false;
             txtFirstName.Visible = false;
             txtMiddleInitial.Visible = false;
@@ -212,42 +271,11 @@ namespace cbhproj
             dtExpiration.Visible = false;
             lblIssue.Visible = false;
             lblExpiration.Visible = false;
-            txtLastName.Text = "Last Name";
-            txtFirstName.Text = "First Name";
-            txtMiddleInitial.Text = "MI";
-            txtAddress1.Text = "Address 1";
-            txtAddress2.Text = "Address 2";
-            txtCity.Text = "City";
-            txtZip.Text = "Zip";
-            cbDriverState.Text = "Select State...";
-            cbHeightFeet.Text = "0'";
-            cbHeightInches.Text = "0\"";
-            cbEyeColor.Text = "Select Eye Color...";
-            cbHairColor.Text = "Select Hair Color...";
-            cbStatus.Text = "Select Status...";
-            cbClass.Text = "Select Class...";
-            cbRestriction.Text = "Select Restriction...";
-            cbEndorsement.Text = "Select Endorsement...";
-            cbLicenseState.Text = "Select State...";
-            cbCounty.Text = "Select County...";
-            txtWeight.Text = "Weight (Ex. 225)";
-            txtOLN.Text = "OLN";
-            cbHeightInches.Items.Clear();
-            cbHeightFeet.Items.Clear();
-            cbDriverState.Items.Clear();
-            cbEyeColor.Items.Clear();
-            cbHairColor.Items.Clear();
-            cbStatus.Items.Clear();
-            cbClass.Items.Clear();
-            cbRestriction.Items.Clear();
-            cbEndorsement.Items.Clear();
-            cbLicenseState.Items.Clear();
-            cbCounty.Items.Clear();
         }
 
-
-        private void ShowFields()
+        private void SetVisibility_True()
         {
+            btnAddUpdate.Visible = true;
             txtLastName.Visible = true;
             txtFirstName.Visible = true;
             txtMiddleInitial.Visible = true;
@@ -297,6 +325,9 @@ namespace cbhproj
             }
 
             SSNLookup();
+            LoadDropdowns();
+
+            add = false;
             if (drivers.Count == 0)
             {
                 add = true;
@@ -304,14 +335,68 @@ namespace cbhproj
 
             if (add)
             {
+                Add_FormatData();
             }
             else
             {
-                FormatData();
                 VehicleLookup();
+                Modify_FormatData();
             }
-            LoadDropdowns();
-            ShowFields();
+            SetVisibility_True();
+        }
+
+        private void btnAddUpdate_Click(object sender, EventArgs e)
+        {
+            DialogResult dialog = new DialogResult();
+            var addUpdateMsg = (add) ? String.Format("Are you sure you want to add {0} {1}?", driver.FirstName, driver.LastName) 
+                                     : String.Format("Are you sure you want to modify {0} {1}?", driver.FirstName, driver.LastName);
+            dialog = MessageBox.Show(addUpdateMsg, "Alert!", MessageBoxButtons.YesNo);
+
+            if (dialog == DialogResult.No)
+            {
+                return;
+            }
+
+            UpdateAddDriverLicenseVehicle();
+        }
+        
+        private void UpdateAddDriverLicenseVehicle()
+        { 
+            DateTime currentDateTime = DateTime.Now;
+            using (var db = new mdmcleroyEntities())
+            {
+                if (!add)
+                {
+                    driverData = (from d in db.Drivers
+                                  where d.SSN == userInput
+                                  select d).First();
+                    driverData.LastUpdate = currentDateTime;
+                }
+                else
+                {
+                    driverData.DriverID = Guid.NewGuid();
+                    driverData.SSN = userInput;
+                    driverData.CreateDate = DateTime.Now;
+                    driverData.LastUpdate = DateTime.Now;
+                }
+                driverData.LastName = txtLastName.Text.Trim().ToUpper();
+                driverData.FirstName = txtFirstName.Text.Trim().ToUpper();
+                driverData.MI = txtMiddleInitial.Text.Trim().ToUpper();
+                driverData.Address1 = txtAddress1.Text.Trim().ToUpper();
+                driverData.Address2 = txtAddress2.Text.Trim().ToUpper();
+                driverData.City = txtCity.Text.Trim().ToUpper();
+                driverData.StateCode = Convert.ToInt32(cbDriverState.Text.ToString().Split('(', ')')[1]);
+                driverData.PostalCode = txtZip.Text.Trim().Split('-')[0] + txtZip.Text.Trim().Split('-')[1];
+                driverData.Height = "0" + cbHeightFeet.Text.Trim().Split('\'') + cbHeightInches.Text.Trim().Split('\"');
+                driverData.Weight = "0" + txtWeight.Text.Trim();
+                driverData.Gender = chkMale.Checked ? "M" : (chkFemale.Checked ? "F" : "O");
+                driverData.OrganDonor = chkOrganDonor.Checked;
+                driverData.LastName = txtLastName.Text.Trim().ToUpper();
+                driverData.LastName = txtLastName.Text.Trim().ToUpper();
+                driverData.LastName = txtLastName.Text.Trim().ToUpper();
+                driverData.LastName = txtLastName.Text.Trim().ToUpper();
+                driverData.LastName = txtLastName.Text.Trim().ToUpper();
+            }
         }
 
         private void btnVehicleInfo_Click(object sender, EventArgs e)
@@ -323,6 +408,10 @@ namespace cbhproj
         private void txtUserInput_TextChanged(object sender, EventArgs e)
         {
             ClearFields();
+            if (txtUserInput.Text.Length > 9)
+            {
+                txtUserInput.Text = String.Empty;
+            }
         }
 
         private void txtLastName_Click(object sender, MouseEventArgs e)
@@ -564,6 +653,15 @@ namespace cbhproj
             if (cbCounty.Text.Length == 0)
             {
                 cbCounty.Text = "Select County...";
+            }
+        }
+
+        private void txtZip_TextChanged(object sender, EventArgs e)
+        {
+            if (txtZip.Text.Length == 5)
+            {
+                txtZip.Text += "-";
+                txtZip.SelectionStart = txtZip.Text.Length;
             }
         }
     }
