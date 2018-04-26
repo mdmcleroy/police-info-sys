@@ -62,6 +62,8 @@
             this.btnVehicleInfo = new System.Windows.Forms.Button();
             this.btnDelete = new System.Windows.Forms.Button();
             this.lblNumVehicles = new System.Windows.Forms.Label();
+            this.lblEyeColorSplit = new System.Windows.Forms.Label();
+            this.lblHairColorSplit = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pbDriverPic)).BeginInit();
             this.SuspendLayout();
             // 
@@ -205,9 +207,9 @@
             this.lblEyeColor.Font = new System.Drawing.Font("Arial", 12F);
             this.lblEyeColor.Location = new System.Drawing.Point(752, 262);
             this.lblEyeColor.Name = "lblEyeColor";
-            this.lblEyeColor.Size = new System.Drawing.Size(85, 18);
+            this.lblEyeColor.Size = new System.Drawing.Size(182, 18);
             this.lblEyeColor.TabIndex = 29;
-            this.lblEyeColor.Text = "Eye Color: ";
+            this.lblEyeColor.Text = "Eye Color: COM Chrome";
             // 
             // lblWeight
             // 
@@ -235,9 +237,9 @@
             this.lblHairColor.Font = new System.Drawing.Font("Arial", 12F);
             this.lblHairColor.Location = new System.Drawing.Point(752, 296);
             this.lblHairColor.Name = "lblHairColor";
-            this.lblHairColor.Size = new System.Drawing.Size(87, 18);
+            this.lblHairColor.Size = new System.Drawing.Size(184, 18);
             this.lblHairColor.TabIndex = 32;
-            this.lblHairColor.Text = "Hair Color: ";
+            this.lblHairColor.Text = "Hair Color: COM Chrome";
             // 
             // lblOrganDonor
             // 
@@ -424,6 +426,26 @@
             this.lblNumVehicles.TabIndex = 50;
             this.lblNumVehicles.Text = "Number of Vehicles: #";
             // 
+            // lblEyeColorSplit
+            // 
+            this.lblEyeColorSplit.AutoSize = true;
+            this.lblEyeColorSplit.Font = new System.Drawing.Font("Arial", 12F);
+            this.lblEyeColorSplit.Location = new System.Drawing.Point(871, 280);
+            this.lblEyeColorSplit.Name = "lblEyeColorSplit";
+            this.lblEyeColorSplit.Size = new System.Drawing.Size(112, 18);
+            this.lblEyeColorSplit.TabIndex = 51;
+            this.lblEyeColorSplit.Text = "Stainless Steel";
+            // 
+            // lblHairColorSplit
+            // 
+            this.lblHairColorSplit.AutoSize = true;
+            this.lblHairColorSplit.Font = new System.Drawing.Font("Arial", 12F);
+            this.lblHairColorSplit.Location = new System.Drawing.Point(873, 314);
+            this.lblHairColorSplit.Name = "lblHairColorSplit";
+            this.lblHairColorSplit.Size = new System.Drawing.Size(112, 18);
+            this.lblHairColorSplit.TabIndex = 52;
+            this.lblHairColorSplit.Text = "Stainless Steel";
+            // 
             // SSN_OLNMenu
             // 
             this.AcceptButton = this.btnSearch;
@@ -431,6 +453,8 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Menu;
             this.ClientSize = new System.Drawing.Size(1025, 781);
+            this.Controls.Add(this.lblHairColorSplit);
+            this.Controls.Add(this.lblEyeColorSplit);
             this.Controls.Add(this.lblNumVehicles);
             this.Controls.Add(this.btnDelete);
             this.Controls.Add(this.btnVehicleInfo);
@@ -512,5 +536,7 @@
         private System.Windows.Forms.Button btnVehicleInfo;
         private System.Windows.Forms.Button btnDelete;
         private System.Windows.Forms.Label lblNumVehicles;
+        private System.Windows.Forms.Label lblEyeColorSplit;
+        private System.Windows.Forms.Label lblHairColorSplit;
     }
 }

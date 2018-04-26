@@ -218,6 +218,7 @@ namespace cbhproj
             txtWeight.Text = "Weight (Ex. 225)";
             txtOLN.Text = "OLN";
             lblNumVehicles.Text = String.Empty;
+            progBar.Visible = true;
         }
 
         private void ClearFields()
@@ -271,6 +272,7 @@ namespace cbhproj
             dtExpiration.Visible = false;
             lblIssue.Visible = false;
             lblExpiration.Visible = false;
+            progBar.Visible = false;
         }
 
         private void SetVisibility_True()
@@ -393,7 +395,8 @@ namespace cbhproj
                 driverData.Address2 = txtAddress2.Text.Trim().ToUpper();
                 driverData.City = txtCity.Text.Trim().ToUpper();
                 driverData.StateCode = Convert.ToInt32(cbDriverState.Text.ToString().Split('(', ')')[1]);
-                //driverData.PostalCode = txtZip.Text.Trim().Split('-')[0] + txtZip.Text.Trim().Split('-')[1];
+                driverData.PostalCode = (txtZip.Text.Contains("-")) ? txtZip.Text.Trim().Split('-')[0] + txtZip.Text.Trim().Split('-')[1]
+                                                                    : txtZip.Text.Trim();
                 driverData.Height = "0" + cbHeightFeet.Text.Trim().Split('\'')[0] + cbHeightInches.Text.Trim().Split('\"')[0];
                 driverData.Weight = "0" + txtWeight.Text.Trim();
                 driverData.Gender = chkMale.Checked ? "M" : (chkFemale.Checked ? "F" : "O");
@@ -402,7 +405,7 @@ namespace cbhproj
                 driverData.OrganDonor = chkOrganDonor.Checked;
                 driverData.OLN = txtOLN.Text.Trim();
                 //licenseData.LicenseStatus = cbStatus.Text.ToString().Split('(', ')')[1];
-                //licenseData.LicenseEndorsements = cbStatus.Text.ToString().Split('(', ')')[1];
+                //licenseData.LicenseEndorsements = cbEndorsement.Text.ToString().Split('(', ')')[1];
                 //licenseData.LicenseStatus = cbStatus.Text.ToString().Split('(', ')')[1];
                 //licenseData.LicenseStatus = cbStatus.Text.ToString().Split('(', ')')[1];
                 //driverData.LastName = txtLastName.Text.Trim().ToUpper();
@@ -446,6 +449,14 @@ namespace cbhproj
             if (txtLastName.Text.Length == 0)
             {
                 txtLastName.Text = "Last Name";
+                //progBar.Increment(-4);
+                return;
+            }
+
+            if (txtLastName.Text.Length > 0)
+            {
+                progBar.Increment(4);
+                return;
             }
         }
 
@@ -462,6 +473,13 @@ namespace cbhproj
             if (txtFirstName.Text.Length == 0)
             {
                 txtFirstName.Text = "First Name";
+                return;
+            }
+
+            if (txtFirstName.Text.Length > 0)
+            {
+                progBar.Increment(4);
+                return;
             }
         }
 
@@ -478,6 +496,13 @@ namespace cbhproj
             if (txtMiddleInitial.Text.Length == 0)
             {
                 txtMiddleInitial.Text = "MI";
+                return;
+            }
+
+            if (txtMiddleInitial.Text.Length > 0)
+            {
+                progBar.Increment(4);
+                return;
             }
         }
 
@@ -494,6 +519,13 @@ namespace cbhproj
             if (txtAddress1.Text.Length == 0)
             {
                 txtAddress1.Text = "Address 1";
+                return;
+            }
+
+            if (txtAddress1.Text.Length > 0)
+            {
+                progBar.Increment(4);
+                return;
             }
         }
 
@@ -510,6 +542,13 @@ namespace cbhproj
             if (txtAddress2.Text.Length == 0)
             {
                 txtAddress2.Text = "Address 2";
+                return;
+            }
+
+            if (txtAddress2.Text.Length > 0)
+            {
+                progBar.Increment(4);
+                return;
             }
         }
 
@@ -526,6 +565,13 @@ namespace cbhproj
             if (txtCity.Text.Length == 0)
             {
                 txtCity.Text = "City";
+                return;
+            }
+
+            if (txtCity.Text.Length > 0)
+            {
+                progBar.Increment(4);
+                return;
             }
         }
 
@@ -534,6 +580,13 @@ namespace cbhproj
             if (cbDriverState.Text.Length == 0)
             {
                 cbDriverState.Text = "Select State...";
+                return;
+            }
+
+            if (cbDriverState.Text.Length > 0)
+            {
+                progBar.Increment(4);
+                return;
             }
         }
 
@@ -550,6 +603,22 @@ namespace cbhproj
             if (txtZip.Text.Length == 0)
             {
                 txtZip.Text = "Zip";
+                return;
+            }
+
+            if (txtZip.Text.Length > 0)
+            {
+                progBar.Increment(4);
+                return;
+            }
+        }
+
+        private void txtZip_TextChanged(object sender, EventArgs e)
+        {
+            if (txtZip.Text.Length == 5)
+            {
+                txtZip.Text += "-";
+                txtZip.SelectionStart = txtZip.Text.Length;
             }
         }
 
@@ -558,6 +627,28 @@ namespace cbhproj
             if (cbHeightFeet.Text.Length == 0)
             {
                 cbHeightFeet.Text = "0'";
+                return;
+            }
+
+            if (cbHeightFeet.Text.Length > 0)
+            {
+                progBar.Increment(4);
+                return;
+            }
+        }
+
+        private void cbHeightInches_Leave(object sender, EventArgs e)
+        {
+            if (cbHeightInches.Text.Length == 0)
+            {
+                cbHeightInches.Text = "0\"";
+                return;
+            }
+
+            if (cbHeightInches.Text.Length > 0)
+            {
+                progBar.Increment(4);
+                return;
             }
         }
 
@@ -574,25 +665,48 @@ namespace cbhproj
             if (txtWeight.Text.Length == 0)
             {
                 txtWeight.Text = "Weight (Ex. 225)";
+                return;
+            }
+
+            if (txtWeight.Text.Length > 0)
+            {
+                progBar.Increment(4);
+                return;
             }
         }
 
         private void chkMale_MouseClick(object sender, MouseEventArgs e)
         {
+            if (chkMale.Checked || chkOther.Checked)
+            {
+                progBar.Increment(-4);
+            }
             chkFemale.Checked = false;
             chkOther.Checked = false;
+            progBar.Increment(4);
         }
 
         private void chkFemale_MouseClick(object sender, MouseEventArgs e)
         {
+            if (chkMale.Checked || chkOther.Checked)
+            {
+                progBar.Increment(-4);
+            }
             chkMale.Checked = false;
             chkOther.Checked = false;
+            progBar.Increment(4);
         }
 
         private void chkOther_MouseClick(object sender, MouseEventArgs e)
         {
+            if (chkMale.Checked || chkFemale.Checked)
+            {
+                progBar.Increment(-4);
+            }
             chkMale.Checked = false;
             chkFemale.Checked = false;
+            progBar.Increment(4);
+
         }
 
         private void cbEyeColor_Leave(object sender, EventArgs e)
@@ -600,6 +714,13 @@ namespace cbhproj
             if (cbEyeColor.Text.Length == 0)
             {
                 cbEyeColor.Text = "Select Eye Color...";
+                return;
+            }
+
+            if (cbEyeColor.Text.Length > 0)
+            {
+                progBar.Increment(4);
+                return;
             }
         }
 
@@ -608,6 +729,13 @@ namespace cbhproj
             if (cbHairColor.Text.Length == 0)
             {
                 cbHairColor.Text = "Select Hair Color...";
+                return;
+            }
+
+            if (cbHairColor.Text.Length > 0)
+            {
+                progBar.Increment(4);
+                return;
             }
         }
 
@@ -632,6 +760,13 @@ namespace cbhproj
             if (cbStatus.Text.Length == 0)
             {
                 cbStatus.Text = "Select Status...";
+                return;
+            }
+
+            if (cbStatus.Text.Length > 0)
+            {
+                progBar.Increment(4);
+                return;
             }
         }
 
@@ -640,6 +775,13 @@ namespace cbhproj
             if (cbClass.Text.Length == 0)
             {
                 cbClass.Text = "Select Class...";
+                return;
+            }
+
+            if (cbClass.Text.Length > 0)
+            {
+                progBar.Increment(4);
+                return;
             }
         }
 
@@ -648,6 +790,13 @@ namespace cbhproj
             if (cbRestriction.Text.Length == 0)
             {
                 cbRestriction.Text = "Select Restriction...";
+                return;
+            }
+
+            if (txtWeight.Text.Length > 0)
+            {
+                progBar.Increment(4);
+                return;
             }
         }
 
@@ -656,6 +805,13 @@ namespace cbhproj
             if (cbEndorsement.Text.Length == 0)
             {
                 cbEndorsement.Text = "Select Endorsement...";
+                return;
+            }
+
+            if (cbEndorsement.Text.Length > 0)
+            {
+                progBar.Increment(4);
+                return;
             }
         }
 
@@ -664,6 +820,13 @@ namespace cbhproj
             if (cbLicenseState.Text.Length == 0)
             {
                 cbLicenseState.Text = "Select State...";
+                return;
+            }
+
+            if (cbLicenseState.Text.Length > 0)
+            {
+                progBar.Increment(4);
+                return;
             }
         }
 
@@ -672,15 +835,13 @@ namespace cbhproj
             if (cbCounty.Text.Length == 0)
             {
                 cbCounty.Text = "Select County...";
+                return;
             }
-        }
 
-        private void txtZip_TextChanged(object sender, EventArgs e)
-        {
-            if (txtZip.Text.Length == 5)
+            if (cbCounty.Text.Length > 0)
             {
-                txtZip.Text += "-";
-                txtZip.SelectionStart = txtZip.Text.Length;
+                progBar.Increment(4);
+                return;
             }
         }
     }

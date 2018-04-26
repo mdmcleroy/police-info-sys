@@ -188,8 +188,10 @@ namespace cbhproj
             lblHeight.Text = String.Format("Height: {0}' {1}\"", driver.Height.Substring(1, 1), driver.Height.Substring(2, 2));
             lblWeight.Text = String.Format("Weight: {0} lbs", driver.Weight.Substring(1, 3));
             lblGender.Text = String.Format("Gender: {0}", driver.Gender);
-            lblEyeColor.Text = String.Format("Eye Color: ({0:00}) {1} {2}", driver.EyeColorCode, driver.EyeColorAbbr, driver.EyeColorName);
-            lblHairColor.Text = String.Format("Hair Color: ({0:00}) {1} {2}", driver.HairColorCode, driver.HairColorAbbr, driver.HairColorName);
+            lblEyeColor.Text = String.Format("Eye Color: ({0:00}) {1} {2}", driver.EyeColorCode, driver.EyeColorAbbr, driver.EyeColorName.Split('/')[0]);
+            lblEyeColorSplit.Text = driver.EyeColorName.Split('/')[1];
+            lblHairColor.Text = String.Format("Hair Color: ({0:00}) {1} {2}", driver.HairColorCode, driver.HairColorAbbr, driver.HairColorName.Split('/')[0]);
+            lblHairColorSplit.Text = driver.HairColorName.Split('/')[1];
             lblOrganDonor.Text = "Organ Donor: " + (driver.OrganDonor ? "Yes" : "No");
             lblStatus.Text = "Status: " + (String.IsNullOrEmpty(driver.StatusCode) ? "N/A" : String.Format("({0}) {1}", driver.StatusCode, driver.StatusName));
             lblLicenseInfo.Text = "License Info";
@@ -256,7 +258,9 @@ namespace cbhproj
             lblWeight.Text = String.Empty;
             lblGender.Text = String.Empty;
             lblEyeColor.Text = String.Empty;
+            lblEyeColorSplit.Text = String.Empty;
             lblHairColor.Text = String.Empty;
+            lblHairColorSplit.Text = String.Empty;
             lblOrganDonor.Text = String.Empty;
             lblLicenseInfo.Text = String.Empty;
             lblStatus.Text = String.Empty;

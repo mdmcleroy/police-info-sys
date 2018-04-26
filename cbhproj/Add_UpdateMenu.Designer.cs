@@ -66,6 +66,7 @@
             this.lblExpiration = new System.Windows.Forms.Label();
             this.chkOther = new System.Windows.Forms.CheckBox();
             this.btnAddUpdate = new System.Windows.Forms.Button();
+            this.progBar = new System.Windows.Forms.ProgressBar();
             this.SuspendLayout();
             // 
             // lblStateHeading
@@ -113,7 +114,7 @@
             // btnClose
             // 
             this.btnClose.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.875F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnClose.Location = new System.Drawing.Point(381, 675);
+            this.btnClose.Location = new System.Drawing.Point(365, 675);
             this.btnClose.Margin = new System.Windows.Forms.Padding(6, 4, 6, 4);
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(295, 77);
@@ -257,6 +258,7 @@
             this.cbHeightInches.Name = "cbHeightInches";
             this.cbHeightInches.Size = new System.Drawing.Size(48, 26);
             this.cbHeightInches.TabIndex = 11;
+            this.cbHeightInches.Leave += new System.EventHandler(this.cbHeightInches_Leave);
             // 
             // txtWeight
             // 
@@ -485,6 +487,13 @@
             this.btnAddUpdate.Visible = false;
             this.btnAddUpdate.Click += new System.EventHandler(this.btnAddUpdate_Click);
             // 
+            // progBar
+            // 
+            this.progBar.Location = new System.Drawing.Point(451, 296);
+            this.progBar.Name = "progBar";
+            this.progBar.Size = new System.Drawing.Size(122, 23);
+            this.progBar.TabIndex = 78;
+            // 
             // Add_UpdateMenu
             // 
             this.AcceptButton = this.btnSearch;
@@ -492,6 +501,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Menu;
             this.ClientSize = new System.Drawing.Size(1025, 781);
+            this.Controls.Add(this.progBar);
             this.Controls.Add(this.btnAddUpdate);
             this.Controls.Add(this.dtExpiration);
             this.Controls.Add(this.lblExpiration);
@@ -579,5 +589,6 @@
         private System.Windows.Forms.Label lblExpiration;
         private System.Windows.Forms.CheckBox chkOther;
         private System.Windows.Forms.Button btnAddUpdate;
+        private System.Windows.Forms.ProgressBar progBar;
     }
 }
