@@ -162,7 +162,7 @@
             // 
             this.lblVehicleCount.AutoSize = true;
             this.lblVehicleCount.Font = new System.Drawing.Font("Arial", 14F);
-            this.lblVehicleCount.Location = new System.Drawing.Point(460, 623);
+            this.lblVehicleCount.Location = new System.Drawing.Point(455, 623);
             this.lblVehicleCount.Name = "lblVehicleCount";
             this.lblVehicleCount.Size = new System.Drawing.Size(104, 22);
             this.lblVehicleCount.TabIndex = 34;

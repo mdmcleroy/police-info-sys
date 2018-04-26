@@ -54,11 +54,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AddMenu.cs">
+    <Compile Include="Add_UpdateMenu.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="AddMenu.Designer.cs">
-      <DependentUpon>AddMenu.cs</DependentUpon>
+    <Compile Include="Add_UpdateMenu.Designer.cs">
+      <DependentUpon>Add_UpdateMenu.cs</DependentUpon>
     </Compile>
     <Compile Include="AuxMenu.cs">
       <SubType>Form</SubType>
@@ -83,12 +83,6 @@
     </Compile>
     <Compile Include="DisplayCounties.Designer.cs">
       <DependentUpon>DisplayCounties.cs</DependentUpon>
-    </Compile>
-    <Compile Include="DeleteMenu.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="DeleteMenu.Designer.cs">
-      <DependentUpon>DeleteMenu.cs</DependentUpon>
     </Compile>
     <Compile Include="DisplayClasses.cs">
       <SubType>Form</SubType>
@@ -196,12 +190,6 @@
     <Compile Include="Models\vwVehicle.cs">
       <DependentUpon>mdmcleroy.tt</DependentUpon>
     </Compile>
-    <Compile Include="ModifyMenu.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="ModifyMenu.Designer.cs">
-      <DependentUpon>ModifyMenu.cs</DependentUpon>
-    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="DisplayRestrictions.cs">
@@ -234,8 +222,8 @@
     <Compile Include="DisplayVTypes.Designer.cs">
       <DependentUpon>DisplayVTypes.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="AddMenu.resx">
-      <DependentUpon>AddMenu.cs</DependentUpon>
+    <EmbeddedResource Include="Add_UpdateMenu.resx">
+      <DependentUpon>Add_UpdateMenu.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="AuxMenu.resx">
       <DependentUpon>AuxMenu.cs</DependentUpon>
@@ -248,9 +236,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="DisplayCounties.resx">
       <DependentUpon>DisplayCounties.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="DeleteMenu.resx">
-      <DependentUpon>DeleteMenu.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="DisplayClasses.resx">
       <DependentUpon>DisplayClasses.cs</DependentUpon>
@@ -275,9 +260,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="MainMenu.resx">
       <DependentUpon>MainMenu.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="ModifyMenu.resx">
-      <DependentUpon>ModifyMenu.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

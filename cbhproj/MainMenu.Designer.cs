@@ -107,7 +107,7 @@
             this.btnAddModify.Name = "btnAddModify";
             this.btnAddModify.Size = new System.Drawing.Size(487, 64);
             this.btnAddModify.TabIndex = 5;
-            this.btnAddModify.Text = "Add/Modify a Record";
+            this.btnAddModify.Text = "Add/Update a Record";
             this.btnAddModify.UseVisualStyleBackColor = true;
             this.btnAddModify.Click += new System.EventHandler(this.btnAddRecord_Click);
             // 

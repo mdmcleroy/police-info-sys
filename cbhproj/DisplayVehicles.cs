@@ -34,7 +34,7 @@ namespace cbhproj
             lblVType.Text = String.Format("Vehicle Type: ({0:00}) {1}", vehicle.VTypeCode, vehicle.VTypeName);
             lblTopColor.Text = String.Format("Top Color: ({0:00}) {1}", vehicle.TCCode, vehicle.TopColorName);
             lblBottomColor.Text = String.Format("Bottom Color: ({0:00}) {1}", vehicle.BCCode, vehicle.BottomColorName);
-            lblTag.Text = "Tag: " + vehicle.Tag;
+            lblTag.Text = "Tag: " + vehicle.Tag.Trim();
             var tempDate = DateTime.ParseExact(vehicle.TagExpiration, "yyyyMMdd", CultureInfo.InvariantCulture).ToString("MM/dd/yyyy");
             lblTagExpiration.Text = "Tag Expiration: " + tempDate;
             lblVehicleCount.Text = String.Format("Vehicle {0}/{1}", vehicleIndex + 1, vehicles.Count());

@@ -65,14 +65,8 @@ namespace cbhproj
 
         private void btnAddRecord_Click(object sender, EventArgs e)
         {
-            AddMenu addRecord = new AddMenu();
+            Add_UpdateMenu addRecord = new Add_UpdateMenu();
             addRecord.ShowDialog();
-        }
-
-        private void btnModifyRecord_Click(object sender, EventArgs e)
-        {
-            ModifyMenu modifyRecord = new ModifyMenu();
-            modifyRecord.ShowDialog();
         }
 
         private void btnListMaster_Click(object sender, EventArgs e)

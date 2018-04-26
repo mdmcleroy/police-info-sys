@@ -195,14 +195,15 @@
             this.lblHeight.Font = new System.Drawing.Font("Arial", 12F);
             this.lblHeight.Location = new System.Drawing.Point(628, 262);
             this.lblHeight.Name = "lblHeight";
-            this.lblHeight.Size = new System.Drawing.Size(0, 18);
+            this.lblHeight.Size = new System.Drawing.Size(61, 18);
             this.lblHeight.TabIndex = 28;
+            this.lblHeight.Text = "Height: ";
             // 
             // lblEyeColor
             // 
             this.lblEyeColor.AutoSize = true;
             this.lblEyeColor.Font = new System.Drawing.Font("Arial", 12F);
-            this.lblEyeColor.Location = new System.Drawing.Point(772, 262);
+            this.lblEyeColor.Location = new System.Drawing.Point(752, 262);
             this.lblEyeColor.Name = "lblEyeColor";
             this.lblEyeColor.Size = new System.Drawing.Size(85, 18);
             this.lblEyeColor.TabIndex = 29;
@@ -214,8 +215,9 @@
             this.lblWeight.Font = new System.Drawing.Font("Arial", 12F);
             this.lblWeight.Location = new System.Drawing.Point(624, 296);
             this.lblWeight.Name = "lblWeight";
-            this.lblWeight.Size = new System.Drawing.Size(0, 18);
+            this.lblWeight.Size = new System.Drawing.Size(65, 18);
             this.lblWeight.TabIndex = 30;
+            this.lblWeight.Text = "Weight: ";
             // 
             // lblGender
             // 
@@ -223,14 +225,15 @@
             this.lblGender.Font = new System.Drawing.Font("Arial", 12F);
             this.lblGender.Location = new System.Drawing.Point(622, 330);
             this.lblGender.Name = "lblGender";
-            this.lblGender.Size = new System.Drawing.Size(0, 18);
+            this.lblGender.Size = new System.Drawing.Size(68, 18);
             this.lblGender.TabIndex = 31;
+            this.lblGender.Text = "Gender: ";
             // 
             // lblHairColor
             // 
             this.lblHairColor.AutoSize = true;
             this.lblHairColor.Font = new System.Drawing.Font("Arial", 12F);
-            this.lblHairColor.Location = new System.Drawing.Point(772, 296);
+            this.lblHairColor.Location = new System.Drawing.Point(752, 296);
             this.lblHairColor.Name = "lblHairColor";
             this.lblHairColor.Size = new System.Drawing.Size(87, 18);
             this.lblHairColor.TabIndex = 32;
@@ -240,10 +243,11 @@
             // 
             this.lblOrganDonor.AutoSize = true;
             this.lblOrganDonor.Font = new System.Drawing.Font("Arial", 12F);
-            this.lblOrganDonor.Location = new System.Drawing.Point(753, 330);
+            this.lblOrganDonor.Location = new System.Drawing.Point(733, 330);
             this.lblOrganDonor.Name = "lblOrganDonor";
-            this.lblOrganDonor.Size = new System.Drawing.Size(0, 18);
+            this.lblOrganDonor.Size = new System.Drawing.Size(106, 18);
             this.lblOrganDonor.TabIndex = 33;
+            this.lblOrganDonor.Text = "Organ Donor: ";
             // 
             // lblIssue
             // 

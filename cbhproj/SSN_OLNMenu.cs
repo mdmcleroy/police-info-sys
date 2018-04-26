@@ -26,7 +26,7 @@ namespace cbhproj
 
         List<Vehicle> vehiclesData = new List<Vehicle>();
         Driver driverData = new Driver();
-        Models.License licenseData = new Models.License();
+         Models.License licenseData = new Models.License();
 
         // Constructor
         public SSN_OLNMenu(int aOption)
@@ -67,7 +67,7 @@ namespace cbhproj
 
             if (searchByOLN)
             {
-                if (userInput.Length != 7 || userInput.Length != 9)
+                if (userInput.Length < 7 || userInput.Length > 9)
                 {
                     return;
                 }
@@ -76,7 +76,7 @@ namespace cbhproj
             }
             else if (searchBySSN)
             {
-                if (userInput.Length != 9)
+                if (userInput.Length < 9 || userInput.Length > 11)
                 {
                     return;
                 }
@@ -95,7 +95,7 @@ namespace cbhproj
             }
             else if (deleteByOLN)
             {
-                if (userInput.Length != 7 || userInput.Length != 9)
+                if (userInput.Length < 7 || userInput.Length > 9)
                 {
                     return;
                 }
@@ -219,10 +219,10 @@ namespace cbhproj
                 driverData.Deleted = true;
 
                 licenseData = (from l in db.Licenses
-                           where l.LicenseCode == driver.OLN
-                             && l.Active == true
-                             && l.Deleted == false
-                           select l).First();
+                               where l.LicenseCode == driver.OLN
+                                 && l.Active == true
+                                 && l.Deleted == false
+                               select l).First();
                 licenseData.Deleted = true;
 
                 vehiclesData = (from v in db.Vehicles
