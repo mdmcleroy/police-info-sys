@@ -57,7 +57,14 @@ namespace cbhproj
 
         private void btnClose_Click(object sender, EventArgs e)
         {
-            this.Close();
+            Close();
+        }
+
+        private void DisplayClasses_Load(object sender, EventArgs e)
+        {
+            Text = "cbhproj";
+            Width = 1041;
+            Height = 820;
         }
     }
 }

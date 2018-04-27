@@ -53,7 +53,7 @@
             this.lblSearch.UseVisualStyleBackColor = true;
             this.lblSearch.Click += new System.EventHandler(this.lblSearch_Click);
             // 
-            // ClassesPopup
+            // DisplayClassesPopup
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -61,9 +61,10 @@
             this.ClientSize = new System.Drawing.Size(374, 219);
             this.Controls.Add(this.lblSearch);
             this.Controls.Add(this.lblClasses);
-            this.Name = "ClassesPopup";
+            this.Name = "DisplayClassesPopup";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "ClassesPopup";
+            this.Load += new System.EventHandler(this.DisplayClassesPopup_Load);
             this.ResumeLayout(false);
 
         }

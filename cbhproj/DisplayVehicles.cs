@@ -110,5 +110,12 @@ namespace cbhproj
             VehicleLookup(vehicleIndex);
             FormatData();
         }
+
+        private void DisplayVehicles_Load(object sender, EventArgs e)
+        {
+            Text = "cbhproj";
+            Width = 1041;
+            Height = 820;
+        }
     }
 }

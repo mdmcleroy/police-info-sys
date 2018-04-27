@@ -58,8 +58,9 @@ namespace cbhproj
 
         private void AuxMenu_Load(object sender, EventArgs e)
         {
-            this.Width = 1041;
-            this.Height = 820;
+            Text = "cbhproj";
+            Width = 1041;
+            Height = 820;
         }
 
         private void btnDisplayTypes_Click(object sender, EventArgs e)

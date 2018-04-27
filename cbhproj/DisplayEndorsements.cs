@@ -58,13 +58,14 @@ namespace cbhproj
 
         private void btnClose_Click(object sender, EventArgs e)
         {
-            this.Close();
+            Close();
         }
 
         private void EndorsementMenu_Load(object sender, EventArgs e)
         {
-            this.Width = 1041;
-            this.Height = 820;
+            Text = "cbhproj";
+            Width = 1041;
+            Height = 820;
         }
     }
 }

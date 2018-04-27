@@ -62,6 +62,7 @@
             this.Name = "DisplayRestrictionsPopup";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "DisplayRestrictionsPopup";
+            this.Load += new System.EventHandler(this.DisplayRestrictionsPopup_Load);
             this.ResumeLayout(false);
 
         }

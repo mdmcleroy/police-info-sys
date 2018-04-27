@@ -58,6 +58,9 @@ namespace cbhproj
 
         private void RestrictionMenu_Load(object sender, EventArgs e)
         {
+            Text = "cbhproj";
+            Width = 1041;
+            Height = 820;
         }
 
         private void btnClose_Click(object sender, EventArgs e)

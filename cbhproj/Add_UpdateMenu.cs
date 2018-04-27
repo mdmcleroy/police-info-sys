@@ -12,7 +12,7 @@ using cbhproj.Models;
 
 namespace cbhproj
 {
-    public partial class Add_UpdateMenu : Form
+    public partial class cbhproj : Form
     {
         bool add = false;
         string userInput = String.Empty;
@@ -26,7 +26,7 @@ namespace cbhproj
         Models.License licenseData = new Models.License();
 
         // Constructor
-        public Add_UpdateMenu()
+        public cbhproj()
         {
             InitializeComponent();
             ClearFields();
@@ -156,6 +156,8 @@ namespace cbhproj
 
         private void Modify_FormatData()
         {
+            lblSubHeading.Text = "Modify a Record";
+            btnClearReset.Text = "Reset";
             btnClose.Text = "Cancel";
             btnAddUpdate.Text = "Update";
             SetVisibility_True();
@@ -181,7 +183,7 @@ namespace cbhproj
             txtOLN.Text = driver.OLN;
             cbStatus.Text = String.IsNullOrEmpty(driver.StatusCode) ? "N/A" : String.Format("({0}) {1}", driver.StatusCode, driver.StatusName);
             cbClass.Text = driver.LicenseClass;
-            //var tempDate = DateTime.ParseExact(driver.LicenseIssue, "yyyyMMdd", CultureInfo.InvariantCulture).ToString("MM/dd/yyyy");
+            var tempDate = DateTime.ParseExact(driver.LicenseIssue, "yyyyMMdd", CultureInfo.InvariantCulture).ToString("MM/dd/yyyy");
             //dtIssue.Value = (DateTime)tempDate;
             //tempDate = DateTime.ParseExact(driver.LicenseExpiration, "yyyyMMdd", CultureInfo.InvariantCulture).ToString("MM/dd/yyyy");
             //lblExpiration.Text = "Expiration: " + (String.IsNullOrEmpty(driver.LicenseIssue) ? "N/A" : tempDate);
@@ -193,6 +195,8 @@ namespace cbhproj
 
         private void Add_FormatData()
         {
+            lblSubHeading.Text = "Add a Record";
+            btnClearReset.Text = "Clear";
             btnClose.Text = "Cancel";
             btnAddUpdate.Text = "Add";
             SetVisibility_True();
@@ -223,8 +227,10 @@ namespace cbhproj
 
         private void ClearFields()
         {
+            lblSubHeading.Text = "Add/Modify a Record";
             SetVisibility_False();
             lblNumVehicles.Text = String.Empty;
+            progBar.Increment(-100);
             cbHeightInches.Items.Clear();
             cbHeightFeet.Items.Clear();
             cbDriverState.Items.Clear();
@@ -240,6 +246,7 @@ namespace cbhproj
 
         private void SetVisibility_False()
         {
+            btnClearReset.Visible = false;
             btnAddUpdate.Visible = false;
             txtLastName.Visible = false;
             txtFirstName.Visible = false;
@@ -277,6 +284,7 @@ namespace cbhproj
 
         private void SetVisibility_True()
         {
+            btnClearReset.Visible = true;
             btnAddUpdate.Visible = true;
             txtLastName.Visible = true;
             txtFirstName.Visible = true;
@@ -615,6 +623,15 @@ namespace cbhproj
 
         private void txtZip_TextChanged(object sender, EventArgs e)
         {
+            //if (txtZip.Text.Contains('-') && txtZip.Text.Length >= 4)
+            //{
+            //    return;
+            //}
+            //else if (txtZip.Text.Length >= 8)
+            //{
+            //    return;
+            //}
+
             if (txtZip.Text.Length == 5)
             {
                 txtZip.Text += "-";
@@ -717,7 +734,7 @@ namespace cbhproj
                 return;
             }
 
-            if (cbEyeColor.Text.Length > 0)
+            if (cbEyeColor.Text.Length > 0 && cbEyeColor.Text != "Select Eye Color...")
             {
                 progBar.Increment(4);
                 return;
@@ -732,7 +749,7 @@ namespace cbhproj
                 return;
             }
 
-            if (cbHairColor.Text.Length > 0)
+            if (cbHairColor.Text.Length > 0 && cbHairColor.Text != "Select Hair Color...")
             {
                 progBar.Increment(4);
                 return;
@@ -843,6 +860,46 @@ namespace cbhproj
                 progBar.Increment(4);
                 return;
             }
+        }
+
+        private void btnClearReset_Click(object sender, EventArgs e)
+        {
+            progBar.Increment(-100);
+            if (add)
+            {
+                Add_FormatData();
+                chkOrganDonor.Checked = false;
+                chkMale.Checked = false;
+                chkFemale.Checked = false;
+                chkOther.Checked = false;
+            }
+            else
+            {
+                Modify_FormatData();
+            }
+        }
+
+        private void txtMiddleInitial_TextChanged(object sender, EventArgs e)
+        {
+            if (txtMiddleInitial.Text.Length >= 1)
+            {
+                return;
+            }
+        }
+
+        private void txtWeight_TextChanged(object sender, EventArgs e)
+        {
+            if (txtWeight.Text.Length >= 4)
+            {
+                return;
+            }
+        }
+
+        private void cbhproj_Load(object sender, EventArgs e)
+        {
+            Text = "cbhproj";
+            Width = 1041;
+            Height = 820;
         }
     }
 }

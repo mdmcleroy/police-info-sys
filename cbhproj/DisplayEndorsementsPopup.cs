@@ -58,5 +58,10 @@ namespace cbhproj
         {
             Close();
         }
+
+        private void DisplayEndorsementsPopup_Load(object sender, EventArgs e)
+        {
+            Text = "cbhproj";
+        }
     }
 }

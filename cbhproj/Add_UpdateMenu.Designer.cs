@@ -1,6 +1,6 @@
 ﻿namespace cbhproj
 {
-    partial class Add_UpdateMenu
+    partial class cbhproj
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.lblStateHeading = new System.Windows.Forms.Label();
+            this.lblSubHeading = new System.Windows.Forms.Label();
             this.lblStateMenu = new System.Windows.Forms.Label();
             this.cbDriverState = new System.Windows.Forms.ComboBox();
             this.txtZip = new System.Windows.Forms.TextBox();
@@ -67,17 +67,19 @@
             this.chkOther = new System.Windows.Forms.CheckBox();
             this.btnAddUpdate = new System.Windows.Forms.Button();
             this.progBar = new System.Windows.Forms.ProgressBar();
+            this.btnClearReset = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
-            // lblStateHeading
+            // lblSubHeading
             // 
-            this.lblStateHeading.AutoSize = true;
-            this.lblStateHeading.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F);
-            this.lblStateHeading.Location = new System.Drawing.Point(375, 100);
-            this.lblStateHeading.Name = "lblStateHeading";
-            this.lblStateHeading.Size = new System.Drawing.Size(275, 31);
-            this.lblStateHeading.TabIndex = 6;
-            this.lblStateHeading.Text = "Add/Update a Record";
+            this.lblSubHeading.AutoSize = true;
+            this.lblSubHeading.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F);
+            this.lblSubHeading.Location = new System.Drawing.Point(375, 100);
+            this.lblSubHeading.Name = "lblSubHeading";
+            this.lblSubHeading.Size = new System.Drawing.Size(275, 31);
+            this.lblSubHeading.TabIndex = 6;
+            this.lblSubHeading.Text = "Add/Update a Record";
+            this.lblSubHeading.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // lblStateMenu
             // 
@@ -171,6 +173,7 @@
             this.txtMiddleInitial.Size = new System.Drawing.Size(22, 26);
             this.txtMiddleInitial.TabIndex = 4;
             this.txtMiddleInitial.MouseClick += new System.Windows.Forms.MouseEventHandler(this.txtMiddleInitial_Click);
+            this.txtMiddleInitial.TextChanged += new System.EventHandler(this.txtMiddleInitial_TextChanged);
             this.txtMiddleInitial.Leave += new System.EventHandler(this.txtMiddleInitial_Leave);
             // 
             // btnSearch
@@ -268,6 +271,7 @@
             this.txtWeight.Size = new System.Drawing.Size(126, 26);
             this.txtWeight.TabIndex = 12;
             this.txtWeight.MouseClick += new System.Windows.Forms.MouseEventHandler(this.txtWeight_MouseClick);
+            this.txtWeight.TextChanged += new System.EventHandler(this.txtWeight_TextChanged);
             this.txtWeight.Leave += new System.EventHandler(this.txtWeight_Leave);
             // 
             // lblLicenseInfo
@@ -489,18 +493,31 @@
             // 
             // progBar
             // 
-            this.progBar.Location = new System.Drawing.Point(451, 296);
+            this.progBar.Location = new System.Drawing.Point(451, 337);
             this.progBar.Name = "progBar";
             this.progBar.Size = new System.Drawing.Size(122, 23);
             this.progBar.TabIndex = 78;
             // 
-            // Add_UpdateMenu
+            // btnClearReset
+            // 
+            this.btnClearReset.BackColor = System.Drawing.Color.Orange;
+            this.btnClearReset.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.875F);
+            this.btnClearReset.Location = new System.Drawing.Point(451, 295);
+            this.btnClearReset.Name = "btnClearReset";
+            this.btnClearReset.Size = new System.Drawing.Size(122, 36);
+            this.btnClearReset.TabIndex = 79;
+            this.btnClearReset.Text = "Clear";
+            this.btnClearReset.UseVisualStyleBackColor = false;
+            this.btnClearReset.Click += new System.EventHandler(this.btnClearReset_Click);
+            // 
+            // cbhproj
             // 
             this.AcceptButton = this.btnSearch;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Menu;
             this.ClientSize = new System.Drawing.Size(1025, 781);
+            this.Controls.Add(this.btnClearReset);
             this.Controls.Add(this.progBar);
             this.Controls.Add(this.btnAddUpdate);
             this.Controls.Add(this.dtExpiration);
@@ -538,12 +555,13 @@
             this.Controls.Add(this.btnClose);
             this.Controls.Add(this.txtZip);
             this.Controls.Add(this.cbDriverState);
-            this.Controls.Add(this.lblStateHeading);
+            this.Controls.Add(this.lblSubHeading);
             this.Controls.Add(this.lblStateMenu);
             this.Margin = new System.Windows.Forms.Padding(2);
-            this.Name = "Add_UpdateMenu";
+            this.Name = "cbhproj";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "AddRecord";
+            this.Load += new System.EventHandler(this.cbhproj_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -551,7 +569,7 @@
 
         #endregion
 
-        private System.Windows.Forms.Label lblStateHeading;
+        private System.Windows.Forms.Label lblSubHeading;
         private System.Windows.Forms.Label lblStateMenu;
         private System.Windows.Forms.ComboBox cbDriverState;
         private System.Windows.Forms.TextBox txtZip;
@@ -590,5 +608,6 @@
         private System.Windows.Forms.CheckBox chkOther;
         private System.Windows.Forms.Button btnAddUpdate;
         private System.Windows.Forms.ProgressBar progBar;
+        private System.Windows.Forms.Button btnClearReset;
     }
 }

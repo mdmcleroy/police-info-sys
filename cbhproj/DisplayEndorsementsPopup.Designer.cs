@@ -62,6 +62,7 @@
             this.Name = "DisplayEndorsementsPopup";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "DisplayEndorsementsPopup";
+            this.Load += new System.EventHandler(this.DisplayEndorsementsPopup_Load);
             this.ResumeLayout(false);
 
         }

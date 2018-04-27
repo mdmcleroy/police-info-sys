@@ -58,5 +58,10 @@ namespace cbhproj
         {
             Close();
         }
+
+        private void DisplayClassesPopup_Load(object sender, EventArgs e)
+        {
+            Text = "cbhproj";
+        }
     }
 }

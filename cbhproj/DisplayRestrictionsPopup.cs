@@ -58,5 +58,10 @@ namespace cbhproj
         {
             Close();
         }
+
+        private void DisplayRestrictionsPopup_Load(object sender, EventArgs e)
+        {
+            Text = "cbhproj";
+        }
     }
 }

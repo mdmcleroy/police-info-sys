@@ -121,12 +121,6 @@
       <DependentUpon>DisplayVehicles.cs</DependentUpon>
     </Compile>
     <Compile Include="GlobalFunctions.cs" />
-    <Compile Include="MasterMenu.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="MasterMenu.Designer.cs">
-      <DependentUpon>MasterMenu.cs</DependentUpon>
-    </Compile>
     <Compile Include="MainMenu.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -254,9 +248,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="DisplayVehicles.resx">
       <DependentUpon>DisplayVehicles.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="MasterMenu.resx">
-      <DependentUpon>MasterMenu.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MainMenu.resx">
       <DependentUpon>MainMenu.cs</DependentUpon>

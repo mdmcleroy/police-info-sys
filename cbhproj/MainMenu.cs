@@ -65,20 +65,15 @@ namespace cbhproj
 
         private void btnAddRecord_Click(object sender, EventArgs e)
         {
-            Add_UpdateMenu addRecord = new Add_UpdateMenu();
+            cbhproj addRecord = new cbhproj();
             addRecord.ShowDialog();
-        }
-
-        private void btnListMaster_Click(object sender, EventArgs e)
-        {
-            MasterMenu listMaster = new MasterMenu();
-            listMaster.ShowDialog();
         }
 
         private void MainMenu_Load(object sender, EventArgs e)
         {
-            this.Width = 1041;
-            this.Height = 820;
+            Text = "cbhproj";
+            Width = 1041;
+            Height = 820;
         }
 
         private void btnInitialDataLoad_Click(object sender, EventArgs e)

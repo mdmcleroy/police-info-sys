@@ -133,7 +133,6 @@
             this.btnListMaster.TabIndex = 8;
             this.btnListMaster.Text = "List Master File";
             this.btnListMaster.UseVisualStyleBackColor = true;
-            this.btnListMaster.Click += new System.EventHandler(this.btnListMaster_Click);
             // 
             // btnDeleteByOLN
             // 

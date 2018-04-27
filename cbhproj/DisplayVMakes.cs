@@ -61,13 +61,14 @@ namespace cbhproj
 
         private void VMakeMenu_Load(object sender, EventArgs e)
         {
-            this.Width = 1041;
-            this.Height = 820;
+            Text = "cbhproj";
+            Width = 1041;
+            Height = 820;
         }
 
         private void btnClose_Click_1(object sender, EventArgs e)
         {
-            this.Close();
+            Close();
         }
     }
 }
