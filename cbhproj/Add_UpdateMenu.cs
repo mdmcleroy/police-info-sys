@@ -894,6 +894,7 @@ namespace cbhproj
             Text = "cbhproj";
             Width = 1041;
             Height = 820;
+            ActiveControl = txtUserInput;
         }
     }
 }

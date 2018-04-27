@@ -278,6 +278,7 @@ namespace cbhproj
             Text = "cbhproj";
             Width = 1041;
             Height = 820;
+            ActiveControl = txtUserInput;
         }
 
         private void btnClose_Click_1(object sender, EventArgs e)

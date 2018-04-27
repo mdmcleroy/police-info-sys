@@ -131,7 +131,7 @@
             this.btnListMaster.Name = "btnListMaster";
             this.btnListMaster.Size = new System.Drawing.Size(487, 64);
             this.btnListMaster.TabIndex = 8;
-            this.btnListMaster.Text = "List Master File";
+            this.btnListMaster.Text = "List All";
             this.btnListMaster.UseVisualStyleBackColor = true;
             // 
             // btnDeleteByOLN
