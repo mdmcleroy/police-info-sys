@@ -198,10 +198,8 @@ namespace cbhproj
             lblLicenseInfo.Visible = true;
             pbDriverPic.Visible = true;
             lblClass.Text = String.Format("Class: {0}", driver.LicenseClass);
-            var tempDate = DateTime.ParseExact(driver.LicenseIssue, "yyyyMMdd", CultureInfo.InvariantCulture).ToString("MM/dd/yyyy");
-            lblIssue.Text = "Issue: " + (String.IsNullOrEmpty(driver.LicenseIssue) ? "N/A" : tempDate);
-            tempDate = DateTime.ParseExact(driver.LicenseExpiration, "yyyyMMdd", CultureInfo.InvariantCulture).ToString("MM/dd/yyyy");
-            lblExpiration.Text = "Expiration: " + (String.IsNullOrEmpty(driver.LicenseIssue) ? "N/A" : tempDate);
+            lblIssue.Text = "Issue: " + ((DateTime)driver.LicenseIssue).ToShortDateString();
+            lblExpiration.Text = "Expiration: " + ((DateTime)driver.LicenseExpiration).ToShortDateString();
             lblRestriction.Text = "Restriction: " + (String.IsNullOrEmpty(driver.LicenseRestrictions) ? "N/A" : driver.LicenseRestrictions);
             lblEndorsement.Text = "Endorsement: " + (String.IsNullOrEmpty(driver.LicenseEndorsements) ? "N/A" : driver.LicenseEndorsements);
             lblStateLicense.Text = String.Format("({0:00})  {1}  {2}", driver.LicensesStateCode, driver.LicensesStateAbbr, driver.LicensesStateName);

@@ -22,8 +22,8 @@ namespace cbhproj.Models
         public string LicenseClass { get; set; }
         public string LicenseRestrictions { get; set; }
         public string LicenseEndorsements { get; set; }
-        public string LicenseIssue { get; set; }
-        public string LicenseExpiration { get; set; }
+        public System.DateTime LicenseIssue { get; set; }
+        public System.DateTime LicenseExpiration { get; set; }
         public bool Active { get; set; }
         public bool Deleted { get; set; }
         public System.DateTime CreateDate { get; set; }

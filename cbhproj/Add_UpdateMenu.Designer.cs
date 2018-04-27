@@ -74,11 +74,11 @@
             // 
             this.lblSubHeading.AutoSize = true;
             this.lblSubHeading.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F);
-            this.lblSubHeading.Location = new System.Drawing.Point(375, 100);
+            this.lblSubHeading.Location = new System.Drawing.Point(379, 100);
             this.lblSubHeading.Name = "lblSubHeading";
-            this.lblSubHeading.Size = new System.Drawing.Size(275, 31);
+            this.lblSubHeading.Size = new System.Drawing.Size(267, 31);
             this.lblSubHeading.TabIndex = 6;
-            this.lblSubHeading.Text = "Add/Update a Record";
+            this.lblSubHeading.Text = "Add/Modify a Record";
             this.lblSubHeading.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // lblStateMenu

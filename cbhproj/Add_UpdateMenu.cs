@@ -156,6 +156,7 @@ namespace cbhproj
 
         private void Modify_FormatData()
         {
+            lblSubHeading.Left = 407;
             lblSubHeading.Text = "Modify a Record";
             btnClearReset.Text = "Reset";
             btnClose.Text = "Cancel";
@@ -174,19 +175,17 @@ namespace cbhproj
             cbHeightFeet.Text = String.Format("{0}'", driver.Height.Substring(1, 1));
             cbHeightInches.Text = String.Format("{0}\n", driver.Height.Substring(2, 2));
             txtWeight.Text = driver.Weight.Substring(1, 3);
-            chkMale.Checked = (driver.Gender.Trim().ToUpper() == "M") ? true : false;
-            chkFemale.Checked = (driver.Gender.Trim().ToUpper() == "F") ? true : false;
-            chkOther.Checked = (driver.Gender.Trim().ToUpper() != "M" && driver.Gender.Trim().ToUpper() != "F") ? true : false;
+            chkMale.Checked = driver.Gender.Trim().ToUpper() == "M" ? true : false;
+            chkFemale.Checked = driver.Gender.Trim().ToUpper() == "F" ? true : false;
+            chkOther.Checked = driver.Gender.Trim().ToUpper() != "M" && driver.Gender.Trim().ToUpper() != "F" ? true : false;
             cbEyeColor.Text = String.Format("({0:00}) {1} {2}", driver.EyeColorCode, driver.EyeColorAbbr, driver.EyeColorName);
             cbHairColor.Text = String.Format("({0:00}) {1} {2}", driver.HairColorCode, driver.HairColorAbbr, driver.HairColorName);
             chkOrganDonor.Checked = driver.OrganDonor ? true : false;
             txtOLN.Text = driver.OLN;
             cbStatus.Text = String.IsNullOrEmpty(driver.StatusCode) ? "N/A" : String.Format("({0}) {1}", driver.StatusCode, driver.StatusName);
             cbClass.Text = driver.LicenseClass;
-            var tempDate = DateTime.ParseExact(driver.LicenseIssue, "yyyyMMdd", CultureInfo.InvariantCulture).ToString("MM/dd/yyyy");
-            //dtIssue.Value = (DateTime)tempDate;
-            //tempDate = DateTime.ParseExact(driver.LicenseExpiration, "yyyyMMdd", CultureInfo.InvariantCulture).ToString("MM/dd/yyyy");
-            //lblExpiration.Text = "Expiration: " + (String.IsNullOrEmpty(driver.LicenseIssue) ? "N/A" : tempDate);
+            dtIssue.Value = (DateTime)driver.LicenseIssue;
+            dtExpiration.Value = (DateTime)driver.LicenseExpiration;
             cbRestriction.Text = String.IsNullOrEmpty(driver.LicenseRestrictions) ? "N/A" : driver.LicenseRestrictions;
             cbEndorsement.Text = String.IsNullOrEmpty(driver.LicenseEndorsements) ? "N/A" : driver.LicenseEndorsements;
             cbLicenseState.Text = String.Format("({0:00})  {1}  {2}", driver.LicensesStateCode, driver.LicensesStateAbbr, driver.LicensesStateName);
@@ -195,6 +194,7 @@ namespace cbhproj
 
         private void Add_FormatData()
         {
+            lblSubHeading.Left = 423;
             lblSubHeading.Text = "Add a Record";
             btnClearReset.Text = "Clear";
             btnClose.Text = "Cancel";
@@ -227,6 +227,7 @@ namespace cbhproj
 
         private void ClearFields()
         {
+            lblSubHeading.Left = 375;
             lblSubHeading.Text = "Add/Modify a Record";
             SetVisibility_False();
             lblNumVehicles.Text = String.Empty;
@@ -623,15 +624,6 @@ namespace cbhproj
 
         private void txtZip_TextChanged(object sender, EventArgs e)
         {
-            //if (txtZip.Text.Contains('-') && txtZip.Text.Length >= 4)
-            //{
-            //    return;
-            //}
-            //else if (txtZip.Text.Length >= 8)
-            //{
-            //    return;
-            //}
-
             if (txtZip.Text.Length == 5)
             {
                 txtZip.Text += "-";
@@ -881,8 +873,10 @@ namespace cbhproj
 
         private void txtMiddleInitial_TextChanged(object sender, EventArgs e)
         {
-            if (txtMiddleInitial.Text.Length >= 1)
+            if (txtMiddleInitial.Text.Length >= 1 && txtMiddleInitial.Text != "MI")
             {
+                txtMiddleInitial.Text = txtMiddleInitial.Text.Substring(0, 1);
+                txtMiddleInitial.SelectionStart = txtMiddleInitial.Text.Length;
                 return;
             }
         }

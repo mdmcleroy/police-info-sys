@@ -15,10 +15,10 @@
         <EntityTypeShape EntityType="mdmcleroyModel.Status" Width="1.5" PointX="0.75" PointY="6" />
         <EntityTypeShape EntityType="mdmcleroyModel.VehicleType" Width="1.5" PointX="2.5" PointY="3.375" />
         <EntityTypeShape EntityType="mdmcleroyModel.Driver" Width="1.5" PointX="7.75" PointY="0.75" />
-        <EntityTypeShape EntityType="mdmcleroyModel.vwDriver" Width="1.5" PointX="9.5" PointY="0.75" />
         <EntityTypeShape EntityType="mdmcleroyModel.vwVehicle" Width="1.5" PointX="11.25" PointY="0.75" />
-        <EntityTypeShape EntityType="mdmcleroyModel.License" Width="1.5" PointX="2.5" PointY="6" />
         <EntityTypeShape EntityType="mdmcleroyModel.Vehicle" Width="1.5" PointX="4.25" PointY="6" />
+        <EntityTypeShape EntityType="mdmcleroyModel.vwDriver" Width="1.5" PointX="9.5" PointY="0.75" />
+        <EntityTypeShape EntityType="mdmcleroyModel.License" Width="1.5" PointX="2.5" PointY="6" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
