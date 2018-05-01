@@ -35,7 +35,7 @@
             this.btnSearchByOLN = new System.Windows.Forms.Button();
             this.btnAddModify = new System.Windows.Forms.Button();
             this.btnDeleteBySSN = new System.Windows.Forms.Button();
-            this.btnListMaster = new System.Windows.Forms.Button();
+            this.btnListAll = new System.Windows.Forms.Button();
             this.btnDeleteByOLN = new System.Windows.Forms.Button();
             this.btnInitialDataLoad = new System.Windows.Forms.Button();
             this.SuspendLayout();
@@ -123,16 +123,17 @@
             this.btnDeleteBySSN.UseVisualStyleBackColor = true;
             this.btnDeleteBySSN.Click += new System.EventHandler(this.btnDeleteBySSN_Click);
             // 
-            // btnListMaster
+            // btnListAll
             // 
-            this.btnListMaster.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.875F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnListMaster.Location = new System.Drawing.Point(269, 620);
-            this.btnListMaster.Margin = new System.Windows.Forms.Padding(6, 4, 6, 4);
-            this.btnListMaster.Name = "btnListMaster";
-            this.btnListMaster.Size = new System.Drawing.Size(487, 64);
-            this.btnListMaster.TabIndex = 8;
-            this.btnListMaster.Text = "List All";
-            this.btnListMaster.UseVisualStyleBackColor = true;
+            this.btnListAll.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.875F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnListAll.Location = new System.Drawing.Point(269, 620);
+            this.btnListAll.Margin = new System.Windows.Forms.Padding(6, 4, 6, 4);
+            this.btnListAll.Name = "btnListAll";
+            this.btnListAll.Size = new System.Drawing.Size(487, 64);
+            this.btnListAll.TabIndex = 8;
+            this.btnListAll.Text = "List All";
+            this.btnListAll.UseVisualStyleBackColor = true;
+            this.btnListAll.Click += new System.EventHandler(this.btnListAll_Click);
             // 
             // btnDeleteByOLN
             // 
@@ -166,7 +167,7 @@
             this.ClientSize = new System.Drawing.Size(1025, 781);
             this.Controls.Add(this.btnInitialDataLoad);
             this.Controls.Add(this.btnDeleteByOLN);
-            this.Controls.Add(this.btnListMaster);
+            this.Controls.Add(this.btnListAll);
             this.Controls.Add(this.btnDeleteBySSN);
             this.Controls.Add(this.btnAddModify);
             this.Controls.Add(this.btnSearchByOLN);
@@ -193,7 +194,7 @@
         private System.Windows.Forms.Button btnSearchByOLN;
         private System.Windows.Forms.Button btnAddModify;
         private System.Windows.Forms.Button btnDeleteBySSN;
-        private System.Windows.Forms.Button btnListMaster;
+        private System.Windows.Forms.Button btnListAll;
         private System.Windows.Forms.Button btnDeleteByOLN;
         private System.Windows.Forms.Button btnInitialDataLoad;
     }

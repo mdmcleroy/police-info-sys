@@ -64,6 +64,7 @@
             this.lblNumVehicles = new System.Windows.Forms.Label();
             this.lblEyeColorSplit = new System.Windows.Forms.Label();
             this.lblHairColorSplit = new System.Windows.Forms.Label();
+            this.lblLength = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pbDriverPic)).BeginInit();
             this.SuspendLayout();
             // 
@@ -446,6 +447,16 @@
             this.lblHairColorSplit.TabIndex = 52;
             this.lblHairColorSplit.Text = "Stainless Steel";
             // 
+            // lblLength
+            // 
+            this.lblLength.AutoSize = true;
+            this.lblLength.Font = new System.Drawing.Font("Arial", 12F);
+            this.lblLength.Location = new System.Drawing.Point(346, 181);
+            this.lblLength.Name = "lblLength";
+            this.lblLength.Size = new System.Drawing.Size(63, 18);
+            this.lblLength.TabIndex = 53;
+            this.lblLength.Text = "Length: ";
+            // 
             // SSN_OLNMenu
             // 
             this.AcceptButton = this.btnSearch;
@@ -453,6 +464,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Menu;
             this.ClientSize = new System.Drawing.Size(1025, 781);
+            this.Controls.Add(this.lblLength);
             this.Controls.Add(this.lblHairColorSplit);
             this.Controls.Add(this.lblEyeColorSplit);
             this.Controls.Add(this.lblNumVehicles);
@@ -538,5 +550,6 @@
         private System.Windows.Forms.Label lblNumVehicles;
         private System.Windows.Forms.Label lblEyeColorSplit;
         private System.Windows.Forms.Label lblHairColorSplit;
+        private System.Windows.Forms.Label lblLength;
     }
 }

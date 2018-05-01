@@ -241,6 +241,7 @@ namespace cbhproj
 
         private void ClearFields()
         {
+            lblLength.Visible = false;
             pbDriverPic.Visible = false;
             btnVehicleInfo.Visible = false;
             btnDelete.Visible = false;
@@ -292,7 +293,10 @@ namespace cbhproj
             if (txtUserInput.Text.Length > 9)
             {
                 txtUserInput.Text = String.Empty;
+                return;
             }
+            lblLength.Visible = true;
+            lblLength.Text = "Length: " + Convert.ToString(txtUserInput.Text.Length);
         }
 
         private void lblClass_Click(object sender, EventArgs e)

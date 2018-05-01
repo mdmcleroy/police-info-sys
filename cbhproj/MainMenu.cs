@@ -119,5 +119,11 @@ namespace cbhproj
                 db.SaveChanges();
             }
         }
+
+        private void btnListAll_Click(object sender, EventArgs e)
+        {
+            ListAll listAll = new ListAll();
+            listAll.ShowDialog();
+        }
     }
 }

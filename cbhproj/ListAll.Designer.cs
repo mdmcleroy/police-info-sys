@@ -31,6 +31,7 @@
             this.lblSubHeading = new System.Windows.Forms.Label();
             this.lblStateMenu = new System.Windows.Forms.Label();
             this.btnClose = new System.Windows.Forms.Button();
+            this.txtListAll = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // lblSubHeading
@@ -66,16 +67,29 @@
             this.btnClose.UseVisualStyleBackColor = true;
             this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
             // 
+            // txtListAll
+            // 
+            this.txtListAll.BackColor = System.Drawing.SystemColors.Menu;
+            this.txtListAll.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtListAll.Location = new System.Drawing.Point(-1, 143);
+            this.txtListAll.Multiline = true;
+            this.txtListAll.Name = "txtListAll";
+            this.txtListAll.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.txtListAll.Size = new System.Drawing.Size(1027, 525);
+            this.txtListAll.TabIndex = 21;
+            // 
             // ListAll
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Menu;
             this.ClientSize = new System.Drawing.Size(1025, 781);
+            this.Controls.Add(this.txtListAll);
             this.Controls.Add(this.btnClose);
             this.Controls.Add(this.lblSubHeading);
             this.Controls.Add(this.lblStateMenu);
             this.Name = "ListAll";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "ListAll";
             this.Load += new System.EventHandler(this.ListAll_Load);
             this.ResumeLayout(false);
@@ -88,5 +102,6 @@
         private System.Windows.Forms.Label lblSubHeading;
         private System.Windows.Forms.Label lblStateMenu;
         private System.Windows.Forms.Button btnClose;
+        private System.Windows.Forms.TextBox txtListAll;
     }
 }
