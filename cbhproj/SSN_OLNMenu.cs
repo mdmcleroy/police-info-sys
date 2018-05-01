@@ -63,75 +63,6 @@ namespace cbhproj
         }
 
         // Methods
-        private void lblSearch_Click(object sender, EventArgs e)
-        {
-            userInput = txtUserInput.Text.Trim();
-
-            // Validate user input
-            if (!GlobalFunctions.IsDigitsOnly(userInput))
-            {
-                MessageBox.Show("Invalid input\nUsage: XXXXXXXXX", "Error", MessageBoxButtons.OK);
-                return;
-            }
-
-            // Determine appropriate actions
-            if (searchByOLN)
-            {
-                if (userInput.Length < 7 || userInput.Length > 9)
-                {
-                    return;
-                }
-
-                OLNLookup();
-            }
-            else if (searchBySSN)
-            {
-                if (userInput.Length < 9)
-                {
-                    return;
-                }
-
-                SSNLookup();
-            }
-            else if (deleteBySSN)
-            {
-                if (userInput.Length != 9)
-                {
-                    return;
-                }
-
-                btnDelete.Visible = true;
-                SSNLookup();
-            }
-            else if (deleteByOLN)
-            {
-                if (userInput.Length < 7 || userInput.Length > 9)
-                {
-                    return;
-                }
-
-                btnDelete.Visible = true;
-                OLNLookup();
-            }
-
-            if (drivers.Count == 0)
-            {
-                btnDelete.Visible = false;
-                if (searchByOLN)
-                {
-                    errorMessage = String.Format("OLN {0} not found\nUsage: XXXXXXX or XXXXXXXXX", userInput);
-                }
-                else if (searchBySSN)
-                {
-                    errorMessage = String.Format("SSN {0} not found\nUsage: XXXXXXXXX", userInput);
-                }
-                MessageBox.Show(errorMessage, "Error", MessageBoxButtons.OK);
-                return;
-            }
-
-            FormatData();
-        }
-
         private void SSNLookup()
         {
             using (var db = new mdmcleroyEntities())
@@ -300,9 +231,73 @@ namespace cbhproj
             ActiveControl = txtUserInput;
         }
 
-        private void btnClose_Click_1(object sender, EventArgs e)
+        private void lblSearch_Click(object sender, EventArgs e)
         {
-            Close();
+            userInput = txtUserInput.Text.Trim();
+
+            // Validate user input
+            if (!GlobalFunctions.IsDigitsOnly(userInput))
+            {
+                MessageBox.Show("Invalid input\nUsage: XXXXXXXXX", "Error", MessageBoxButtons.OK);
+                return;
+            }
+
+            // Determine appropriate actions
+            if (searchByOLN)
+            {
+                if (userInput.Length < 7 || userInput.Length > 9)
+                {
+                    return;
+                }
+
+                OLNLookup();
+            }
+            else if (searchBySSN)
+            {
+                if (userInput.Length < 9)
+                {
+                    return;
+                }
+
+                SSNLookup();
+            }
+            else if (deleteBySSN)
+            {
+                if (userInput.Length != 9)
+                {
+                    return;
+                }
+
+                btnDelete.Visible = true;
+                SSNLookup();
+            }
+            else if (deleteByOLN)
+            {
+                if (userInput.Length < 7 || userInput.Length > 9)
+                {
+                    return;
+                }
+
+                btnDelete.Visible = true;
+                OLNLookup();
+            }
+
+            if (drivers.Count == 0)
+            {
+                btnDelete.Visible = false;
+                if (searchByOLN)
+                {
+                    errorMessage = String.Format("OLN {0} not found\nUsage: XXXXXXX or XXXXXXXXX", userInput);
+                }
+                else if (searchBySSN)
+                {
+                    errorMessage = String.Format("SSN {0} not found\nUsage: XXXXXXXXX", userInput);
+                }
+                MessageBox.Show(errorMessage, "Error", MessageBoxButtons.OK);
+                return;
+            }
+
+            FormatData();
         }
 
         private void txtUserSSN_TextChanged(object sender, EventArgs e)
@@ -358,6 +353,11 @@ namespace cbhproj
             txtUserInput.Text = String.Empty;
             deleteMsg = String.Format("{0} {1} deleted.", driver.FirstName, driver.LastName);
             dialog = MessageBox.Show(deleteMsg, "Success!", MessageBoxButtons.OK);
+        }
+
+        private void btnClose_Click_1(object sender, EventArgs e)
+        {
+            Close();
         }
     }
 }
