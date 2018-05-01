@@ -54,6 +54,7 @@
             this.chkOrganDonor = new System.Windows.Forms.CheckBox();
             this.chkMale = new System.Windows.Forms.CheckBox();
             this.chkFemale = new System.Windows.Forms.CheckBox();
+            this.cbStatus = new System.Windows.Forms.ComboBox();
             this.cbClass = new System.Windows.Forms.ComboBox();
             this.cbRestriction = new System.Windows.Forms.ComboBox();
             this.cbEndorsement = new System.Windows.Forms.ComboBox();
@@ -68,8 +69,7 @@
             this.progBar = new System.Windows.Forms.ProgressBar();
             this.btnClearReset = new System.Windows.Forms.Button();
             this.lblLength = new System.Windows.Forms.Label();
-            this.lbStatus = new System.Windows.Forms.ListBox();
-            this.lblSelectStatus = new System.Windows.Forms.Label();
+            this.lbClass = new System.Windows.Forms.ListBox();
             this.SuspendLayout();
             // 
             // lblSubHeading
@@ -363,12 +363,24 @@
             this.chkFemale.UseVisualStyleBackColor = true;
             this.chkFemale.MouseClick += new System.Windows.Forms.MouseEventHandler(this.chkFemale_MouseClick);
             // 
+            // cbStatus
+            // 
+            this.cbStatus.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.cbStatus.Font = new System.Drawing.Font("Arial", 12F);
+            this.cbStatus.FormattingEnabled = true;
+            this.cbStatus.Location = new System.Drawing.Point(87, 513);
+            this.cbStatus.Name = "cbStatus";
+            this.cbStatus.Size = new System.Drawing.Size(185, 26);
+            this.cbStatus.TabIndex = 20;
+            this.cbStatus.Text = "Select Status...";
+            this.cbStatus.Leave += new System.EventHandler(this.cbStatus_Leave);
+            // 
             // cbClass
             // 
             this.cbClass.Cursor = System.Windows.Forms.Cursors.Hand;
             this.cbClass.Font = new System.Drawing.Font("Arial", 12F);
             this.cbClass.FormattingEnabled = true;
-            this.cbClass.Location = new System.Drawing.Point(274, 545);
+            this.cbClass.Location = new System.Drawing.Point(278, 527);
             this.cbClass.Name = "cbClass";
             this.cbClass.Size = new System.Drawing.Size(185, 26);
             this.cbClass.TabIndex = 21;
@@ -515,26 +527,17 @@
             this.lblLength.TabIndex = 80;
             this.lblLength.Text = "Length: ";
             // 
-            // lbStatus
+            // lbClass
             // 
-            this.lbStatus.Font = new System.Drawing.Font("Arial", 12F);
-            this.lbStatus.FormattingEnabled = true;
-            this.lbStatus.ItemHeight = 18;
-            this.lbStatus.Location = new System.Drawing.Point(87, 513);
-            this.lbStatus.MultiColumn = true;
-            this.lbStatus.Name = "lbStatus";
-            this.lbStatus.Size = new System.Drawing.Size(185, 184);
-            this.lbStatus.TabIndex = 81;
-            // 
-            // lblSelectStatus
-            // 
-            this.lblSelectStatus.AutoSize = true;
-            this.lblSelectStatus.Font = new System.Drawing.Font("Arial", 12F);
-            this.lblSelectStatus.Location = new System.Drawing.Point(84, 490);
-            this.lblSelectStatus.Name = "lblSelectStatus";
-            this.lblSelectStatus.Size = new System.Drawing.Size(108, 18);
-            this.lblSelectStatus.TabIndex = 82;
-            this.lblSelectStatus.Text = "Select Status: ";
+            this.lbClass.Font = new System.Drawing.Font("Arial", 12F);
+            this.lbClass.FormattingEnabled = true;
+            this.lbClass.ItemHeight = 18;
+            this.lbClass.Location = new System.Drawing.Point(87, 546);
+            this.lbClass.MultiColumn = true;
+            this.lbClass.Name = "lbClass";
+            this.lbClass.SelectionMode = System.Windows.Forms.SelectionMode.MultiSimple;
+            this.lbClass.Size = new System.Drawing.Size(372, 76);
+            this.lbClass.TabIndex = 81;
             // 
             // cbhproj
             // 
@@ -543,8 +546,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Menu;
             this.ClientSize = new System.Drawing.Size(1025, 781);
-            this.Controls.Add(this.lblSelectStatus);
-            this.Controls.Add(this.lbStatus);
+            this.Controls.Add(this.lbClass);
             this.Controls.Add(this.lblLength);
             this.Controls.Add(this.btnClearReset);
             this.Controls.Add(this.progBar);
@@ -558,6 +560,7 @@
             this.Controls.Add(this.cbEndorsement);
             this.Controls.Add(this.cbRestriction);
             this.Controls.Add(this.cbClass);
+            this.Controls.Add(this.cbStatus);
             this.Controls.Add(this.chkOther);
             this.Controls.Add(this.chkFemale);
             this.Controls.Add(this.chkMale);
@@ -623,6 +626,7 @@
         private System.Windows.Forms.CheckBox chkOrganDonor;
         private System.Windows.Forms.CheckBox chkMale;
         private System.Windows.Forms.CheckBox chkFemale;
+        private System.Windows.Forms.ComboBox cbStatus;
         private System.Windows.Forms.ComboBox cbClass;
         private System.Windows.Forms.ComboBox cbRestriction;
         private System.Windows.Forms.ComboBox cbEndorsement;
@@ -637,7 +641,6 @@
         private System.Windows.Forms.ProgressBar progBar;
         private System.Windows.Forms.Button btnClearReset;
         private System.Windows.Forms.Label lblLength;
-        private System.Windows.Forms.ListBox lbStatus;
-        private System.Windows.Forms.Label lblSelectStatus;
+        private System.Windows.Forms.ListBox lbClass;
     }
 }

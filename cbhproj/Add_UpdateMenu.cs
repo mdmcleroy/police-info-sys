@@ -63,20 +63,20 @@ namespace cbhproj
                                 where s.Active == true
                                 orderby s.StatusCode
                                 select s).ToList();
-                lbStatus.Items.Add("N/A");
+                cbStatus.Items.Add("N/A");
                 foreach (var item in statuses)
                 {
-                    lbStatus.Items.Add(String.Format("{0} {1}", item.StatusCode, item.StatusName));
+                    cbStatus.Items.Add(String.Format("(0{0}) {1}", item.StatusCode, item.StatusName));
                 }
 
                 var classes = (from c in db.Classes
                                 where c.Active == true
                                 orderby c.ClassCode
                                 select c).ToList();
-                cbClass.Items.Add("N/A");
+                lbClass.Items.Add("N/A");
                 foreach (var item in classes)
                 {
-                    cbClass.Items.Add(String.Format("({0}) {1}", item.ClassCode, item.ClassDesc));
+                    lbClass.Items.Add(String.Format("{0} {1}", item.ClassCode, item.ClassDesc));
                 }
 
                 var restrictions = (from r in db.Restrictions
@@ -182,7 +182,7 @@ namespace cbhproj
             cbHairColor.Text = String.Format("({0:00}) {1} {2}", driver.HairColorCode, driver.HairColorAbbr, driver.HairColorName);
             chkOrganDonor.Checked = driver.OrganDonor ? true : false;
             txtOLN.Text = driver.OLN;
-            lbStatus.SelectedItems() = String.IsNullOrEmpty(driver.StatusCode) ? "N/A" : String.Format("({0}) {1}", driver.StatusCode, driver.StatusName);
+            cbStatus.Text = String.IsNullOrEmpty(driver.StatusCode) ? "N/A" : String.Format("({0}) {1}", driver.StatusCode, driver.StatusName);
             cbClass.Text = driver.LicenseClass;
             dtIssue.Value = (DateTime)driver.LicenseIssue;
             dtExpiration.Value = (DateTime)driver.LicenseExpiration;
@@ -270,7 +270,7 @@ namespace cbhproj
             chkMale.Visible = false;
             chkFemale.Visible = false;
             chkOther.Visible = false;
-            lbStatus.Visible = false;
+            cbStatus.Visible = false;
             cbClass.Visible = false;
             cbRestriction.Visible = false;
             cbEndorsement.Visible = false;
@@ -308,7 +308,7 @@ namespace cbhproj
             chkMale.Visible = true;
             chkFemale.Visible = true;
             chkOther.Visible = true;
-            lbStatus.Visible = true;
+            cbStatus.Visible = true;
             cbClass.Visible = true;
             cbRestriction.Visible = true;
             cbEndorsement.Visible = true;
