@@ -54,7 +54,6 @@
             this.chkOrganDonor = new System.Windows.Forms.CheckBox();
             this.chkMale = new System.Windows.Forms.CheckBox();
             this.chkFemale = new System.Windows.Forms.CheckBox();
-            this.cbStatus = new System.Windows.Forms.ComboBox();
             this.cbClass = new System.Windows.Forms.ComboBox();
             this.cbRestriction = new System.Windows.Forms.ComboBox();
             this.cbEndorsement = new System.Windows.Forms.ComboBox();
@@ -70,6 +69,7 @@
             this.btnClearReset = new System.Windows.Forms.Button();
             this.lblLength = new System.Windows.Forms.Label();
             this.lbStatus = new System.Windows.Forms.ListBox();
+            this.lblSelectStatus = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // lblSubHeading
@@ -135,6 +135,7 @@
             this.txtAddress2.Size = new System.Drawing.Size(324, 26);
             this.txtAddress2.TabIndex = 6;
             this.txtAddress2.MouseClick += new System.Windows.Forms.MouseEventHandler(this.txtAddress2_Click);
+            this.txtAddress2.TextChanged += new System.EventHandler(this.txtAddress2_TextChanged);
             this.txtAddress2.Leave += new System.EventHandler(this.txtAddress2_Leave);
             // 
             // txtAddress1
@@ -145,6 +146,7 @@
             this.txtAddress1.Size = new System.Drawing.Size(324, 26);
             this.txtAddress1.TabIndex = 5;
             this.txtAddress1.MouseClick += new System.Windows.Forms.MouseEventHandler(this.txtAddress1_Click);
+            this.txtAddress1.TextChanged += new System.EventHandler(this.txtAddress1_TextChanged);
             this.txtAddress1.Leave += new System.EventHandler(this.txtAddress1_Leave);
             // 
             // txtLastName
@@ -155,6 +157,7 @@
             this.txtLastName.Size = new System.Drawing.Size(145, 26);
             this.txtLastName.TabIndex = 2;
             this.txtLastName.MouseClick += new System.Windows.Forms.MouseEventHandler(this.txtLastName_Click);
+            this.txtLastName.TextChanged += new System.EventHandler(this.txtLastName_TextChanged);
             this.txtLastName.Leave += new System.EventHandler(this.txtLastName_Leave);
             // 
             // txtFirstName
@@ -165,6 +168,7 @@
             this.txtFirstName.Size = new System.Drawing.Size(145, 26);
             this.txtFirstName.TabIndex = 3;
             this.txtFirstName.MouseClick += new System.Windows.Forms.MouseEventHandler(this.txtFirstName_Click);
+            this.txtFirstName.TextChanged += new System.EventHandler(this.txtFirstName_TextChanged);
             this.txtFirstName.Leave += new System.EventHandler(this.txtFirstName_Leave);
             // 
             // txtMiddleInitial
@@ -229,6 +233,7 @@
             this.txtCity.Size = new System.Drawing.Size(224, 26);
             this.txtCity.TabIndex = 7;
             this.txtCity.MouseClick += new System.Windows.Forms.MouseEventHandler(this.txtCity_MouseClick);
+            this.txtCity.TextChanged += new System.EventHandler(this.txtCity_TextChanged);
             this.txtCity.Leave += new System.EventHandler(this.txtCity_Leave);
             // 
             // cbHairColor
@@ -357,18 +362,6 @@
             this.chkFemale.Text = "Female";
             this.chkFemale.UseVisualStyleBackColor = true;
             this.chkFemale.MouseClick += new System.Windows.Forms.MouseEventHandler(this.chkFemale_MouseClick);
-            // 
-            // cbStatus
-            // 
-            this.cbStatus.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.cbStatus.Font = new System.Drawing.Font("Arial", 12F);
-            this.cbStatus.FormattingEnabled = true;
-            this.cbStatus.Location = new System.Drawing.Point(274, 513);
-            this.cbStatus.Name = "cbStatus";
-            this.cbStatus.Size = new System.Drawing.Size(185, 26);
-            this.cbStatus.TabIndex = 20;
-            this.cbStatus.Text = "Select Status...";
-            this.cbStatus.Leave += new System.EventHandler(this.cbStatus_Leave);
             // 
             // cbClass
             // 
@@ -527,10 +520,21 @@
             this.lbStatus.Font = new System.Drawing.Font("Arial", 12F);
             this.lbStatus.FormattingEnabled = true;
             this.lbStatus.ItemHeight = 18;
-            this.lbStatus.Location = new System.Drawing.Point(274, 513);
+            this.lbStatus.Location = new System.Drawing.Point(87, 513);
+            this.lbStatus.MultiColumn = true;
             this.lbStatus.Name = "lbStatus";
-            this.lbStatus.Size = new System.Drawing.Size(185, 22);
+            this.lbStatus.Size = new System.Drawing.Size(185, 184);
             this.lbStatus.TabIndex = 81;
+            // 
+            // lblSelectStatus
+            // 
+            this.lblSelectStatus.AutoSize = true;
+            this.lblSelectStatus.Font = new System.Drawing.Font("Arial", 12F);
+            this.lblSelectStatus.Location = new System.Drawing.Point(84, 490);
+            this.lblSelectStatus.Name = "lblSelectStatus";
+            this.lblSelectStatus.Size = new System.Drawing.Size(108, 18);
+            this.lblSelectStatus.TabIndex = 82;
+            this.lblSelectStatus.Text = "Select Status: ";
             // 
             // cbhproj
             // 
@@ -539,6 +543,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Menu;
             this.ClientSize = new System.Drawing.Size(1025, 781);
+            this.Controls.Add(this.lblSelectStatus);
             this.Controls.Add(this.lbStatus);
             this.Controls.Add(this.lblLength);
             this.Controls.Add(this.btnClearReset);
@@ -553,7 +558,6 @@
             this.Controls.Add(this.cbEndorsement);
             this.Controls.Add(this.cbRestriction);
             this.Controls.Add(this.cbClass);
-            this.Controls.Add(this.cbStatus);
             this.Controls.Add(this.chkOther);
             this.Controls.Add(this.chkFemale);
             this.Controls.Add(this.chkMale);
@@ -619,7 +623,6 @@
         private System.Windows.Forms.CheckBox chkOrganDonor;
         private System.Windows.Forms.CheckBox chkMale;
         private System.Windows.Forms.CheckBox chkFemale;
-        private System.Windows.Forms.ComboBox cbStatus;
         private System.Windows.Forms.ComboBox cbClass;
         private System.Windows.Forms.ComboBox cbRestriction;
         private System.Windows.Forms.ComboBox cbEndorsement;
@@ -635,5 +638,6 @@
         private System.Windows.Forms.Button btnClearReset;
         private System.Windows.Forms.Label lblLength;
         private System.Windows.Forms.ListBox lbStatus;
+        private System.Windows.Forms.Label lblSelectStatus;
     }
 }

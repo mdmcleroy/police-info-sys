@@ -63,10 +63,10 @@ namespace cbhproj
                                 where s.Active == true
                                 orderby s.StatusCode
                                 select s).ToList();
-                cbStatus.Items.Add("N/A");
+                lbStatus.Items.Add("N/A");
                 foreach (var item in statuses)
                 {
-                    cbStatus.Items.Add(String.Format("({0}) {1}", item.StatusCode, item.StatusName));
+                    lbStatus.Items.Add(String.Format("{0} {1}", item.StatusCode, item.StatusName));
                 }
 
                 var classes = (from c in db.Classes
@@ -182,7 +182,7 @@ namespace cbhproj
             cbHairColor.Text = String.Format("({0:00}) {1} {2}", driver.HairColorCode, driver.HairColorAbbr, driver.HairColorName);
             chkOrganDonor.Checked = driver.OrganDonor ? true : false;
             txtOLN.Text = driver.OLN;
-            cbStatus.Text = String.IsNullOrEmpty(driver.StatusCode) ? "N/A" : String.Format("({0}) {1}", driver.StatusCode, driver.StatusName);
+            lbStatus.SelectedItems() = String.IsNullOrEmpty(driver.StatusCode) ? "N/A" : String.Format("({0}) {1}", driver.StatusCode, driver.StatusName);
             cbClass.Text = driver.LicenseClass;
             dtIssue.Value = (DateTime)driver.LicenseIssue;
             dtExpiration.Value = (DateTime)driver.LicenseExpiration;
@@ -270,7 +270,7 @@ namespace cbhproj
             chkMale.Visible = false;
             chkFemale.Visible = false;
             chkOther.Visible = false;
-            cbStatus.Visible = false;
+            lbStatus.Visible = false;
             cbClass.Visible = false;
             cbRestriction.Visible = false;
             cbEndorsement.Visible = false;
@@ -308,7 +308,7 @@ namespace cbhproj
             chkMale.Visible = true;
             chkFemale.Visible = true;
             chkOther.Visible = true;
-            cbStatus.Visible = true;
+            lbStatus.Visible = true;
             cbClass.Visible = true;
             cbRestriction.Visible = true;
             cbEndorsement.Visible = true;
@@ -631,15 +631,6 @@ namespace cbhproj
             }
         }
 
-        private void txtZip_TextChanged(object sender, EventArgs e)
-        {
-            if (txtZip.Text.Length == 5)
-            {
-                txtZip.Text += "-";
-                txtZip.SelectionStart = txtZip.Text.Length;
-            }
-        }
-
         private void cbHeightFeet_Leave(object sender, EventArgs e)
         {
             if (cbHeightFeet.Text.Length == 0)
@@ -892,8 +883,76 @@ namespace cbhproj
 
         private void txtWeight_TextChanged(object sender, EventArgs e)
         {
-            if (txtWeight.Text.Length >= 4)
+            if (txtWeight.Text.Length >= 4 && txtWeight.Text != "Weight (Ex. 225)")
             {
+                txtWeight.Text = txtWeight.Text.Substring(0, 4);
+                txtWeight.SelectionStart = txtWeight.Text.Length;
+                return;
+            }
+        }
+
+        private void txtLastName_TextChanged(object sender, EventArgs e)
+        {
+            if (txtLastName.Text.Length >= 20 && txtLastName.Text != "Last Name")
+            {
+                txtLastName.Text = txtLastName.Text.Substring(0, 20);
+                txtLastName.SelectionStart = txtLastName.Text.Length;
+                return;
+            }
+        }
+
+        private void txtFirstName_TextChanged(object sender, EventArgs e)
+        {
+            if (txtFirstName.Text.Length >= 12 && txtFirstName.Text != "First Name")
+            {
+                txtFirstName.Text = txtFirstName.Text.Substring(0, 12);
+                txtFirstName.SelectionStart = txtFirstName.Text.Length;
+                return;
+            }
+        }
+
+        private void txtAddress1_TextChanged(object sender, EventArgs e)
+        {
+            if (txtAddress1.Text.Length >= 30 && txtAddress1.Text != "Address 1")
+            {
+                txtAddress1.Text = txtAddress1.Text.Substring(0, 30);
+                txtAddress1.SelectionStart = txtAddress1.Text.Length;
+                return;
+            }
+        }
+
+        private void txtAddress2_TextChanged(object sender, EventArgs e)
+        {
+            if (txtAddress2.Text.Length >= 30 && txtAddress2.Text != "Address 2")
+            {
+                txtAddress2.Text = txtAddress2.Text.Substring(0, 30);
+                txtAddress2.SelectionStart = txtAddress2.Text.Length;
+                return;
+            }
+        }
+
+        private void txtCity_TextChanged(object sender, EventArgs e)
+        {
+            if (txtCity.Text.Length >= 20 && txtCity.Text != "City")
+            {
+                txtCity.Text = txtCity.Text.Substring(0, 20);
+                txtCity.SelectionStart = txtCity.Text.Length;
+                return;
+            }
+        }
+
+        private void txtZip_TextChanged(object sender, EventArgs e)
+        {
+            if (txtZip.Text.Length == 5)
+            {
+                txtZip.Text += "-";
+                txtZip.SelectionStart = txtZip.Text.Length;
+            }
+
+            if (txtZip.Text.Length >= 10 && txtZip.Text != "Zip")
+            {
+                txtZip.Text = txtZip.Text.Substring(0, 10);
+                txtZip.SelectionStart = txtZip.Text.Length;
                 return;
             }
         }
