@@ -330,6 +330,13 @@ namespace cbhproj
         {
             userInput = txtUserInput.Text.Trim();
 
+            // Validate user input
+            if (!GlobalFunctions.IsDigitsOnly(userInput))
+            {
+                MessageBox.Show("Invalid input.\nUsage: XXXXXXXXX", "Error", MessageBoxButtons.OK);
+                return;
+            }
+
             if (userInput.Length < 9 || userInput.Length > 11)
             {
                 return;
@@ -443,6 +450,8 @@ namespace cbhproj
             {
                 txtUserInput.Text = String.Empty;
             }
+            lblLength.Visible = true;
+            lblLength.Text = "Length: " + Convert.ToString(txtUserInput.Text.Length);
         }
 
         private void txtLastName_Click(object sender, MouseEventArgs e)

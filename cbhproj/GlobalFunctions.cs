@@ -9,7 +9,7 @@ namespace cbhproj
 {
     public class GlobalFunctions
     {
-        private string GetState(mdmcleroyEntities db, int aStateCode)
+        public static string GetState(mdmcleroyEntities db, int aStateCode)
         {
             var StateData = (from s in db.States
                              where s.StateCode == aStateCode && s.Active == true
@@ -21,6 +21,17 @@ namespace cbhproj
             }
 
             return String.Format("{0} {1}", StateData[0].StateAbbr, StateData[0].StateName);
+        }
+
+        public static bool IsDigitsOnly(string str)
+        {
+            foreach (char c in str)
+            {
+                if (c < '0' || c > '9')
+                    return false;
+            }
+
+            return true;
         }
     }
 }

@@ -19,6 +19,8 @@ namespace cbhproj
         bool deleteBySSN = false;
         bool deleteByOLN = false;
         string userInput = String.Empty;
+        string errorMessage = String.Empty;
+
 
         List<vwDriver> drivers = new List<vwDriver>();
         vwDriver driver = new vwDriver();
@@ -65,6 +67,14 @@ namespace cbhproj
         {
             userInput = txtUserInput.Text.Trim();
 
+            // Validate user input
+            if (!GlobalFunctions.IsDigitsOnly(userInput))
+            {
+                MessageBox.Show("Invalid input\nUsage: XXXXXXXXX", "Error", MessageBoxButtons.OK);
+                return;
+            }
+
+            // Determine appropriate actions
             if (searchByOLN)
             {
                 if (userInput.Length < 7 || userInput.Length > 9)
@@ -107,7 +117,15 @@ namespace cbhproj
             if (drivers.Count == 0)
             {
                 btnDelete.Visible = false;
-                MessageBox.Show("Driver not found.", "Alert!", MessageBoxButtons.OK);
+                if (searchByOLN)
+                {
+                    errorMessage = String.Format("OLN {0} not found\nUsage: XXXXXXX or XXXXXXXXX", userInput);
+                }
+                else if (searchBySSN)
+                {
+                    errorMessage = String.Format("SSN {0} not found\nUsage: XXXXXXXXX", userInput);
+                }
+                MessageBox.Show(errorMessage, "Error", MessageBoxButtons.OK);
                 return;
             }
 

@@ -68,6 +68,8 @@
             this.btnAddUpdate = new System.Windows.Forms.Button();
             this.progBar = new System.Windows.Forms.ProgressBar();
             this.btnClearReset = new System.Windows.Forms.Button();
+            this.lblLength = new System.Windows.Forms.Label();
+            this.lbStatus = new System.Windows.Forms.ListBox();
             this.SuspendLayout();
             // 
             // lblSubHeading
@@ -510,6 +512,26 @@
             this.btnClearReset.UseVisualStyleBackColor = false;
             this.btnClearReset.Click += new System.EventHandler(this.btnClearReset_Click);
             // 
+            // lblLength
+            // 
+            this.lblLength.AutoSize = true;
+            this.lblLength.Font = new System.Drawing.Font("Arial", 12F);
+            this.lblLength.Location = new System.Drawing.Point(346, 181);
+            this.lblLength.Name = "lblLength";
+            this.lblLength.Size = new System.Drawing.Size(63, 18);
+            this.lblLength.TabIndex = 80;
+            this.lblLength.Text = "Length: ";
+            // 
+            // lbStatus
+            // 
+            this.lbStatus.Font = new System.Drawing.Font("Arial", 12F);
+            this.lbStatus.FormattingEnabled = true;
+            this.lbStatus.ItemHeight = 18;
+            this.lbStatus.Location = new System.Drawing.Point(274, 513);
+            this.lbStatus.Name = "lbStatus";
+            this.lbStatus.Size = new System.Drawing.Size(185, 22);
+            this.lbStatus.TabIndex = 81;
+            // 
             // cbhproj
             // 
             this.AcceptButton = this.btnSearch;
@@ -517,6 +539,8 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Menu;
             this.ClientSize = new System.Drawing.Size(1025, 781);
+            this.Controls.Add(this.lbStatus);
+            this.Controls.Add(this.lblLength);
             this.Controls.Add(this.btnClearReset);
             this.Controls.Add(this.progBar);
             this.Controls.Add(this.btnAddUpdate);
@@ -609,5 +633,7 @@
         private System.Windows.Forms.Button btnAddUpdate;
         private System.Windows.Forms.ProgressBar progBar;
         private System.Windows.Forms.Button btnClearReset;
+        private System.Windows.Forms.Label lblLength;
+        private System.Windows.Forms.ListBox lbStatus;
     }
 }
