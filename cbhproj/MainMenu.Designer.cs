@@ -37,7 +37,7 @@
             this.btnDeleteBySSN = new System.Windows.Forms.Button();
             this.btnListAll = new System.Windows.Forms.Button();
             this.btnDeleteByOLN = new System.Windows.Forms.Button();
-            this.btnInitialDataLoad = new System.Windows.Forms.Button();
+            this.btnResetData = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // lblMainMenu
@@ -147,17 +147,17 @@
             this.btnDeleteByOLN.UseVisualStyleBackColor = true;
             this.btnDeleteByOLN.Click += new System.EventHandler(this.btnDeleteByOLN_Click);
             // 
-            // btnInitialDataLoad
+            // btnResetData
             // 
-            this.btnInitialDataLoad.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.875F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnInitialDataLoad.Location = new System.Drawing.Point(269, 116);
-            this.btnInitialDataLoad.Margin = new System.Windows.Forms.Padding(6, 4, 6, 4);
-            this.btnInitialDataLoad.Name = "btnInitialDataLoad";
-            this.btnInitialDataLoad.Size = new System.Drawing.Size(487, 64);
-            this.btnInitialDataLoad.TabIndex = 10;
-            this.btnInitialDataLoad.Text = "Initial Data Load";
-            this.btnInitialDataLoad.UseVisualStyleBackColor = true;
-            this.btnInitialDataLoad.Click += new System.EventHandler(this.btnInitialDataLoad_Click);
+            this.btnResetData.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.875F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnResetData.Location = new System.Drawing.Point(269, 116);
+            this.btnResetData.Margin = new System.Windows.Forms.Padding(6, 4, 6, 4);
+            this.btnResetData.Name = "btnResetData";
+            this.btnResetData.Size = new System.Drawing.Size(487, 64);
+            this.btnResetData.TabIndex = 10;
+            this.btnResetData.Text = "Reset Database";
+            this.btnResetData.UseVisualStyleBackColor = true;
+            this.btnResetData.Click += new System.EventHandler(this.btnInitialDataLoad_Click);
             // 
             // MainMenu
             // 
@@ -165,7 +165,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Menu;
             this.ClientSize = new System.Drawing.Size(1025, 781);
-            this.Controls.Add(this.btnInitialDataLoad);
+            this.Controls.Add(this.btnResetData);
             this.Controls.Add(this.btnDeleteByOLN);
             this.Controls.Add(this.btnListAll);
             this.Controls.Add(this.btnDeleteBySSN);
@@ -196,7 +196,7 @@
         private System.Windows.Forms.Button btnDeleteBySSN;
         private System.Windows.Forms.Button btnListAll;
         private System.Windows.Forms.Button btnDeleteByOLN;
-        private System.Windows.Forms.Button btnInitialDataLoad;
+        private System.Windows.Forms.Button btnResetData;
     }
 }
 
