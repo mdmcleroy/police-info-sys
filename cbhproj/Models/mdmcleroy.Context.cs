@@ -12,6 +12,8 @@ namespace cbhproj.Models
     using System;
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
+    using System.Data.Entity.Core.Objects;
+    using System.Linq;
     
     public partial class mdmcleroyEntities : DbContext
     {
@@ -39,5 +41,10 @@ namespace cbhproj.Models
         public virtual DbSet<Vehicle> Vehicles { get; set; }
         public virtual DbSet<vwDriver> vwDrivers { get; set; }
         public virtual DbSet<License> Licenses { get; set; }
+    
+        public virtual int cbhprojResetData()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("cbhprojResetData");
+        }
     }
 }

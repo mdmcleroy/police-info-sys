@@ -328,6 +328,7 @@ warning 6002: The table/view 'mdmcleroy.dbo.vwVehicle' does not have a primary k
           <Property Name="BottomColorDeleted" Type="bit" />
           <Property Name="BottomColorCreateDate" Type="datetime" />
         </EntityType>
+        <Function Name="cbhprojResetData" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
         <EntityContainer Name="mdmcleroyModelStoreContainer">
           <EntitySet Name="Classes" EntityType="Self.Classes" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Colors" EntityType="Self.Colors" Schema="dbo" store:Type="Tables" />
@@ -483,6 +484,7 @@ warning 6002: The table/view 'mdmcleroy.dbo.vwVehicle' does not have a primary k
           <EntitySet Name="Vehicles" EntityType="mdmcleroyModel.Vehicle" />
           <EntitySet Name="vwDrivers" EntityType="mdmcleroyModel.vwDriver" />
           <EntitySet Name="Licenses" EntityType="mdmcleroyModel.License" />
+          <FunctionImport Name="cbhprojResetData" />
         </EntityContainer>
         <EntityType Name="State">
           <Key>
@@ -1080,6 +1082,7 @@ warning 6002: The table/view 'mdmcleroy.dbo.vwVehicle' does not have a primary k
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="cbhprojResetData" FunctionName="mdmcleroyModel.Store.cbhprojResetData" />
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

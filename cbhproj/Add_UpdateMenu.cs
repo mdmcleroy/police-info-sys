@@ -172,9 +172,9 @@ namespace cbhproj
             txtCity.Text = driver.City;
             cbDriverState.Text = String.Format("({0:00}) {1} {2}", driver.DriverStateCode, driver.DriverStateAbbr, driver.DriverStateName);
             txtZip.Text = driver.PostalCode;
-            cbHeightFeet.Text = String.Format("{0}'", driver.Height.Substring(1, 1));
-            cbHeightInches.Text = String.Format("{0}\n", driver.Height.Substring(2, 2));
-            txtWeight.Text = driver.Weight.Substring(1, 3);
+            cbHeightFeet.Text = String.Format("{0}'", driver.Height.Substring(0, 1));
+            cbHeightInches.Text = String.Format("{0}\"", driver.Height.Substring(1, 2));
+            txtWeight.Text = driver.Weight;
             chkMale.Checked = driver.Gender.Trim().ToUpper() == "M" ? true : false;
             chkFemale.Checked = driver.Gender.Trim().ToUpper() == "F" ? true : false;
             chkOther.Checked = driver.Gender.Trim().ToUpper() != "M" && driver.Gender.Trim().ToUpper() != "F" ? true : false;
@@ -182,7 +182,7 @@ namespace cbhproj
             cbHairColor.Text = String.Format("({0:00}) {1} {2}", driver.HairColorCode, driver.HairColorAbbr, driver.HairColorName);
             chkOrganDonor.Checked = driver.OrganDonor ? true : false;
             txtOLN.Text = driver.OLN;
-            cbStatus.Text = String.IsNullOrEmpty(driver.StatusCode) ? "N/A" : String.Format("({0}) {1}", driver.StatusCode, driver.StatusName);
+            cbStatus.Text = String.IsNullOrEmpty(driver.StatusCode) ? "N/A" : String.Format("(0{0}) {1}", driver.StatusCode, driver.StatusName);
             cbClass.Text = driver.LicenseClass;
             dtIssue.Value = (DateTime)driver.LicenseIssue;
             dtExpiration.Value = (DateTime)driver.LicenseExpiration;
@@ -883,9 +883,9 @@ namespace cbhproj
 
         private void txtWeight_TextChanged(object sender, EventArgs e)
         {
-            if (txtWeight.Text.Length >= 4 && txtWeight.Text != "Weight (Ex. 225)")
+            if (txtWeight.Text.Length >= 3 && txtWeight.Text != "Weight (Ex. 225)")
             {
-                txtWeight.Text = txtWeight.Text.Substring(0, 4);
+                txtWeight.Text = txtWeight.Text.Substring(0, 3);
                 txtWeight.SelectionStart = txtWeight.Text.Length;
                 return;
             }

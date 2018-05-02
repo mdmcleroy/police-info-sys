@@ -142,7 +142,7 @@ namespace cbhproj
             lblHairColor.Text = String.Format("Hair Color: ({0:00}) {1} {2}", driver.HairColorCode, driver.HairColorAbbr, driver.HairColorName.Split('/')[0]);
             lblHairColorSplit.Text = driver.HairColorName.Split('/')[1];
             lblOrganDonor.Text = "Organ Donor: " + (driver.OrganDonor ? "Yes" : "No");
-            lblStatus.Text = "Status: " + (String.IsNullOrEmpty(driver.StatusCode) ? "N/A" : String.Format("({0}) {1}", driver.StatusCode, driver.StatusName));
+            lblStatus.Text = "Status: " + (String.IsNullOrEmpty(driver.StatusCode) ? "N/A" : String.Format("(0{0}) {1}", driver.StatusCode, driver.StatusName));
             lblLicenseInfo.Text = "License Info";
             lblLicenseInfo.Visible = true;
             pbDriverPic.Visible = true;

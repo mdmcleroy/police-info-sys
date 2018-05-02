@@ -79,43 +79,20 @@ namespace cbhproj
         private void btnInitialDataLoad_Click(object sender, EventArgs e)
         {
             DialogResult dialog = new DialogResult();
-            var message = "Refreshing database...";
+            var message = "Resetting database...";
             dialog = MessageBox.Show(message, "Alert!", MessageBoxButtons.OK);
 
-            RefreshDatabase();
+            ResetDatabase();
 
-            message = "Success! Database refreshed.";
-            dialog = MessageBox.Show(message, "Alert!", MessageBoxButtons.OK);
+            message = "Database reset.";
+            dialog = MessageBox.Show(message, "Success!", MessageBoxButtons.OK);
         }
 
-        private void RefreshDatabase()
+        private void ResetDatabase()
         {
             using (var db = new mdmcleroyEntities())
             {
-                drivers = (from d in db.Drivers
-                           select d).ToList();
-                foreach (var item in drivers)
-                {
-                    item.Active = true;
-                    item.Deleted = false;
-                }
-
-                licenses = (from l in db.Licenses
-                            select l).ToList();
-                foreach (var item in licenses)
-                {
-                    item.Active = true;
-                    item.Deleted = false;
-                }
-
-                vehicles = (from v in db.Vehicles
-                            select v).ToList();
-                foreach (var item in vehicles)
-                {
-                    item.Active = true;
-                    item.Deleted = false;
-                }
-
+                db.cbhprojResetData();
                 db.SaveChanges();
             }
         }
