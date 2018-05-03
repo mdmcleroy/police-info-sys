@@ -174,15 +174,21 @@ namespace cbhproj
             txtAddress2.Text = driver.Address2;
             txtCity.Text = driver.City;
             cbDriverState.Text = String.Format("({0:00}) {1} {2}", driver.DriverStateCode, driver.DriverStateAbbr, driver.DriverStateName);
-            txtZip.Text = driver.PostalCode;
-            cbHeightFeet.Text = String.Format("{0}'", driver.Height.Substring(1, 1));
-            cbHeightInches.Text = String.Format("{0}\"", driver.Height.Substring(2, 2));
-            txtWeight.Text = driver.Weight;
+            txtZip.Text = driver.PostalCode.Substring(0, 5) + '-' + driver.PostalCode.Substring(5, 4);
+            var driverHeight = driver.Height.Substring(0, 1) == "0" ? String.Format("{0}{1}\"", driver.Height.Substring(1, 1), driver.Height.Substring(2, driver.Height.Length - 2))
+                                                                    : String.Format("{0}{1}", driver.Height.Substring(0, 1), driver.Height.Substring(1, driver.Height.Length - 1));
+            cbHeightFeet.Text = String.Format("{0}'", driverHeight.Substring(0, 1));
+            cbHeightInches.Text = String.Format("{0}\"", driverHeight.Substring(1, 2));
+            var driverWeight = driver.Weight.Substring(0, 1) == "0" ? driver.Weight.Substring(1, driver.Weight.Length - 1)
+                                                                    : driver.Weight.Substring(0, driver.Weight.Length);
+            txtWeight.Text = driverWeight;
             chkMale.Checked = driver.Gender.Trim().ToUpper() == "M" ? true : false;
             chkFemale.Checked = driver.Gender.Trim().ToUpper() == "F" ? true : false;
             chkOther.Checked = driver.Gender.Trim().ToUpper() != "M" && driver.Gender.Trim().ToUpper() != "F" ? true : false;
-            cbEyeColor.Text = String.Format("({0:00}) {1} {2}", driver.EyeColorCode, driver.EyeColorAbbr, driver.EyeColorName);
-            cbHairColor.Text = String.Format("({0:00}) {1} {2}", driver.HairColorCode, driver.HairColorAbbr, driver.HairColorName);
+            var eyeColor = (driver.EyeColorCode > 33) ? "Invalid Eye Color" : String.Format("({0:00}) {1} {2}", driver.EyeColorCode, driver.EyeColorAbbr, driver.EyeColorName);
+            var hairColor = (driver.HairColorCode > 33) ? "Invalid Hair Color" : String.Format("({0:00}) {1} {2}", driver.HairColorCode, driver.HairColorAbbr, driver.HairColorName);
+            cbEyeColor.Text = eyeColor;
+            cbHairColor.Text = hairColor;
             chkOrganDonor.Checked = driver.OrganDonor ? true : false;
             txtOLN.Text = driver.OLN;
             cbStatus.Text = String.IsNullOrEmpty(driver.StatusCode) ? "N/A" : String.Format("(0{0}) {1}", driver.StatusCode, driver.StatusName);

@@ -134,8 +134,13 @@ namespace cbhproj
             lblState.Text = String.Format("({0:00})  {1}  {2}", driver.StateCode, driver.DriverStateAbbr, driver.DriverStateName);
             lblOLN.Text = String.Format("OLN: {0}", driver.OLN);
             lblZip.Text = String.Format("{0}-{1}", driver.PostalCode.Substring(0, 5), driver.PostalCode.Substring(5, 4));
-            lblHeight.Text = String.Format("Height: {0}' {1}\"", driver.Height.Substring(1, 1), driver.Height.Substring(2, 2));
-            lblWeight.Text = String.Format("Weight: {0} lbs", driver.Weight.Substring(1, 3));
+            var driverHeight = "Height: " + (driver.Height.Substring(0, 1) == "0" ? String.Format("{0}' {1}\"", driver.Height.Substring(1, 1), driver.Height.Substring(2, driver.Height.Length - 2))
+                                                                                  : String.Format("{0}' {1}\"", driver.Height.Substring(0, 1), driver.Height.Substring(1, driver.Height.Length - 1)));
+            lblHeight.Text = driverHeight;
+            var driverWeight = "Weight: " + (driver.Weight.Substring(0, 1) == "0" ? driver.Weight.Substring(1, driver.Weight.Length - 1)
+                                                                                  : driver.Weight.Substring(0, driver.Weight.Length));
+            driverWeight += " lbs";
+            lblWeight.Text = driverWeight;
             lblGender.Text = String.Format("Gender: {0}", driver.Gender);
             lblEyeColor.Text = String.Format("Eye Color: ({0:00}) {1} {2}", driver.EyeColorCode, driver.EyeColorAbbr, driver.EyeColorName.Split('/')[0]);
             lblEyeColorSplit.Text = GlobalFunctions.Contains(driver.EyeColorName, '/') ? driver.EyeColorName.Split('/')[1] : String.Empty;

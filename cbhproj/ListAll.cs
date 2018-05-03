@@ -56,7 +56,8 @@ namespace cbhproj
                     postalCode.PadRight(17), driverCounty));
                 txtListAll.AppendText(Environment.NewLine);
 
-                var driverHeight = String.Format("{0}' {1}\"", item.Height.Substring(1, 1), item.Height.Substring(2, 2));
+                var driverHeight = item.Height.Substring(0, 1) == "0" ? String.Format("{0}' {1}\"", item.Height.Substring(1, 1), item.Height.Substring(2, item.Height.Length - 2)) 
+                                                                      : String.Format("{0}' {1}\"", item.Height.Substring(0, 1), item.Height.Substring(1, item.Height.Length - 1));
                 var eyeColor = (item.EyeColorCode > 33) ? "Invalid Eye Color" : String.Format("({0:00}) {1} {2}", item.EyeColorCode, item.EyeColorAbbr, item.EyeColorName);
                 var hairColor = (item.HairColorCode > 33) ? "Invalid Hair Color" : String.Format("({0:00}) {1} {2}", item.HairColorCode, item.HairColorAbbr, item.HairColorName);
                 txtListAll.AppendText(String.Format("\t    {0} {1} {2} {3} {4}", 
