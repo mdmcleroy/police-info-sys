@@ -165,8 +165,6 @@ namespace cbhproj
             btnClose.Text = "Cancel";
             btnAddUpdate.Text = "Update";
             SetVisibility_True();
-            lblNumVehicles.Visible = true;
-            lblNumVehicles.Text = "Number of Vehicles: " + vehicles.Count();
             txtLastName.Text = driver.LastName;
             txtFirstName.Text = driver.FirstName;
             txtMiddleInitial.Text = driver.MI.Trim();
@@ -223,7 +221,6 @@ namespace cbhproj
             btnClose.Text = "Cancel";
             btnAddUpdate.Text = "Add";
             SetVisibility_True();
-            btnVehicleInfo.Text = "Add Vehicle";
             txtLastName.Text = "Last Name";
             txtFirstName.Text = "First Name";
             txtMiddleInitial.Text = "MI";
@@ -244,7 +241,6 @@ namespace cbhproj
             cbCounty.Text = "Select County...";
             txtWeight.Text = "Weight (Ex. 225)";
             txtOLN.Text = "OLN";
-            lblNumVehicles.Text = String.Empty;
             progBar.Visible = true;
         }
 
@@ -253,7 +249,6 @@ namespace cbhproj
             lblSubHeading.Left = 375;
             lblSubHeading.Text = "Add/Modify a Record";
             SetVisibility_False();
-            lblNumVehicles.Text = String.Empty;
             progBar.Increment(-100);
             cbHeightInches.Items.Clear();
             cbHeightFeet.Items.Clear();
@@ -288,8 +283,6 @@ namespace cbhproj
             lblLicenseInfo.Visible = false;
             txtOLN.Visible = false;
             chkOrganDonor.Visible = false;
-            btnVehicleInfo.Visible = false;
-            lblNumVehicles.Visible = false;
             chkMale.Visible = false;
             chkFemale.Visible = false;
             chkOther.Visible = false;
@@ -326,8 +319,6 @@ namespace cbhproj
             lblLicenseInfo.Visible = true;
             txtOLN.Visible = true;
             chkOrganDonor.Visible = true;
-            btnVehicleInfo.Visible = true;
-            lblNumVehicles.Visible = true;
             chkMale.Visible = true;
             chkFemale.Visible = true;
             chkOther.Visible = true;
@@ -491,8 +482,18 @@ namespace cbhproj
                 }
 
                 UpdateAddDriverLicenseVehicle();
+
+                addUpdateMsg = "Would you like to add a vehicle?";
+                dialog = MessageBox.Show(addUpdateMsg, "Alert!", MessageBoxButtons.YesNo);
+
+                if (dialog == DialogResult.Yes)
+                {
+                    Add_ModifyVehicle addVehicle = new Add_ModifyVehicle(userInput, add);
+                    addVehicle.ShowDialog();
+                }
+
                 SSNLookup();
-                //Modify_FormatData();
+                Modify_FormatData();
                 btnClose.Text = "Close";
                 addUpdateMsg = (add) ? String.Format("SSN {0} added.", driver.SSN)
                                      : String.Format("SSN {0} updated.", driver.SSN);
@@ -519,9 +520,11 @@ namespace cbhproj
                     driverData.CreateDate = DateTime.Now;
                     driverData.LastUpdate = DateTime.Now;
                 }
+                driverData.OLN = txtOLN.Text.Trim();
                 driverData.LastName = txtLastName.Text.Trim().ToUpper();
                 driverData.FirstName = txtFirstName.Text.Trim().ToUpper();
-                driverData.MI = txtMiddleInitial.Text.Trim().ToUpper();
+                driverData.MI = String.IsNullOrWhiteSpace(txtMiddleInitial.Text) ? 
+                                String.Empty : txtMiddleInitial.Text.Trim().ToUpper();
                 driverData.Address1 = txtAddress1.Text.Trim().ToUpper();
                 driverData.Address2 = txtAddress2.Text.Trim().ToUpper();
                 driverData.City = txtCity.Text.Trim().ToUpper();
@@ -534,7 +537,6 @@ namespace cbhproj
                 driverData.EyeColorCode = Convert.ToInt32(cbEyeColor.Text.ToString().Split('(', ')')[1]);
                 driverData.HairColorCode = Convert.ToInt32(cbHairColor.Text.ToString().Split('(', ')')[1]);
                 driverData.OrganDonor = chkOrganDonor.Checked;
-                driverData.OLN = txtOLN.Text.Trim();
                 driver.Active = true;
                 driver.Deleted = false;
                 //licenseData.LicenseStatus = cbStatus.Text.ToString().Split('(', ')')[1];
@@ -650,7 +652,7 @@ namespace cbhproj
 
         private void txtAddress1_Leave(object sender, EventArgs e)
         {
-            if (txtAddress1.Text.Length == 0)
+            if (String.IsNullOrWhiteSpace(txtAddress1.Text))
             {
                 txtAddress1.Text = "Address 1";
                 return;
@@ -673,12 +675,6 @@ namespace cbhproj
 
         private void txtAddress2_Leave(object sender, EventArgs e)
         {
-            if (txtAddress2.Text.Length == 0)
-            {
-                txtAddress2.Text = "Address 2";
-                return;
-            }
-
             if (txtAddress2.Text.Length > 0)
             {
                 progBar.Increment(4);

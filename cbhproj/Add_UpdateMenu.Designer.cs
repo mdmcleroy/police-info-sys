@@ -49,8 +49,6 @@
             this.txtWeight = new System.Windows.Forms.TextBox();
             this.lblLicenseInfo = new System.Windows.Forms.Label();
             this.txtOLN = new System.Windows.Forms.TextBox();
-            this.btnVehicleInfo = new System.Windows.Forms.Button();
-            this.lblNumVehicles = new System.Windows.Forms.Label();
             this.chkOrganDonor = new System.Windows.Forms.CheckBox();
             this.chkMale = new System.Windows.Forms.CheckBox();
             this.chkFemale = new System.Windows.Forms.CheckBox();
@@ -302,29 +300,6 @@
             this.txtOLN.MouseClick += new System.Windows.Forms.MouseEventHandler(this.txtOLN_MouseClick);
             this.txtOLN.Leave += new System.EventHandler(this.txtOLN_Leave);
             // 
-            // btnVehicleInfo
-            // 
-            this.btnVehicleInfo.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.875F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnVehicleInfo.Location = new System.Drawing.Point(782, 513);
-            this.btnVehicleInfo.Margin = new System.Windows.Forms.Padding(6, 4, 6, 4);
-            this.btnVehicleInfo.Name = "btnVehicleInfo";
-            this.btnVehicleInfo.Size = new System.Drawing.Size(211, 51);
-            this.btnVehicleInfo.TabIndex = 61;
-            this.btnVehicleInfo.Text = "Show Vehicles";
-            this.btnVehicleInfo.UseVisualStyleBackColor = true;
-            this.btnVehicleInfo.Visible = false;
-            this.btnVehicleInfo.Click += new System.EventHandler(this.btnVehicleInfo_Click);
-            // 
-            // lblNumVehicles
-            // 
-            this.lblNumVehicles.AutoSize = true;
-            this.lblNumVehicles.Font = new System.Drawing.Font("Arial", 12F);
-            this.lblNumVehicles.Location = new System.Drawing.Point(806, 482);
-            this.lblNumVehicles.Name = "lblNumVehicles";
-            this.lblNumVehicles.Size = new System.Drawing.Size(160, 18);
-            this.lblNumVehicles.TabIndex = 62;
-            this.lblNumVehicles.Text = "Number of Vehicles: #";
-            // 
             // chkOrganDonor
             // 
             this.chkOrganDonor.AutoSize = true;
@@ -565,8 +540,6 @@
             this.Controls.Add(this.chkFemale);
             this.Controls.Add(this.chkMale);
             this.Controls.Add(this.chkOrganDonor);
-            this.Controls.Add(this.lblNumVehicles);
-            this.Controls.Add(this.btnVehicleInfo);
             this.Controls.Add(this.txtOLN);
             this.Controls.Add(this.lblLicenseInfo);
             this.Controls.Add(this.txtWeight);
@@ -621,8 +594,6 @@
         private System.Windows.Forms.TextBox txtWeight;
         private System.Windows.Forms.Label lblLicenseInfo;
         private System.Windows.Forms.TextBox txtOLN;
-        private System.Windows.Forms.Button btnVehicleInfo;
-        private System.Windows.Forms.Label lblNumVehicles;
         private System.Windows.Forms.CheckBox chkOrganDonor;
         private System.Windows.Forms.CheckBox chkMale;
         private System.Windows.Forms.CheckBox chkFemale;
