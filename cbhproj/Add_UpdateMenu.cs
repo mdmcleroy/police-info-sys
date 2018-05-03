@@ -6,6 +6,7 @@ using System.Drawing;
 using System.Globalization;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using cbhproj.Models;
@@ -382,19 +383,22 @@ namespace cbhproj
             DialogResult dialog = new DialogResult();
             var errorMessage = String.Empty;
 
-            if (String.IsNullOrWhiteSpace(txtLastName.Text) || txtLastName.Text == "Last Name")
+            if (String.IsNullOrWhiteSpace(txtLastName.Text) || txtLastName.Text == "Last Name" 
+                || !Regex.IsMatch(txtLastName.Text, @"^[\p{L}]+$"))
             {
                 errorMessage = "You must enter a valid Last Name.";
                 dialog = MessageBox.Show(errorMessage, "Error!", MessageBoxButtons.OK);
                 return true;
             }
-            if (String.IsNullOrWhiteSpace(txtFirstName.Text) || txtFirstName.Text == "First Name")
+            if (String.IsNullOrWhiteSpace(txtFirstName.Text) || txtFirstName.Text == "First Name"
+                || !Regex.IsMatch(txtLastName.Text, @"^[\p{L}]+$"))
             {
                 errorMessage = "You must enter a valid First Name.";
                 dialog = MessageBox.Show(errorMessage, "Error!", MessageBoxButtons.OK);
                 return true;
             }
-            if (String.IsNullOrWhiteSpace(txtMiddleInitial.Text) || txtMiddleInitial.Text == "MI")
+            if (String.IsNullOrWhiteSpace(txtMiddleInitial.Text) || txtMiddleInitial.Text == "MI"
+                || !Regex.IsMatch(txtLastName.Text, @"^[\p{L}]+$"))
             {
                 errorMessage = "You must enter a valid Middle Initial.";
                 dialog = MessageBox.Show(errorMessage, "Error!", MessageBoxButtons.OK);
@@ -436,7 +440,8 @@ namespace cbhproj
                 dialog = MessageBox.Show(errorMessage, "Error!", MessageBoxButtons.OK);
                 return true;
             }
-            if (String.IsNullOrWhiteSpace(txtWeight.Text) || txtWeight.Text == "Weight (Ex. 225)")
+            if (String.IsNullOrWhiteSpace(txtWeight.Text) || txtWeight.Text == "Weight (Ex. 225)"
+                || !GlobalFunctions.IsDigitsOnly(txtWeight.Text))
             {
                 errorMessage = "You must enter a valid Weight (lbs).";
                 dialog = MessageBox.Show(errorMessage, "Error!", MessageBoxButtons.OK);
@@ -526,7 +531,8 @@ namespace cbhproj
                 driverData.MI = String.IsNullOrWhiteSpace(txtMiddleInitial.Text) ? 
                                 String.Empty : txtMiddleInitial.Text.Trim().ToUpper();
                 driverData.Address1 = txtAddress1.Text.Trim().ToUpper();
-                driverData.Address2 = txtAddress2.Text.Trim().ToUpper();
+                driverData.Address2 = String.IsNullOrWhiteSpace(txtAddress2.Text) ? 
+                                      String.Empty : txtAddress2.Text.Trim().ToUpper();
                 driverData.City = txtCity.Text.Trim().ToUpper();
                 driverData.StateCode = Convert.ToInt32(cbDriverState.Text.ToString().Split('(', ')')[1]);
                 driverData.PostalCode = (txtZip.Text.Contains("-")) ? txtZip.Text.Trim().Split('-')[0] + txtZip.Text.Trim().Split('-')[1]
