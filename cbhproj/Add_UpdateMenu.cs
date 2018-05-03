@@ -25,6 +25,8 @@ namespace cbhproj
         Driver driverData = new Driver();
         Models.License licenseData = new Models.License();
 
+        Dictionary<string, string> ClassesDict = new Dictionary<string, string>();
+
         // Constructor
         public cbhproj()
         {
@@ -76,6 +78,7 @@ namespace cbhproj
                 lbClass.Items.Add("N/A");
                 foreach (var item in classes)
                 {
+                    ClassesDict.Add(item.ClassCode, item.ClassDesc);
                     lbClass.Items.Add(String.Format("{0} {1}", item.ClassCode, item.ClassDesc));
                 }
 
@@ -183,7 +186,21 @@ namespace cbhproj
             chkOrganDonor.Checked = driver.OrganDonor ? true : false;
             txtOLN.Text = driver.OLN;
             cbStatus.Text = String.IsNullOrEmpty(driver.StatusCode) ? "N/A" : String.Format("(0{0}) {1}", driver.StatusCode, driver.StatusName);
-            cbClass.Text = driver.LicenseClass;
+            if (String.IsNullOrEmpty(driver.LicenseClass))
+            {
+                lbClass.SetSelected(0, true);
+            }
+            else
+            {
+                for (int i = 0; i < lbClass.Items.Count; i++)
+                {
+                    if (ClassesDict.ContainsKey(lbClass.Items[i].ToString().Substring(0, 1)))
+                    {
+                        lbClass.SetSelected(i, true);
+                    }
+                }
+            }
+            //cbClass.Text = driver.LicenseClass;
             dtIssue.Value = (DateTime)driver.LicenseIssue;
             dtExpiration.Value = (DateTime)driver.LicenseExpiration;
             cbRestriction.Text = String.IsNullOrEmpty(driver.LicenseRestrictions) ? "N/A" : driver.LicenseRestrictions;

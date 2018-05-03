@@ -50,6 +50,7 @@
             this.lblRestrictions.Name = "lblRestrictions";
             this.lblRestrictions.Size = new System.Drawing.Size(326, 345);
             this.lblRestrictions.TabIndex = 49;
+            this.lblRestrictions.Click += new System.EventHandler(this.lblRestrictions_Click);
             // 
             // DisplayRestrictionsPopup
             // 

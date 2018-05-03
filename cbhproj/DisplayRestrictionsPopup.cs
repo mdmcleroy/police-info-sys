@@ -63,5 +63,10 @@ namespace cbhproj
         {
             Text = "cbhproj";
         }
+
+        private void lblRestrictions_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

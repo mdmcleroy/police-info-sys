@@ -532,11 +532,11 @@
             this.lbClass.Font = new System.Drawing.Font("Arial", 12F);
             this.lbClass.FormattingEnabled = true;
             this.lbClass.ItemHeight = 18;
-            this.lbClass.Location = new System.Drawing.Point(87, 546);
+            this.lbClass.Location = new System.Drawing.Point(87, 545);
             this.lbClass.MultiColumn = true;
             this.lbClass.Name = "lbClass";
             this.lbClass.SelectionMode = System.Windows.Forms.SelectionMode.MultiSimple;
-            this.lbClass.Size = new System.Drawing.Size(372, 76);
+            this.lbClass.Size = new System.Drawing.Size(185, 202);
             this.lbClass.TabIndex = 81;
             // 
             // cbhproj
