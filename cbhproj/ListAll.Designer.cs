@@ -51,7 +51,7 @@
             // 
             this.lblStateMenu.AutoSize = true;
             this.lblStateMenu.Font = new System.Drawing.Font("Microsoft Sans Serif", 27.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblStateMenu.Location = new System.Drawing.Point(276, 9);
+            this.lblStateMenu.Location = new System.Drawing.Point(276, 43);
             this.lblStateMenu.Name = "lblStateMenu";
             this.lblStateMenu.Size = new System.Drawing.Size(473, 42);
             this.lblStateMenu.TabIndex = 7;
@@ -76,6 +76,7 @@
             this.txtListAll.Location = new System.Drawing.Point(-1, 193);
             this.txtListAll.Multiline = true;
             this.txtListAll.Name = "txtListAll";
+            this.txtListAll.ReadOnly = true;
             this.txtListAll.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.txtListAll.Size = new System.Drawing.Size(1027, 477);
             this.txtListAll.TabIndex = 21;
@@ -88,6 +89,7 @@
             this.txtHeading.Location = new System.Drawing.Point(-1, 92);
             this.txtHeading.Multiline = true;
             this.txtHeading.Name = "txtHeading";
+            this.txtHeading.ReadOnly = true;
             this.txtHeading.Size = new System.Drawing.Size(1027, 100);
             this.txtHeading.TabIndex = 22;
             this.txtHeading.Text = resources.GetString("txtHeading.Text");

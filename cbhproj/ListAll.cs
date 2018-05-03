@@ -65,7 +65,7 @@ namespace cbhproj
                 txtListAll.AppendText(Environment.NewLine);
 
                 // License
-                var licenseStatus = String.Format("(0{0}) {1}", item.StatusCode, item.StatusName);
+                var licenseStatus = (String.IsNullOrWhiteSpace(item.StatusCode)) ? "N/A" : String.Format("(0{0}) {1}", item.StatusCode, item.StatusName);
                 var licenseClass = (String.IsNullOrEmpty(item.LicenseClass)) ? "N/A" : item.LicenseClass;
                 var licenseRestriction = (String.IsNullOrEmpty(item.LicenseRestrictions)) ? "N/A" : item.LicenseRestrictions;
                 var licenseEndorsement = (String.IsNullOrEmpty(item.LicenseEndorsements)) ? "N/A" : item.LicenseEndorsements;
@@ -111,6 +111,7 @@ namespace cbhproj
             Text = "cbhproj";
             Width = 1041;
             Height = 820;
+            ActiveControl = txtListAll;
         }
 
         private void btnClose_Click(object sender, EventArgs e)

@@ -78,7 +78,7 @@ namespace cbhproj
                 lbClass.Items.Add("N/A");
                 foreach (var item in classes)
                 {
-                    ClassesDict.Add(item.ClassCode, item.ClassDesc);
+                    //ClassesDict.Add(item.ClassCode, item.ClassDesc);
                     lbClass.Items.Add(String.Format("{0} {1}", item.ClassCode, item.ClassDesc));
                 }
 
