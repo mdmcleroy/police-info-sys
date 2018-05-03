@@ -117,18 +117,11 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="txtListAll.Text" xml:space="preserve">
-    <value>143-46-6098 LADD                 DAVID        L  BOX 455                        HWY 70                        
-  3647364   COLUMBIANA           (01) AL Alabama         35423-0455             (58) SHELBY 
-    DONOR   5' 09"     198        M  
-	    (01) ACURA           (01) 18 WHEEL           58K875                 04/01/2016
-	    (01) AME Amethyst                            (09) COM Chrome/Stainless Steel
-</value>
-  </data>
   <data name="txtHeading.Text" xml:space="preserve">
     <value>SSN         Last                 First        MI Address 1                      Address 2
-  OLN       City                 State                   Zip                    County
-            Height     Weight    Gender
+            City                 State                        Zip               County
+            Height     Weight    Gender                  Eye Color              Hair Color
+  OLN       Status               Class     Endorsement Restriction  Issue       Expiration
 	    Vehicle Make         Vehicle Type            Tag                    Tag Expiration
             Top Color                                    Bottom Color</value>
   </data>

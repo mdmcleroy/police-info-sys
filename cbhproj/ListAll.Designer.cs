@@ -79,14 +79,13 @@
             this.txtListAll.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.txtListAll.Size = new System.Drawing.Size(1027, 477);
             this.txtListAll.TabIndex = 21;
-            this.txtListAll.Text = resources.GetString("txtListAll.Text");
             // 
             // txtHeading
             // 
             this.txtHeading.BackColor = System.Drawing.SystemColors.Menu;
             this.txtHeading.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtHeading.Font = new System.Drawing.Font("Consolas", 12F);
-            this.txtHeading.Location = new System.Drawing.Point(-1, 96);
+            this.txtHeading.Location = new System.Drawing.Point(-1, 92);
             this.txtHeading.Multiline = true;
             this.txtHeading.Name = "txtHeading";
             this.txtHeading.Size = new System.Drawing.Size(1027, 100);
