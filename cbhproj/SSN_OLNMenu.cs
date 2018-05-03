@@ -138,9 +138,9 @@ namespace cbhproj
             lblWeight.Text = String.Format("Weight: {0} lbs", driver.Weight.Substring(1, 3));
             lblGender.Text = String.Format("Gender: {0}", driver.Gender);
             lblEyeColor.Text = String.Format("Eye Color: ({0:00}) {1} {2}", driver.EyeColorCode, driver.EyeColorAbbr, driver.EyeColorName.Split('/')[0]);
-            lblEyeColorSplit.Text = driver.EyeColorName.Split('/')[1];
+            lblEyeColorSplit.Text = GlobalFunctions.Contains(driver.EyeColorName, '/') ? driver.EyeColorName.Split('/')[1] : String.Empty;
             lblHairColor.Text = String.Format("Hair Color: ({0:00}) {1} {2}", driver.HairColorCode, driver.HairColorAbbr, driver.HairColorName.Split('/')[0]);
-            lblHairColorSplit.Text = driver.HairColorName.Split('/')[1];
+            lblHairColorSplit.Text = GlobalFunctions.Contains(driver.HairColorName, '/') ? driver.HairColorName.Split('/')[1] : String.Empty;
             lblOrganDonor.Text = "Organ Donor: " + (driver.OrganDonor ? "Yes" : "No");
             lblStatus.Text = "Status: " + (String.IsNullOrEmpty(driver.StatusCode) ? "N/A" : String.Format("(0{0}) {1}", driver.StatusCode, driver.StatusName));
             lblLicenseInfo.Text = "License Info";

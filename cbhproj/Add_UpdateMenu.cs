@@ -175,8 +175,8 @@ namespace cbhproj
             txtCity.Text = driver.City;
             cbDriverState.Text = String.Format("({0:00}) {1} {2}", driver.DriverStateCode, driver.DriverStateAbbr, driver.DriverStateName);
             txtZip.Text = driver.PostalCode;
-            cbHeightFeet.Text = String.Format("{0}'", driver.Height.Substring(0, 1));
-            cbHeightInches.Text = String.Format("{0}\"", driver.Height.Substring(1, 2));
+            cbHeightFeet.Text = String.Format("{0}'", driver.Height.Substring(1, 1));
+            cbHeightInches.Text = String.Format("{0}\"", driver.Height.Substring(2, 2));
             txtWeight.Text = driver.Weight;
             chkMale.Checked = driver.Gender.Trim().ToUpper() == "M" ? true : false;
             chkFemale.Checked = driver.Gender.Trim().ToUpper() == "F" ? true : false;

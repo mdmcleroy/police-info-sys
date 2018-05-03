@@ -33,5 +33,16 @@ namespace cbhproj
 
             return true;
         }
+
+        public static bool Contains(string str, char ch)
+        {
+            foreach (char c in str)
+            {
+                if (c == ch)
+                    return true;
+            }
+
+            return false;
+        }
     }
 }
