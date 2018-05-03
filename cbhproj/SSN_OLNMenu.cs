@@ -35,7 +35,6 @@ namespace cbhproj
         {
             InitializeComponent();
             ClearFields();
-            VehicleLookup();
 
             switch (aOption)
             {
@@ -103,8 +102,9 @@ namespace cbhproj
         {
             using (var db = new mdmcleroyEntities())
             {
-                vehicles = (from d in db.vwVehicles         // FIX ME: since there is only 1 vehicle per driver, displaying random amounts of vehicles
-                            where d.TopColorActive == true  // where d.SSN == aSSN && d.Active == true
+                vehicles = (from d in db.vwVehicles
+                            where d.SSN == userInput
+                              && d.Active == true
                             select d).ToList();
 
                 if (!vehicles.Any())
@@ -236,7 +236,7 @@ namespace cbhproj
             ActiveControl = txtUserInput;
         }
 
-        private void lblSearch_Click(object sender, EventArgs e)
+        private void btnSearch_Click(object sender, EventArgs e)
         {
             userInput = txtUserInput.Text.Trim();
 
@@ -302,6 +302,7 @@ namespace cbhproj
                 return;
             }
 
+            VehicleLookup();
             FormatData();
         }
 

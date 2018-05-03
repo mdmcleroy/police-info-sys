@@ -157,7 +157,7 @@
             this.btnResetData.TabIndex = 10;
             this.btnResetData.Text = "Reset Database";
             this.btnResetData.UseVisualStyleBackColor = true;
-            this.btnResetData.Click += new System.EventHandler(this.btnInitialDataLoad_Click);
+            this.btnResetData.Click += new System.EventHandler(this.btnResetData_Click);
             // 
             // MainMenu
             // 

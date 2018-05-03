@@ -76,11 +76,16 @@ namespace cbhproj
             Height = 820;
         }
 
-        private void btnInitialDataLoad_Click(object sender, EventArgs e)
+        private void btnResetData_Click(object sender, EventArgs e)
         {
             DialogResult dialog = new DialogResult();
-            var message = "Resetting database...";
-            dialog = MessageBox.Show(message, "Alert!", MessageBoxButtons.OK);
+            var message = "Are you sure you want to reset the database?";
+            dialog = MessageBox.Show(message, "Alert!", MessageBoxButtons.YesNo);
+
+            if (dialog == DialogResult.No)
+            {
+                return;
+            }
 
             ResetDatabase();
 

@@ -53,15 +53,6 @@ namespace cbhproj
             lblVehicleCount.Text = String.Empty;
         }
 
-        //public DisplayVehicles(string aSSN)
-        //{
-        //    InitializeComponent();
-        //    ClearFields();
-        //    LoadVehicles(aSSN);
-        //    VehicleLookup(vehicleIndex);
-        //    FormatData();
-        //}
-
         public DisplayVehicles(List<vwVehicle> vehiclesData)
         {
             InitializeComponent();
@@ -79,12 +70,8 @@ namespace cbhproj
         private void btnNextVehicle_Click(object sender, EventArgs e)
         {
             ++vehicleIndex;
-            if (vehicleIndex >= vehicles.Count - 1)
-            {
-                btnNextVehicle.Visible = false;
-            }
 
-            if (vehicleIndex > vehicles.Count - 1)
+            if (vehicleIndex >= vehicles.Count)
             {
                 return;
             }
@@ -92,6 +79,10 @@ namespace cbhproj
             VehicleLookup(vehicleIndex);
             FormatData();
             btnPreviousVehicle.Visible = true;
+            if (vehicleIndex >= vehicles.Count - 1)
+            {
+                btnNextVehicle.Visible = false;
+            }
         }
 
         private void btnPreviousVehicle_Click(object sender, EventArgs e)

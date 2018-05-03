@@ -98,6 +98,7 @@ namespace cbhproj
                         vehicleMake.PadRight(20), vehicleType.PadRight(23), vehicle.Tag.PadRight(22), tagExpiration));
                     txtListAll.AppendText(Environment.NewLine);
                     txtListAll.AppendText(String.Format("\t    {0} {1}", topColor.PadRight(44), bottomColor));
+                    txtListAll.AppendText(Environment.NewLine);
                 }
 
                 txtListAll.AppendText(Environment.NewLine);
