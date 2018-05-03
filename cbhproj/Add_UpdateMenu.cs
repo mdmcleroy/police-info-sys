@@ -386,26 +386,118 @@ namespace cbhproj
             SetVisibility_True();
         }
 
-        private void btnAddUpdate_Click(object sender, EventArgs e)
+        private bool CheckErrors()
         {
             DialogResult dialog = new DialogResult();
-            var addUpdateMsg = (add) ? String.Format("Are you sure you want to add {0} {1}?", driver.FirstName, driver.LastName) 
-                                     : String.Format("Are you sure you want to update {0} {1}?", driver.FirstName, driver.LastName);
-            dialog = MessageBox.Show(addUpdateMsg, "Alert!", MessageBoxButtons.YesNo);
+            var errorMessage = String.Empty;
 
-            if (dialog == DialogResult.No)
+            if (String.IsNullOrWhiteSpace(txtLastName.Text) || txtLastName.Text == "Last Name")
+            {
+                errorMessage = "You must enter a valid Last Name.";
+                dialog = MessageBox.Show(errorMessage, "Error!", MessageBoxButtons.OK);
+                return true;
+            }
+            if (String.IsNullOrWhiteSpace(txtFirstName.Text) || txtFirstName.Text == "First Name")
+            {
+                errorMessage = "You must enter a valid First Name.";
+                dialog = MessageBox.Show(errorMessage, "Error!", MessageBoxButtons.OK);
+                return true;
+            }
+            if (String.IsNullOrWhiteSpace(txtMiddleInitial.Text) || txtMiddleInitial.Text == "MI")
+            {
+                errorMessage = "You must enter a valid Middle Initial.";
+                dialog = MessageBox.Show(errorMessage, "Error!", MessageBoxButtons.OK);
+                return true;
+            }
+            if (String.IsNullOrWhiteSpace(txtAddress1.Text) || txtAddress1.Text == "Address 1")
+            {
+                errorMessage = "You must enter a valid Address 1.";
+                dialog = MessageBox.Show(errorMessage, "Error!", MessageBoxButtons.OK);
+                return true;
+            }
+            if (String.IsNullOrWhiteSpace(txtAddress2.Text) || txtAddress2.Text == "Address 2")
+            {
+                errorMessage = "You must enter a valid Address 2.";
+                dialog = MessageBox.Show(errorMessage, "Error!", MessageBoxButtons.OK);
+                return true;
+            }
+            if (String.IsNullOrWhiteSpace(cbDriverState.Text) || cbDriverState.Text == "Select State...")
+            {
+                errorMessage = "You must enter a valid Driver State.";
+                dialog = MessageBox.Show(errorMessage, "Error!", MessageBoxButtons.OK);
+                return true;
+            }
+            if (String.IsNullOrWhiteSpace(txtZip.Text) || txtZip.Text == "Zip")
+            {
+                errorMessage = "You must enter a valid Postal Code.";
+                dialog = MessageBox.Show(errorMessage, "Error!", MessageBoxButtons.OK);
+                return true;
+            }
+            if (String.IsNullOrWhiteSpace(cbHeightFeet.Text) || cbHeightFeet.Text == "0'")
+            {
+                errorMessage = "You must enter a valid Height (feet).";
+                dialog = MessageBox.Show(errorMessage, "Error!", MessageBoxButtons.OK);
+                return true;
+            }
+            if (String.IsNullOrWhiteSpace(cbHeightInches.Text) || cbHeightInches.Text == "0\"")
+            {
+                errorMessage = "You must enter a valid Height (inches).";
+                dialog = MessageBox.Show(errorMessage, "Error!", MessageBoxButtons.OK);
+                return true;
+            }
+            if (String.IsNullOrWhiteSpace(txtWeight.Text) || txtWeight.Text == "Weight (Ex. 225)")
+            {
+                errorMessage = "You must enter a valid Weight (lbs).";
+                dialog = MessageBox.Show(errorMessage, "Error!", MessageBoxButtons.OK);
+                return true;
+            }
+            if (String.IsNullOrWhiteSpace(cbEyeColor.Text) || cbEyeColor.Text == "Select Eye Color...")
+            {
+                errorMessage = "You must enter a valid Eye Color.";
+                dialog = MessageBox.Show(errorMessage, "Error!", MessageBoxButtons.OK);
+                return true;
+            }
+            if (String.IsNullOrWhiteSpace(cbHairColor.Text) || cbHairColor.Text == "Select Hair Color...")
+            {
+                errorMessage = "You must enter a valid Hair Color.";
+                dialog = MessageBox.Show(errorMessage, "Error!", MessageBoxButtons.OK);
+                return true;
+            }
+            if (chkMale.Checked == false && chkFemale.Checked == false && chkOther.Checked == false)
+            {
+                errorMessage = "You must select a Gender.";
+                dialog = MessageBox.Show(errorMessage, "Error!", MessageBoxButtons.OK);
+                return true;
+            }
+            return false;
+        }
+
+        private void btnAddUpdate_Click(object sender, EventArgs e)
+        {
+            if (CheckErrors())
             {
                 return;
             }
+            else
+            {
+                DialogResult dialog = new DialogResult();
+                var addUpdateMsg = (add) ? String.Format("Are you sure you want to add SSN {0}?", userInput)
+                                         : String.Format("Are you sure you want to update SSN {0}?", userInput);
+                dialog = MessageBox.Show(addUpdateMsg, "Alert!", MessageBoxButtons.YesNo);
 
-            UpdateAddDriverLicenseVehicle();
+                if (dialog == DialogResult.No)
+                {
+                    return;
+                }
 
-            SSNLookup();
-            Modify_FormatData();
-            btnClose.Text = "Close";
-            addUpdateMsg = (add) ? String.Format("{0} {1} added.", driver.FirstName, driver.LastName) 
-                                 : String.Format("{0} {1} updated.", driver.FirstName, driver.LastName);
-           dialog = MessageBox.Show(addUpdateMsg, "Success!", MessageBoxButtons.OK);
+                UpdateAddDriverLicenseVehicle();
+                SSNLookup();
+                //Modify_FormatData();
+                btnClose.Text = "Close";
+                addUpdateMsg = (add) ? String.Format("SSN {0} added.", driver.SSN)
+                                     : String.Format("SSN {0} updated.", driver.SSN);
+                dialog = MessageBox.Show(addUpdateMsg, "Success!", MessageBoxButtons.OK);
+            }
         }
         
         private void UpdateAddDriverLicenseVehicle()
@@ -436,8 +528,8 @@ namespace cbhproj
                 driverData.StateCode = Convert.ToInt32(cbDriverState.Text.ToString().Split('(', ')')[1]);
                 driverData.PostalCode = (txtZip.Text.Contains("-")) ? txtZip.Text.Trim().Split('-')[0] + txtZip.Text.Trim().Split('-')[1]
                                                                     : txtZip.Text.Trim();
-                driverData.Height = "0" + cbHeightFeet.Text.Trim().Split('\'')[0] + cbHeightInches.Text.Trim().Split('\"')[0];
-                driverData.Weight = "0" + txtWeight.Text.Trim();
+                driverData.Height = cbHeightFeet.Text.Trim().Split('\'')[0] + cbHeightInches.Text.Trim().Split('\"')[0];
+                driverData.Weight = txtWeight.Text.Trim();
                 driverData.Gender = chkMale.Checked ? "M" : (chkFemale.Checked ? "F" : "O");
                 driverData.EyeColorCode = Convert.ToInt32(cbEyeColor.Text.ToString().Split('(', ')')[1]);
                 driverData.HairColorCode = Convert.ToInt32(cbHairColor.Text.ToString().Split('(', ')')[1]);
@@ -447,9 +539,6 @@ namespace cbhproj
                 //licenseData.LicenseEndorsements = cbEndorsement.Text.ToString().Split('(', ')')[1];
                 //licenseData.LicenseStatus = cbStatus.Text.ToString().Split('(', ')')[1];
                 //licenseData.LicenseStatus = cbStatus.Text.ToString().Split('(', ')')[1];
-                //driverData.LastName = txtLastName.Text.Trim().ToUpper();
-                //driverData.LastName = txtLastName.Text.Trim().ToUpper();
-                //driverData.LastName = txtLastName.Text.Trim().ToUpper();
 
                 if (add)
                 {
@@ -462,8 +551,8 @@ namespace cbhproj
 
         private void btnVehicleInfo_Click(object sender, EventArgs e)
         {
-            DisplayVehicles displayVehicles = new DisplayVehicles(vehicles);
-            displayVehicles.ShowDialog();
+                Add_ModifyVehicle addModifyVehicle = new Add_ModifyVehicle(userInput, add);
+                addModifyVehicle.ShowDialog();
         }
 
         private void txtUserInput_TextChanged(object sender, EventArgs e)

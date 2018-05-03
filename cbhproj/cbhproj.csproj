@@ -54,6 +54,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Add_ModifyVehicle.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Add_ModifyVehicle.Designer.cs">
+      <DependentUpon>Add_ModifyVehicle.cs</DependentUpon>
+    </Compile>
     <Compile Include="Add_UpdateMenu.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -222,6 +228,9 @@
     <Compile Include="DisplayVTypes.Designer.cs">
       <DependentUpon>DisplayVTypes.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Add_ModifyVehicle.resx">
+      <DependentUpon>Add_ModifyVehicle.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Add_UpdateMenu.resx">
       <DependentUpon>Add_UpdateMenu.cs</DependentUpon>
     </EmbeddedResource>
