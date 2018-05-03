@@ -535,6 +535,8 @@ namespace cbhproj
                 driverData.HairColorCode = Convert.ToInt32(cbHairColor.Text.ToString().Split('(', ')')[1]);
                 driverData.OrganDonor = chkOrganDonor.Checked;
                 driverData.OLN = txtOLN.Text.Trim();
+                driver.Active = true;
+                driver.Deleted = false;
                 //licenseData.LicenseStatus = cbStatus.Text.ToString().Split('(', ')')[1];
                 //licenseData.LicenseEndorsements = cbEndorsement.Text.ToString().Split('(', ')')[1];
                 //licenseData.LicenseStatus = cbStatus.Text.ToString().Split('(', ')')[1];
@@ -543,6 +545,8 @@ namespace cbhproj
                 if (add)
                 {
                     db.Drivers.Add(driverData);
+                    //db.Licenses.Add(licenseData);
+                    //
                 }
 
                 db.SaveChanges();
