@@ -116,7 +116,7 @@ namespace cbhproj
 
             for (int i = 0; i < 12; ++i)
             {
-                cbHeightInches.Items.Add(String.Format("{0}\"", i));
+                cbHeightInches.Items.Add(String.Format("{0:00}\"", i));
             }
 
             for (int i = 0; i < 9; ++i)
@@ -391,16 +391,16 @@ namespace cbhproj
                 return true;
             }
             if (String.IsNullOrWhiteSpace(txtFirstName.Text) || txtFirstName.Text == "First Name"
-                || !Regex.IsMatch(txtLastName.Text, @"^[\p{L}]+$"))
+                || !Regex.IsMatch(txtFirstName.Text, @"^[\p{L}]+$"))
             {
                 errorMessage = "You must enter a valid First Name.";
                 dialog = MessageBox.Show(errorMessage, "Error!", MessageBoxButtons.OK);
                 return true;
             }
             if (String.IsNullOrWhiteSpace(txtMiddleInitial.Text) || txtMiddleInitial.Text == "MI"
-                || !Regex.IsMatch(txtLastName.Text, @"^[\p{L}]+$"))
+                || !Regex.IsMatch(txtMiddleInitial.Text, @"^[\p{L}]+$"))
             {
-                errorMessage = "You must enter a valid Middle Initial.";
+                errorMessage = "You must enter a valid Middle Initial or remove \"MI\".";
                 dialog = MessageBox.Show(errorMessage, "Error!", MessageBoxButtons.OK);
                 return true;
             }
@@ -410,9 +410,16 @@ namespace cbhproj
                 dialog = MessageBox.Show(errorMessage, "Error!", MessageBoxButtons.OK);
                 return true;
             }
-            if (String.IsNullOrWhiteSpace(txtAddress2.Text) || txtAddress2.Text == "Address 2")
+            if (String.IsNullOrWhiteSpace(txtCity.Text) || txtCity.Text == "City"
+                || !Regex.IsMatch(txtCity.Text, @"^[\p{L}]+$"))
             {
-                errorMessage = "You must enter a valid Address 2.";
+                errorMessage = "You must enter a valid City.";
+                dialog = MessageBox.Show(errorMessage, "Error!", MessageBoxButtons.OK);
+                return true;
+            }
+            if (txtAddress2.Text == "Address 2")
+            {
+                errorMessage = "You must enter a valid Address 2 or remove \"Address 2\".";
                 dialog = MessageBox.Show(errorMessage, "Error!", MessageBoxButtons.OK);
                 return true;
             }
@@ -422,7 +429,8 @@ namespace cbhproj
                 dialog = MessageBox.Show(errorMessage, "Error!", MessageBoxButtons.OK);
                 return true;
             }
-            if (String.IsNullOrWhiteSpace(txtZip.Text) || txtZip.Text == "Zip")
+            if (String.IsNullOrWhiteSpace(txtZip.Text) || txtZip.Text == "Zip"
+                || !GlobalFunctions.IsDigitsOnly(txtZip.Text, '-'))
             {
                 errorMessage = "You must enter a valid Postal Code.";
                 dialog = MessageBox.Show(errorMessage, "Error!", MessageBoxButtons.OK);
@@ -559,12 +567,6 @@ namespace cbhproj
 
                 db.SaveChanges();
             }
-        }
-
-        private void btnVehicleInfo_Click(object sender, EventArgs e)
-        {
-                Add_ModifyVehicle addModifyVehicle = new Add_ModifyVehicle(userInput, add);
-                addModifyVehicle.ShowDialog();
         }
 
         private void txtUserInput_TextChanged(object sender, EventArgs e)

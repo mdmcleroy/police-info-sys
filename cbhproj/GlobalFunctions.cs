@@ -35,6 +35,19 @@ namespace cbhproj
             return true;
         }
 
+        public static bool IsDigitsOnly(string str, char ch)
+        {
+            foreach (char c in str)
+            {
+                if (c == '-' || c == '(' || c == ')')
+                    continue;
+                if (c < '0' || c > '9')
+                    return false;
+            }
+
+            return true;
+        }
+
         public static bool Contains(string str, char ch)
         {
             foreach (char c in str)
