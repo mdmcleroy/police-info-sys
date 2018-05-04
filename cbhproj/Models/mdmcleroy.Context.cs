@@ -37,10 +37,10 @@ namespace cbhproj.Models
         public virtual DbSet<Status> Statuses { get; set; }
         public virtual DbSet<VehicleType> VehicleTypes { get; set; }
         public virtual DbSet<Driver> Drivers { get; set; }
-        public virtual DbSet<vwVehicle> vwVehicles { get; set; }
-        public virtual DbSet<Vehicle> Vehicles { get; set; }
         public virtual DbSet<vwDriver> vwDrivers { get; set; }
         public virtual DbSet<License> Licenses { get; set; }
+        public virtual DbSet<Vehicle> Vehicles { get; set; }
+        public virtual DbSet<vwVehicle> vwVehicles { get; set; }
     
         public virtual int cbhprojResetData()
         {

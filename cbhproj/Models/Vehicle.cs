@@ -21,7 +21,7 @@ namespace cbhproj.Models
         public int VMakeCode { get; set; }
         public int BCCode { get; set; }
         public string Tag { get; set; }
-        public string TagExpiration { get; set; }
+        public System.DateTime TagExpiration { get; set; }
         public System.DateTime CreateDate { get; set; }
         public System.DateTime LastUpdate { get; set; }
         public bool Active { get; set; }

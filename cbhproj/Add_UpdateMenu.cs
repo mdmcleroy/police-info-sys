@@ -532,8 +532,17 @@ namespace cbhproj
             else
             {
                 DialogResult dialog = new DialogResult();
-                var addUpdateMsg = (add) ? String.Format("Are you sure you want to add SSN {0}?", userInput)
-                                         : String.Format("Are you sure you want to update SSN {0}?", userInput);
+                var addUpdateMsg = "Would you like to add a vehicle?";
+                dialog = MessageBox.Show(addUpdateMsg, "Alert!", MessageBoxButtons.YesNo);
+
+                if (dialog == DialogResult.Yes)
+                {
+                    Add_ModifyVehicle addVehicle = new Add_ModifyVehicle(userInput, add);
+                    addVehicle.ShowDialog();
+                }
+
+                addUpdateMsg = (add) ? String.Format("Are you sure you want to add SSN {0}?", userInput)
+                                     : String.Format("Are you sure you want to update SSN {0}?", userInput);
                 dialog = MessageBox.Show(addUpdateMsg, "Alert!", MessageBoxButtons.YesNo);
 
                 if (dialog == DialogResult.No)
@@ -542,15 +551,6 @@ namespace cbhproj
                 }
 
                 UpdateAddDriverLicenseVehicle();
-
-                addUpdateMsg = "Would you like to add a vehicle?";
-                dialog = MessageBox.Show(addUpdateMsg, "Alert!", MessageBoxButtons.YesNo);
-
-                if (dialog == DialogResult.Yes)
-                {
-                    Add_ModifyVehicle addVehicle = new Add_ModifyVehicle(userInput, add);
-                    addVehicle.ShowDialog();
-                }
 
                 SSNLookup();
                 Modify_FormatData();

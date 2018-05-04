@@ -92,7 +92,7 @@ namespace cbhproj
                     var vehicleMake = String.Format("({0:00}) {1}", vehicle.VMakeCode, vehicle.VMakeName);
                     var topColor = String.Format("({0:00}) {1} {2}", vehicle.TCCode, vehicle.TopColorAbbr, vehicle.TopColorName);
                     var bottomColor = String.Format("({0:00}) {1} {2}", vehicle.BCCode, vehicle.BottomColorAbbr, vehicle.BottomColorName);
-                    var tagExpiration = DateTime.ParseExact(vehicle.TagExpiration, "yyyyMMdd", CultureInfo.InvariantCulture).ToString("M/d/yyyy");
+                    var tagExpiration = (String.IsNullOrWhiteSpace(vehicle.TagExpiration.ToString())) ? "N/A" : ((DateTime)vehicle.TagExpiration).ToShortDateString();
                     txtListAll.AppendText(String.Format("\t    {0} {1} {2} {3}",
                         vehicleMake.PadRight(20), vehicleType.PadRight(23), vehicle.Tag.PadRight(22), tagExpiration));
                     txtListAll.AppendText(Environment.NewLine);
