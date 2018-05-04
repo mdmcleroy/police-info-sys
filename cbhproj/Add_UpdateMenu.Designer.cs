@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(cbhproj));
             this.lblSubHeading = new System.Windows.Forms.Label();
             this.lblStateMenu = new System.Windows.Forms.Label();
             this.cbDriverState = new System.Windows.Forms.ComboBox();
@@ -71,6 +72,10 @@
             this.lblRestriction = new System.Windows.Forms.Label();
             this.lblEndorsement = new System.Windows.Forms.Label();
             this.lblStatus = new System.Windows.Forms.Label();
+            this.pbBrokenHeartIcon = new System.Windows.Forms.PictureBox();
+            this.pbHeartIcon = new System.Windows.Forms.PictureBox();
+            ((System.ComponentModel.ISupportInitialize)(this.pbBrokenHeartIcon)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbHeartIcon)).BeginInit();
             this.SuspendLayout();
             // 
             // lblSubHeading
@@ -314,6 +319,7 @@
             this.chkOrganDonor.TabIndex = 18;
             this.chkOrganDonor.Text = "Organ Donor";
             this.chkOrganDonor.UseVisualStyleBackColor = true;
+            this.chkOrganDonor.CheckedChanged += new System.EventHandler(this.chkOrganDonor_CheckedChanged);
             // 
             // chkMale
             // 
@@ -551,6 +557,28 @@
             this.lblStatus.TabIndex = 87;
             this.lblStatus.Text = "Status:";
             // 
+            // pbBrokenHeartIcon
+            // 
+            this.pbBrokenHeartIcon.Image = ((System.Drawing.Image)(resources.GetObject("pbBrokenHeartIcon.Image")));
+            this.pbBrokenHeartIcon.Location = new System.Drawing.Point(846, 330);
+            this.pbBrokenHeartIcon.Name = "pbBrokenHeartIcon";
+            this.pbBrokenHeartIcon.Size = new System.Drawing.Size(24, 24);
+            this.pbBrokenHeartIcon.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pbBrokenHeartIcon.TabIndex = 88;
+            this.pbBrokenHeartIcon.TabStop = false;
+            this.pbBrokenHeartIcon.Visible = false;
+            // 
+            // pbHeartIcon
+            // 
+            this.pbHeartIcon.Image = ((System.Drawing.Image)(resources.GetObject("pbHeartIcon.Image")));
+            this.pbHeartIcon.Location = new System.Drawing.Point(846, 330);
+            this.pbHeartIcon.Name = "pbHeartIcon";
+            this.pbHeartIcon.Size = new System.Drawing.Size(24, 24);
+            this.pbHeartIcon.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pbHeartIcon.TabIndex = 89;
+            this.pbHeartIcon.TabStop = false;
+            this.pbHeartIcon.Visible = false;
+            // 
             // cbhproj
             // 
             this.AcceptButton = this.btnSearch;
@@ -558,6 +586,8 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Menu;
             this.ClientSize = new System.Drawing.Size(1025, 781);
+            this.Controls.Add(this.pbHeartIcon);
+            this.Controls.Add(this.pbBrokenHeartIcon);
             this.Controls.Add(this.lblStatus);
             this.Controls.Add(this.lblEndorsement);
             this.Controls.Add(this.lblRestriction);
@@ -606,6 +636,8 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "AddRecord";
             this.Load += new System.EventHandler(this.cbhproj_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.pbBrokenHeartIcon)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbHeartIcon)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -656,5 +688,7 @@
         private System.Windows.Forms.Label lblRestriction;
         private System.Windows.Forms.Label lblEndorsement;
         private System.Windows.Forms.Label lblStatus;
+        private System.Windows.Forms.PictureBox pbBrokenHeartIcon;
+        private System.Windows.Forms.PictureBox pbHeartIcon;
     }
 }

@@ -188,6 +188,8 @@ namespace cbhproj
             cbEyeColor.Text = eyeColor;
             cbHairColor.Text = hairColor;
             chkOrganDonor.Checked = driver.OrganDonor ? true : false;
+            pbHeartIcon.Visible = chkOrganDonor.Checked ? true : false;
+            pbBrokenHeartIcon.Visible = !chkOrganDonor.Checked ? true : false;
             txtOLN.Text = driver.OLN;
             cbStatus.Text = String.IsNullOrEmpty(driver.StatusCode) ? "N/A" : String.Format("(0{0}) {1}", driver.StatusCode, driver.StatusName);
             if (String.IsNullOrEmpty(driver.LicenseClass))
@@ -295,6 +297,8 @@ namespace cbhproj
 
         private void SetVisibility_False()
         {
+            pbHeartIcon.Visible = false;
+            pbBrokenHeartIcon.Visible = false;
             lbClass.Visible = false;
             lbEndorsement.Visible = false;
             lbRestriction.Visible = false;
@@ -1124,6 +1128,12 @@ namespace cbhproj
             Width = 1041;
             Height = 820;
             ActiveControl = txtUserInput;
+        }
+
+        private void chkOrganDonor_CheckedChanged(object sender, EventArgs e)
+        {
+            pbHeartIcon.Visible = chkOrganDonor.Checked ? true : false;
+            pbBrokenHeartIcon.Visible = chkOrganDonor.Checked ? false : true;
         }
     }
 }
