@@ -102,7 +102,8 @@ namespace cbhproj
                 }
 
                 txtListAll.AppendText(Environment.NewLine);
-                txtListAll.AppendText(Environment.NewLine);
+                var pad = String.Empty;
+                txtListAll.AppendText(String.Format("{0}", pad.PadRight(110, '-')));
                 txtListAll.AppendText(Environment.NewLine);
                 txtListAll.AppendText(Environment.NewLine);
             }
