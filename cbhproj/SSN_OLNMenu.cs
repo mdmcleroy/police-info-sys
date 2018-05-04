@@ -307,11 +307,11 @@ namespace cbhproj
             if (drivers.Count == 0)
             {
                 btnDelete.Visible = false;
-                if (searchByOLN)
+                if (searchByOLN || deleteByOLN)
                 {
                     errorMessage = String.Format("OLN {0} not found\nUsage: XXXXXXX or XXXXXXXXX", userInput);
                 }
-                else if (searchBySSN)
+                else if (searchBySSN || deleteBySSN)
                 {
                     errorMessage = String.Format("SSN {0} not found\nUsage: XXXXXXXXX", userInput);
                 }
