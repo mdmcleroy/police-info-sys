@@ -441,6 +441,7 @@ namespace cbhproj
                 dialog = MessageBox.Show(errorMessage, "Error!", MessageBoxButtons.OK);
                 return true;
             }
+
             if (String.IsNullOrWhiteSpace(txtAddress1.Text) || txtAddress1.Text == "Address 1")
             {
                 errorMessage = "You must enter a valid Address 1.";
@@ -460,9 +461,10 @@ namespace cbhproj
                 dialog = MessageBox.Show(errorMessage, "Error!", MessageBoxButtons.OK);
                 return true;
             }
-            if (String.IsNullOrWhiteSpace(cbDriverState.Text) || cbDriverState.Text == "Select State...")
+            if (!cbDriverState.Items.Contains(cbDriverState.Text) ||
+                String.IsNullOrWhiteSpace(cbDriverState.Text) || cbDriverState.Text == "Select State...")
             {
-                errorMessage = "You must enter a valid Driver State.";
+                errorMessage = "You must select a valid Driver State.";
                 dialog = MessageBox.Show(errorMessage, "Error!", MessageBoxButtons.OK);
                 return true;
             }
@@ -473,15 +475,17 @@ namespace cbhproj
                 dialog = MessageBox.Show(errorMessage, "Error!", MessageBoxButtons.OK);
                 return true;
             }
-            if (String.IsNullOrWhiteSpace(cbHeightFeet.Text) || cbHeightFeet.Text == "0'")
+            if (!cbHeightFeet.Items.Contains(cbHeightFeet.Text) ||
+                String.IsNullOrWhiteSpace(cbHeightFeet.Text) || cbHeightFeet.Text == "0'")
             {
-                errorMessage = "You must enter a valid Height (feet).";
+                errorMessage = "You must select a valid Height (feet).";
                 dialog = MessageBox.Show(errorMessage, "Error!", MessageBoxButtons.OK);
                 return true;
             }
-            if (String.IsNullOrWhiteSpace(cbHeightInches.Text) || cbHeightInches.Text == "0\"")
+            if (!cbHeightInches.Items.Contains(cbHeightInches.Text) ||
+                String.IsNullOrWhiteSpace(cbHeightInches.Text) || cbHeightInches.Text == "0\"")
             {
-                errorMessage = "You must enter a valid Height (inches).";
+                errorMessage = "You must select a valid Height (inches).";
                 dialog = MessageBox.Show(errorMessage, "Error!", MessageBoxButtons.OK);
                 return true;
             }
@@ -492,15 +496,17 @@ namespace cbhproj
                 dialog = MessageBox.Show(errorMessage, "Error!", MessageBoxButtons.OK);
                 return true;
             }
-            if (String.IsNullOrWhiteSpace(cbEyeColor.Text) || cbEyeColor.Text == "Select Eye Color...")
+            if (!cbEyeColor.Items.Contains(cbEyeColor.Text) ||
+                String.IsNullOrWhiteSpace(cbEyeColor.Text) || cbEyeColor.Text == "Select Eye Color...")
             {
-                errorMessage = "You must enter a valid Eye Color.";
+                errorMessage = "You must select a valid Eye Color.";
                 dialog = MessageBox.Show(errorMessage, "Error!", MessageBoxButtons.OK);
                 return true;
             }
-            if (String.IsNullOrWhiteSpace(cbHairColor.Text) || cbHairColor.Text == "Select Hair Color...")
+            if (!cbHairColor.Items.Contains(cbHairColor.Text) ||
+                String.IsNullOrWhiteSpace(cbHairColor.Text) || cbHairColor.Text == "Select Hair Color...")
             {
-                errorMessage = "You must enter a valid Hair Color.";
+                errorMessage = "You must select a valid Hair Color.";
                 dialog = MessageBox.Show(errorMessage, "Error!", MessageBoxButtons.OK);
                 return true;
             }
