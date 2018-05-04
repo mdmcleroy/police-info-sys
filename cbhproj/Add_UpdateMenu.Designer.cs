@@ -71,9 +71,9 @@
             this.lbEndorsement = new System.Windows.Forms.ListBox();
             this.lblRestriction = new System.Windows.Forms.Label();
             this.lblEndorsement = new System.Windows.Forms.Label();
-            this.lblStatus = new System.Windows.Forms.Label();
             this.pbBrokenHeartIcon = new System.Windows.Forms.PictureBox();
             this.pbHeartIcon = new System.Windows.Forms.PictureBox();
+            this.btnAddVehicle = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pbBrokenHeartIcon)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbHeartIcon)).BeginInit();
             this.SuspendLayout();
@@ -306,6 +306,7 @@
             this.txtOLN.TabIndex = 19;
             this.txtOLN.Text = "444444444";
             this.txtOLN.MouseClick += new System.Windows.Forms.MouseEventHandler(this.txtOLN_MouseClick);
+            this.txtOLN.TextChanged += new System.EventHandler(this.txtOLN_TextChanged);
             this.txtOLN.Leave += new System.EventHandler(this.txtOLN_Leave);
             // 
             // chkOrganDonor
@@ -390,6 +391,7 @@
             this.dtIssue.Name = "dtIssue";
             this.dtIssue.Size = new System.Drawing.Size(102, 26);
             this.dtIssue.TabIndex = 22;
+            this.dtIssue.Leave += new System.EventHandler(this.dtIssue_Leave);
             // 
             // lblIssue
             // 
@@ -409,6 +411,7 @@
             this.dtExpiration.Name = "dtExpiration";
             this.dtExpiration.Size = new System.Drawing.Size(102, 26);
             this.dtExpiration.TabIndex = 23;
+            this.dtExpiration.Leave += new System.EventHandler(this.dtExpiration_Leave);
             // 
             // lblExpiration
             // 
@@ -448,7 +451,7 @@
             // 
             // progBar
             // 
-            this.progBar.Location = new System.Drawing.Point(451, 337);
+            this.progBar.Location = new System.Drawing.Point(451, 387);
             this.progBar.Name = "progBar";
             this.progBar.Size = new System.Drawing.Size(122, 23);
             this.progBar.TabIndex = 78;
@@ -488,6 +491,7 @@
             this.lbClass.SelectionMode = System.Windows.Forms.SelectionMode.MultiSimple;
             this.lbClass.Size = new System.Drawing.Size(295, 76);
             this.lbClass.TabIndex = 81;
+            this.lbClass.Leave += new System.EventHandler(this.lbClass_Leave);
             // 
             // lblClass
             // 
@@ -512,6 +516,7 @@
             this.lbRestriction.SelectionMode = System.Windows.Forms.SelectionMode.MultiSimple;
             this.lbRestriction.Size = new System.Drawing.Size(295, 184);
             this.lbRestriction.TabIndex = 83;
+            this.lbRestriction.Leave += new System.EventHandler(this.lbRestriction_Leave);
             // 
             // lbEndorsement
             // 
@@ -526,6 +531,7 @@
             this.lbEndorsement.SelectionMode = System.Windows.Forms.SelectionMode.MultiSimple;
             this.lbEndorsement.Size = new System.Drawing.Size(295, 76);
             this.lbEndorsement.TabIndex = 84;
+            this.lbEndorsement.Leave += new System.EventHandler(this.lbEndorsement_Leave);
             // 
             // lblRestriction
             // 
@@ -546,16 +552,6 @@
             this.lblEndorsement.Size = new System.Drawing.Size(105, 18);
             this.lblEndorsement.TabIndex = 86;
             this.lblEndorsement.Text = "Endorsement:";
-            // 
-            // lblStatus
-            // 
-            this.lblStatus.AutoSize = true;
-            this.lblStatus.Font = new System.Drawing.Font("Arial", 12F);
-            this.lblStatus.Location = new System.Drawing.Point(123, 513);
-            this.lblStatus.Name = "lblStatus";
-            this.lblStatus.Size = new System.Drawing.Size(56, 18);
-            this.lblStatus.TabIndex = 87;
-            this.lblStatus.Text = "Status:";
             // 
             // pbBrokenHeartIcon
             // 
@@ -579,6 +575,19 @@
             this.pbHeartIcon.TabStop = false;
             this.pbHeartIcon.Visible = false;
             // 
+            // btnAddVehicle
+            // 
+            this.btnAddVehicle.BackColor = System.Drawing.Color.LightSkyBlue;
+            this.btnAddVehicle.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.875F);
+            this.btnAddVehicle.Location = new System.Drawing.Point(451, 337);
+            this.btnAddVehicle.Name = "btnAddVehicle";
+            this.btnAddVehicle.Size = new System.Drawing.Size(122, 36);
+            this.btnAddVehicle.TabIndex = 90;
+            this.btnAddVehicle.Text = "Add Vehicle";
+            this.btnAddVehicle.UseVisualStyleBackColor = false;
+            this.btnAddVehicle.Visible = false;
+            this.btnAddVehicle.Click += new System.EventHandler(this.btnAddVehicle_Click);
+            // 
             // cbhproj
             // 
             this.AcceptButton = this.btnSearch;
@@ -586,9 +595,9 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Menu;
             this.ClientSize = new System.Drawing.Size(1025, 781);
+            this.Controls.Add(this.btnAddVehicle);
             this.Controls.Add(this.pbHeartIcon);
             this.Controls.Add(this.pbBrokenHeartIcon);
-            this.Controls.Add(this.lblStatus);
             this.Controls.Add(this.lblEndorsement);
             this.Controls.Add(this.lblRestriction);
             this.Controls.Add(this.lbEndorsement);
@@ -687,8 +696,8 @@
         private System.Windows.Forms.ListBox lbEndorsement;
         private System.Windows.Forms.Label lblRestriction;
         private System.Windows.Forms.Label lblEndorsement;
-        private System.Windows.Forms.Label lblStatus;
         private System.Windows.Forms.PictureBox pbBrokenHeartIcon;
         private System.Windows.Forms.PictureBox pbHeartIcon;
+        private System.Windows.Forms.Button btnAddVehicle;
     }
 }

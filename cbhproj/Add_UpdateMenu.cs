@@ -58,8 +58,8 @@ namespace cbhproj
                               select c).ToList();
                 foreach (var item in colors)
                 {
-                   cbEyeColor.Items.Add(String.Format("({0:00}) {1} {2}", item.ColorCode, item.ColorAbbr, item.ColorName));
-                   cbHairColor.Items.Add(String.Format("({0:00}) {1} {2}", item.ColorCode, item.ColorAbbr, item.ColorName));
+                    cbEyeColor.Items.Add(String.Format("({0:00}) {1} {2}", item.ColorCode, item.ColorAbbr, item.ColorName));
+                    cbHairColor.Items.Add(String.Format("({0:00}) {1} {2}", item.ColorCode, item.ColorAbbr, item.ColorName));
                 }
 
                 var statuses = (from s in db.Statuses
@@ -73,9 +73,9 @@ namespace cbhproj
                 }
 
                 var classes = (from c in db.Classes
-                                where c.Active == true
-                                orderby c.ClassCode
-                                select c).ToList();
+                               where c.Active == true
+                               orderby c.ClassCode
+                               select c).ToList();
                 lbClass.Items.Add("N/A");
                 foreach (var item in classes)
                 {
@@ -83,9 +83,9 @@ namespace cbhproj
                 }
 
                 var restrictions = (from r in db.Restrictions
-                               where r.Active == true
-                               orderby r.RestrictionCode
-                               select r).ToList();
+                                    where r.Active == true
+                                    orderby r.RestrictionCode
+                                    select r).ToList();
                 lbRestriction.Items.Add("N/A");
                 foreach (var item in restrictions)
                 {
@@ -103,10 +103,10 @@ namespace cbhproj
                 }
 
                 var counties = (from c in db.Counties
-                                    where c.Active == true
-                                      && c.Deleted == false
-                                    orderby c.CountyCode
-                                    select c).ToList();
+                                where c.Active == true
+                                  && c.Deleted == false
+                                orderby c.CountyCode
+                                select c).ToList();
                 foreach (var item in counties)
                 {
                     cbCounty.Items.Add(String.Format("({0:00}) {1}", item.CountyCode, item.CountyName));
@@ -297,12 +297,12 @@ namespace cbhproj
 
         private void SetVisibility_False()
         {
+            btnAddVehicle.Visible = false;
             pbHeartIcon.Visible = false;
             pbBrokenHeartIcon.Visible = false;
             lbClass.Visible = false;
             lbEndorsement.Visible = false;
             lbRestriction.Visible = false;
-            lblStatus.Visible = false;
             lblClass.Visible = false;
             lblRestriction.Visible = false;
             lblEndorsement.Visible = false;
@@ -339,10 +339,10 @@ namespace cbhproj
 
         private void SetVisibility_True()
         {
+            btnAddVehicle.Visible = true;
             lbClass.Visible = true;
             lbEndorsement.Visible = true;
             lbRestriction.Visible = true;
-            lblStatus.Visible = true;
             lblClass.Visible = true;
             lblRestriction.Visible = true;
             lblEndorsement.Visible = true;
@@ -424,11 +424,12 @@ namespace cbhproj
             DialogResult dialog = new DialogResult();
             var errorMessage = String.Empty;
 
-            if (String.IsNullOrWhiteSpace(txtLastName.Text) || txtLastName.Text == "Last Name" 
-                || !Regex.IsMatch(txtLastName.Text, @"^[\p{L}]+$"))
+            if (String.IsNullOrWhiteSpace(txtLastName.Text) || txtLastName.Text == "Last Name"
+                || GlobalFunctions.IsDigitsOnly(txtLastName.Text))
             {
                 errorMessage = "You must enter a valid Last Name.";
                 dialog = MessageBox.Show(errorMessage, "Error!", MessageBoxButtons.OK);
+                ActiveControl = txtLastName;
                 return true;
             }
             if (String.IsNullOrWhiteSpace(txtFirstName.Text) || txtFirstName.Text == "First Name"
@@ -436,13 +437,14 @@ namespace cbhproj
             {
                 errorMessage = "You must enter a valid First Name.";
                 dialog = MessageBox.Show(errorMessage, "Error!", MessageBoxButtons.OK);
+                ActiveControl = txtFirstName;
                 return true;
             }
-            if (String.IsNullOrWhiteSpace(txtMiddleInitial.Text) || txtMiddleInitial.Text == "MI"
-                || !Regex.IsMatch(txtMiddleInitial.Text, @"^[\p{L}]+$"))
+            if (txtMiddleInitial.Text == "MI")
             {
                 errorMessage = "You must enter a valid Middle Initial or remove \"MI\".";
                 dialog = MessageBox.Show(errorMessage, "Error!", MessageBoxButtons.OK);
+                ActiveControl = txtMiddleInitial;
                 return true;
             }
 
@@ -450,6 +452,14 @@ namespace cbhproj
             {
                 errorMessage = "You must enter a valid Address 1.";
                 dialog = MessageBox.Show(errorMessage, "Error!", MessageBoxButtons.OK);
+                ActiveControl = txtAddress1;
+                return true;
+            }
+            if (txtAddress2.Text == "Address 2")
+            {
+                errorMessage = "You must enter a valid Address 2 or remove \"Address 2\".";
+                dialog = MessageBox.Show(errorMessage, "Error!", MessageBoxButtons.OK);
+                ActiveControl = txtAddress2;
                 return true;
             }
             if (String.IsNullOrWhiteSpace(txtCity.Text) || txtCity.Text == "City"
@@ -457,12 +467,7 @@ namespace cbhproj
             {
                 errorMessage = "You must enter a valid City.";
                 dialog = MessageBox.Show(errorMessage, "Error!", MessageBoxButtons.OK);
-                return true;
-            }
-            if (txtAddress2.Text == "Address 2")
-            {
-                errorMessage = "You must enter a valid Address 2 or remove \"Address 2\".";
-                dialog = MessageBox.Show(errorMessage, "Error!", MessageBoxButtons.OK);
+                ActiveControl = txtCity;
                 return true;
             }
             if (!cbDriverState.Items.Contains(cbDriverState.Text) ||
@@ -470,13 +475,15 @@ namespace cbhproj
             {
                 errorMessage = "You must select a valid Driver State.";
                 dialog = MessageBox.Show(errorMessage, "Error!", MessageBoxButtons.OK);
+                ActiveControl = cbDriverState;
                 return true;
             }
             if (String.IsNullOrWhiteSpace(txtZip.Text) || txtZip.Text == "Zip"
-                || !GlobalFunctions.IsDigitsOnly(txtZip.Text, '-'))
+                || !GlobalFunctions.IsDigitsOnly(txtZip.Text, '-') || txtZip.Text.Length < 9)
             {
-                errorMessage = "You must enter a valid Postal Code.";
+                errorMessage = "You must enter a valid Postal Code (Ex. 12345-6789).";
                 dialog = MessageBox.Show(errorMessage, "Error!", MessageBoxButtons.OK);
+                ActiveControl = txtZip;
                 return true;
             }
             if (!cbHeightFeet.Items.Contains(cbHeightFeet.Text) ||
@@ -484,6 +491,7 @@ namespace cbhproj
             {
                 errorMessage = "You must select a valid Height (feet).";
                 dialog = MessageBox.Show(errorMessage, "Error!", MessageBoxButtons.OK);
+                ActiveControl = cbHeightFeet;
                 return true;
             }
             if (!cbHeightInches.Items.Contains(cbHeightInches.Text) ||
@@ -491,13 +499,15 @@ namespace cbhproj
             {
                 errorMessage = "You must select a valid Height (inches).";
                 dialog = MessageBox.Show(errorMessage, "Error!", MessageBoxButtons.OK);
+                ActiveControl = cbHeightInches;
                 return true;
             }
             if (String.IsNullOrWhiteSpace(txtWeight.Text) || txtWeight.Text == "Weight (Ex. 225)"
                 || !GlobalFunctions.IsDigitsOnly(txtWeight.Text))
             {
-                errorMessage = "You must enter a valid Weight (lbs).";
+                errorMessage = "You must enter a valid Weight (Ex. 225).";
                 dialog = MessageBox.Show(errorMessage, "Error!", MessageBoxButtons.OK);
+                ActiveControl = txtWeight;
                 return true;
             }
             if (!cbEyeColor.Items.Contains(cbEyeColor.Text) ||
@@ -505,6 +515,7 @@ namespace cbhproj
             {
                 errorMessage = "You must select a valid Eye Color.";
                 dialog = MessageBox.Show(errorMessage, "Error!", MessageBoxButtons.OK);
+                ActiveControl = cbEyeColor;
                 return true;
             }
             if (!cbHairColor.Items.Contains(cbHairColor.Text) ||
@@ -512,6 +523,7 @@ namespace cbhproj
             {
                 errorMessage = "You must select a valid Hair Color.";
                 dialog = MessageBox.Show(errorMessage, "Error!", MessageBoxButtons.OK);
+                ActiveControl = cbHairColor;
                 return true;
             }
             if (chkMale.Checked == false && chkFemale.Checked == false && chkOther.Checked == false)
@@ -520,6 +532,60 @@ namespace cbhproj
                 dialog = MessageBox.Show(errorMessage, "Error!", MessageBoxButtons.OK);
                 return true;
             }
+            if (String.IsNullOrWhiteSpace(txtOLN.Text) || txtOLN.Text == "OLN"
+                || !GlobalFunctions.IsDigitsOnly(txtOLN.Text))
+            {
+                errorMessage = "You must enter a valid OLN (Ex. 1234567).";
+                dialog = MessageBox.Show(errorMessage, "Error!", MessageBoxButtons.OK);
+                ActiveControl = txtWeight;
+                return true;
+            }
+            if (!cbStatus.Items.Contains(cbStatus.Text) ||
+                String.IsNullOrWhiteSpace(cbStatus.Text) || cbStatus.Text == "Select Status...")
+            {
+                errorMessage = "You must select a valid License Status.";
+                dialog = MessageBox.Show(errorMessage, "Error!", MessageBoxButtons.OK);
+                ActiveControl = cbStatus;
+                return true;
+            }
+            if (!cbLicenseState.Items.Contains(cbLicenseState.Text) ||
+                String.IsNullOrWhiteSpace(cbLicenseState.Text) || cbLicenseState.Text == "Select State...")
+            {
+                errorMessage = "You must select a valid License State.";
+                dialog = MessageBox.Show(errorMessage, "Error!", MessageBoxButtons.OK);
+                ActiveControl = cbLicenseState;
+                return true;
+            }
+            if (!cbCounty.Items.Contains(cbCounty.Text) ||
+                String.IsNullOrWhiteSpace(cbCounty.Text) || cbLicenseState.Text == "Select County...")
+            {
+                errorMessage = "You must select a valid License County.";
+                dialog = MessageBox.Show(errorMessage, "Error!", MessageBoxButtons.OK);
+                ActiveControl = cbCounty;
+                return true;
+            }
+            if (lbClass.SelectedIndex == -1)
+            {
+                errorMessage = "You must select a valid License Class or \"N/A\".";
+                dialog = MessageBox.Show(errorMessage, "Error!", MessageBoxButtons.OK);
+                ActiveControl = lbClass;
+                return true;
+            }
+            if (lbRestriction.SelectedIndex == -1)
+            {
+                errorMessage = "You must select a valid License Restriction or \"N/A\".";
+                dialog = MessageBox.Show(errorMessage, "Error!", MessageBoxButtons.OK);
+                ActiveControl = lbRestriction;
+                return true;
+            }
+            if (lbEndorsement.SelectedIndex == -1)
+            {
+                errorMessage = "You must select a valid License Endorsement or \"N/A\".";
+                dialog = MessageBox.Show(errorMessage, "Error!", MessageBoxButtons.OK);
+                ActiveControl = lbEndorsement;
+                return true;
+            }
+
             return false;
         }
 
@@ -532,17 +598,8 @@ namespace cbhproj
             else
             {
                 DialogResult dialog = new DialogResult();
-                var addUpdateMsg = "Would you like to add a vehicle?";
-                dialog = MessageBox.Show(addUpdateMsg, "Alert!", MessageBoxButtons.YesNo);
-
-                if (dialog == DialogResult.Yes)
-                {
-                    Add_ModifyVehicle addVehicle = new Add_ModifyVehicle(userInput, add);
-                    addVehicle.ShowDialog();
-                }
-
-                addUpdateMsg = (add) ? String.Format("Are you sure you want to add SSN {0}?", userInput)
-                                     : String.Format("Are you sure you want to update SSN {0}?", userInput);
+                var addUpdateMsg = (add) ? String.Format("Are you sure you want to add SSN {0}?", userInput)
+                                         : String.Format("Are you sure you want to update SSN {0}?", userInput);
                 dialog = MessageBox.Show(addUpdateMsg, "Alert!", MessageBoxButtons.YesNo);
 
                 if (dialog == DialogResult.No)
@@ -560,9 +617,9 @@ namespace cbhproj
                 dialog = MessageBox.Show(addUpdateMsg, "Success!", MessageBoxButtons.OK);
             }
         }
-        
+
         private void UpdateAddDriverLicenseVehicle()
-        { 
+        {
             DateTime currentDateTime = DateTime.Now;
             using (var db = new mdmcleroyEntities())
             {
@@ -587,11 +644,11 @@ namespace cbhproj
                 driverData.OLN = txtOLN.Text.Trim();
                 driverData.LastName = txtLastName.Text.Trim().ToUpper();
                 driverData.FirstName = txtFirstName.Text.Trim().ToUpper();
-                driverData.MI = String.IsNullOrWhiteSpace(txtMiddleInitial.Text) ? 
+                driverData.MI = String.IsNullOrWhiteSpace(txtMiddleInitial.Text) ?
                                 String.Empty : txtMiddleInitial.Text.Trim().ToUpper();
                 driverData.Address1 = txtAddress1.Text.Trim().ToUpper();
-                driverData.Address2 = String.IsNullOrWhiteSpace(txtAddress2.Text) ? 
-                                      String.Empty : txtAddress2.Text.Trim().ToUpper();
+                driverData.Address2 = String.IsNullOrWhiteSpace(txtAddress2.Text) ? String.Empty
+                                                                                  : txtAddress2.Text.Trim().ToUpper();
                 driverData.City = txtCity.Text.Trim().ToUpper();
                 driverData.StateCode = Convert.ToInt32(cbDriverState.Text.ToString().Split('(', ')')[1]);
                 driverData.PostalCode = (txtZip.Text.Contains("-")) ? txtZip.Text.Trim().Split('-')[0] + txtZip.Text.Trim().Split('-')[1]
@@ -727,17 +784,8 @@ namespace cbhproj
 
         private void txtMiddleInitial_Leave(object sender, EventArgs e)
         {
-            if (txtMiddleInitial.Text.Length == 0)
-            {
-                txtMiddleInitial.Text = "MI";
-                return;
-            }
-
-            if (txtMiddleInitial.Text.Length > 0)
-            {
+            if (txtMiddleInitial.Text.Trim() != "MI")
                 progBar.Increment(4);
-                return;
-            }
         }
 
         private void txtAddress1_Click(object sender, MouseEventArgs e)
@@ -773,11 +821,8 @@ namespace cbhproj
 
         private void txtAddress2_Leave(object sender, EventArgs e)
         {
-            if (txtAddress2.Text.Length > 0)
-            {
+            if (txtAddress2.Text != "Address 2")
                 progBar.Increment(4);
-                return;
-            }
         }
 
         private void txtCity_MouseClick(object sender, MouseEventArgs e)
@@ -972,6 +1017,9 @@ namespace cbhproj
             {
                 txtOLN.Text = "OLN";
             }
+
+            if (txtOLN.Text != "OLN")
+                progBar.Increment(4);
         }
 
         private void cbStatus_Leave(object sender, EventArgs e)
@@ -1134,6 +1182,59 @@ namespace cbhproj
         {
             pbHeartIcon.Visible = chkOrganDonor.Checked ? true : false;
             pbBrokenHeartIcon.Visible = chkOrganDonor.Checked ? false : true;
+
+            if (chkOrganDonor.Checked)
+                progBar.Increment(4);
+        }
+
+        private void btnAddVehicle_Click(object sender, EventArgs e)
+        {
+            Add_ModifyVehicle addVehicle = new Add_ModifyVehicle(userInput, add);
+            addVehicle.ShowDialog();
+        }
+
+        private void dtIssue_Leave(object sender, EventArgs e)
+        {
+            progBar.Increment(5);
+        }
+
+        private void dtExpiration_Leave(object sender, EventArgs e)
+        {
+            progBar.Increment(5);
+        }
+
+        private void lbRestriction_Leave(object sender, EventArgs e)
+        {
+            if (lbRestriction.SelectedIndex != -1)
+            {
+                progBar.Increment(5);
+            }
+        }
+
+        private void lbEndorsement_Leave(object sender, EventArgs e)
+        {
+            if (lbEndorsement.SelectedIndex != -1)
+            {
+                progBar.Increment(5);
+            }
+        }
+
+        private void lbClass_Leave(object sender, EventArgs e)
+        {
+            if (lbClass.SelectedIndex != -1)
+            {
+                progBar.Increment(5);
+            }
+        }
+
+        private void txtOLN_TextChanged(object sender, EventArgs e)
+        {
+            if (txtOLN.Text.Length >= 9 && txtOLN.Text != "OLN")
+            {
+                txtOLN.Text = txtOLN.Text.Substring(0, 9);
+                txtOLN.SelectionStart = txtOLN.Text.Length;
+                return;
+            }
         }
     }
 }

@@ -147,10 +147,10 @@ namespace cbhproj
             pbOtherIcon.Visible = (driver.Gender.Trim().ToUpper() == "O") ? true : false;
             pbHeartIcon.Visible = driver.OrganDonor ? true : false;
             pbBrokenHeartIcon.Visible = !driver.OrganDonor ? true : false;
-            lblEyeColor.Text = String.Format("Eye Color: ({0:00}) {1} {2}", driver.EyeColorCode, driver.EyeColorAbbr, driver.EyeColorName.Split('/')[0]);
-            lblEyeColorSplit.Text = GlobalFunctions.Contains(driver.EyeColorName, '/') ? driver.EyeColorName.Split('/')[1] : String.Empty;
-            lblHairColor.Text = String.Format("Hair Color: ({0:00}) {1} {2}", driver.HairColorCode, driver.HairColorAbbr, driver.HairColorName.Split('/')[0]);
-            lblHairColorSplit.Text = GlobalFunctions.Contains(driver.HairColorName, '/') ? driver.HairColorName.Split('/')[1] : String.Empty;
+            lblEyeColor.Text = (driver.EyeColorCode > 33) ? "Invalid Eye Color" : String.Format("Eye Color: ({0:00}) {1} {2}", driver.EyeColorCode, driver.EyeColorAbbr, driver.EyeColorName.Split('/')[0]);
+            lblEyeColorSplit.Text = String.IsNullOrWhiteSpace(driver.HairColorName) ? String.Empty : (GlobalFunctions.Contains(driver.HairColorName, '/') ? driver.EyeColorName.Split('/')[1] : String.Empty);
+            lblHairColor.Text = (driver.HairColorCode > 33) ? "Invalid Hair Color" : String.Format("Hair Color: ({0:00}) {1} {2}", driver.HairColorCode, driver.HairColorAbbr, driver.HairColorName.Split('/')[0]);
+            lblHairColorSplit.Text = String.IsNullOrWhiteSpace(driver.HairColorName) ? String.Empty : (GlobalFunctions.Contains(driver.HairColorName, '/') ? driver.HairColorName.Split('/')[1] : String.Empty);
             lblOrganDonor.Text = "Organ Donor:";
             lblStatus.Text = "Status: " + (String.IsNullOrEmpty(driver.StatusCode) ? "N/A" : String.Format("(0{0}) {1}", driver.StatusCode, driver.StatusName));
             lblLicenseInfo.Text = "License Info";
