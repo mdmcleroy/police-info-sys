@@ -145,11 +145,13 @@ namespace cbhproj
             pbMaleIcon.Visible = (driver.Gender.Trim().ToUpper() == "M") ? true : false;
             pbFemaleIcon.Visible = (driver.Gender.Trim().ToUpper() == "F") ? true : false;
             pbOtherIcon.Visible = (driver.Gender.Trim().ToUpper() == "O") ? true : false;
+            pbHeartIcon.Visible = driver.OrganDonor ? true : false;
+            pbBrokenHeartIcon.Visible = !driver.OrganDonor ? true : false;
             lblEyeColor.Text = String.Format("Eye Color: ({0:00}) {1} {2}", driver.EyeColorCode, driver.EyeColorAbbr, driver.EyeColorName.Split('/')[0]);
             lblEyeColorSplit.Text = GlobalFunctions.Contains(driver.EyeColorName, '/') ? driver.EyeColorName.Split('/')[1] : String.Empty;
             lblHairColor.Text = String.Format("Hair Color: ({0:00}) {1} {2}", driver.HairColorCode, driver.HairColorAbbr, driver.HairColorName.Split('/')[0]);
             lblHairColorSplit.Text = GlobalFunctions.Contains(driver.HairColorName, '/') ? driver.HairColorName.Split('/')[1] : String.Empty;
-            lblOrganDonor.Text = "Organ Donor: " + (driver.OrganDonor ? "Yes" : "No");
+            lblOrganDonor.Text = "Organ Donor:";
             lblStatus.Text = "Status: " + (String.IsNullOrEmpty(driver.StatusCode) ? "N/A" : String.Format("(0{0}) {1}", driver.StatusCode, driver.StatusName));
             lblLicenseInfo.Text = "License Info";
             lblLicenseInfo.Visible = true;
@@ -210,6 +212,8 @@ namespace cbhproj
             pbMaleIcon.Visible = false;
             pbFemaleIcon.Visible = false;
             pbOtherIcon.Visible = false;
+            pbHeartIcon.Visible = false;
+            pbBrokenHeartIcon.Visible = false;
             btnVehicleInfo.Visible = false;
             btnDelete.Visible = false;
             lblSSN.Text = String.Empty;

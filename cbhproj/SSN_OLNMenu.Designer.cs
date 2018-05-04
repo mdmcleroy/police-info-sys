@@ -72,6 +72,8 @@
             this.pbOtherIcon = new System.Windows.Forms.PictureBox();
             this.pbFemaleProfile = new System.Windows.Forms.PictureBox();
             this.pbOtherProfile = new System.Windows.Forms.PictureBox();
+            this.pbHeartIcon = new System.Windows.Forms.PictureBox();
+            this.pbBrokenHeartIcon = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.pbDarrenProfile)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbMaleProfile)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbMaleIcon)).BeginInit();
@@ -79,6 +81,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.pbOtherIcon)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbFemaleProfile)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbOtherProfile)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbHeartIcon)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbBrokenHeartIcon)).BeginInit();
             this.SuspendLayout();
             // 
             // lblSubHeading
@@ -540,6 +544,28 @@
             this.pbOtherProfile.TabStop = false;
             this.pbOtherProfile.Visible = false;
             // 
+            // pbHeartIcon
+            // 
+            this.pbHeartIcon.Image = ((System.Drawing.Image)(resources.GetObject("pbHeartIcon.Image")));
+            this.pbHeartIcon.Location = new System.Drawing.Point(837, 328);
+            this.pbHeartIcon.Name = "pbHeartIcon";
+            this.pbHeartIcon.Size = new System.Drawing.Size(24, 24);
+            this.pbHeartIcon.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pbHeartIcon.TabIndex = 60;
+            this.pbHeartIcon.TabStop = false;
+            this.pbHeartIcon.Visible = false;
+            // 
+            // pbBrokenHeartIcon
+            // 
+            this.pbBrokenHeartIcon.Image = ((System.Drawing.Image)(resources.GetObject("pbBrokenHeartIcon.Image")));
+            this.pbBrokenHeartIcon.Location = new System.Drawing.Point(837, 326);
+            this.pbBrokenHeartIcon.Name = "pbBrokenHeartIcon";
+            this.pbBrokenHeartIcon.Size = new System.Drawing.Size(24, 24);
+            this.pbBrokenHeartIcon.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pbBrokenHeartIcon.TabIndex = 61;
+            this.pbBrokenHeartIcon.TabStop = false;
+            this.pbBrokenHeartIcon.Visible = false;
+            // 
             // SSN_OLNMenu
             // 
             this.AcceptButton = this.btnSearch;
@@ -547,6 +573,8 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Menu;
             this.ClientSize = new System.Drawing.Size(1025, 781);
+            this.Controls.Add(this.pbBrokenHeartIcon);
+            this.Controls.Add(this.pbHeartIcon);
             this.Controls.Add(this.pbOtherProfile);
             this.Controls.Add(this.pbFemaleProfile);
             this.Controls.Add(this.pbOtherIcon);
@@ -602,6 +630,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.pbOtherIcon)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbFemaleProfile)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbOtherProfile)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbHeartIcon)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbBrokenHeartIcon)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -652,5 +682,7 @@
         private System.Windows.Forms.PictureBox pbOtherIcon;
         private System.Windows.Forms.PictureBox pbFemaleProfile;
         private System.Windows.Forms.PictureBox pbOtherProfile;
+        private System.Windows.Forms.PictureBox pbHeartIcon;
+        private System.Windows.Forms.PictureBox pbBrokenHeartIcon;
     }
 }
