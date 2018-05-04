@@ -53,9 +53,6 @@
             this.chkMale = new System.Windows.Forms.CheckBox();
             this.chkFemale = new System.Windows.Forms.CheckBox();
             this.cbStatus = new System.Windows.Forms.ComboBox();
-            this.cbClass = new System.Windows.Forms.ComboBox();
-            this.cbRestriction = new System.Windows.Forms.ComboBox();
-            this.cbEndorsement = new System.Windows.Forms.ComboBox();
             this.cbLicenseState = new System.Windows.Forms.ComboBox();
             this.cbCounty = new System.Windows.Forms.ComboBox();
             this.dtIssue = new System.Windows.Forms.DateTimePicker();
@@ -68,6 +65,12 @@
             this.btnClearReset = new System.Windows.Forms.Button();
             this.lblLength = new System.Windows.Forms.Label();
             this.lbClass = new System.Windows.Forms.ListBox();
+            this.lblClass = new System.Windows.Forms.Label();
+            this.lbRestriction = new System.Windows.Forms.ListBox();
+            this.lbEndorsement = new System.Windows.Forms.ListBox();
+            this.lblRestriction = new System.Windows.Forms.Label();
+            this.lblEndorsement = new System.Windows.Forms.Label();
+            this.lblStatus = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // lblSubHeading
@@ -282,17 +285,17 @@
             // lblLicenseInfo
             // 
             this.lblLicenseInfo.AutoSize = true;
-            this.lblLicenseInfo.Font = new System.Drawing.Font("Arial", 12F);
-            this.lblLicenseInfo.Location = new System.Drawing.Point(467, 449);
+            this.lblLicenseInfo.Font = new System.Drawing.Font("Arial", 14F);
+            this.lblLicenseInfo.Location = new System.Drawing.Point(455, 429);
             this.lblLicenseInfo.Name = "lblLicenseInfo";
-            this.lblLicenseInfo.Size = new System.Drawing.Size(91, 18);
+            this.lblLicenseInfo.Size = new System.Drawing.Size(115, 22);
             this.lblLicenseInfo.TabIndex = 59;
             this.lblLicenseInfo.Text = "License Info";
             // 
             // txtOLN
             // 
             this.txtOLN.Font = new System.Drawing.Font("Arial", 12F);
-            this.txtOLN.Location = new System.Drawing.Point(468, 482);
+            this.txtOLN.Location = new System.Drawing.Point(223, 480);
             this.txtOLN.Name = "txtOLN";
             this.txtOLN.Size = new System.Drawing.Size(88, 26);
             this.txtOLN.TabIndex = 19;
@@ -343,55 +346,19 @@
             this.cbStatus.Cursor = System.Windows.Forms.Cursors.Hand;
             this.cbStatus.Font = new System.Drawing.Font("Arial", 12F);
             this.cbStatus.FormattingEnabled = true;
-            this.cbStatus.Location = new System.Drawing.Point(87, 513);
+            this.cbStatus.Location = new System.Drawing.Point(185, 510);
             this.cbStatus.Name = "cbStatus";
-            this.cbStatus.Size = new System.Drawing.Size(185, 26);
+            this.cbStatus.Size = new System.Drawing.Size(126, 26);
             this.cbStatus.TabIndex = 20;
             this.cbStatus.Text = "Select Status...";
             this.cbStatus.Leave += new System.EventHandler(this.cbStatus_Leave);
-            // 
-            // cbClass
-            // 
-            this.cbClass.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.cbClass.Font = new System.Drawing.Font("Arial", 12F);
-            this.cbClass.FormattingEnabled = true;
-            this.cbClass.Location = new System.Drawing.Point(278, 527);
-            this.cbClass.Name = "cbClass";
-            this.cbClass.Size = new System.Drawing.Size(185, 26);
-            this.cbClass.TabIndex = 21;
-            this.cbClass.Text = "Select Class...";
-            this.cbClass.Leave += new System.EventHandler(this.cbClass_Leave);
-            // 
-            // cbRestriction
-            // 
-            this.cbRestriction.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.cbRestriction.Font = new System.Drawing.Font("Arial", 12F);
-            this.cbRestriction.FormattingEnabled = true;
-            this.cbRestriction.Location = new System.Drawing.Point(564, 513);
-            this.cbRestriction.Name = "cbRestriction";
-            this.cbRestriction.Size = new System.Drawing.Size(185, 26);
-            this.cbRestriction.TabIndex = 24;
-            this.cbRestriction.Text = "Select Restriction...";
-            this.cbRestriction.Leave += new System.EventHandler(this.cbRestriction_Leave);
-            // 
-            // cbEndorsement
-            // 
-            this.cbEndorsement.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.cbEndorsement.Font = new System.Drawing.Font("Arial", 12F);
-            this.cbEndorsement.FormattingEnabled = true;
-            this.cbEndorsement.Location = new System.Drawing.Point(564, 545);
-            this.cbEndorsement.Name = "cbEndorsement";
-            this.cbEndorsement.Size = new System.Drawing.Size(185, 26);
-            this.cbEndorsement.TabIndex = 25;
-            this.cbEndorsement.Text = "Select Endorsement...";
-            this.cbEndorsement.Leave += new System.EventHandler(this.cbEndorsement_Leave);
             // 
             // cbLicenseState
             // 
             this.cbLicenseState.Cursor = System.Windows.Forms.Cursors.Hand;
             this.cbLicenseState.Font = new System.Drawing.Font("Arial", 12F);
             this.cbLicenseState.FormattingEnabled = true;
-            this.cbLicenseState.Location = new System.Drawing.Point(564, 577);
+            this.cbLicenseState.Location = new System.Drawing.Point(87, 542);
             this.cbLicenseState.Name = "cbLicenseState";
             this.cbLicenseState.Size = new System.Drawing.Size(224, 26);
             this.cbLicenseState.TabIndex = 26;
@@ -402,7 +369,7 @@
             this.cbCounty.Cursor = System.Windows.Forms.Cursors.Hand;
             this.cbCounty.Font = new System.Drawing.Font("Arial", 12F);
             this.cbCounty.FormattingEnabled = true;
-            this.cbCounty.Location = new System.Drawing.Point(564, 609);
+            this.cbCounty.Location = new System.Drawing.Point(87, 574);
             this.cbCounty.Name = "cbCounty";
             this.cbCounty.Size = new System.Drawing.Size(224, 26);
             this.cbCounty.TabIndex = 27;
@@ -413,7 +380,7 @@
             // 
             this.dtIssue.Font = new System.Drawing.Font("Arial", 12F);
             this.dtIssue.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtIssue.Location = new System.Drawing.Point(357, 583);
+            this.dtIssue.Location = new System.Drawing.Point(209, 606);
             this.dtIssue.Name = "dtIssue";
             this.dtIssue.Size = new System.Drawing.Size(102, 26);
             this.dtIssue.TabIndex = 22;
@@ -422,7 +389,7 @@
             // 
             this.lblIssue.AutoSize = true;
             this.lblIssue.Font = new System.Drawing.Font("Arial", 12F);
-            this.lblIssue.Location = new System.Drawing.Point(305, 589);
+            this.lblIssue.Location = new System.Drawing.Point(157, 612);
             this.lblIssue.Name = "lblIssue";
             this.lblIssue.Size = new System.Drawing.Size(48, 18);
             this.lblIssue.TabIndex = 74;
@@ -432,7 +399,7 @@
             // 
             this.dtExpiration.Font = new System.Drawing.Font("Arial", 12F);
             this.dtExpiration.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtExpiration.Location = new System.Drawing.Point(357, 615);
+            this.dtExpiration.Location = new System.Drawing.Point(209, 638);
             this.dtExpiration.Name = "dtExpiration";
             this.dtExpiration.Size = new System.Drawing.Size(102, 26);
             this.dtExpiration.TabIndex = 23;
@@ -441,7 +408,7 @@
             // 
             this.lblExpiration.AutoSize = true;
             this.lblExpiration.Font = new System.Drawing.Font("Arial", 12F);
-            this.lblExpiration.Location = new System.Drawing.Point(271, 621);
+            this.lblExpiration.Location = new System.Drawing.Point(123, 644);
             this.lblExpiration.Name = "lblExpiration";
             this.lblExpiration.Size = new System.Drawing.Size(82, 18);
             this.lblExpiration.TabIndex = 76;
@@ -504,15 +471,85 @@
             // 
             // lbClass
             // 
+            this.lbClass.Cursor = System.Windows.Forms.Cursors.Hand;
             this.lbClass.Font = new System.Drawing.Font("Arial", 12F);
             this.lbClass.FormattingEnabled = true;
+            this.lbClass.HorizontalScrollbar = true;
             this.lbClass.ItemHeight = 18;
-            this.lbClass.Location = new System.Drawing.Point(87, 545);
-            this.lbClass.MultiColumn = true;
+            this.lbClass.Location = new System.Drawing.Point(698, 585);
             this.lbClass.Name = "lbClass";
+            this.lbClass.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.lbClass.SelectionMode = System.Windows.Forms.SelectionMode.MultiSimple;
-            this.lbClass.Size = new System.Drawing.Size(185, 202);
+            this.lbClass.Size = new System.Drawing.Size(295, 76);
             this.lbClass.TabIndex = 81;
+            // 
+            // lblClass
+            // 
+            this.lblClass.AutoSize = true;
+            this.lblClass.Font = new System.Drawing.Font("Arial", 12F);
+            this.lblClass.Location = new System.Drawing.Point(699, 564);
+            this.lblClass.Name = "lblClass";
+            this.lblClass.Size = new System.Drawing.Size(52, 18);
+            this.lblClass.TabIndex = 82;
+            this.lblClass.Text = "Class:";
+            // 
+            // lbRestriction
+            // 
+            this.lbRestriction.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.lbRestriction.Font = new System.Drawing.Font("Arial", 12F);
+            this.lbRestriction.FormattingEnabled = true;
+            this.lbRestriction.HorizontalScrollbar = true;
+            this.lbRestriction.ItemHeight = 18;
+            this.lbRestriction.Location = new System.Drawing.Point(365, 480);
+            this.lbRestriction.Name = "lbRestriction";
+            this.lbRestriction.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.lbRestriction.SelectionMode = System.Windows.Forms.SelectionMode.MultiSimple;
+            this.lbRestriction.Size = new System.Drawing.Size(295, 184);
+            this.lbRestriction.TabIndex = 83;
+            // 
+            // lbEndorsement
+            // 
+            this.lbEndorsement.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.lbEndorsement.Font = new System.Drawing.Font("Arial", 12F);
+            this.lbEndorsement.FormattingEnabled = true;
+            this.lbEndorsement.HorizontalScrollbar = true;
+            this.lbEndorsement.ItemHeight = 18;
+            this.lbEndorsement.Location = new System.Drawing.Point(698, 480);
+            this.lbEndorsement.Name = "lbEndorsement";
+            this.lbEndorsement.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.lbEndorsement.SelectionMode = System.Windows.Forms.SelectionMode.MultiSimple;
+            this.lbEndorsement.Size = new System.Drawing.Size(295, 76);
+            this.lbEndorsement.TabIndex = 84;
+            // 
+            // lblRestriction
+            // 
+            this.lblRestriction.AutoSize = true;
+            this.lblRestriction.Font = new System.Drawing.Font("Arial", 12F);
+            this.lblRestriction.Location = new System.Drawing.Point(366, 459);
+            this.lblRestriction.Name = "lblRestriction";
+            this.lblRestriction.Size = new System.Drawing.Size(86, 18);
+            this.lblRestriction.TabIndex = 85;
+            this.lblRestriction.Text = "Restriction:";
+            // 
+            // lblEndorsement
+            // 
+            this.lblEndorsement.AutoSize = true;
+            this.lblEndorsement.Font = new System.Drawing.Font("Arial", 12F);
+            this.lblEndorsement.Location = new System.Drawing.Point(699, 459);
+            this.lblEndorsement.Name = "lblEndorsement";
+            this.lblEndorsement.Size = new System.Drawing.Size(105, 18);
+            this.lblEndorsement.TabIndex = 86;
+            this.lblEndorsement.Text = "Endorsement:";
+            // 
+            // lblStatus
+            // 
+            this.lblStatus.AutoSize = true;
+            this.lblStatus.Font = new System.Drawing.Font("Arial", 12F);
+            this.lblStatus.Location = new System.Drawing.Point(123, 513);
+            this.lblStatus.Name = "lblStatus";
+            this.lblStatus.Size = new System.Drawing.Size(56, 18);
+            this.lblStatus.TabIndex = 87;
+            this.lblStatus.Text = "Status:";
             // 
             // cbhproj
             // 
@@ -521,6 +558,12 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Menu;
             this.ClientSize = new System.Drawing.Size(1025, 781);
+            this.Controls.Add(this.lblStatus);
+            this.Controls.Add(this.lblEndorsement);
+            this.Controls.Add(this.lblRestriction);
+            this.Controls.Add(this.lbEndorsement);
+            this.Controls.Add(this.lbRestriction);
+            this.Controls.Add(this.lblClass);
             this.Controls.Add(this.lbClass);
             this.Controls.Add(this.lblLength);
             this.Controls.Add(this.btnClearReset);
@@ -532,9 +575,6 @@
             this.Controls.Add(this.lblIssue);
             this.Controls.Add(this.cbCounty);
             this.Controls.Add(this.cbLicenseState);
-            this.Controls.Add(this.cbEndorsement);
-            this.Controls.Add(this.cbRestriction);
-            this.Controls.Add(this.cbClass);
             this.Controls.Add(this.cbStatus);
             this.Controls.Add(this.chkOther);
             this.Controls.Add(this.chkFemale);
@@ -598,9 +638,6 @@
         private System.Windows.Forms.CheckBox chkMale;
         private System.Windows.Forms.CheckBox chkFemale;
         private System.Windows.Forms.ComboBox cbStatus;
-        private System.Windows.Forms.ComboBox cbClass;
-        private System.Windows.Forms.ComboBox cbRestriction;
-        private System.Windows.Forms.ComboBox cbEndorsement;
         private System.Windows.Forms.ComboBox cbLicenseState;
         private System.Windows.Forms.ComboBox cbCounty;
         private System.Windows.Forms.DateTimePicker dtIssue;
@@ -613,5 +650,11 @@
         private System.Windows.Forms.Button btnClearReset;
         private System.Windows.Forms.Label lblLength;
         private System.Windows.Forms.ListBox lbClass;
+        private System.Windows.Forms.Label lblClass;
+        private System.Windows.Forms.ListBox lbRestriction;
+        private System.Windows.Forms.ListBox lbEndorsement;
+        private System.Windows.Forms.Label lblRestriction;
+        private System.Windows.Forms.Label lblEndorsement;
+        private System.Windows.Forms.Label lblStatus;
     }
 }

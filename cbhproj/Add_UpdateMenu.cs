@@ -79,7 +79,6 @@ namespace cbhproj
                 lbClass.Items.Add("N/A");
                 foreach (var item in classes)
                 {
-                    //ClassesDict.Add(item.ClassCode, item.ClassDesc);
                     lbClass.Items.Add(String.Format("{0} {1}", item.ClassCode, item.ClassDesc));
                 }
 
@@ -87,20 +86,20 @@ namespace cbhproj
                                where r.Active == true
                                orderby r.RestrictionCode
                                select r).ToList();
-                cbRestriction.Items.Add("N/A");
+                lbRestriction.Items.Add("N/A");
                 foreach (var item in restrictions)
                 {
-                    cbRestriction.Items.Add(String.Format("({0}) {1}", item.RestrictionCode, item.RestrictionDesc));
+                    lbRestriction.Items.Add(String.Format("{0} {1}", item.RestrictionCode, item.RestrictionDesc));
                 }
 
                 var endorsements = (from e in db.Endorsements
                                     where e.Active == true
                                     orderby e.EndorsementCode
                                     select e).ToList();
-                cbEndorsement.Items.Add("N/A");
+                lbEndorsement.Items.Add("N/A");
                 foreach (var item in endorsements)
                 {
-                    cbEndorsement.Items.Add(String.Format("({0}) {1}", item.EndorsementCode, item.EndorsementDesc));
+                    lbEndorsement.Items.Add(String.Format("{0} {1}", item.EndorsementCode, item.EndorsementDesc));
                 }
 
                 var counties = (from c in db.Counties
@@ -168,9 +167,9 @@ namespace cbhproj
             SetVisibility_True();
             txtLastName.Text = driver.LastName;
             txtFirstName.Text = driver.FirstName;
-            txtMiddleInitial.Text = driver.MI.Trim();
+            txtMiddleInitial.Text = String.IsNullOrWhiteSpace(driver.MI) ? String.Empty : driver.MI.Trim();
             txtAddress1.Text = driver.Address1;
-            txtAddress2.Text = driver.Address2;
+            txtAddress2.Text = String.IsNullOrWhiteSpace(driver.Address2) ? String.Empty : driver.Address2;
             txtCity.Text = driver.City;
             cbDriverState.Text = String.Format("({0:00}) {1} {2}", driver.DriverStateCode, driver.DriverStateAbbr, driver.DriverStateName);
             txtZip.Text = driver.PostalCode.Substring(0, 5) + '-' + driver.PostalCode.Substring(5, 4);
@@ -197,19 +196,52 @@ namespace cbhproj
             }
             else
             {
-                for (int i = 0; i < lbClass.Items.Count; i++)
+                foreach (var ch in driver.LicenseClass)
                 {
-                    if (ClassesDict.ContainsKey(lbClass.Items[i].ToString().Substring(0, 1)))
+                    for (int i = 1; i < lbClass.Items.Count; i++)
                     {
-                        lbClass.SetSelected(i, true);
+                        string defaultClass = lbClass.Items[i].ToString();
+                        if (ch.ToString() == String.Format("{0}", defaultClass[0]))
+                            lbClass.SetSelected(i, true);
                     }
                 }
             }
-            //cbClass.Text = driver.LicenseClass;
+
+            if (String.IsNullOrEmpty(driver.LicenseRestrictions))
+            {
+                lbRestriction.SetSelected(0, true);
+            }
+            else
+            {
+                foreach (var ch in driver.LicenseRestrictions)
+                {
+                    for (int i = 1; i < lbRestriction.Items.Count; i++)
+                    {
+                        string defaultClass = lbRestriction.Items[i].ToString();
+                        if (ch.ToString() == String.Format("{0}", defaultClass[0]))
+                            lbRestriction.SetSelected(i, true);
+                    }
+                }
+            }
+
+            if (String.IsNullOrEmpty(driver.LicenseEndorsements))
+            {
+                lbEndorsement.SetSelected(0, true);
+            }
+            else
+            {
+                foreach (var ch in driver.LicenseEndorsements)
+                {
+                    for (int i = 1; i < lbEndorsement.Items.Count; i++)
+                    {
+                        string defaultClass = lbEndorsement.Items[i].ToString();
+                        if (ch.ToString() == String.Format("{0}", defaultClass[0]))
+                            lbEndorsement.SetSelected(i, true);
+                    }
+                }
+            }
             dtIssue.Value = (DateTime)driver.LicenseIssue;
             dtExpiration.Value = (DateTime)driver.LicenseExpiration;
-            cbRestriction.Text = String.IsNullOrEmpty(driver.LicenseRestrictions) ? "N/A" : driver.LicenseRestrictions;
-            cbEndorsement.Text = String.IsNullOrEmpty(driver.LicenseEndorsements) ? "N/A" : driver.LicenseEndorsements;
             cbLicenseState.Text = String.Format("({0:00})  {1}  {2}", driver.LicensesStateCode, driver.LicensesStateAbbr, driver.LicensesStateName);
             cbCounty.Text = String.Format("({0:00}) {1}", driver.CountyCode, driver.CountyName);
         }
@@ -235,13 +267,13 @@ namespace cbhproj
             cbEyeColor.Text = "Select Eye Color...";
             cbHairColor.Text = "Select Hair Color...";
             cbStatus.Text = "Select Status...";
-            cbClass.Text = "Select Class...";
-            cbRestriction.Text = "Select Restriction...";
-            cbEndorsement.Text = "Select Endorsement...";
             cbLicenseState.Text = "Select State...";
             cbCounty.Text = "Select County...";
             txtWeight.Text = "Weight (Ex. 225)";
             txtOLN.Text = "OLN";
+            lbEndorsement.SetSelected(0, true);
+            lbClass.SetSelected(0, true);
+            lbRestriction.SetSelected(0, true);
             progBar.Visible = true;
         }
 
@@ -257,15 +289,19 @@ namespace cbhproj
             cbEyeColor.Items.Clear();
             cbHairColor.Items.Clear();
             cbStatus.Items.Clear();
-            cbClass.Items.Clear();
-            cbRestriction.Items.Clear();
-            cbEndorsement.Items.Clear();
             cbLicenseState.Items.Clear();
             cbCounty.Items.Clear();
         }
 
         private void SetVisibility_False()
         {
+            lbClass.Visible = false;
+            lbEndorsement.Visible = false;
+            lbRestriction.Visible = false;
+            lblStatus.Visible = false;
+            lblClass.Visible = false;
+            lblRestriction.Visible = false;
+            lblEndorsement.Visible = false;
             btnClearReset.Visible = false;
             btnAddUpdate.Visible = false;
             txtLastName.Visible = false;
@@ -288,9 +324,6 @@ namespace cbhproj
             chkFemale.Visible = false;
             chkOther.Visible = false;
             cbStatus.Visible = false;
-            cbClass.Visible = false;
-            cbRestriction.Visible = false;
-            cbEndorsement.Visible = false;
             cbLicenseState.Visible = false;
             cbCounty.Visible = false;
             dtIssue.Visible = false;
@@ -302,6 +335,13 @@ namespace cbhproj
 
         private void SetVisibility_True()
         {
+            lbClass.Visible = true;
+            lbEndorsement.Visible = true;
+            lbRestriction.Visible = true;
+            lblStatus.Visible = true;
+            lblClass.Visible = true;
+            lblRestriction.Visible = true;
+            lblEndorsement.Visible = true;
             btnClearReset.Visible = true;
             btnAddUpdate.Visible = true;
             txtLastName.Visible = true;
@@ -324,9 +364,6 @@ namespace cbhproj
             chkFemale.Visible = true;
             chkOther.Visible = true;
             cbStatus.Visible = true;
-            cbClass.Visible = true;
-            cbRestriction.Visible = true;
-            cbEndorsement.Visible = true;
             cbLicenseState.Visible = true;
             cbCounty.Visible = true;
             dtIssue.Visible = true;
@@ -525,13 +562,17 @@ namespace cbhproj
                                   where d.SSN == userInput
                                   select d).First();
                     driverData.LastUpdate = currentDateTime;
+                    licenseData.LastUpdate = currentDateTime;
                 }
                 else
                 {
                     driverData.DriverID = Guid.NewGuid();
                     driverData.SSN = userInput;
-                    driverData.CreateDate = DateTime.Now;
-                    driverData.LastUpdate = DateTime.Now;
+                    driverData.CreateDate = currentDateTime;
+                    driverData.LastUpdate = currentDateTime;
+                    licenseData.LicenseID = Guid.NewGuid();
+                    licenseData.CreateDate = currentDateTime;
+                    licenseData.LastUpdate = currentDateTime;
                 }
                 driverData.OLN = txtOLN.Text.Trim();
                 driverData.LastName = txtLastName.Text.Trim().ToUpper();
@@ -551,18 +592,57 @@ namespace cbhproj
                 driverData.EyeColorCode = Convert.ToInt32(cbEyeColor.Text.ToString().Split('(', ')')[1]);
                 driverData.HairColorCode = Convert.ToInt32(cbHairColor.Text.ToString().Split('(', ')')[1]);
                 driverData.OrganDonor = chkOrganDonor.Checked;
-                driver.Active = true;
-                driver.Deleted = false;
-                //licenseData.LicenseStatus = cbStatus.Text.ToString().Split('(', ')')[1];
-                //licenseData.LicenseEndorsements = cbEndorsement.Text.ToString().Split('(', ')')[1];
-                //licenseData.LicenseStatus = cbStatus.Text.ToString().Split('(', ')')[1];
-                //licenseData.LicenseStatus = cbStatus.Text.ToString().Split('(', ')')[1];
+                driverData.Active = true;
+                driverData.Deleted = false;
+
+                licenseData.LicenseCode = txtOLN.Text.Trim();
+                licenseData.LicenseState = Convert.ToInt32(cbLicenseState.Text.ToString().Split('(', ')')[1]);
+                licenseData.LicenseCounty = Convert.ToInt32(cbCounty.Text.ToString().Split('(', ')')[1]);
+                licenseData.LicenseStatus = cbStatus.Text.ToString().Split('(', ')')[1];
+
+                bool isSelected;
+                licenseData.LicenseClass = String.Empty;
+                if (!lbClass.GetSelected(0))
+                {
+                    for (int i = 0; i < lbClass.Items.Count; i++)
+                    {
+                        isSelected = lbClass.GetSelected(i);
+                        if (isSelected)
+                            licenseData.LicenseClass += lbClass.Items[i].ToString().Substring(0, 1);
+                    }
+                }
+
+                licenseData.LicenseRestrictions = String.Empty;
+                if (!lbRestriction.GetSelected(0))
+                {
+                    for (int i = 0; i < lbRestriction.Items.Count; i++)
+                    {
+                        isSelected = lbRestriction.GetSelected(i);
+                        if (isSelected)
+                            licenseData.LicenseRestrictions += lbRestriction.Items[i].ToString().Substring(0, 1);
+                    }
+                }
+
+                licenseData.LicenseEndorsements = String.Empty;
+                if (!lbEndorsement.GetSelected(0))
+                {
+                    for (int i = 0; i < lbEndorsement.Items.Count; i++)
+                    {
+                        isSelected = lbEndorsement.GetSelected(i);
+                        if (isSelected)
+                            licenseData.LicenseEndorsements += lbEndorsement.Items[i].ToString().Substring(0, 1);
+                    }
+                }
+
+                licenseData.LicenseIssue = dtIssue.Value;
+                licenseData.LicenseExpiration = dtExpiration.Value;
+                licenseData.Active = true;
+                licenseData.Deleted = false;
 
                 if (add)
                 {
                     db.Drivers.Add(driverData);
-                    //db.Licenses.Add(licenseData);
-                    //
+                    db.Licenses.Add(licenseData);
                 }
 
                 db.SaveChanges();
@@ -893,51 +973,6 @@ namespace cbhproj
             }
 
             if (cbStatus.Text.Length > 0)
-            {
-                progBar.Increment(4);
-                return;
-            }
-        }
-
-        private void cbClass_Leave(object sender, EventArgs e)
-        {
-            if (cbClass.Text.Length == 0)
-            {
-                cbClass.Text = "Select Class...";
-                return;
-            }
-
-            if (cbClass.Text.Length > 0)
-            {
-                progBar.Increment(4);
-                return;
-            }
-        }
-
-        private void cbRestriction_Leave(object sender, EventArgs e)
-        {
-            if (cbRestriction.Text.Length == 0)
-            {
-                cbRestriction.Text = "Select Restriction...";
-                return;
-            }
-
-            if (txtWeight.Text.Length > 0)
-            {
-                progBar.Increment(4);
-                return;
-            }
-        }
-
-        private void cbEndorsement_Leave(object sender, EventArgs e)
-        {
-            if (cbEndorsement.Text.Length == 0)
-            {
-                cbEndorsement.Text = "Select Endorsement...";
-                return;
-            }
-
-            if (cbEndorsement.Text.Length > 0)
             {
                 progBar.Increment(4);
                 return;
