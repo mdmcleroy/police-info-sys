@@ -40,13 +40,12 @@ namespace cbhproj
         {
             foreach (var item in drivers)
             {
-                // Driver
+                // Driver Info
                 txtListAll.AppendText(String.Format("{0}-{1}-{2} {3} {4} {5} {6} {7}",
                     item.SSN.Substring(0, 3), item.SSN.Substring(3, 2), item.SSN.Substring(5, 4),
                     item.LastName.Trim().PadRight(20), item.FirstName.Trim().PadRight(12), 
                     item.MI.Trim().PadRight(2), item.Address1.Trim().PadRight(30), item.Address2));
                 txtListAll.AppendText(Environment.NewLine);
-
                 var organDonor = item.OrganDonor ? "DONOR" : String.Empty;
                 var driverState = String.Format("({0:00}) {1} {2}", item.StateCode, item.DriverStateAbbr, item.DriverStateName);
                 var postalCode = String.Format("{0}-{1}", item.PostalCode.Substring(0, 5), item.PostalCode.Substring(5, 4));
@@ -65,19 +64,19 @@ namespace cbhproj
                     item.Gender.PadRight(23), eyeColor.PadRight(22), hairColor));
                 txtListAll.AppendText(Environment.NewLine);
 
-                // License
+                // License Info
                 var licenseStatus = (String.IsNullOrWhiteSpace(item.StatusCode)) ? "N/A" : String.Format("(0{0}) {1}", item.StatusCode, item.StatusName);
-                var licenseClass = (String.IsNullOrEmpty(item.LicenseClass)) ? "N/A" : item.LicenseClass;
-                var licenseRestriction = (String.IsNullOrEmpty(item.LicenseRestrictions)) ? "N/A" : item.LicenseRestrictions;
-                var licenseEndorsement = (String.IsNullOrEmpty(item.LicenseEndorsements)) ? "N/A" : item.LicenseEndorsements;
-                var licenseIssue = (String.IsNullOrEmpty(item.LicenseIssue.ToString())) ? "N/A" : ((DateTime)item.LicenseIssue).ToShortDateString();
-                var licenseExpiration = (String.IsNullOrEmpty(item.LicenseExpiration.ToString())) ? "N/A" : ((DateTime)item.LicenseExpiration).ToShortDateString();
+                var licenseClass = (String.IsNullOrWhiteSpace(item.LicenseClass)) ? "N/A" : item.LicenseClass;
+                var licenseRestriction = (String.IsNullOrWhiteSpace(item.LicenseRestrictions)) ? "N/A" : item.LicenseRestrictions;
+                var licenseEndorsement = (String.IsNullOrWhiteSpace(item.LicenseEndorsements)) ? "N/A" : item.LicenseEndorsements;
+                var licenseIssue = (String.IsNullOrWhiteSpace(item.LicenseIssue.ToString())) ? "N/A" : ((DateTime)item.LicenseIssue).ToShortDateString();
+                var licenseExpiration = (String.IsNullOrWhiteSpace(item.LicenseExpiration.ToString())) ? "N/A" : ((DateTime)item.LicenseExpiration).ToShortDateString();
                 txtListAll.AppendText(String.Format("  {0} {1} {2} {3} {4} {5} {6}", 
                     item.OLN.PadRight(9), licenseStatus.PadRight(20), licenseClass.PadRight(9), 
                     licenseRestriction.PadRight(11), licenseEndorsement.PadRight(12), licenseIssue.PadRight(11), licenseExpiration));
                 txtListAll.AppendText(Environment.NewLine);
 
-                // Vehicles
+                // Vehicle Info
                 using (var db = new mdmcleroyEntities())
                 {
                     vehicles = (from v in db.vwVehicles
@@ -97,7 +96,8 @@ namespace cbhproj
                     txtListAll.AppendText(String.Format("\t    {0} {1} {2} {3}",
                         vehicleMake.PadRight(20), vehicleType.PadRight(23), vehicle.Tag.PadRight(22), tagExpiration));
                     txtListAll.AppendText(Environment.NewLine);
-                    txtListAll.AppendText(String.Format("\t    {0} {1}", topColor.PadRight(44), bottomColor));
+                    txtListAll.AppendText(String.Format("\t    {0} {1}", 
+                        topColor.PadRight(44), bottomColor));
                     txtListAll.AppendText(Environment.NewLine);
                 }
 
