@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SSN_OLNMenu));
             this.lblSubHeading = new System.Windows.Forms.Label();
             this.lblSSNHeading = new System.Windows.Forms.Label();
             this.btnClose = new System.Windows.Forms.Button();
@@ -58,14 +59,26 @@
             this.lblUserPrompt = new System.Windows.Forms.Label();
             this.lblFlagMessage = new System.Windows.Forms.Label();
             this.btnSearch = new System.Windows.Forms.Button();
-            this.pbDriverPic = new System.Windows.Forms.PictureBox();
+            this.pbDarrenProfile = new System.Windows.Forms.PictureBox();
             this.btnVehicleInfo = new System.Windows.Forms.Button();
             this.btnDelete = new System.Windows.Forms.Button();
             this.lblNumVehicles = new System.Windows.Forms.Label();
             this.lblEyeColorSplit = new System.Windows.Forms.Label();
             this.lblHairColorSplit = new System.Windows.Forms.Label();
             this.lblLength = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.pbDriverPic)).BeginInit();
+            this.pbMaleProfile = new System.Windows.Forms.PictureBox();
+            this.pbMaleIcon = new System.Windows.Forms.PictureBox();
+            this.pbFemaleIcon = new System.Windows.Forms.PictureBox();
+            this.pbOtherIcon = new System.Windows.Forms.PictureBox();
+            this.pbFemaleProfile = new System.Windows.Forms.PictureBox();
+            this.pbOtherProfile = new System.Windows.Forms.PictureBox();
+            ((System.ComponentModel.ISupportInitialize)(this.pbDarrenProfile)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbMaleProfile)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbMaleIcon)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbFemaleIcon)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbOtherIcon)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbFemaleProfile)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbOtherProfile)).BeginInit();
             this.SuspendLayout();
             // 
             // lblSubHeading
@@ -380,16 +393,17 @@
             this.btnSearch.UseVisualStyleBackColor = true;
             this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
             // 
-            // pbDriverPic
+            // pbDarrenProfile
             // 
-            this.pbDriverPic.Image = global::cbhproj.Properties.Resources._175x175;
-            this.pbDriverPic.Location = new System.Drawing.Point(138, 479);
-            this.pbDriverPic.Name = "pbDriverPic";
-            this.pbDriverPic.Size = new System.Drawing.Size(150, 150);
-            this.pbDriverPic.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pbDriverPic.TabIndex = 44;
-            this.pbDriverPic.TabStop = false;
-            this.pbDriverPic.Visible = false;
+            this.pbDarrenProfile.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pbDarrenProfile.Image = global::cbhproj.Properties.Resources._175x175;
+            this.pbDarrenProfile.Location = new System.Drawing.Point(138, 479);
+            this.pbDarrenProfile.Name = "pbDarrenProfile";
+            this.pbDarrenProfile.Size = new System.Drawing.Size(150, 150);
+            this.pbDarrenProfile.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pbDarrenProfile.TabIndex = 44;
+            this.pbDarrenProfile.TabStop = false;
+            this.pbDarrenProfile.Visible = false;
             // 
             // btnVehicleInfo
             // 
@@ -457,6 +471,75 @@
             this.lblLength.TabIndex = 53;
             this.lblLength.Text = "Length: ";
             // 
+            // pbMaleProfile
+            // 
+            this.pbMaleProfile.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pbMaleProfile.Image = ((System.Drawing.Image)(resources.GetObject("pbMaleProfile.Image")));
+            this.pbMaleProfile.Location = new System.Drawing.Point(138, 479);
+            this.pbMaleProfile.Name = "pbMaleProfile";
+            this.pbMaleProfile.Size = new System.Drawing.Size(150, 150);
+            this.pbMaleProfile.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pbMaleProfile.TabIndex = 54;
+            this.pbMaleProfile.TabStop = false;
+            this.pbMaleProfile.Visible = false;
+            // 
+            // pbMaleIcon
+            // 
+            this.pbMaleIcon.Image = ((System.Drawing.Image)(resources.GetObject("pbMaleIcon.Image")));
+            this.pbMaleIcon.Location = new System.Drawing.Point(689, 326);
+            this.pbMaleIcon.Name = "pbMaleIcon";
+            this.pbMaleIcon.Size = new System.Drawing.Size(24, 24);
+            this.pbMaleIcon.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.pbMaleIcon.TabIndex = 55;
+            this.pbMaleIcon.TabStop = false;
+            this.pbMaleIcon.Visible = false;
+            // 
+            // pbFemaleIcon
+            // 
+            this.pbFemaleIcon.Image = ((System.Drawing.Image)(resources.GetObject("pbFemaleIcon.Image")));
+            this.pbFemaleIcon.Location = new System.Drawing.Point(689, 327);
+            this.pbFemaleIcon.Name = "pbFemaleIcon";
+            this.pbFemaleIcon.Size = new System.Drawing.Size(24, 24);
+            this.pbFemaleIcon.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.pbFemaleIcon.TabIndex = 56;
+            this.pbFemaleIcon.TabStop = false;
+            this.pbFemaleIcon.Visible = false;
+            // 
+            // pbOtherIcon
+            // 
+            this.pbOtherIcon.Image = ((System.Drawing.Image)(resources.GetObject("pbOtherIcon.Image")));
+            this.pbOtherIcon.Location = new System.Drawing.Point(689, 325);
+            this.pbOtherIcon.Name = "pbOtherIcon";
+            this.pbOtherIcon.Size = new System.Drawing.Size(32, 32);
+            this.pbOtherIcon.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pbOtherIcon.TabIndex = 57;
+            this.pbOtherIcon.TabStop = false;
+            this.pbOtherIcon.Visible = false;
+            // 
+            // pbFemaleProfile
+            // 
+            this.pbFemaleProfile.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pbFemaleProfile.Image = ((System.Drawing.Image)(resources.GetObject("pbFemaleProfile.Image")));
+            this.pbFemaleProfile.Location = new System.Drawing.Point(138, 479);
+            this.pbFemaleProfile.Name = "pbFemaleProfile";
+            this.pbFemaleProfile.Size = new System.Drawing.Size(150, 150);
+            this.pbFemaleProfile.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pbFemaleProfile.TabIndex = 58;
+            this.pbFemaleProfile.TabStop = false;
+            this.pbFemaleProfile.Visible = false;
+            // 
+            // pbOtherProfile
+            // 
+            this.pbOtherProfile.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pbOtherProfile.Image = ((System.Drawing.Image)(resources.GetObject("pbOtherProfile.Image")));
+            this.pbOtherProfile.Location = new System.Drawing.Point(138, 479);
+            this.pbOtherProfile.Name = "pbOtherProfile";
+            this.pbOtherProfile.Size = new System.Drawing.Size(150, 150);
+            this.pbOtherProfile.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pbOtherProfile.TabIndex = 59;
+            this.pbOtherProfile.TabStop = false;
+            this.pbOtherProfile.Visible = false;
+            // 
             // SSN_OLNMenu
             // 
             this.AcceptButton = this.btnSearch;
@@ -464,6 +547,12 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Menu;
             this.ClientSize = new System.Drawing.Size(1025, 781);
+            this.Controls.Add(this.pbOtherProfile);
+            this.Controls.Add(this.pbFemaleProfile);
+            this.Controls.Add(this.pbOtherIcon);
+            this.Controls.Add(this.pbFemaleIcon);
+            this.Controls.Add(this.pbMaleIcon);
+            this.Controls.Add(this.pbMaleProfile);
             this.Controls.Add(this.lblLength);
             this.Controls.Add(this.lblHairColorSplit);
             this.Controls.Add(this.lblEyeColorSplit);
@@ -472,7 +561,7 @@
             this.Controls.Add(this.btnVehicleInfo);
             this.Controls.Add(this.btnSearch);
             this.Controls.Add(this.lblFlagMessage);
-            this.Controls.Add(this.pbDriverPic);
+            this.Controls.Add(this.pbDarrenProfile);
             this.Controls.Add(this.lblUserPrompt);
             this.Controls.Add(this.lblLicenseInfo);
             this.Controls.Add(this.lblExpiration);
@@ -506,7 +595,13 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "SSNMenu";
             this.Load += new System.EventHandler(this.SSNMenu_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.pbDriverPic)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbDarrenProfile)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbMaleProfile)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbMaleIcon)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbFemaleIcon)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbOtherIcon)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbFemaleProfile)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbOtherProfile)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -542,7 +637,7 @@
         private System.Windows.Forms.Label lblExpiration;
         private System.Windows.Forms.Label lblLicenseInfo;
         private System.Windows.Forms.Label lblUserPrompt;
-        private System.Windows.Forms.PictureBox pbDriverPic;
+        private System.Windows.Forms.PictureBox pbDarrenProfile;
         private System.Windows.Forms.Label lblFlagMessage;
         private System.Windows.Forms.Button btnSearch;
         private System.Windows.Forms.Button btnVehicleInfo;
@@ -551,5 +646,11 @@
         private System.Windows.Forms.Label lblEyeColorSplit;
         private System.Windows.Forms.Label lblHairColorSplit;
         private System.Windows.Forms.Label lblLength;
+        private System.Windows.Forms.PictureBox pbMaleProfile;
+        private System.Windows.Forms.PictureBox pbMaleIcon;
+        private System.Windows.Forms.PictureBox pbFemaleIcon;
+        private System.Windows.Forms.PictureBox pbOtherIcon;
+        private System.Windows.Forms.PictureBox pbFemaleProfile;
+        private System.Windows.Forms.PictureBox pbOtherProfile;
     }
 }

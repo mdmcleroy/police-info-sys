@@ -141,7 +141,10 @@ namespace cbhproj
                                                                                   : driver.Weight.Substring(0, driver.Weight.Length));
             driverWeight += " lbs";
             lblWeight.Text = driverWeight;
-            lblGender.Text = String.Format("Gender: {0}", driver.Gender);
+            lblGender.Text = "Gender:";
+            pbMaleIcon.Visible = (driver.Gender.Trim().ToUpper() == "M") ? true : false;
+            pbFemaleIcon.Visible = (driver.Gender.Trim().ToUpper() == "F") ? true : false;
+            pbOtherIcon.Visible = (driver.Gender.Trim().ToUpper() == "O") ? true : false;
             lblEyeColor.Text = String.Format("Eye Color: ({0:00}) {1} {2}", driver.EyeColorCode, driver.EyeColorAbbr, driver.EyeColorName.Split('/')[0]);
             lblEyeColorSplit.Text = GlobalFunctions.Contains(driver.EyeColorName, '/') ? driver.EyeColorName.Split('/')[1] : String.Empty;
             lblHairColor.Text = String.Format("Hair Color: ({0:00}) {1} {2}", driver.HairColorCode, driver.HairColorAbbr, driver.HairColorName.Split('/')[0]);
@@ -150,7 +153,10 @@ namespace cbhproj
             lblStatus.Text = "Status: " + (String.IsNullOrEmpty(driver.StatusCode) ? "N/A" : String.Format("(0{0}) {1}", driver.StatusCode, driver.StatusName));
             lblLicenseInfo.Text = "License Info";
             lblLicenseInfo.Visible = true;
-            pbDriverPic.Visible = true;
+            pbMaleProfile.Visible = (driver.Gender.Trim().ToUpper() == "M" && driver.LastName.Trim().ToUpper() != "EVANS-YOUNG") ? true : false;
+            pbFemaleProfile.Visible = (driver.Gender.Trim().ToUpper() == "F" && driver.LastName.Trim().ToUpper() != "EVANS-YOUNG") ? true : false;
+            pbOtherProfile.Visible = (driver.Gender.Trim().ToUpper() == "O" && driver.LastName.Trim().ToUpper() != "EVANS-YOUNG") ? true : false;
+            pbDarrenProfile.Visible = (driver.LastName.Trim().ToUpper() == "EVANS-YOUNG") ? true : false;
             lblClass.Text = String.Format("Class: {0}", driver.LicenseClass);
             lblIssue.Text = "Issue: " + ((DateTime)driver.LicenseIssue).ToShortDateString();
             lblExpiration.Text = "Expiration: " + ((DateTime)driver.LicenseExpiration).ToShortDateString();
@@ -180,10 +186,10 @@ namespace cbhproj
                 licenseData.Deleted = true;
 
                 vehiclesData = (from v in db.Vehicles
-                            where v.SSN == driver.SSN
-                              && v.Active == true
-                              && v.Deleted == false
-                            select v).ToList();
+                                where v.SSN == driver.SSN
+                                  && v.Active == true
+                                  && v.Deleted == false
+                                select v).ToList();
                 foreach (var item in vehicles)
                 {
                     item.Deleted = true;
@@ -196,7 +202,13 @@ namespace cbhproj
         private void ClearFields()
         {
             lblLength.Visible = false;
-            pbDriverPic.Visible = false;
+            pbDarrenProfile.Visible = false;
+            pbMaleProfile.Visible = false;
+            pbFemaleProfile.Visible = false;
+            pbOtherProfile.Visible = false;
+            pbMaleIcon.Visible = false;
+            pbFemaleIcon.Visible = false;
+            pbOtherIcon.Visible = false;
             btnVehicleInfo.Visible = false;
             btnDelete.Visible = false;
             lblSSN.Text = String.Empty;
