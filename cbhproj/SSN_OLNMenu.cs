@@ -157,14 +157,15 @@ namespace cbhproj
             pbFemaleProfile.Visible = (driver.Gender.Trim().ToUpper() == "F" && driver.LastName.Trim().ToUpper() != "EVANS-YOUNG") ? true : false;
             pbOtherProfile.Visible = (driver.Gender.Trim().ToUpper() == "O" && driver.LastName.Trim().ToUpper() != "EVANS-YOUNG") ? true : false;
             pbDarrenProfile.Visible = (driver.LastName.Trim().ToUpper() == "EVANS-YOUNG") ? true : false;
-            lblClass.Text = String.Format("Class: {0}", driver.LicenseClass);
-            lblIssue.Text = "Issue: " + ((DateTime)driver.LicenseIssue).ToShortDateString();
-            lblExpiration.Text = "Expiration: " + ((DateTime)driver.LicenseExpiration).ToShortDateString();
-            lblRestriction.Text = "Restriction: " + (String.IsNullOrEmpty(driver.LicenseRestrictions) ? "N/A" : driver.LicenseRestrictions);
-            lblEndorsement.Text = "Endorsement: " + (String.IsNullOrEmpty(driver.LicenseEndorsements) ? "N/A" : driver.LicenseEndorsements);
-            lblStateLicense.Text = String.Format("({0:00})  {1}  {2}", driver.LicensesStateCode, driver.LicensesStateAbbr, driver.LicensesStateName);
-            lblCounty.Text = String.Format("({0:00})  {1}", driver.LicenseCounty, driver.CountyName);
-            lblNumVehicles.Text = String.Format("Number of Vehicles: {0}", vehicles.Count());
+            lblClass.Text = "Class: " + (String.IsNullOrWhiteSpace(driver.LicenseClass) ? "N/A" : driver.LicenseClass);
+            lblIssue.Text = "Issue: " + (String.IsNullOrWhiteSpace(driver.LicenseIssue.ToString()) ? "N/A" : ((DateTime)driver.LicenseIssue).ToShortDateString());
+            lblExpiration.Text = "Expiration: " + (String.IsNullOrWhiteSpace(driver.LicenseExpiration.ToString()) ? "N/A" : ((DateTime)driver.LicenseExpiration).ToShortDateString());
+            lblRestriction.Text = "Restriction: " + (String.IsNullOrWhiteSpace(driver.LicenseRestrictions) ? "N/A" : (String.IsNullOrEmpty(driver.LicenseRestrictions) ? "N/A" : driver.LicenseRestrictions));
+            lblEndorsement.Text = "Endorsement: " + (String.IsNullOrWhiteSpace(driver.LicenseEndorsements) ? "N/A" : driver.LicenseEndorsements);
+            lblStateLicense.Text = String.IsNullOrWhiteSpace(driver.LicenseState.ToString()) ? "State: N/A" : String.Format("({0:00})  {1}  {2}", driver.LicensesStateCode, driver.LicensesStateAbbr, driver.LicensesStateName);
+            lblCounty.Text = String.IsNullOrWhiteSpace(driver.LicenseCounty.ToString()) ? "County: N/A" : String.Format("({0:00})  {1}", driver.LicenseCounty, driver.CountyName);
+            lblNumVehicles.Text = (vehicles.Count() < 1) ? String.Empty : String.Format("Number of Vehicles: {0}", vehicles.Count());
+            btnVehicleInfo.Visible = (vehicles.Count() < 1) ? false : true;
         }
 
         private void DeleteDriverLicenseVehicle()

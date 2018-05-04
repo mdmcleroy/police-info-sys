@@ -38,10 +38,36 @@ namespace cbhproj
             var tempDate = DateTime.ParseExact(vehicle.TagExpiration, "yyyyMMdd", CultureInfo.InvariantCulture).ToString("MM/dd/yyyy");
             lblTagExpiration.Text = "Tag Expiration: " + tempDate;
             lblVehicleCount.Text = String.Format("Vehicle {0}/{1}", vehicleIndex + 1, vehicles.Count());
+            pb18Wheel.Visible = (vehicle.VTypeName.Trim().ToUpper() == "18 WHEEL") ? true : false;
+            pbHatchback.Visible = (vehicle.VTypeName.Trim().ToUpper() == "HATCHBACK") ? true : false;
+            pbLimousine.Visible = (vehicle.VTypeName.Trim().ToUpper() == "LIMOUSINE") ? true : false;
+            pbMotorcycle.Visible = (vehicle.VTypeName.Trim().ToUpper() == "MOTORCYCLE") ? true : false;
+            pbSchoolBus.Visible = (vehicle.VTypeName.Trim().ToUpper() == "SCHOOL BUS") ? true : false;
+            pbTruck.Visible = (vehicle.VTypeName.Trim().ToUpper() == "TRUCK, 2WD" || vehicle.VTypeName.Trim().ToUpper() == "TRUCK, 4WD") ? true : false;
+            pbVan.Visible = (vehicle.VTypeName.Trim().ToUpper() == "VAN/BUS") ? true : false;
+            pbConvertible.Visible = (vehicle.VTypeName.Trim().ToUpper() == "CONVERTIBLE") ? true : false;
+            pbFuneralVehicle.Visible = (vehicle.VTypeName.Trim().ToUpper() == "FUNERAL VEHICLE") ? true : false;
+            pbSedan.Visible = (vehicle.VTypeName.Trim().ToUpper() == "2 DOOR SEDAN" || vehicle.VTypeName.Trim().ToUpper() == "4 DOOR SEDAN") ? true : false;
+            pbTrailer.Visible = (vehicle.VTypeName.Trim().ToUpper() == "TRAILER") ? true : false;
+            pbStationWagon.Visible = (vehicle.VTypeName.Trim().ToUpper() == "STATION WAGON") ? true : false;
+            pbMotorHome.Visible = (vehicle.VTypeName.Trim().ToUpper() == "MOTORHOME") ? true : false;
         }
 
         private void ClearFields()
         {
+            pb18Wheel.Visible = false;
+            pbHatchback.Visible = false;
+            pbLimousine.Visible = false;
+            pbMotorcycle.Visible = false;
+            pbSchoolBus.Visible = false;
+            pbTruck.Visible = false;
+            pbVan.Visible = false;
+            pbConvertible.Visible = false;
+            pbFuneralVehicle.Visible = false;
+            pbSedan.Visible = false;
+            pbTrailer.Visible = false;
+            pbStationWagon.Visible = false;
+            pbMotorHome.Visible = false;
             btnPreviousVehicle.Visible = false;
             btnNextVehicle.Visible = false;
             lblVMake.Text = String.Empty;
